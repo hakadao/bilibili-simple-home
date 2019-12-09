@@ -1,0 +1,216 @@
+@-moz-document domain("bilibili.com") {
+    :root {
+        /*[[BLUE_LOGO]]*/
+        /* 	--logoimg: url(https://i.loli.net/2019/05/11/5cd6a4d7196cf.png); */
+        --bgimg: url(/*[[DIV_BG]]*/);
+    
+        --con-primary: rgba(255, 255, 255, 1);
+        --fill-primary: rgba(120, 120, 128, .22);
+    
+        --blue: #00a1d6;
+    
+        --depth-1: 0 4px 12px rgba(0, 0, 0, .03), 0 1px 4px rgba(0, 0, 0, .009);
+        --depth-2: 0 8px 18px rgba(0, 0, 0, .08), 0 3px 8px rgba(0, 0, 0, .025);
+    }
+    
+    @supports (backdrop-filter: blur(20px)) {
+        :root {
+            --filter-glass: blur(20px) saturate(180%);
+            --con-primary: rgba(255, 255, 255, .75);
+        }
+    }
+    }
+    
+    @-moz-document regexp("https://www.example.com") {
+    /*
+    **测试部分
+    */
+    /*右侧排行榜*/
+    .rank-list,
+    .pgc-rank,
+    /*右侧特别推荐*/
+    .special-recommend,
+    /*国创右侧部分*/
+    .guochuang .r-con,
+    /*直播右侧内容*/
+    .live-tabs,
+    /*特别推荐右侧内容*/
+    .s-rec .gg{
+        display: none;
+    }
+    
+    /*
+    **对上面删除右侧的内容板块做居中处理
+    */
+    /*第一个首页推荐部分不变*/
+    .space-between.report-wrap-module.report-scroll-module:not(#reportFirst1),
+    .anime.report-wrap-module.report-scroll-module,
+    .guochuang.report-wrap-module.report-scroll-module {
+        width: calc(100% - 320px);
+        margin: 30px auto;
+    }
+    
+    @media screen and (max-width: 1438px) {
+        .space-between.report-wrap-module.report-scroll-module:not(#reportFirst1) {
+            width: calc(100% - 315px);
+        }
+    }
+    }
+    
+    @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?spm_id_from.*))?") {
+    /*
+    **去除首页碍眼东西，与处理删除碍眼东西后的一些处理
+    */
+    /*删除其它内容，只保留搜索栏，不能下滑显示更多*/
+    /*[[SIMPLE_HOME]]*/
+    /*处理顶栏链接内容，使其在自定义背景下有暗色过渡效果或不设置背景时文字黑色删除暗色过渡效果*/
+    /*[[TOPLINK_THEME]]*/
+    /*删除banner上方我认为无用的链接（ε=ε=ε=┏(゜ロ゜;)┛逃）*/
+    .nav-link .nav-link-ul .nav-link-item .link,
+    /*季节logo*/
+    .bili-banner .b-logo .logo-img,
+    /*顶栏banner链接*/
+    .bili-banner .head-title,
+    .bili-banner .banner-link{
+        display: none;
+    }
+    
+    /*删除左侧小电视*/
+    .mascot,
+    /*广告*/
+    .banner-card {
+        display: none;
+    }
+    }
+    
+    @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?spm_id_from.*))?") {
+    /*banner图片*/
+    .bili-banner {
+        position: relative;
+        height: 100vh!important;
+        background: var(--bgimg) no-repeat center!important;
+        background-color: rgb(239, 239, 244)!important;
+        /* 	background-attachment: fixed!important; */
+        background-size: cover!important;
+    }
+    
+    /*顶栏弹窗颜色*/
+    /* .van-popover,
+    .i-frame iframe[data-v-1f9a8793]{
+        background-color: var(--con-primary);
+        backdrop-filter: var(--filter-glass);
+    } */
+    /*滑过的列表链接*/
+    .links .link-item[data-v-be7d8ba6]:hover,
+    .lang-change .lang-item:hover,
+    .tab-item--normal[data-v-1ea1793c]:hover,
+    .video-card[data-v-7e985ebc]:hover,
+    .upload-item[data-v-52f814c6]:hover {
+        background-color: var(--fill-primary);
+    }
+    
+    /*投稿颜色更换*/
+    .mini-upload {
+        background-color: var(--blue)!important;
+    }
+    
+    /*删除顶部右侧大会员标志和链接*/
+    .nav-user-center .user-con .item:nth-child(2) {
+        display: none;
+    }
+    
+    
+    .bili-banner .b-logo .head-logo[data-v-7afa2fce] {
+        display: none;
+    }
+    
+    .bili-banner .b-logo .logo-img[data-v-7afa2fce] {
+        display: none;
+    }
+    
+    /*搜索框容器*/
+    .international-header .nav-search-box {
+        display: block;
+        position: absolute;
+        top: 35vh;
+        left: calc(50vw - 260px);
+        width: 600px;
+    }
+    
+    /*强行制作出搜索栏上的logo*/
+    .international-header .nav-search-box:before {
+        content: '';
+        position: absolute;
+        top: -300%;
+        left: calc(50% - 105px);
+        background: var(--logoimg, url(https://i.loli.net/2019/06/11/5cff54794e40241270.png)) no-repeat!important;
+        background-size: 200px!important;
+        width: 210px;
+        height: 100px;
+        filter: drop-shadow(0 4px 6px rgba(0, 0, 0, .08));
+    }
+    
+    /*搜索框*/
+    .international-header .nav-search #nav_searchform {
+        background-color: var(--con-primary);
+        box-shadow: var(--depth-1)!important;
+        padding: 8px 42px 8px 20px;
+        border-radius: 10px;
+        transition: box-shadow .25s;
+        backdrop-filter: var(--filter-glass);
+    }
+    
+    .international-header .nav-search #nav_searchform:focus-within {
+        box-shadow: var(--depth-2)!important;
+    }
+    
+    .international-header .nav-search .nav-search-keyword::placeholder {
+        color: transparent!important;
+    }
+    
+    .international-header .nav-search .nav-search-keyword {
+        font-size: 16px;
+        color: black;
+    }
+    
+    /*搜索图标*/
+    .bili-header-m .nav-search .nav-search-submit,
+    .international-header .nav-search .nav-search-submit {
+        top: 16px;
+    }
+    
+    .bili-header-m .nav-search .nav-search-btn,
+    .international-header .nav-search .nav-search-btn {
+        background-color: transparent;
+    }
+    
+    /*搜索建议项容器*/
+    .bilibili-search-suggest,
+    /*历史搜索项容器*/
+    .bilibili-search-history {
+        border-radius: 10px;
+        background-color: var(--con-primary);
+        backdrop-filter: var(--filter-glass);
+        box-shadow: var(--depth-2);
+        border: none;
+    }
+    
+    /*鼠标滑过搜索建议、历史项时改变颜色*/
+    .bilibili-search-suggest .suggest-item.focus,
+    .bilibili-search-suggest .suggest-item:hover,
+    .bilibili-search-history .history-item.focus,
+    .bilibili-search-history .history-item:hover {
+        background-color: var(--fill-primary);
+    }
+    }
+    
+    @-moz-document regexp("^https?://message.bilibili.com/pages/nav/index_new_pc_sync"), regexp("^https?://t.bilibili.com/pages/nav/index_new#/video") {
+    /* .im-list-box {
+        background:transparent;
+    }
+    
+    .out-container{
+        background-color: var(--con-primary)!important;
+        backdrop-filter: var(--filter-glass);
+    } */
+    }
