@@ -35,7 +35,7 @@
     /*直播右侧内容*/
     .live-tabs,
     /*特别推荐右侧内容*/
-    .s-rec .gg{
+    .s-rec .gg {
         display: none;
     }
     
@@ -71,7 +71,7 @@
     .bili-banner .b-logo .logo-img,
     /*顶栏banner链接*/
     .bili-banner .head-title,
-    .bili-banner .banner-link{
+    .bili-banner .banner-link {
         display: none;
     }
     
@@ -133,7 +133,7 @@
         display: block;
         position: absolute;
         top: 35vh;
-        left: calc(50vw - 260px);
+        left: calc(50vw - 310px);
         width: 600px;
     }
     
@@ -142,7 +142,7 @@
         content: '';
         position: absolute;
         top: -300%;
-        left: calc(50% - 105px);
+        left: calc(50% - 100px);
         background: var(--logoimg, url(https://i.loli.net/2019/06/11/5cff54794e40241270.png)) no-repeat!important;
         background-size: 200px!important;
         width: 210px;
@@ -202,15 +202,4 @@
     .bilibili-search-history .history-item:hover {
         background-color: var(--fill-primary);
     }
-    }
-    
-    @-moz-document regexp("^https?://message.bilibili.com/pages/nav/index_new_pc_sync"), regexp("^https?://t.bilibili.com/pages/nav/index_new#/video") {
-    /* .im-list-box {
-        background:transparent;
-    }
-    
-    .out-container{
-        background-color: var(--con-primary)!important;
-        backdrop-filter: var(--filter-glass);
-    } */
     }
