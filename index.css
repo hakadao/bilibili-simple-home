@@ -18,54 +18,22 @@
             --con-primary: rgba(255, 255, 255, .75);
         }
     }
-    }
     
-    @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?spm_id_from.*))?") {
-    /*
-        **去除首页碍眼东西，与处理删除碍眼东西后的一些处理
-        */
-    /*删除其它内容，只保留搜索栏，不能下滑显示更多*/
-    /*[[SIMPLE_HOME]]*/
-    /*处理顶栏链接内容，使其在自定义背景下banner上方文字链接有阴影使其能看清文字*/
-    /*[[TOPLINK_THEME]]*/
-    .bili-banner .taper-line {
-        /*原本去除难看的过渡色效果*/
-        background: none!important;
-    }
-    
-    /*banner上方的链接*/
-    .nav-link .nav-link-ul .nav-link-item .link,
-    .nav-user-center .user-con .item .name {
-        text-shadow: 0 2px 10px rgba(0, 0, 0, .55);
-    }
-    
-    
-    /*删除banner上方我认为无用的链接（ε=ε=ε=┏(゜ロ゜;)┛逃）*/
-    .nav-link .nav-link-ul .nav-link-item .link,
-    /*季节logo*/
-    .bili-banner .b-logo .logo-img,
-    /*顶栏banner链接*/
-    .bili-banner .head-title,
-    .bili-banner .banner-link {
-        display: none;
-    }
-    
-    /*删除左侧小电视*/
-    .mascot,
-    /*广告*/
-    .banner-card {
-        display: none;
+    @keyframes showSearchBar{
+        0%{
+            opacity:0;
+            transform:translatey(100%)
+        }
     }
     }
     
-    @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?spm_id_from.*))?") {
+    @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
     /*banner图片*/
     .bili-banner {
         position: relative;
         height: 100vh!important;
         background: var(--bgimg) no-repeat center!important;
         background-color: rgb(239, 239, 244)!important;
-        /* 	background-attachment: fixed!important; */
         background-size: cover!important;
     }
     
@@ -111,10 +79,11 @@
         top: 35vh;
         left: calc(50vw - 310px);
         width: 600px;
+        animation:1s showSearchBar;
     }
     
     /*强行制作出搜索栏上的logo*/
-    .international-header .nav-search-box:before {
+    .international-header .nav-search-box:after {
         content: '';
         position: absolute;
         top: -300%;
@@ -192,5 +161,45 @@
     .bilibili-search-history .history-item.focus,
     .bilibili-search-history .history-item:hover {
         background-color: var(--fill-primary);
+    }
+    }
+    
+    @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
+    /*
+    **去除首页碍眼东西，与处理删除碍眼东西后的一些处理
+    */
+    /*删除其它内容，只保留搜索栏，不能下滑显示更多，显示半屏壁纸*/
+    /*[[HOME_STYLE]]*/
+    /*处理顶栏链接内容，使其在自定义背景下banner上方文字链接有阴影使其能看清文字*/
+    /*[[TOPLINK_THEME]]*/
+    .bili-banner .taper-line {
+        /*原本去除难看的过渡色效果*/
+        background: none!important;
+    }
+    
+    /*banner上方的链接*/
+    .nav-link .nav-link-ul .nav-link-item .link,
+    .nav-user-center .user-con .item .name {
+        text-shadow: 0 2px 10px rgba(0, 0, 0, .55);
+    }
+    
+    
+    /*删除banner上方我认为无用的链接（ε=ε=ε=┏(゜ロ゜;)┛逃）*/
+    .nav-link .nav-link-ul .nav-link-item .link,
+    /*季节logo*/
+    .bili-banner .b-logo .logo-img,
+    /*顶栏banner链接*/
+    .bili-banner .head-title,
+    .bili-banner .banner-link {
+        display: none;
+    }
+    
+    /*删除左侧小电视*/
+    .mascot,
+    /*左侧联系客服*/
+    .contact-help,
+    /*广告*/
+    .banner-card {
+        display: none;
     }
     }
