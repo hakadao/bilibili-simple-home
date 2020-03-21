@@ -3,6 +3,7 @@
         /*[[BLUE_LOGO]]*/
         /*     	--logoimg: url(https://i.loli.net/2019/05/11/5cd6a4d7196cf.png); */
         --bgimg: url(/*[[DIV_BG]]*/);
+        --bgcolor: rgb(239, 239, 244);
         --con-primary: rgba(255, 255, 255, 1);
         --fill-primary: rgba(120, 120, 128, .22);
     
@@ -18,6 +19,11 @@
             --con-primary: rgba(255, 255, 255, .75);
         }
     }
+    }
+    
+    @-moz-document domain("bilibili.com") {
+    /*暗色模式css变量*/
+    /*[[DARK_MODE]]*/
     }
     
     @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
@@ -65,8 +71,8 @@
     .bili-banner[data-v-5ff46558] {
         position: relative;
         height: 100vh;
-        background: var(--bgimg) no-repeat center!important;
-        background-color: rgb(239, 239, 244)!important;
+        background: var(--bgimg) no-repeat center fixed!important;
+        background-color: var(--bgcolor)!important;
         background-size: cover!important;
     }
     
@@ -144,12 +150,37 @@
     
     /*搜索框*/
     .international-header .nav-search #nav_searchform {
-        background-color: var(--con-primary);
+        background-color: var(--con-primary)!important;
         box-shadow: var(--depth-1)!important;
         padding: 8px 42px 8px 20px;
         border-radius: 10px;
         transition: box-shadow .25s;
         backdrop-filter: var(--filter-glass);
+    }
+    
+    .international-header .nav-search .nav-search-keyword{
+        color:var(--text-primary)!important;
+    }
+    
+    /*搜索图标*/
+    .bili-icon_dingdao_sousuo::before{
+        color:var(--text-primary);
+        transition:.25s;
+    }
+    
+    .international-header .nav-search .nav-search-btn:hover .bili-icon_dingdao_sousuo::before{
+        color:var(--blue)!important;
+    }
+    
+    /*搜索历史、建议文字*/
+    .bilibili-search-suggest .suggest-item a,
+    .bilibili-search-history .history-item a{
+        color: var(--text-primary)!important;
+    }
+    
+    /*搜索建议高亮文字*/
+    .bilibili-search-suggest .suggest-item .suggest_high_light{
+        color:var(--blue);
     }
     
     .international-header .nav-search #nav_searchform:focus-within {
@@ -181,7 +212,7 @@
     /*历史搜索项容器*/
     .bilibili-search-history {
         border-radius: 10px;
-        background-color: var(--con-primary);
+        background-color: var(--con-primary)!important;
         backdrop-filter: var(--filter-glass);
         box-shadow: var(--depth-2);
         border: none;
