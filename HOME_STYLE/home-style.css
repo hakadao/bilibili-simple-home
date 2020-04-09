@@ -1,0 +1,37 @@
+/*
+**全屏显示壁纸，不能下滑查看更多视频
+*/
+.bili-banner {
+    height: 100vh!important;
+}
+.b-wrap,
+.international-footer {
+	display: none;
+}
+
+
+/*
+**全屏显示壁纸
+*/
+.bili-banner {
+    height: 100vh!important;
+}
+
+
+/*
+**半屏显示壁纸
+*/
+.bili-banner {
+    height: 60vh!important;
+
+}
+
+/*搜索框容器*/
+.international-header .nav-search-box {
+    top: 30vh!important;
+}
+
+/*强行制作出搜索栏上的logo*/
+.international-header .nav-search-box:before {
+    top: -300%;
+}
