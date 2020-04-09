@@ -1,0 +1,15 @@
+/* 暗色搜索框 */
+:root {
+    --bgcolor: rgb(0,0,0);
+    --con-primary: rgba(20, 20, 20, 1);
+    --filter-white: contrast(0) invert(1);
+    --text-primary: #fff;
+    --fill-primary: rgba(120, 120, 128, .15);
+}
+
+@supports (backdrop-filter: blur(20px)) {
+    :root {
+        --filter-glass: blur(20px) saturate(180%);
+        --con-primary: rgba(20, 20, 20, .75);
+    }
+}
