@@ -5,10 +5,10 @@
         --bgcolor: rgb(239, 239, 244);
         --con-primary: rgba(255, 255, 255, 1);
         --fill-primary: rgba(120, 120, 128, .22);
-        --mask-opacity: /*[[MASK_OPACITY]]*/;
-        --mask-blur: /*[[MASK_BLUR]]*/;
+        --radius: 8px;
     
-        --blue: #00a1d6;
+        --blue: rgb(0, 161, 214);
+        --blue-light: rgba(0, 161, 214, .4);
     
         --depth-1: 0 4px 12px rgba(0, 0, 0, .03), 0 1px 4px rgba(0, 0, 0, .009);
         --depth-2: 0 8px 18px rgba(0, 0, 0, .08), 0 3px 8px rgba(0, 0, 0, .025);
@@ -40,6 +40,19 @@
         background: none!important;
     }
     
+    /*去除所有板块右侧部分*/
+    /* .rank-list,
+    .pgc-rank,
+    .guochuang .r-con,
+    .special-recommend,
+    .manga-rank,
+    .live-tabs{
+        display:none;
+    }
+     */
+    /* .space-between{
+        justify-content:center;
+    } */
     /*banner上方的链接*/
     .nav-link .nav-link-ul .nav-link-item .link,
     .nav-user-center .user-con .item .name {
@@ -57,7 +70,9 @@
     /*特别推荐*/
     #bili_report_spe_rec,
     /*推广*/
-    #reportFirst2 {
+    #reportFirst2,
+    /*漫画，领券免费看*/
+    .manga-panel .app-download-link span{
         display: none;
     }
     
@@ -72,31 +87,18 @@
     }
     
     @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
-    body {
-        background: var(--bgimg) no-repeat center fixed!important;
-        background-size: cover!important;
-    }
-    
-    body:after {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, var(--mask-opacity, 1));
-        z-index: -1;
-        backdrop-filter: blur(var(--mask-blur));
-    }
-    
     /*banner图片*/
     .bili-banner {
         position: relative;
         background: none!important;
-        background: var(--bgimg) no-repeat center fixed!important;
+        background: var(--bgimg) no-repeat center!important;
         background-color: var(--bgcolor)!important;
         background-size: cover!important;
         overflow: hidden;
+    }
+    
+    body {
+        background-color: rgb(239, 239, 244);
     }
     
     /*滑过的列表链接*/
@@ -249,12 +251,23 @@
     }
     
     .international-footer {
-        background: var(--mask-color);
+        background: white;
+        box-shadow: var(--depth-2);
+        border-radius: var(--radius) var(--radius) 0 0;
     }
     }
     
     @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
-    /*板块控件微调*/
+    /*
+    **板块控件微调
+    */
+    /*板块标题，排行榜字体、特别推荐调整*/
+    .rank-header .name,
+    .storey-title .name,
+    .special-recommend header {
+        font-weight: 800
+    }
+    
     /*顶部分区最新视频数量*/
     .channel-menu-itnl .item .name em {
         background: rgba(83, 209, 251, .2);
@@ -284,9 +297,161 @@
         background: rgba(122, 134, 149, .3);
     }
     
+    /*排行榜*/
     .rank-wrap .number,
     .pgc-rank-wrap .number,
     .manga-rank-item .rank-number {
         background: transparent;
+        border-radius: 20px;
+        font-size: 12px;
+    }
+    
+    .rank-wrap .number.on,
+    .pgc-rank-wrap .number.on,
+    .manga-rank-item .rank-number.on {
+        box-shadow: 0 3px 6px var(--blue-light);
+    }
+    
+    .tab-switch .tab-switch-item{
+        position:relative;
+        color:#999;
+        transition:.25s;
+        font-weight:600;
+        border:none!important;
+    }
+    
+    .tab-switch .tab-switch-item.on,
+    .tab-switch .tab-switch-item:hover{
+        color:black!important;
+    }
+    
+    .tab-switch .tab-switch-item:after{
+        content:'';
+        position:absolute;
+        bottom:0;
+        left:0;
+        width:100%;
+        height:3px;
+        background:var(--blue);
+        transform:scalex(0);
+        border-radius:3px;
+        transition:.25s;
+        box-shadow:0 2px 6px var(--blue-light);
+    }
+    
+    .tab-switch .tab-switch-item.on:after,
+    .tab-switch .tab-switch-item:hover:after{
+        transform:scalex(1);
+    }
+    }
+    
+    @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
+    .elevator,
+    .elevator .list-box .item.back-top {
+        box-shadow: var(--depth-2);
+        transition: .25s;
+    }
+    
+    /*
+    **板块调整
+    */
+    /*整体板块调整*/
+    .primary-menu-itnl,
+    /*视频板块调整*/
+    .video-card-common,
+    /*时间线*/
+    .time-line .zone-list-box .item,
+    /*漫画*/
+    .manga-panel .manga-list-box .manga-card,
+    /*专栏*/
+    .article-card,
+    /*直播*/
+    .live-card {
+        background: white;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--depth-1);
+    }
+    
+    /*顶部轮播图*/
+    .focus-carousel,
+    /*顶部推荐视频*/
+    .recommend-box .video-card-reco,
+    /*轮播图*/
+    .carousel {
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--depth-2);
+    }
+    
+    /*分区导航栏*/
+    .primary-menu-itnl {
+        margin: 40px 0;
+        padding: 15px 15px 10px;
+    }
+    
+    /*视频板块调整*/
+    .video-card-common {
+        padding-bottom: 1em;
+        margin-bottom: 1em;
+    }
+    
+    .video-card-common .title,
+    .video-card-common .up {
+        padding: 0 1em;
+    }
+    
+    /*漫画*/
+    .manga-panel .manga-list-box .manga-card {
+        padding-bottom: 1em;
+    }
+    
+    .manga-panel .manga-list-box .manga-card .manga-title,
+    .manga-panel .manga-list-box .manga-card .manga-tag {
+        padding: 0 1em;
+    }
+    
+    /*专栏*/
+    .article-card .r-con {
+        padding: .5em 0;
+    }
+    
+    .article-card .r-con .title {
+        height: 30px;
+    }
+    
+    /*排行榜右侧文字*/
+    .rank-wrap .preview .txt {
+        background: white;
+        margin-left: 0;
+        padding-left: 12px;
+        border-radius: 0 var(--radius) var(--radius) 0;
+        box-shadow: var(--depth-1);
+    }
+    
+    .rank-wrap .preview .pic img {
+        border-radius: 0 0 0 var(--radius);
+        box-shadow: var(--depth-1);
+    }
+    
+    .rank-wrap .number.on + a .title,
+    .pgc-rank-wrap .number.on + a .txt,
+    .manga-rank-item .rank-number.on + a.other-link {
+        border-radius: 0 var(--radius) var(--radius) var(--radius);
+        padding: .5em;
+        background: white;
+        box-shadow: var(--depth-1);
+    }
+    
+    /*漫画排行榜*/
+    .manga-rank-item .preview .preview-link {
+        background: white;
+        box-shadow: var(--depth-1);
+        border-radius: 0 var(--radius) var(--radius) var(--radius);
+        overflow: hidden;
+    }
+    
+    .manga-rank-item .preview .preview-desc .title {
+        margin-top: 1em;
     }
     }
