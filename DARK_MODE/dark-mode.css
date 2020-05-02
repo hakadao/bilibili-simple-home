@@ -4,7 +4,7 @@
     --con-primary: rgba(20, 20, 20, 1);
     --filter-white: contrast(0) invert(1);
     --text-primary: #fff;
-    --fill-primary: rgba(120, 120, 128, .15);
+    --fill-primary: rgba(120, 120, 128, .20);
 }
 
 @supports (backdrop-filter: blur(20px)) {
