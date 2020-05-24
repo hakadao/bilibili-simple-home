@@ -2,9 +2,27 @@
     :root {
         /*[[BLUE_LOGO]]*/
         --bgimg: url(/*[[DIV_BG]]*/);
+    
+        --bg-attachment: fixed;
+    
         --bgcolor: rgb(239, 239, 244);
+    
+        --mask-opacity: /*[[MASK_OPACITY]]*/;
+        --mask-color: rgb(239, 239, 244, var(--mask-opacity));
+    
         --con-primary: rgba(255, 255, 255, 1);
+        --con-primary-solid: rgba(255, 255, 255, 1);
+    
+        --elevated-primary: rgb(255, 255, 255);
+        --elevated-secondary: rgb(255, 255, 255);
+    
+        --elevated-primary-solid: rgb(255, 255, 255);
+        --elevated-secondary-solid: rgb(255, 255, 255);
+    
+        --divider-main: rgba(60, 60, 67, .1);
+    
         --fill-primary: rgba(120, 120, 128, .22);
+    
         --radius: 8px;
     
         --blue: rgb(0, 161, 214);
@@ -17,7 +35,10 @@
     @supports (backdrop-filter: blur(20px)) {
         :root {
             --filter-glass: blur(20px) saturate(180%);
-            --con-primary: rgba(255, 255, 255, .8);
+            --con-primary: rgba(255, 255, 255, .75);
+    
+            --elevated-primary: rgba(255, 255, 255, .75);
+            --elevated-secondary: rgba(255, 255, 255, .75);
         }
     }
     }
@@ -25,6 +46,54 @@
     @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
     /*暗色模式css*/
     /*[[DARK_MODE]]*/
+    }
+    
+    @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
+    .primary-menu-itnl,
+    .video-card-common,
+    .time-line .zone-list-box .item,
+    .manga-panel .manga-list-box .manga-card,
+    .article-card,
+    .live-card,
+    .manga-rank-item .preview .preview-link,
+    .international-footer {
+        background: var(--con-primary-solid);
+    }
+    
+    .rank-header .name,
+    .storey-title .name,
+    .special-recommend header,
+    .popover-video-card .content .info .f-title {
+        color: var(--text-main);
+    }
+    
+    a,
+    .elevator .list-box .item,
+    .international-header a,
+    .van-popover a,
+    .manga-panel .manga-list-box .manga-card .manga-title,
+    .international-footer .link-box .link-item .bt,
+    .live-card .up .txt .desc {
+        color: var(--text-primary);
+    }
+    
+    .video-card-common .up,
+    .pgc-rank-wrap .txt .update,
+    .international-footer a,
+    .international-footer .link-box .link-item.link-c p,
+    .international-footer .partner {
+        color: var(--text-secondary);
+    }
+    
+    .tab-line-itnl,
+    .international-footer .link-box .link-item {
+        border-color: var(--divider-main)
+    }
+    
+    
+    .vp-container a {
+        color: #000;
+    }
     }
     
     @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
@@ -94,11 +163,23 @@
         background: var(--bgimg) no-repeat center!important;
         background-color: var(--bgcolor)!important;
         background-size: cover!important;
+        background-attachment: var(--bg-attachment)!important;
         overflow: hidden;
     }
     
+    .bili-banner:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: inherit;
+        background: var(--mask-color);
+        z-index: 0;
+    }
+    
     body {
-        background-color: rgb(239, 239, 244);
+        background-color: var(--bgcolor);
     }
     
     /*滑过的列表链接*/
@@ -178,12 +259,12 @@
     }
     
     .international-header .nav-search .nav-search-keyword {
-        color: var(--text-primary)!important;
+        color: var(--text-main)!important;
     }
     
     /*搜索图标*/
     .bili-icon_dingdao_sousuo::before {
-        color: var(--text-primary);
+        color: var(--text-main);
         transition: .25s;
     }
     
@@ -194,7 +275,7 @@
     /*搜索历史、建议文字*/
     .bilibili-search-suggest .suggest-item a,
     .bilibili-search-history .history-item a {
-        color: var(--text-primary)!important;
+        color: var(--text-main)!important;
     }
     
     /*搜索建议高亮文字*/
@@ -251,7 +332,6 @@
     }
     
     .international-footer {
-        background: white;
         box-shadow: var(--depth-2);
         border-radius: var(--radius) var(--radius) 0 0;
     }
@@ -261,6 +341,13 @@
     /*
     **板块控件微调
     */
+    /*分区导航栏弹窗*/
+    .van-popover.van-popper-channel {
+        background: var(--elevated-secondary);
+        backdrop-filter: var(--filter-glass);
+        border: none;
+    }
+    
     /*板块标题，排行榜字体、特别推荐调整*/
     .rank-header .name,
     .storey-title .name,
@@ -288,7 +375,7 @@
     .rank-header .more,
     .exchange-btn .btn {
         border-color: transparent;
-        color: black;
+        color: var(--text-main);
         background: rgba(122, 134, 149, .1);
     }
     
@@ -314,7 +401,7 @@
     
     .tab-switch .tab-switch-item {
         position: relative;
-        color: #999;
+        color: var(--text-secondary);
         transition: .25s;
         font-weight: 600;
         border: none!important;
@@ -322,7 +409,7 @@
     
     .tab-switch .tab-switch-item.on,
     .tab-switch .tab-switch-item:hover {
-        color: black!important;
+        color: var(--text-primary)!important;
     }
     
     .tab-switch .tab-switch-item:after {
@@ -343,6 +430,15 @@
     .tab-switch .tab-switch-item:hover:after {
         transform: scalex(1);
     }
+    
+    /*页脚微调*/
+    .international-footer .link-box .link-item .bt {
+        font-weight: 800;
+    }
+    
+    .international-footer .partner .pic-box {
+        display: none;
+    }
     }
     
     @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
@@ -360,6 +456,18 @@
         width: 56px;
     }
     
+    .elevator .list-box,
+    .elevator .list-box .item.sort,
+    .elevator .list-box .item.back-top {
+        border-color: var(--elevated-primary-solid);
+    }
+    
+    .elevator .list-box,
+    .elevator .list-box .item.sort,
+    .elevator .list-box .item.back-top {
+        background: var(--elevated-primary-solid);
+    }
+    
     .elevator .list-box .item {
         height: unset;
         padding: 2px 0;
@@ -368,7 +476,7 @@
     
     .elevator .list-box .item.on,
     .elevator .list-box .item:hover {
-        padding: 2px 10px 2px 2px;
+        padding: 2px 4px 2px 2px;
         width: 76px;
         box-shadow: 0 6px 20px var(--blue-light);
         transform: scale(1.1) translatex(-15px)
@@ -379,8 +487,11 @@
         transform: none;
         padding: 2px 0;
         width: 56px;
-        background: #FFF;
         z-index: -1;
+    }
+    
+    .elevator .list-box .item.sort.on {
+        background: var(--blue);
     }
     
     .elevator .list-box .item.sort:hover,
@@ -394,19 +505,23 @@
         width: 54px;
     }
     
+    .elevator .bg23 {
+        background-color: transparent;
+    }
+    
     /*分区导航栏分类弹窗*/
     /* .van-popover, */
     /*视频信息弹窗*/
     .popover-video-card {
-        background: rgba(255, 255, 255, .6);
-        backdrop-filter: blur(20px);
+        background: var(--elevated-secondary);
+        backdrop-filter: var(--filter-glass);
         border: none;
         border-radius: var(--radius);
         box-shadow: var(--depth-2);
     }
     
     .popover-video-card .count {
-        border-color: var(--fill-primary)
+        border-color: var(--divider-main);
     }
     
     /*分区导航栏分类弹窗*/
@@ -430,7 +545,6 @@
     .article-card,
     /*直播*/
     .live-card {
-        background: white;
         border-radius: var(--radius);
         box-shadow: var(--depth-1);
     }
@@ -510,7 +624,7 @@
     
     /*排行榜右侧文字*/
     .rank-wrap .preview .txt {
-        background: white;
+        background: var(--con-primary);
         margin-left: 0;
         padding-left: 12px;
         border-radius: 0 var(--radius) var(--radius) 0;
@@ -527,13 +641,12 @@
     .manga-rank-item .rank-number.on + a.other-link {
         border-radius: 0 var(--radius) var(--radius) var(--radius);
         padding: .5em;
-        background: white;
+        background: var(--con-primary);
         box-shadow: var(--depth-1);
     }
     
     /*漫画排行榜*/
     .manga-rank-item .preview .preview-link {
-        background: white;
         box-shadow: var(--depth-1);
         border-radius: 0 var(--radius) var(--radius) var(--radius);
         overflow: hidden;
