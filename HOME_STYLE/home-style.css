@@ -22,8 +22,14 @@
 **半屏显示壁纸
 */
 .bili-banner {
-    height: 60vh!important;
+    height: 70vh!important;
+    z-index: -1!important;
+}
 
+.primary-menu-itnl {
+    margin-top: -50px!important;
+    background-color: var(--con-primary)!important;
+    backdrop-filter: var(--filter-glass);
 }
 
 /*搜索框容器*/
