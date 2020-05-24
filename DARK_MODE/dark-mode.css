@@ -1,15 +1,68 @@
-/* 暗色搜索框 */
+/*
+**暗色模式
+*/
 :root {
-    --bgcolor: rgb(0,0,0);
+    --bgcolor: rgb(0, 0, 0);
+
+    --mask-color: rgba(0, 0, 0, var(--mask-opacity));
+
     --con-primary: rgba(20, 20, 20, 1);
+    --con-primary-solid: rgba(20, 20, 20, 1);
+
+    --elevated-primary: rgb(44, 44, 46);
+    --elevated-secondary: rgb(58, 58, 60);
+
+    --elevated-primary-solid: rgb(44, 44, 46);
+    --elevated-secondary-solid: rgb(58, 58, 60);
+
+
+    --divider-main: rgba(84, 84, 88, .65);
+
     --filter-white: contrast(0) invert(1);
-    --text-primary: #fff;
-    --fill-primary: rgba(120, 120, 128, .20);
+
+    --fill-primary: rgba(120, 120, 128, .36);
+
+    --text-main: #fff;
+    --text-primary: #f5f5f7;
+    --text-secondary: rgba(235, 235, 245, .6);
 }
 
-@supports (backdrop-filter: blur(20px)) {
+/*
+**暗色模式（跟随系统）
+*/
+@media screen and (prefers-color-scheme: dark) {
     :root {
-        --filter-glass: blur(20px) saturate(180%);
-        --con-primary: rgba(20, 20, 20, .75);
+        --bgcolor: rgb(0, 0, 0);
+
+        --mask-color: rgba(0, 0, 0, var(--mask-opacity));
+
+        --con-primary: rgba(20, 20, 20, 1);
+        --con-primary-solid: rgba(20, 20, 20, 1);
+
+        --elevated-primary: rgb(44, 44, 46);
+        --elevated-secondary: rgb(58, 58, 60);
+
+        --elevated-primary-solid: rgb(44, 44, 46);
+        --elevated-secondary-solid: rgb(58, 58, 60);
+
+
+        --divider-main: rgba(84, 84, 88, .65);
+
+        --filter-white: contrast(0) invert(1);
+
+        --fill-primary: rgba(120, 120, 128, .36);
+
+        --text-main: #fff;
+        --text-primary: #f5f5f7;
+        --text-secondary: rgba(235, 235, 245, .6);
+    }
+
+    @supports (backdrop-filter: blur(20px)) {
+        :root {
+            --filter-glass: blur(20px) saturate(180%);
+            --con-primary: rgba(20, 20, 20, .75);
+            --elevated-primary: rgba(44, 44, 46, .75);
+            --elevated-secondary: rgba(58, 58, 60, .75);
+        }
     }
 }
