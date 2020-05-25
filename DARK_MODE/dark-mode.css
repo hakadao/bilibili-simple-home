@@ -446,7 +446,6 @@
     .elevator,
     .elevator .list-box .item.back-top {
         box-shadow: var(--depth-2);
-        transition: .25s;
     }
     
     .elevator .list-box {
