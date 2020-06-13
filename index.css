@@ -3,8 +3,6 @@
         /*[[BLUE_LOGO]]*/
         --bgimg: url(/*[[DIV_BG]]*/);
     
-        --bg-attachment: fixed;
-    
         --bgcolor: rgb(239, 239, 244);
     
         --mask-opacity: /*[[MASK_OPACITY]]*/;
@@ -22,6 +20,10 @@
         --divider-main: rgba(60, 60, 67, .1);
     
         --fill-primary: rgba(120, 120, 128, .22);
+    
+        --text-main: #000;
+        --text-primary: #000;
+        --text-secondary: rgba(60, 60, 67, .6);
     
         --radius: 8px;
     
@@ -63,7 +65,8 @@
     .rank-header .name,
     .storey-title .name,
     .special-recommend header,
-    .popover-video-card .content .info .f-title {
+    .popover-video-card .content .info .f-title,
+    .ifmt h3 {
         color: var(--text-main);
     }
     
@@ -160,10 +163,11 @@
     .bili-banner {
         position: relative;
         background: none!important;
-        background: var(--bgimg) no-repeat center!important;
+        background-image: var(--bgimg)!important;
+        background-repeat: no-repeat!important;
+        background-position: center!important;
         background-color: var(--bgcolor)!important;
         background-size: cover!important;
-        background-attachment: var(--bg-attachment)!important;
         overflow: hidden;
     }
     
@@ -256,6 +260,7 @@
         border-radius: 10px;
         transition: box-shadow .25s;
         backdrop-filter: var(--filter-glass);
+        border: none!important;
     }
     
     .international-header .nav-search .nav-search-keyword {
@@ -351,7 +356,8 @@
     /*板块标题，排行榜字体、特别推荐调整*/
     .rank-header .name,
     .storey-title .name,
-    .special-recommend header {
+    .special-recommend header,
+    .ifmt h3 {
         font-weight: 800
     }
     
@@ -449,7 +455,6 @@
     .elevator,
     .elevator .list-box .item.back-top {
         box-shadow: var(--depth-2);
-        transition: .25s;
     }
     
     .elevator .list-box {
@@ -459,13 +464,13 @@
     .elevator .list-box,
     .elevator .list-box .item.sort,
     .elevator .list-box .item.back-top {
-        border-color: var(--elevated-primary-solid);
+        border-color: var(--con-primary-solid);
     }
     
     .elevator .list-box,
     .elevator .list-box .item.sort,
     .elevator .list-box .item.back-top {
-        background: var(--elevated-primary-solid);
+        background: var(--con-primary-solid);
     }
     
     .elevator .list-box .item {
@@ -573,7 +578,9 @@
     .video-card-reco .info-box,
     .video-card-reco::before,
     /*轮播图*/
-    .carousel {
+    .carousel,
+    /*资讯分区右侧图片*/
+    .ifmt img {
         border-radius: var(--radius)!important;
         box-shadow: var(--depth-2);
         overflow: hidden
