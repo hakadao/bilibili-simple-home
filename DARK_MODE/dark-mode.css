@@ -85,12 +85,12 @@
 */
 @media screen and (prefers-color-scheme: dark) {
     :root {
-        --bgcolor: rgb(15, 15, 15);
+        --bgcolor: rgb(15, 15, 17);
     
-        --mask-color: rgba(0, 0, 0, var(--mask-opacity));
+        --mask-color: rgba(15, 15, 17, var(--mask-opacity));
     
-        --con-primary: rgba(25, 25, 25, 1);
-        --con-primary-solid: rgba(25, 25, 25, 1);
+        --con-primary: rgba(27, 27, 30, 1);
+        --con-primary-solid: rgba(27, 27, 30, 1);
     
         --elevated-primary: rgb(44, 44, 46);
         --elevated-secondary: rgb(58, 58, 60);
@@ -113,7 +113,7 @@
     @supports (backdrop-filter: blur(20px)) {
         :root {
             --filter-glass: blur(20px) saturate(180%);
-            --con-primary: rgba(25, 25, 25, .75);
+            --con-primary: rgba(27, 27, 30, .75);
             --elevated-primary: rgba(44, 44, 46, .75);
             --elevated-secondary: rgba(58, 58, 60, .75);
         }
@@ -126,12 +126,12 @@
 **暗色模式
 */
 :root {
-	--bgcolor: rgb(15, 15, 15);
+	--bgcolor: rgb(15, 15, 17);
 
-	--mask-color: rgba(0, 0, 0, var(--mask-opacity));
+	--mask-color: rgba(15, 15, 17, var(--mask-opacity));
 
-	--con-primary: rgba(25, 25, 25, 1);
-	--con-primary-solid: rgba(25, 25, 25, 1);
+	--con-primary: rgba(27, 27, 30, 1);
+	--con-primary-solid: rgba(27, 27, 30, 1);
 
 	--elevated-primary: rgb(44, 44, 46);
 	--elevated-secondary: rgb(58, 58, 60);
@@ -154,7 +154,7 @@
 @supports (backdrop-filter: blur(20px)) {
 	:root {
 		--filter-glass: blur(20px) saturate(180%);
-		--con-primary: rgba(25, 25, 25, .75);
+		--con-primary: rgba(27, 27, 30, .75);
 		--elevated-primary: rgba(44, 44, 46, .75);
 		--elevated-secondary: rgba(58, 58, 60, .75);
 	}
