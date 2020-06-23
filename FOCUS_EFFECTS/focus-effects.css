@@ -1,0 +1,20 @@
+/*
+**搜索条聚焦后暗化效果
+*/
+.international-header::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0);
+    transition: .25s ease-in-out;
+    visibility: hidden;
+}
+
+.international-header:focus-within::after {
+    background-color: rgba(0, 0, 0, .55);
+    visibility: visible;
+}
+/*[[FOCUS_BLUR]]*/
