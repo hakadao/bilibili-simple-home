@@ -1,0 +1,21 @@
+/*
+**搜索条聚焦后显示33娘
+*/
+.international-header .nav-search::after{
+    content:'';
+    position:absolute;
+    top: -60px;
+    right: -10px;
+    width: 100px;
+    height: 100px;
+    background:url(https://i.loli.net/2020/06/23/E3he95P4XrLkGMm.png);
+    background-size: cover;
+    z-index: -1;
+    transition: .25s ease-out;
+    opacity: 0;
+}
+
+.international-header .nav-search:focus-within::after{
+    transform:translatey(-20px);
+    opacity: 1;
+}
