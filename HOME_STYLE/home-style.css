@@ -24,7 +24,8 @@
 **【样式1】半屏显示壁纸
 */
 .bili-banner {
-    height: 70vh!important;
+    height: calc(100vh - 363px)!important;
+    min-height: 450px!important;
     z-index: -1!important;
 }
 
@@ -37,6 +38,12 @@
 /*搜索框容器*/
 .international-header .nav-search-box {
     top: 30vh!important;
+}
+
+@media screen and (max-height: 830px) {
+    .international-header .nav-search-box {
+        top: 220px!important;
+    }
 }
 
 /*强行制作出搜索栏上的logo*/
