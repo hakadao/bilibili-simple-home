@@ -1,8 +1,11 @@
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
+    /*
+    **样式颜色、阴影、滤镜等变量
+    */
     :root {
         /*[[BLUE_LOGO]]*/
         --bgimg: url(/*[[DIV_BG]]*/);
-    
+        
         --bgcolor: rgb(239, 239, 244);
     
         --mask-opacity: /*[[MASK_OPACITY]]*/;
@@ -25,13 +28,13 @@
         --text-primary: #000;
         --text-secondary: rgba(60, 60, 67, .6);
     
-        --radius: 8px;
+        --radius: 10px;
     
         --blue: rgb(0, 161, 214);
         --blue-light: rgba(0, 161, 214, .4);
     
-        --depth-1: 0 4px 12px rgba(0, 0, 0, .03), 0 1px 4px rgba(0, 0, 0, .009);
-        --depth-2: 0 8px 18px rgba(0, 0, 0, .09), 0 3px 8px rgba(0, 0, 0, .025);
+        --depth-1: 0 10px 20px rgba(0, 0, 0, .03), 0 5px 10px rgba(0, 0, 0, .02);
+        --depth-2: 0 20px 25px rgba(0, 0, 0, .08), 0 8px 18px rgba(0, 0, 0, .025);
     }
     
     @supports (backdrop-filter: blur(20px)) {
@@ -43,14 +46,51 @@
             --elevated-secondary: rgba(255, 255, 255, .75);
         }
     }
-    }
     
-    @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
+    /*
+    **以下是调整暗色模式所覆盖的变量，当调整后上面css变量将被覆盖
+    */
     /*暗色模式css*/
     /*[[DARK_MODE]]*/
     }
     
     @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
+    /*
+    **【样式1】半屏显示壁纸
+    */
+    .bili-banner {
+        height: calc(100vh - 363px)!important;
+        min-height: 450px!important;
+        z-index: -1!important;
+    }
+    
+    .primary-menu-itnl {
+        margin-top: -50px!important;
+        background-color: var(--con-primary)!important;
+        backdrop-filter: var(--filter-glass);
+    }
+    
+    /*搜索框容器*/
+    .international-header .nav-search-box {
+        top: 30vh!important;
+    }
+    
+    @media screen and (max-height: 830px) {
+        .international-header .nav-search-box {
+            top: 220px!important;
+        }
+    }
+    
+    /*强行制作出搜索栏上的logo*/
+    .international-header .nav-search-box:before {
+        top: -300%;
+    }
+    }
+    
+    @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
+    /*
+    **板块颜色调整
+    */
     .primary-menu-itnl,
     .video-card-common,
     .time-line .zone-list-box .item,
@@ -84,7 +124,9 @@
     .pgc-rank-wrap .txt .update,
     .international-footer a,
     .international-footer .link-box .link-item.link-c p,
-    .international-footer .partner {
+    .international-footer .partner,
+    .live-rank .live-rank-item .txt p.p2,
+    .storey-title .text-info {
         color: var(--text-secondary);
     }
     
@@ -103,10 +145,6 @@
     /*
     **去除首页碍眼东西，与处理删除碍眼东西后的一些处理
     */
-    /*删除其它内容，只保留搜索栏，不能下滑显示更多，显示半屏壁纸*/
-    /*[[HOME_STYLE]]*/
-    /*处理顶栏链接内容，使其在自定义背景下banner上方文字链接有阴影使其能看清文字*/
-    /*[[TOPLINK_THEME]]*/
     .bili-banner .taper-line {
         /*原本去除难看的过渡色效果*/
         background: none!important;
@@ -144,7 +182,9 @@
     /*推广*/
     #reportFirst2,
     /*漫画，领券免费看*/
-    .manga-panel .app-download-link span {
+    .manga-panel .app-download-link span,
+    /*漫画app下载*/
+    .manga-panel .app-download-link {
         display: none;
     }
     
@@ -159,6 +199,17 @@
     }
     
     @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
+    /*
+    **主要调整
+    */
+    /*删除其它内容，只保留搜索栏，不能下滑显示更多，显示半屏壁纸*/
+    /*[[HOME_STYLE]]*/
+    /*处理顶栏链接内容，使其在自定义背景下banner上方文字链接有阴影使其能看清文字*/
+    /*[[TOPLINK_THEME]]*/
+    /*聚焦输入框后全局暗化效果*/
+    /*[[FOCUS_EFFECTS]]*/
+    /*聚焦输入框后33出现效果*/
+    /*[[FOCUS_33]]*/
     /*banner图片*/
     .bili-banner {
         position: relative;
@@ -257,10 +308,11 @@
         background-color: var(--con-primary)!important;
         box-shadow: var(--depth-1)!important;
         padding: 8px 42px 8px 20px;
-        border-radius: 10px;
-        transition: box-shadow .25s;
+        border-radius: var(--radius);
+        transition: .25s;
         backdrop-filter: var(--filter-glass);
         border: none!important;
+        z-index: 9999;
     }
     
     .international-header .nav-search .nav-search-keyword {
@@ -316,7 +368,7 @@
     .bilibili-search-suggest,
     /*历史搜索项容器*/
     .bilibili-search-history {
-        border-radius: 10px;
+        border-radius: var(--radius);
         background-color: var(--con-primary)!important;
         backdrop-filter: var(--filter-glass);
         box-shadow: var(--depth-2);
@@ -350,6 +402,7 @@
     .van-popover.van-popper-channel {
         background: var(--elevated-secondary);
         backdrop-filter: var(--filter-glass);
+        box-shadow: var(--depth-1);
         border: none;
     }
     
@@ -393,7 +446,8 @@
     /*排行榜*/
     .rank-wrap .number,
     .pgc-rank-wrap .number,
-    .manga-rank-item .rank-number {
+    .manga-rank-item .rank-number,
+    .live-rank .live-rank-item .number {
         background: transparent;
         border-radius: 20px;
         font-size: 12px;
@@ -401,7 +455,8 @@
     
     .rank-wrap .number.on,
     .pgc-rank-wrap .number.on,
-    .manga-rank-item .rank-number.on {
+    .manga-rank-item .rank-number.on,
+    .live-rank .live-rank-item .number.on {
         box-shadow: 0 3px 6px var(--blue-light);
     }
     
@@ -448,6 +503,9 @@
     }
     
     @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
+    /*
+    **板块调整
+    */
     /*右侧导航栏*/
     .elevator {
         transform: translatex(15px)
@@ -535,9 +593,6 @@
     }
     
     
-    /*
-    **板块调整
-    */
     /*整体板块调整*/
     .primary-menu-itnl,
     /*视频板块调整*/
@@ -582,8 +637,9 @@
     /*资讯分区右侧图片*/
     .ifmt img {
         border-radius: var(--radius)!important;
-        box-shadow: var(--depth-2);
-        overflow: hidden
+        box-shadow: var(--depth-1);
+        overflow: hidden;
+        background-color: var(--fill-primary);
     }
     
     /*分区导航栏*/
@@ -648,7 +704,7 @@
     .manga-rank-item .rank-number.on + a.other-link {
         border-radius: 0 var(--radius) var(--radius) var(--radius);
         padding: .5em;
-        background: var(--con-primary);
+        background: var(--con-primary-solid);
         box-shadow: var(--depth-1);
     }
     
