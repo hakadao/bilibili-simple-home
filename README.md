@@ -12,17 +12,17 @@ b站仿搜索引擎样式首页风格，支持几种不同显示效果
 
 ## 效果
 
+预设效果
 ![预设效果](./preview/preview-1.png "预设效果")
-<center>预设效果</center>
 
+【样式1】半屏显示壁纸
 ![【样式1】半屏显示壁纸](./preview/preview-2.png "【样式1】半屏显示壁纸")
-<center>【样式1】半屏显示壁纸</center>
 
+【样式2】半屏显示壁纸
 ![【样式2】半屏显示壁纸](./preview/preview-3.png "【样式2】半屏显示壁纸")
-<center>【样式2】半屏显示壁纸</center>
 
+搜索条聚焦后毛玻璃效果
 ![搜索条聚焦后毛玻璃效果](./preview/focus-effect.gif "搜索条聚焦后毛玻璃效果")
-<center>搜索条聚焦后毛玻璃效果</center>
 
 ## 使用说明
 
