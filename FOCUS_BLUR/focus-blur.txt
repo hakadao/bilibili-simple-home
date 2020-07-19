@@ -1,6 +1,4 @@
 /*
 **搜索条聚焦后毛玻璃效果（尽在聚焦暗色效果开启才能实现）
 */
-.international-header:focus-within::after {
-    backdrop-filter: var(--filter-glass);
-}
+backdrop-filter:  var(--filter-glass);

@@ -1,20 +1,21 @@
 /*
 **搜索条聚焦后暗化效果
 */
-.international-header::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0);
-    transition: .25s ease-in-out;
-    visibility: hidden;
+.international-header .mini-header::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0);
+  transition: 0.25s ease-in-out;
+  visibility: hidden;
+  z-index: -1;
 }
 
-.international-header:focus-within::after {
-    background-color: rgba(0, 0, 0, .55);
-    visibility: visible;
+.international-header .mini-header:focus-within::before {
+  background-color: rgba(0, 0, 0, 0.5);
+  visibility: visible;
+  /*[[FOCUS_BLUR]]*/
 }
-/*[[FOCUS_BLUR]]*/
