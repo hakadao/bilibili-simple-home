@@ -853,7 +853,9 @@ backdrop-filter:  var(--filter-glass); EOT;
     margin-bottom: 1em;
   }
   .video-card-common .title,
-  .video-card-common .up {
+  .video-card-common .up,
+  .video-card-common .cheese_title,
+  .video-card-common .update_info {
     padding: 0 1em;
   }
   /*漫画*/
