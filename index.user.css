@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.0.1
+@version        1.0.2
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -244,9 +244,15 @@
     background: none!important;
 } EOT;
 	TOPLINK_2 "效果2（推荐自定义背景使用）" <<<EOT
-.bili-banner {
-    box-shadow: inset 0 0 200px 50px rgba(0, 0, 0, .3);
-} EOT;
+.bili-banner .taper-line {
+  background-image: radial-gradient(
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    radial-gradient(rgba(0, 0, 0, 0) 33%, rgba(0, 0, 0, 0.3) 166%) !important;
+  height: 100% !important;
+}
+ EOT;
 }
 @advanced text MASK_OPACITY "设置背景遮罩透明度（0为完全透明，1为完全覆盖背景，允许小数）" "0"
 @advanced dropdown FOCUS_EFFECTS "搜索条聚焦后暗化效果" {
@@ -258,18 +264,28 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0);
     transition: .25s ease-in-out;
     visibility: hidden;
-    z-index: -1
+    z-index: -1;
 }
 
 .international-header .nav-search:focus-within::before {
     background-color: rgba(0, 0, 0, .5);
     visibility: visible;
     /*[[FOCUS_BLUR]]*\/
+}
+
+.international-header .nav-search .bilibili-search-suggest,
+.international-header .nav-search .bilibili-search-history{
+    display: none;
+}
+
+.international-header .nav-search:focus-within .bilibili-search-suggest,
+.international-header .nav-search:focus-within .bilibili-search-history{
+    display: block;
 } EOT;
 }
 @advanced dropdown FOCUS_BLUR "搜索条聚焦后毛玻璃效果（仅在上个效果开启才能实现）" {
