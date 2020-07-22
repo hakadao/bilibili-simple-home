@@ -6,9 +6,9 @@
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
 @supportURL     https://github.com/hakadao/bilibili-simple-home/issues
-@updateURL		https://raw.githubusercontent.com/hakadao/bilibili-simple-home/master/index.user.css
-@license	    MIT
-@preprocessor	uso
+@updateURL		  https://raw.githubusercontent.com/hakadao/bilibili-simple-home/master/index.user.css
+@license	      MIT
+@preprocessor	  uso
 
 @advanced dropdown HOME_STYLE "首页样式" {
 	FULL_HOME "全屏显示壁纸，不能下滑查看更多视频" <<<EOT
