@@ -253,7 +253,7 @@
 	DISABLE_FOCUS_EFFECTS "关闭" <<<EOT
  EOT;
 	ENABLE_FOCUS_EFFECTS "开启" <<<EOT
-.international-header .mini-header::before {
+.international-header .nav-search::before {
     content: '';
     position: fixed;
     top: 0;
@@ -266,7 +266,7 @@
     z-index: -1
 }
 
-.international-header .mini-header:focus-within::before {
+.international-header .nav-search:focus-within::before {
     background-color: rgba(0, 0, 0, .5);
     visibility: visible;
     /*[[FOCUS_BLUR]]*\/
@@ -407,29 +407,29 @@ backdrop-filter:  var(--filter-glass); EOT;
   }
   /*删除banner上方我认为无用的链接（ε=ε=ε=┏(゜ロ゜;)┛逃）*/
   .nav-link .nav-link-ul .nav-link-item .link,
-    /*季节logo*/
-    .bili-banner .b-logo .logo-img,
-    /*顶栏banner链接*/
-    .bili-banner .head-title,
-    .bili-banner .banner-link,
-    /*特别推荐*/
-    #bili_report_spe_rec,
-    /*推广*/
-    #reportFirst2,
-    /*电竞赛事*/
-    #reportFirst3,
-    /*漫画，领券免费看*/
-    .manga-panel .app-download-link span,
-    /*漫画app下载*/
-    .manga-panel .app-download-link {
+  /*季节logo*/
+  .bili-banner .b-logo .logo-img,
+  /*顶栏banner链接*/
+  .bili-banner .head-title,
+  .bili-banner .banner-link,
+  /*特别推荐*/
+  #bili_report_spe_rec,
+  /*推广*/
+  #reportFirst2,
+  /*电竞赛事*/
+  #reportFirst3,
+  /*漫画，领券免费看*/
+  .manga-panel .app-download-link span,
+  /*漫画app下载*/
+  .manga-panel .app-download-link {
     display: none;
   }
   /*删除左侧小电视*/
   .mascot,
-    /*左侧联系客服*/
-    .contact-help,
-    /*广告*/
-    .banner-card {
+  /*左侧联系客服*/
+  .contact-help,
+  /*广告*/
+  .banner-card {
     display: none;
   }
 }
@@ -526,6 +526,10 @@ backdrop-filter:  var(--filter-glass); EOT;
       top: -240%;
       height: 100px;
     }
+    /*删除分辨率不够时出现的小图标*/
+    .nav-user-center .user-con.search-icon {
+      display: none !important;
+    }
   }
   /*搜索框*/
   .international-header .nav-search #nav_searchform {
@@ -582,8 +586,8 @@ backdrop-filter:  var(--filter-glass); EOT;
   }
   /*搜索建议项容器*/
   .bilibili-search-suggest,
-    /*历史搜索项容器*/
-    .bilibili-search-history {
+  /*历史搜索项容器*/
+  .bilibili-search-history {
     border-radius: var(--radius);
     background-color: var(--con-primary) !important;
     backdrop-filter: var(--filter-glass);
@@ -781,16 +785,16 @@ backdrop-filter:  var(--filter-glass); EOT;
   }
   /*整体板块调整*/
   .primary-menu-itnl,
-    /*视频板块调整*/
-    .video-card-common,
-    /*时间线*/
-    .time-line .zone-list-box .item,
-    /*漫画*/
-    .manga-panel .manga-list-box .manga-card,
-    /*专栏*/
-    .article-card,
-    /*直播*/
-    .live-card {
+  /*视频板块调整*/
+  .video-card-common,
+  /*时间线*/
+  .time-line .zone-list-box .item,
+  /*漫画*/
+  .manga-panel .manga-list-box .manga-card,
+  /*专栏*/
+  .article-card,
+  /*直播*/
+  .live-card {
     border-radius: var(--radius);
     box-shadow: var(--depth-1);
   }
@@ -811,8 +815,8 @@ backdrop-filter:  var(--filter-glass); EOT;
 
   /*视频封面*/
   .video-card-common .card-pic a,
-    /*漫画封面*/
-    .manga-panel .manga-list-box .manga-card img {
+  /*漫画封面*/
+  .manga-panel .manga-list-box .manga-card img {
     border-radius: var(--radius) var(--radius) 0 0;
     overflow: hidden;
   }
@@ -826,13 +830,13 @@ backdrop-filter:  var(--filter-glass); EOT;
   }
   /*顶部轮播图*/
   .focus-carousel,
-    /*顶部推荐视频*/
-    .video-card-reco .info-box,
-    .video-card-reco,
-    /*轮播图*/
-    .carousel,
-    /*资讯分区右侧图片*/
-    .ifmt img {
+  /*顶部推荐视频*/
+  .video-card-reco .info-box,
+  .video-card-reco,
+  /*轮播图*/
+  .carousel,
+  /*资讯分区右侧图片*/
+  .ifmt img {
     border-radius: var(--radius) !important;
     box-shadow: var(--depth-1);
     overflow: hidden;

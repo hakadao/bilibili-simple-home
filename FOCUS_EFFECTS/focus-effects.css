@@ -1,7 +1,7 @@
 /*
 **搜索条聚焦后暗化效果
 */
-.international-header .mini-header::before {
+.international-header .nav-search::before {
   content: '';
   position: fixed;
   top: 0;
@@ -14,7 +14,7 @@
   z-index: -1;
 }
 
-.international-header .mini-header:focus-within::before {
+.international-header .nav-search:focus-within::before {
   background-color: rgba(0, 0, 0, 0.5);
   visibility: visible;
   /*[[FOCUS_BLUR]]*/
