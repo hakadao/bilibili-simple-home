@@ -537,10 +537,10 @@ backdrop-filter:  var(--filter-glass); EOT;
       top: -240%;
       height: 100px;
     }
-    /*删除分辨率不够时出现的小图标*/
-    .nav-user-center .user-con.search-icon {
-      display: none !important;
-    }
+  }
+  /*删除分辨率不够时出现的小图标*/
+  .nav-user-center .user-con.search-icon {
+    display: none !important;
   }
   /*搜索框*/
   .international-header .nav-search #nav_searchform {
