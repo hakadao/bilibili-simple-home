@@ -26,6 +26,8 @@
     display: none;
 }
 
+.international-header .nav-search .bilibili-search-suggest:active,
+.international-header .nav-search .bilibili-search-history:active,
 .international-header .nav-search:focus-within .bilibili-search-suggest,
 .international-header .nav-search:focus-within .bilibili-search-history{
     display: block;
