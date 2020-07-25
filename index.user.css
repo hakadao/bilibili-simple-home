@@ -245,7 +245,7 @@
 } EOT;
 	TOPLINK_2 "效果2（推荐自定义背景使用）" <<<EOT
 .bili-banner{
-    box-shadow:inset 0 0 200px 50px rgba(0,0,0,.3);
+    box-shadow:inset 0 0 200px 50px rgba(0,0,0,.4);
 }
  EOT;
 }
@@ -273,11 +273,14 @@
     /*[[FOCUS_BLUR]]*\/
 }
 
+/*取消焦点时搜索记录隐藏*\/
 .international-header .nav-search .bilibili-search-suggest,
 .international-header .nav-search .bilibili-search-history{
     display: none;
 }
 
+.international-header .nav-search .bilibili-search-suggest:active,
+.international-header .nav-search .bilibili-search-history:active,
 .international-header .nav-search:focus-within .bilibili-search-suggest,
 .international-header .nav-search:focus-within .bilibili-search-history{
     display: block;
@@ -318,35 +321,49 @@ backdrop-filter:  var(--filter-glass); EOT;
 **样式颜色、阴影、滤镜等变量
 */
   :root {
-    /*[[BLUE_LOGO]]*/
-    --bgimg: url(/*[[DIV_BG]]*/);
-    --bgcolor: rgb(239, 239, 244);
-    --mask-opacity: /*[[MASK_OPACITY]]*/ ;
-    --mask-color: rgb(239, 239, 244, var(--mask-opacity));
-    --con-primary: rgba(255, 255, 255, 1);
-    --con-primary-solid: rgba(255, 255, 255, 1);
-    --elevated-primary: rgb(255, 255, 255);
-    --elevated-secondary: rgb(255, 255, 255);
-    --elevated-primary-solid: rgb(255, 255, 255);
-    --elevated-secondary-solid: rgb(255, 255, 255);
-    --divider-main: rgba(60, 60, 67, 0.1);
-    --fill-primary: rgba(120, 120, 128, 0.22);
-    --text-main: #000;
-    --text-primary: #000;
-    --text-secondary: rgba(60, 60, 67, 0.6);
-    --radius: 10px;
-    --blue: rgb(0, 161, 214);
-    --blue-light: rgba(0, 161, 214, 0.4);
-    --depth-1: 0 10px 20px rgba(0, 0, 0, 0.03), 0 5px 10px rgba(0, 0, 0, 0.02);
-    --depth-2: 0 20px 25px rgba(0, 0, 0, 0.08), 0 8px 18px rgba(0, 0, 0, 0.025);
+      /*[[BLUE_LOGO]]*/
+      --bgimg: url(/*[[DIV_BG]]*/);
+      --bgcolor: rgb(239, 239, 244);
+      --mask-opacity: /*[[MASK_OPACITY]]*/;
+      --mask-color: rgb(239, 239, 244, var(--mask-opacity));
+      --con-primary: rgba(255, 255, 255, 1);
+      --con-primary-solid: rgba(255, 255, 255, 1);
+      --elevated-primary: rgb(255, 255, 255);
+      --elevated-secondary: rgb(255, 255, 255);
+      --elevated-primary-solid: rgb(255, 255, 255);
+      --elevated-secondary-solid: rgb(255, 255, 255);
+      --divider-main: rgba(60, 60, 67, 0.1);
+      --fill-primary: rgba(120, 120, 128, 0.22);
+      --text-main: #000;
+      --text-primary: #000;
+      --text-secondary: rgba(60, 60, 67, 0.6);
+      --radius: 10px;
+
+      --blue: rgb(0, 161, 214);
+      --blue-40: rgba(0, 161, 214, 0.4);
+      --blue-20: rgba(0, 161, 214, 0.2);
+      --blue-10: rgba(0, 161, 214, 0.1);
+      --pink: rgb(240, 98, 146);
+      --pink-40: rgba(240, 98, 146, 0.4);
+      --pink-20: rgba(240, 98, 146, 0.2);
+      --pink-10: rgba(240, 98, 146, 0.1);
+
+      --m-color: var(--blue);
+      --m-color-40: var(--blue-40);
+      --m-color-20: var(--blue-20);
+      --m-color-10: var(--blue-10);
+
+
+      --depth-1: 0 10px 20px rgba(0, 0, 0, 0.03), 0 5px 10px rgba(0, 0, 0, 0.02);
+      --depth-2: 0 20px 25px rgba(0, 0, 0, 0.08), 0 8px 18px rgba(0, 0, 0, 0.025);
   }
   @supports (backdrop-filter: blur(20px)) {
-    :root {
-      --filter-glass: blur(20px) saturate(180%);
-      --con-primary: rgba(255, 255, 255, 0.75);
-      --elevated-primary: rgba(255, 255, 255, 0.75);
-      --elevated-secondary: rgba(255, 255, 255, 0.75);
-    }
+      :root {
+          --filter-glass: blur(20px) saturate(180%);
+          --con-primary: rgba(255, 255, 255, 0.75);
+          --elevated-primary: rgba(255, 255, 255, 0.75);
+          --elevated-secondary: rgba(255, 255, 255, 0.75);
+      }
   }
   /*
 **以下是调整暗色模式所覆盖的变量，当调整后上面css变量将被覆盖
@@ -359,6 +376,20 @@ backdrop-filter:  var(--filter-glass); EOT;
   /*
 **板块颜色调整
 */
+  a:hover,
+  .international-footer a:hover,
+  .international-footer .partner a:hover,
+  .time-line-card .txt .update .published,
+  .international-header a:hover,
+  .van-popover a:hover,
+  .page-tab .con li:hover a{
+      color: var(--m-color);
+  }
+  
+  .up:hover{
+      color: var(--m-color)!important;
+  }
+  
   .primary-menu-itnl,
   .video-card-common,
   .time-line .zone-list-box .item,
@@ -367,14 +398,14 @@ backdrop-filter:  var(--filter-glass); EOT;
   .live-card,
   .manga-rank-item .preview .preview-link,
   .international-footer {
-    background: var(--con-primary-solid);
+      background: var(--con-primary-solid);
   }
   .rank-header .name,
   .storey-title .name,
   .special-recommend header,
   .popover-video-card .content .info .f-title,
   .ifmt h3 {
-    color: var(--text-main);
+      color: var(--text-main);
   }
   a,
   .elevator .list-box .item,
@@ -383,7 +414,7 @@ backdrop-filter:  var(--filter-glass); EOT;
   .manga-panel .manga-list-box .manga-card .manga-title,
   .international-footer .link-box .link-item .bt,
   .live-card .up .txt .desc {
-    color: var(--text-primary);
+      color: var(--text-primary);
   }
   .video-card-common .up,
   .pgc-rank-wrap .txt .update,
@@ -392,14 +423,14 @@ backdrop-filter:  var(--filter-glass); EOT;
   .international-footer .partner,
   .live-rank .live-rank-item .txt p.p2,
   .storey-title .text-info {
-    color: var(--text-secondary);
+      color: var(--text-secondary);
   }
   .tab-line-itnl,
   .international-footer .link-box .link-item {
-    border-color: var(--divider-main);
+      border-color: var(--divider-main);
   }
   .vp-container a {
-    color: #000;
+      color: #000;
   }
 }
 
@@ -408,13 +439,13 @@ backdrop-filter:  var(--filter-glass); EOT;
 **去除首页碍眼东西，与处理删除碍眼东西后的一些处理
 */
   .bili-banner .taper-line {
-    /*原本去除难看的过渡色效果*/
-    background: none !important;
+      /*原本去除难看的过渡色效果*/
+      background: none !important;
   }
   /*banner上方的链接*/
   .nav-link .nav-link-ul .nav-link-item .link,
   .nav-user-center .user-con .item .name {
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
   }
   /*删除banner上方我认为无用的链接（ε=ε=ε=┏(゜ロ゜;)┛逃）*/
   .nav-link .nav-link-ul .nav-link-item .link,
@@ -433,7 +464,7 @@ backdrop-filter:  var(--filter-glass); EOT;
   .manga-panel .app-download-link span,
   /*漫画app下载*/
   .manga-panel .app-download-link {
-    display: none;
+      display: none;
   }
   /*删除左侧小电视*/
   .mascot,
@@ -441,7 +472,7 @@ backdrop-filter:  var(--filter-glass); EOT;
   .contact-help,
   /*广告*/
   .banner-card {
-    display: none;
+      display: none;
   }
 }
 
@@ -459,28 +490,28 @@ backdrop-filter:  var(--filter-glass); EOT;
   /*[[FOCUS_33]]*/
   /*banner图片*/
   .bili-banner {
-    position: relative;
-    background: none !important;
-    background-image: var(--bgimg) !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    background-color: var(--bgcolor) !important;
-    background-size: cover !important;
-    overflow: hidden;
-    transition: 0.25s;
+      position: relative;
+      background: none !important;
+      background-image: var(--bgimg) !important;
+      background-repeat: no-repeat !important;
+      background-position: center !important;
+      background-color: var(--bgcolor) !important;
+      background-size: cover !important;
+      overflow: hidden;
+      transition: 0.25s;
   }
   .bili-banner:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: inherit;
-    background: var(--mask-color);
-    z-index: 0;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: inherit;
+      background: var(--mask-color);
+      z-index: 0;
   }
   body {
-    background-color: var(--bgcolor);
+      background-color: var(--bgcolor);
   }
   /*滑过的列表链接*/
   .links .link-item[data-v-be7d8ba6]:hover,
@@ -488,137 +519,134 @@ backdrop-filter:  var(--filter-glass); EOT;
   .tab-item--normal[data-v-1ea1793c]:hover,
   .video-card[data-v-7e985ebc]:hover,
   .upload-item[data-v-52f814c6]:hover {
-    background-color: var(--fill-primary);
+      background-color: var(--fill-primary);
   }
   /*投稿颜色更换*/
   .mini-upload {
-    background-color: var(--blue) !important;
+      background-color: var(--m-color) !important;
   }
   /*删除顶部右侧大会员标志和链接*/
   .nav-user-center .user-con .item:nth-child(2) {
-    display: none;
+      display: none;
   }
   .bili-banner .b-logo .head-logo {
-    display: none;
+      display: none;
   }
   .bili-banner .b-logo .logo-img {
-    display: none;
+      display: none;
   }
   /*搜索框容器*/
   .international-header .nav-search-box {
-    /*强制显示搜索栏*/
-    display: block !important;
-    position: absolute;
-    top: 35vh;
-    left: calc(50vw - 310px);
-    width: 600px;
+      /*强制显示搜索栏*/
+      display: block !important;
+      position: absolute;
+      top: 35vh;
+      left: calc(50vw - 310px);
+      width: 600px;
   }
   /*强行制作出搜索栏上的logo*/
   .international-header .nav-search-box:after {
-    content: '';
-    position: absolute;
-    top: -300%;
-    left: calc(50% - 100px);
-    background: var(--logoimg, url(https://i.loli.net/2019/06/11/5cff54794e40241270.png)) no-repeat !important;
-    background-size: 200px !important;
-    width: 210px;
-    height: 100px;
-    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.08));
+      content: '';
+      position: absolute;
+      top: -300%;
+      left: calc(50% - 100px);
+      background: var(--logoimg, url(https://i.loli.net/2019/06/11/5cff54794e40241270.png)) no-repeat !important;
+      background-size: 200px !important;
+      width: 210px;
+      height: 100px;
+      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.08));
   }
   /*浏览器分辨率不够时强制显示出搜索栏*/
   @media screen and (max-width: 1110px) {
-    /*调整搜索框与logo位置使其在分辨率小的页面看起来自然*/
-    .international-header .nav-search-box {
-      top: 40vh;
-    }
-    /*对logo大小重新调整*/
-    .international-header .nav-search-box:before {
-      background-size: 180px !important;
-      top: -240%;
-      height: 100px;
-    }
+      /*调整搜索框与logo位置使其在分辨率小的页面看起来自然*/
+      .international-header .nav-search-box {
+          top: 40vh;
+      }
+      /*对logo大小重新调整*/
+      .international-header .nav-search-box:before {
+          background-size: 180px !important;
+          top: -240%;
+          height: 100px;
+      }
   }
   /*删除分辨率不够时出现的小图标*/
   .nav-user-center .user-con.search-icon {
-    display: none !important;
+      display: none !important;
   }
   /*搜索框*/
   .international-header .nav-search #nav_searchform {
-    background-color: var(--con-primary) !important;
-    box-shadow: var(--depth-1) !important;
-    padding: 8px 42px 8px 20px;
-    border-radius: var(--radius);
-    transition: 0.25s;
-    backdrop-filter: var(--filter-glass);
-    border: none !important;
-    z-index: 9999;
+      background-color: var(--con-primary) !important;
+      box-shadow: var(--depth-1) !important;
+      padding: 8px 42px 8px 20px;
+      border-radius: var(--radius);
+      transition: 0.25s;
+      backdrop-filter: var(--filter-glass);
+      border: none !important;
+      z-index: 9999;
   }
   .international-header .nav-search .nav-search-keyword {
-    color: var(--text-main) !important;
+      color: var(--text-main) !important;
   }
   /*搜索图标*/
   .bili-icon_dingdao_sousuo::before {
-    color: var(--text-main);
-    transition: 0.25s;
+      color: var(--text-main);
+      transition: 0.25s;
   }
-  .international-header
-    .nav-search
-    .nav-search-btn:hover
-    .bili-icon_dingdao_sousuo::before {
-    color: var(--blue) !important;
+  .international-header .nav-search .nav-search-btn:hover .bili-icon_dingdao_sousuo::before {
+      color: var(--m-color) !important;
   }
   /*搜索历史、建议文字*/
   .bilibili-search-suggest .suggest-item a,
   .bilibili-search-history .history-item a {
-    color: var(--text-main) !important;
+      color: var(--text-main) !important;
   }
   /*搜索建议高亮文字*/
   .bilibili-search-suggest .suggest-item .suggest_high_light {
-    color: var(--blue);
+      color: var(--m-color);
   }
   .international-header .nav-search #nav_searchform:focus-within {
-    box-shadow: var(--depth-2) !important;
+      box-shadow: var(--depth-2) !important;
   }
   .international-header .nav-search .nav-search-keyword::placeholder {
-    color: transparent !important;
+      color: transparent !important;
   }
   .international-header .nav-search .nav-search-keyword {
-    font-size: 16px;
-    color: black;
+      font-size: 16px;
+      color: black;
   }
   /*搜索图标*/
   .bili-header-m .nav-search .nav-search-submit,
   .international-header .nav-search .nav-search-submit {
-    top: 16px;
+      top: 16px;
   }
   .bili-header-m .nav-search .nav-search-btn,
   .international-header .nav-search .nav-search-btn {
-    background-color: transparent;
+      background-color: transparent;
   }
   /*搜索建议项容器*/
   .bilibili-search-suggest,
   /*历史搜索项容器*/
   .bilibili-search-history {
-    border-radius: var(--radius);
-    background-color: var(--con-primary) !important;
-    backdrop-filter: var(--filter-glass);
-    box-shadow: var(--depth-2);
-    border: none;
+      border-radius: var(--radius);
+      background-color: var(--con-primary) !important;
+      backdrop-filter: var(--filter-glass);
+      box-shadow: var(--depth-2);
+      border: none;
   }
   /*鼠标滑过搜索建议、历史项时改变颜色*/
   .bilibili-search-suggest .suggest-item.focus,
   .bilibili-search-suggest .suggest-item:hover,
   .bilibili-search-history .history-item.focus,
   .bilibili-search-history .history-item:hover {
-    background-color: var(--fill-primary);
+      background-color: var(--fill-primary);
   }
   /*去除分区导航栏边框*/
   .page-tab .con li {
-    border-color: transparent;
+      border-color: transparent;
   }
   .international-footer {
-    box-shadow: var(--depth-2);
-    border-radius: var(--radius) var(--radius) 0 0;
+      box-shadow: var(--depth-2);
+      border-radius: var(--radius) var(--radius) 0 0;
   }
 }
 
@@ -628,91 +656,93 @@ backdrop-filter:  var(--filter-glass); EOT;
 */
   /*分区导航栏弹窗*/
   .van-popover.van-popper-channel {
-    background: var(--elevated-secondary);
-    backdrop-filter: var(--filter-glass);
-    box-shadow: var(--depth-1);
-    border: none;
+      background: var(--elevated-secondary);
+      backdrop-filter: var(--filter-glass);
+      box-shadow: var(--depth-1);
+      border: none;
   }
   /*板块标题，排行榜字体、特别推荐调整*/
   .rank-header .name,
   .storey-title .name,
   .special-recommend header,
   .ifmt h3 {
-    font-weight: 800;
+      font-weight: 800;
   }
   /*顶部分区最新视频数量*/
   .channel-menu-itnl .item .name em {
-    background: rgba(83, 209, 251, 0.2);
-    color: var(--blue);
+      background: var(--m-color-10);
+      color: var(--m-color);
   }
   /*新番时间表*/
   .time-line .tl-link {
-    background: rgba(83, 209, 251, 0.1);
-    border-color: transparent;
+      color: var(--m-color);
+      background: var(--m-color-10);
+      border-color: transparent;
   }
   .time-line .tl-link:hover {
-    background: rgba(83, 209, 251, 0.25);
-    color: var(--blue);
+      color: var(--m-color);
+      background: var(--m-color-20);
   }
   .rank-header .more,
   .exchange-btn .btn {
-    border-color: transparent;
-    color: var(--text-main);
-    background: rgba(122, 134, 149, 0.1);
+      border-color: transparent;
+      color: var(--text-main);
+      background: rgba(122, 134, 149, 0.1);
   }
   .rank-header .more:hover,
   .exchange-btn .btn:hover {
-    background: rgba(122, 134, 149, 0.3);
+      background: rgba(122, 134, 149, 0.3);
   }
   /*排行榜*/
   .rank-wrap .number,
   .pgc-rank-wrap .number,
   .manga-rank-item .rank-number,
   .live-rank .live-rank-item .number {
-    background: transparent;
-    border-radius: 20px;
-    font-size: 12px;
+      background: transparent;
+      border-radius: 20px;
+      font-size: 12px;
   }
   .rank-wrap .number.on,
   .pgc-rank-wrap .number.on,
   .manga-rank-item .rank-number.on,
   .live-rank .live-rank-item .number.on {
-    box-shadow: 0 3px 6px var(--blue-light);
+      background-color: var(--m-color);
+      box-shadow: 0 3px 6px var(--m-color-40);
   }
   .tab-switch .tab-switch-item {
-    position: relative;
-    color: var(--text-secondary);
-    transition: 0.25s;
-    font-weight: 600;
-    border: none !important;
+      position: relative;
+      color: var(--text-secondary);
+      transition: 0.25s;
+      font-weight: 600;
+      border: none !important;
   }
   .tab-switch .tab-switch-item.on,
   .tab-switch .tab-switch-item:hover {
-    color: var(--text-primary) !important;
+      color: var(--text-primary) !important;
   }
   .tab-switch .tab-switch-item:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: var(--blue);
-    transform: scalex(0);
-    border-radius: 3px;
-    transition: 0.25s;
-    box-shadow: 0 2px 6px var(--blue-light);
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--m-color);
+      transform: scalex(0);
+      border-radius: 3px;
+      transition: 0.25s;
+      box-shadow: 0 2px 6px var(--m-color-40);
   }
   .tab-switch .tab-switch-item.on:after,
   .tab-switch .tab-switch-item:hover:after {
-    transform: scalex(1);
+      transform: scalex(1);
   }
   /*页脚微调*/
   .international-footer .link-box .link-item .bt {
-    font-weight: 800;
+      font-weight: 800;
   }
   .international-footer .partner .pic-box {
-    display: none;
+      display: none;
   }
 }
 
@@ -722,77 +752,78 @@ backdrop-filter:  var(--filter-glass); EOT;
 */
   /*右侧导航栏*/
   .elevator {
-    transform: translatex(15px);
+      transform: translatex(15px);
   }
   .elevator,
   .elevator .list-box .item.back-top {
-    box-shadow: var(--depth-2);
+      box-shadow: var(--depth-2);
   }
   .elevator .list-box {
-    width: 56px;
+      width: 56px;
   }
   .elevator .list-box,
   .elevator .list-box .item.sort,
   .elevator .list-box .item.back-top {
-    border-color: var(--con-primary-solid);
+      border-color: var(--con-primary-solid);
   }
   .elevator .list-box,
   .elevator .list-box .item.sort,
   .elevator .list-box .item.back-top {
-    background: var(--con-primary-solid);
+      background: var(--con-primary-solid);
   }
   .elevator .list-box .item {
-    height: unset;
-    padding: 2px 0;
-    background: transparent;
-    transition: 0.25s ease;
+      height: unset;
+      padding: 2px 0;
+      background: transparent;
+      transition: 0.25s ease;
   }
   .elevator .list-box .item.on,
   .elevator .list-box .item:hover {
-    padding: 2px 4px 2px 2px;
-    width: 76px;
-    box-shadow: 0 6px 20px var(--blue-light);
-    margin-left: -15px;
+      padding: 2px 4px 2px 2px;
+      width: 76px;
+      background-color: var(--m-color);
+      box-shadow: 0 6px 20px var(--m-color-40);
+      margin-left: -15px;
   }
   .elevator .list-box .item.sort,
   .elevator .list-box .item.back-top {
-    transform: none;
-    margin: 0 !important;
-    padding: 2px 0;
-    width: 56px;
-    z-index: -1;
+      transform: none;
+      margin: 0 !important;
+      padding: 2px 0;
+      width: 56px;
+      z-index: -1;
   }
   .elevator .list-box .item.sort.on {
-    background: var(--blue);
+      background: var(--m-color);
   }
   .elevator .list-box .item.sort:hover,
   .elevator .list-box .item.back-top:hover {
-    background: var(--blue);
-    border-color: var(--blue);
-    box-shadow: var(--depth-2);
+      background: var(--m-color);
+      border-color: var(--m-color);
+      box-shadow: var(--depth-2);
   }
   .elevator .list-box .item.sort {
-    width: 54px;
+      width: 54px;
   }
   .elevator .bg23 {
-    background-color: transparent;
+      background-color: transparent;
   }
   /*分区导航栏分类弹窗*/
   /* .van-popover, */
   /*视频信息弹窗*/
   .popover-video-card {
-    background: var(--elevated-secondary);
-    backdrop-filter: var(--filter-glass);
-    border: none;
-    border-radius: var(--radius);
-    box-shadow: var(--depth-2);
+      background: var(--elevated-secondary);
+      backdrop-filter: var(--filter-glass);
+      border: none;
+      border-radius: var(--radius);
+      box-shadow: var(--depth-2);
   }
   .popover-video-card .count {
-    border-color: var(--divider-main);
+      border-color: var(--divider-main);
   }
   /*分区导航栏分类弹窗*/
   .van-popover .popper__arrow {
-    display: none;
+      display: none;
   }
   /*整体板块调整*/
   .primary-menu-itnl,
@@ -806,38 +837,38 @@ backdrop-filter:  var(--filter-glass); EOT;
   .article-card,
   /*直播*/
   .live-card {
-    border-radius: var(--radius);
-    box-shadow: var(--depth-1);
+      border-radius: var(--radius);
+      box-shadow: var(--depth-1);
   }
 
   /*直播单独调整*/
   .live-card {
-    overflow: hidden;
-    margin-bottom: 0.5rem;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
   }
 
   .live-card .up {
-    padding: 0 0.5rem 0.7rem;
+      padding: 0 0.5rem 0.7rem;
   }
 
   .live-card .up .txt {
-    width: calc(158px - 0.7rem);
+      width: calc(158px - 0.7rem);
   }
 
   /*视频封面*/
   .video-card-common .card-pic a,
   /*漫画封面*/
   .manga-panel .manga-list-box .manga-card img {
-    border-radius: var(--radius) var(--radius) 0 0;
-    overflow: hidden;
+      border-radius: var(--radius) var(--radius) 0 0;
+      overflow: hidden;
   }
   /*番剧时间线封面*/
   .time-line-card .pic {
-    border-radius: var(--radius) 0 0 var(--radius);
-    overflow: hidden;
+      border-radius: var(--radius) 0 0 var(--radius);
+      overflow: hidden;
   }
   .time-line .zone-list-box .item {
-    padding-right: 0.5em;
+      padding-right: 0.5em;
   }
   /*顶部轮播图*/
   .focus-carousel,
@@ -848,77 +879,77 @@ backdrop-filter:  var(--filter-glass); EOT;
   .carousel,
   /*资讯分区右侧图片*/
   .ifmt img {
-    border-radius: var(--radius) !important;
-    box-shadow: var(--depth-1);
-    overflow: hidden;
-    background-color: var(--fill-primary);
+      border-radius: var(--radius) !important;
+      box-shadow: var(--depth-1);
+      overflow: hidden;
+      background-color: var(--fill-primary);
   }
   /*分区导航栏*/
   .primary-menu-itnl {
-    margin: 40px 0;
-    padding: 15px 15px 10px;
+      margin: 40px 0;
+      padding: 15px 15px 10px;
   }
   /*视频板块调整*/
   .video-card-common {
-    padding-bottom: 1em;
-    margin-bottom: 1em;
+      padding-bottom: 1em;
+      margin-bottom: 1em;
   }
   .video-card-common .title,
   .video-card-common .up,
   .video-card-common .cheese_title,
   .video-card-common .update_info {
-    padding: 0 1em;
+      padding: 0 1em;
   }
   /*漫画*/
   .manga-panel .manga-list-box .manga-card {
-    padding-bottom: 1em;
+      padding-bottom: 1em;
   }
   .manga-panel .manga-list-box .manga-card .manga-title,
   .manga-panel .manga-list-box .manga-card .manga-tag {
-    padding: 0 1em;
+      padding: 0 1em;
   }
   /*专栏*/
   .article-card .r-con {
-    padding-top: 0.5em;
+      padding-top: 0.5em;
   }
   .article-card .r-con .title {
-    text-wrap: nowrap !important;
-    text-overflow: ellipse;
-    overflow: hidden;
+      text-wrap: nowrap !important;
+      text-overflow: ellipse;
+      overflow: hidden;
   }
   .article-card .r-con .up {
-    margin: 0;
+      margin: 0;
   }
   .article-card .pic img {
-    border-radius: var(--radius) 0 0 var(--radius);
+      border-radius: var(--radius) 0 0 var(--radius);
   }
   /*排行榜右侧文字*/
   .rank-wrap .preview .txt {
-    background: var(--con-primary);
-    margin-left: 0;
-    padding-left: 12px;
-    border-radius: 0 var(--radius) var(--radius) 0;
-    box-shadow: var(--depth-1);
+      background: var(--con-primary);
+      margin-left: 0;
+      padding-left: 12px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      box-shadow: var(--depth-1);
   }
   .rank-wrap .preview .pic img {
-    border-radius: 0 0 0 var(--radius);
-    box-shadow: var(--depth-1);
+      border-radius: 0 0 0 var(--radius);
+      box-shadow: var(--depth-1);
   }
   .rank-wrap .number.on + a .title,
   .pgc-rank-wrap .number.on + a .txt,
   .manga-rank-item .rank-number.on + a.other-link {
-    border-radius: 0 var(--radius) var(--radius) var(--radius);
-    padding: 0.5rem;
-    background: var(--con-primary-solid);
-    box-shadow: var(--depth-1);
+      border-radius: 0 var(--radius) var(--radius) var(--radius);
+      padding: 0.5rem;
+      background: var(--con-primary-solid);
+      box-shadow: var(--depth-1);
   }
   /*漫画排行榜*/
   .manga-rank-item .preview .preview-link {
-    box-shadow: var(--depth-1);
-    border-radius: 0 var(--radius) var(--radius) var(--radius);
-    overflow: hidden;
+      box-shadow: var(--depth-1);
+      border-radius: 0 var(--radius) var(--radius) var(--radius);
+      overflow: hidden;
   }
   .manga-rank-item .preview .preview-desc .title {
-    margin-top: 1em;
+      margin-top: 1em;
   }
 }
