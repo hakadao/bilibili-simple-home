@@ -9,6 +9,7 @@ b站仿搜索引擎样式首页风格，支持几种不同显示效果
 1. 安装 [Stylus for Firefox](https://addons.mozilla.org/en-US/firefox/addon/styl-us/), [Chrome](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne), [Opera](https://addons.opera.com/en-gb/extensions/details/stylus/) 或者 [Cascadea for Safari](https://cascadea.app/)
 
 2. [点击此处安装、更新样式](https://raw.githubusercontent.com/hakadao/bilibili-simple-home/master/index.user.css)
+3. [上面那里链接打不开的试试这个](https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/index.user.css)
 
 ## 效果
 
