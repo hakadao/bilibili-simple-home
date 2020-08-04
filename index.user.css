@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.0.3
+@version        1.0.4
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -45,8 +45,8 @@
 
 .primary-menu-itnl {
     margin-top: -50px!important;
-    background-color: var(--con-primary)!important;
-    backdrop-filter: var(--filter-glass);
+    background-color: var(--azb-content-primary)!important;
+    backdrop-filter: var(--azb-depth-glass);
 }
 
 /*搜索框容器*\/
@@ -78,8 +78,8 @@
 
 .primary-menu-itnl {
     margin-top: -50px!important;
-    background-color: var(--con-primary)!important;
-    backdrop-filter: var(--filter-glass);
+    background-color: var(--azb-content-primary)!important;
+    backdrop-filter: var(--azb-depth-glass);
 }
 
 /*搜索框容器*\/
@@ -104,80 +104,80 @@
 
 @media screen and (prefers-color-scheme: dark) {
     :root {
-        --bgcolor: rgb(0, 0, 0);
-        --mask-color: rgba(0, 0, 0, var(--mask-opacity));
-        --con-primary: rgba(20, 20, 20, 1);
-        --con-primary-solid: rgba(20, 20, 20, 1);
-        --elevated-primary: rgb(44, 44, 46);
-        --elevated-secondary: rgb(58, 58, 60);
-        --elevated-primary-solid: rgb(44, 44, 46);
-        --elevated-secondary-solid: rgb(58, 58, 60);
-        --divider-main: rgba(84, 84, 88, .65);
-        --filter-white: contrast(0) invert(1);
-        --fill-primary: rgba(120, 120, 128, .36);
-        --text-main: #fff;
-        --text-primary: #f5f5f7;
-        --text-secondary: rgba(235, 235, 245, .6);
+        --azb-bgcolor: rgb(0, 0, 0);
+        --azb-mask-color: rgba(0, 0, 0, var(--azb-mask-opacity));
+        --azb-content-primary: rgba(20, 20, 20, 1);
+        --azb-content-primary-solid: rgba(20, 20, 20, 1);
+        --azb-elevated-primary: rgb(44, 44, 46);
+        --azb-elevated-secondary: rgb(58, 58, 60);
+        --azb-elevated-primary-solid: rgb(44, 44, 46);
+        --azb-elevated-secondary-solid: rgb(58, 58, 60);
+        --azb-divide: rgba(84, 84, 88, .65);
+        --azb-depth-white: contrast(0) invert(1);
+        --azb-fill-primary: rgba(120, 120, 128, .36);
+        --azb-text-main: #fff;
+        --azb-text-primary: #f5f5f7;
+        --azb-text-secondary: rgba(235, 235, 245, .6);
     }
     @supports (backdrop-filter: blur(20px)) {
         :root {
-            --filter-glass: blur(20px) saturate(180%);
-            --con-primary: rgba(20, 20, 20, .75);
-            --elevated-primary: rgba(44, 44, 46, .75);
-            --elevated-secondary: rgba(58, 58, 60, .75);
+            --azb-depth-glass: blur(20px) saturate(180%);
+            --azb-content-primary: rgba(20, 20, 20, .75);
+            --azb-elevated-primary: rgba(44, 44, 46, .75);
+            --azb-elevated-secondary: rgba(58, 58, 60, .75);
         }
     }
 } EOT;
 	DARK_MODE_1 "【A屏黑】开启" <<<EOT
 :root {
-    --bgcolor: rgb(0, 0, 0);
-    --mask-color: rgba(0, 0, 0, var(--mask-opacity));
-    --con-primary: rgba(20, 20, 20, 1);
-    --con-primary-solid: rgba(20, 20, 20, 1);
-    --elevated-primary: rgb(44, 44, 46);
-    --elevated-secondary: rgb(58, 58, 60);
-    --elevated-primary-solid: rgb(44, 44, 46);
-    --elevated-secondary-solid: rgb(58, 58, 60);
-    --divider-main: rgba(84, 84, 88, .65);
-    --filter-white: contrast(0) invert(1);
-    --fill-primary: rgba(120, 120, 128, .36);
-    --text-main: #fff;
-    --text-primary: #f5f5f7;
-    --text-secondary: rgba(235, 235, 245, .6);
+    --azb-bgcolor: rgb(0, 0, 0);
+    --azb-mask-color: rgba(0, 0, 0, var(--azb-mask-opacity));
+    --azb-content-primary: rgba(20, 20, 20, 1);
+    --azb-content-primary-solid: rgba(20, 20, 20, 1);
+    --azb-elevated-primary: rgb(44, 44, 46);
+    --azb-elevated-secondary: rgb(58, 58, 60);
+    --azb-elevated-primary-solid: rgb(44, 44, 46);
+    --azb-elevated-secondary-solid: rgb(58, 58, 60);
+    --azb-divide: rgba(84, 84, 88, .65);
+    --azb-depth-white: contrast(0) invert(1);
+    --azb-fill-primary: rgba(120, 120, 128, .36);
+    --azb-text-main: #fff;
+    --azb-text-primary: #f5f5f7;
+    --azb-text-secondary: rgba(235, 235, 245, .6);
 }
 
 @supports (backdrop-filter: blur(20px)) {
     :root {
-        --filter-glass: blur(20px) saturate(180%);
-        --con-primary: rgba(20, 20, 20, .75);
-        --elevated-primary: rgba(44, 44, 46, .75);
-        --elevated-secondary: rgba(58, 58, 60, .75);
+        --azb-depth-glass: blur(20px) saturate(180%);
+        --azb-content-primary: rgba(20, 20, 20, .75);
+        --azb-elevated-primary: rgba(44, 44, 46, .75);
+        --azb-elevated-secondary: rgba(58, 58, 60, .75);
     }
 } EOT;
 	AUTO_DARK_MODE_2 "跟随系统" <<<EOT
 @media screen and (prefers-color-scheme: dark) {
     :root {
-        --bgcolor: rgb(15, 15, 17);
-        --mask-color: rgba(15, 15, 17, var(--mask-opacity));
-        --con-primary: rgba(32, 32, 34, 1);
-        --con-primary-solid: rgba(32, 32, 34, 1);
-        --elevated-primary: rgb(44, 44, 46);
-        --elevated-secondary: rgb(58, 58, 60);
-        --elevated-primary-solid: rgb(44, 44, 46);
-        --elevated-secondary-solid: rgb(58, 58, 60);
-        --divider-main: rgba(84, 84, 88, .65);
-        --filter-white: contrast(0) invert(1);
-        --fill-primary: rgba(120, 120, 128, .36);
-        --text-main: #fff;
-        --text-primary: #f5f5f7;
-        --text-secondary: rgba(235, 235, 245, .6);
+        --azb-bgcolor: rgb(15, 15, 17);
+        --azb-mask-color: rgba(15, 15, 17, var(--azb-mask-opacity));
+        --azb-content-primary: rgba(32, 32, 34, 1);
+        --azb-content-primary-solid: rgba(32, 32, 34, 1);
+        --azb-elevated-primary: rgb(44, 44, 46);
+        --azb-elevated-secondary: rgb(58, 58, 60);
+        --azb-elevated-primary-solid: rgb(44, 44, 46);
+        --azb-elevated-secondary-solid: rgb(58, 58, 60);
+        --azb-divide: rgba(84, 84, 88, .65);
+        --azb-depth-white: contrast(0) invert(1);
+        --azb-fill-primary: rgba(120, 120, 128, .36);
+        --azb-text-main: #fff;
+        --azb-text-primary: #f5f5f7;
+        --azb-text-secondary: rgba(235, 235, 245, .6);
     }
     @supports (backdrop-filter: blur(20px)) {
         :root {
-            --filter-glass: blur(20px) saturate(180%);
-            --con-primary: rgba(32, 32, 34, .75);
-            --elevated-primary: rgba(46, 46, 48, .75);
-            --elevated-secondary: rgba(60, 60, 62, .75);
+            --azb-depth-glass: blur(20px) saturate(180%);
+            --azb-content-primary: rgba(32, 32, 34, .75);
+            --azb-elevated-primary: rgba(46, 46, 48, .75);
+            --azb-elevated-secondary: rgba(60, 60, 62, .75);
         }
     }
 } EOT;
@@ -187,28 +187,28 @@
 *\/
 
 :root {
-    --bgcolor: rgb(15, 15, 17);
-    --mask-color: rgba(15, 15, 17, var(--mask-opacity));
-    --con-primary: rgba(32, 32, 34, 1);
-    --con-primary-solid: rgba(32, 32, 34, 1);
-    --elevated-primary: rgb(44, 44, 46);
-    --elevated-secondary: rgb(58, 58, 60);
-    --elevated-primary-solid: rgb(44, 44, 46);
-    --elevated-secondary-solid: rgb(58, 58, 60);
-    --divider-main: rgba(84, 84, 88, .65);
-    --filter-white: contrast(0) invert(1);
-    --fill-primary: rgba(120, 120, 128, .36);
-    --text-main: #fff;
-    --text-primary: #f5f5f7;
-    --text-secondary: rgba(235, 235, 245, .6);
+    --azb-bgcolor: rgb(15, 15, 17);
+    --azb-mask-color: rgba(15, 15, 17, var(--azb-mask-opacity));
+    --azb-content-primary: rgba(32, 32, 34, 1);
+    --azb-content-primary-solid: rgba(32, 32, 34, 1);
+    --azb-elevated-primary: rgb(44, 44, 46);
+    --azb-elevated-secondary: rgb(58, 58, 60);
+    --azb-elevated-primary-solid: rgb(44, 44, 46);
+    --azb-elevated-secondary-solid: rgb(58, 58, 60);
+    --azb-divide: rgba(84, 84, 88, .65);
+    --azb-depth-white: contrast(0) invert(1);
+    --azb-fill-primary: rgba(120, 120, 128, .36);
+    --azb-text-main: #fff;
+    --azb-text-primary: #f5f5f7;
+    --azb-text-secondary: rgba(235, 235, 245, .6);
 }
 
 @supports (backdrop-filter: blur(20px)) {
     :root {
-        --filter-glass: blur(20px) saturate(180%);
-        --con-primary: rgba(32, 32, 34, .75);
-        --elevated-primary: rgba(46, 46, 48, .75);
-        --elevated-secondary: rgba(60, 60, 62, .75);
+        --azb-depth-glass: blur(20px) saturate(180%);
+        --azb-content-primary: rgba(32, 32, 34, .75);
+        --azb-elevated-primary: rgba(46, 46, 48, .75);
+        --azb-elevated-secondary: rgba(60, 60, 62, .75);
     }
 } EOT;
 	DISABLE_DARK_MODE "禁用" <<<EOT
@@ -220,21 +220,23 @@
 	WHITE_LOGO "白色" <<<EOT
  EOT;
 }
-@advanced image DIV_BG "选择背景" {
-	BG_NONE "无背景" ""
-	BG_1 "bing每日图片" "https://bing.getlove.cn/bingImage"
-	BG_2 "unsplash随机" "https://source.unsplash.com/1920x1080/?nature"
-	BG_3 "BML2019 VR（pid: 74271400）" "https://i.loli.net/2020/05/25/DA46cLGaPrhYqnl.jpg"
-	BG_4 "2020拜年祭活动 " "https://i.loli.net/2020/05/25/HxnieocyPIjWvQB.jpg"
-	BG_5 "2020BDF" "https://i.loli.net/2020/05/25/RbTGL1ZQfcHVwY3.jpg"
+@advanced dropdown DIV_BG "选择背景" {
+	BG_NONE "无背景"  <<<EOT "" EOT;
+	BG_1 "bing每日图片" <<<EOT url(https://bing.getlove.cn/bingImage) EOT;
+	BG_2 "unsplash随机" <<<EOT url(https://source.unsplash.com/1920x1080/?nature) EOT;
+	BG_3 "BML2019 VR（pid: 74271400）" <<<EOT url(https://i.loli.net/2020/05/25/DA46cLGaPrhYqnl.jpg) EOT;
+	BG_4 "2020拜年祭活动 " <<<EOT url(https://i.loli.net/2020/05/25/HxnieocyPIjWvQB.jpg) EOT;
+	BG_5 "2020BDF" <<<EOT url(https://i.loli.net/2020/05/25/RbTGL1ZQfcHVwY3.jpg) EOT;
+    BG_6 "自定义" <<<EOT var(--azb-bg-custom) EOT;
 }
+@advanced text CUSTOM_BG "自定义背景" "url()"
 @advanced dropdown TOPLINK_THEME "顶部链接效果（针对自定义背景优化）" {
 	TOPLINK_1 "效果1（推荐无背景使用）" <<<EOT
 /*banner上方的链接*\/
 
 .nav-link .nav-link-ul .nav-link-item .link,
 .nav-user-center .user-con .item .name {
-    color: var(--text-primary);
+    color: var(--azb-text-primary);
     text-shadow: none!important;
 }
 
@@ -245,7 +247,7 @@
 } EOT;
 	TOPLINK_2 "效果2（推荐自定义背景使用）" <<<EOT
 .bili-banner{
-    box-shadow:inset 0 0 200px 50px rgba(0,0,0,.3);
+    box-shadow:inset 0 0 200px 50px rgba(0,0,0,.4);
 }
  EOT;
 }
@@ -273,11 +275,14 @@
     /*[[FOCUS_BLUR]]*\/
 }
 
+/*取消焦点时搜索记录隐藏*\/
 .international-header .nav-search .bilibili-search-suggest,
 .international-header .nav-search .bilibili-search-history{
     display: none;
 }
 
+.international-header .nav-search .bilibili-search-suggest:active,
+.international-header .nav-search .bilibili-search-history:active,
 .international-header .nav-search:focus-within .bilibili-search-suggest,
 .international-header .nav-search:focus-within .bilibili-search-history{
     display: block;
@@ -287,7 +292,7 @@
 	DISABLE_FOCUS_BLUR "关闭" <<<EOT
  EOT;
 	FOCUS_BLUR "开启" <<<EOT
-backdrop-filter:  var(--filter-glass); EOT;
+backdrop-filter:  var(--azb-depth-glass); EOT;
 }
 @advanced dropdown FOCUS_33 "搜索条聚焦后显示33娘" {
 	FOCUS_33 "开启" <<<EOT
@@ -319,33 +324,54 @@ backdrop-filter:  var(--filter-glass); EOT;
 */
   :root {
     /*[[BLUE_LOGO]]*/
-    --bgimg: url(/*[[DIV_BG]]*/);
-    --bgcolor: rgb(239, 239, 244);
-    --mask-opacity: /*[[MASK_OPACITY]]*/ ;
-    --mask-color: rgb(239, 239, 244, var(--mask-opacity));
-    --con-primary: rgba(255, 255, 255, 1);
-    --con-primary-solid: rgba(255, 255, 255, 1);
-    --elevated-primary: rgb(255, 255, 255);
-    --elevated-secondary: rgb(255, 255, 255);
-    --elevated-primary-solid: rgb(255, 255, 255);
-    --elevated-secondary-solid: rgb(255, 255, 255);
-    --divider-main: rgba(60, 60, 67, 0.1);
-    --fill-primary: rgba(120, 120, 128, 0.22);
-    --text-main: #000;
-    --text-primary: #000;
-    --text-secondary: rgba(60, 60, 67, 0.6);
-    --radius: 10px;
-    --blue: rgb(0, 161, 214);
-    --blue-light: rgba(0, 161, 214, 0.4);
-    --depth-1: 0 10px 20px rgba(0, 0, 0, 0.03), 0 5px 10px rgba(0, 0, 0, 0.02);
-    --depth-2: 0 20px 25px rgba(0, 0, 0, 0.08), 0 8px 18px rgba(0, 0, 0, 0.025);
+    --azb-bgimg: /*[[DIV_BG]]*/ ;
+    --azb-bg-custom: /*[[CUSTOM_BG]]*/ ;
+    --azb-bgcolor: rgb(239, 239, 244);
+
+    --azb-mask-opacity: /*[[MASK_OPACITY]]*/ ;
+    --azb-mask-color: rgb(239, 239, 244, var(--azb-mask-opacity));
+
+    --azb-content-primary: rgba(255, 255, 255, 1);
+    --azb-content-primary-solid: rgba(255, 255, 255, 1);
+    --azb-elevated-primary: rgb(255, 255, 255);
+    --azb-elevated-secondary: rgb(255, 255, 255);
+    --azb-elevated-primary-solid: rgb(255, 255, 255);
+    --azb-elevated-secondary-solid: rgb(255, 255, 255);
+
+    --azb-divide: rgba(60, 60, 67, 0.1);
+    --azb-fill-primary: rgba(120, 120, 128, 0.22);
+
+    --azb-text-main: #000;
+    --azb-text-primary: #000;
+    --azb-text-secondary: rgba(60, 60, 67, 0.6);
+
+    --azb-radius: 10px;
+
+    --azb-blue: rgb(0, 161, 214);
+    --azb-blue-40: rgba(0, 161, 214, 0.4);
+    --azb-blue-20: rgba(0, 161, 214, 0.2);
+    --azb-blue-15: rgba(0, 161, 214, 0.15);
+    --azb-pink: rgb(240, 98, 146);
+    --azb-pink-40: rgba(240, 98, 146, 0.4);
+    --azb-pink-20: rgba(240, 98, 146, 0.2);
+    --azb-pink-10: rgba(240, 98, 146, 0.15);
+
+    --azb-theme-color: var(--azb-blue);
+    --azb-theme-color-40: var(--azb-blue-40);
+    --azb-theme-color-20: var(--azb-blue-20);
+    --azb-theme-color-10: var(--azb-blue-15);
+
+    --azb-depth-1: 0 10px 20px rgba(0, 0, 0, 0.03),
+      0 5px 10px rgba(0, 0, 0, 0.02);
+    --azb-depth-2: 0 20px 25px rgba(0, 0, 0, 0.08),
+      0 8px 18px rgba(0, 0, 0, 0.025);
   }
   @supports (backdrop-filter: blur(20px)) {
     :root {
-      --filter-glass: blur(20px) saturate(180%);
-      --con-primary: rgba(255, 255, 255, 0.75);
-      --elevated-primary: rgba(255, 255, 255, 0.75);
-      --elevated-secondary: rgba(255, 255, 255, 0.75);
+      --azb-depth-glass: blur(20px) saturate(180%);
+      --azb-content-primary: rgba(255, 255, 255, 0.75);
+      --azb-elevated-primary: rgba(255, 255, 255, 0.75);
+      --azb-elevated-secondary: rgba(255, 255, 255, 0.75);
     }
   }
   /*
@@ -359,6 +385,20 @@ backdrop-filter:  var(--filter-glass); EOT;
   /*
 **板块颜色调整
 */
+  a:hover,
+  .international-footer a:hover,
+  .international-footer .partner a:hover,
+  .time-line-card .txt .update .published,
+  .international-header a:hover,
+  .van-popover a:hover,
+  .page-tab .con li:hover a {
+    color: var(--azb-theme-color);
+  }
+
+  .up:hover {
+    color: var(--azb-theme-color) !important;
+  }
+
   .primary-menu-itnl,
   .video-card-common,
   .time-line .zone-list-box .item,
@@ -367,14 +407,14 @@ backdrop-filter:  var(--filter-glass); EOT;
   .live-card,
   .manga-rank-item .preview .preview-link,
   .international-footer {
-    background: var(--con-primary-solid);
+    background: var(--azb-content-primary-solid);
   }
   .rank-header .name,
   .storey-title .name,
   .special-recommend header,
   .popover-video-card .content .info .f-title,
   .ifmt h3 {
-    color: var(--text-main);
+    color: var(--azb-text-main);
   }
   a,
   .elevator .list-box .item,
@@ -383,7 +423,7 @@ backdrop-filter:  var(--filter-glass); EOT;
   .manga-panel .manga-list-box .manga-card .manga-title,
   .international-footer .link-box .link-item .bt,
   .live-card .up .txt .desc {
-    color: var(--text-primary);
+    color: var(--azb-text-primary);
   }
   .video-card-common .up,
   .pgc-rank-wrap .txt .update,
@@ -392,11 +432,11 @@ backdrop-filter:  var(--filter-glass); EOT;
   .international-footer .partner,
   .live-rank .live-rank-item .txt p.p2,
   .storey-title .text-info {
-    color: var(--text-secondary);
+    color: var(--azb-text-secondary);
   }
   .tab-line-itnl,
   .international-footer .link-box .link-item {
-    border-color: var(--divider-main);
+    border-color: var(--azb-divide);
   }
   .vp-container a {
     color: #000;
@@ -461,10 +501,10 @@ backdrop-filter:  var(--filter-glass); EOT;
   .bili-banner {
     position: relative;
     background: none !important;
-    background-image: var(--bgimg) !important;
+    background-image: var(--azb-bgimg) !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
-    background-color: var(--bgcolor) !important;
+    background-color: var(--azb-bgcolor) !important;
     background-size: cover !important;
     overflow: hidden;
     transition: 0.25s;
@@ -476,11 +516,11 @@ backdrop-filter:  var(--filter-glass); EOT;
     left: 0;
     width: 100%;
     height: inherit;
-    background: var(--mask-color);
+    background: var(--azb-mask-color);
     z-index: 0;
   }
   body {
-    background-color: var(--bgcolor);
+    background-color: var(--azb-bgcolor);
   }
   /*滑过的列表链接*/
   .links .link-item[data-v-be7d8ba6]:hover,
@@ -488,11 +528,11 @@ backdrop-filter:  var(--filter-glass); EOT;
   .tab-item--normal[data-v-1ea1793c]:hover,
   .video-card[data-v-7e985ebc]:hover,
   .upload-item[data-v-52f814c6]:hover {
-    background-color: var(--fill-primary);
+    background-color: var(--azb-fill-primary);
   }
   /*投稿颜色更换*/
   .mini-upload {
-    background-color: var(--blue) !important;
+    background-color: var(--azb-theme-color) !important;
   }
   /*删除顶部右侧大会员标志和链接*/
   .nav-user-center .user-con .item:nth-child(2) {
@@ -537,47 +577,47 @@ backdrop-filter:  var(--filter-glass); EOT;
       top: -240%;
       height: 100px;
     }
-    /*删除分辨率不够时出现的小图标*/
-    .nav-user-center .user-con.search-icon {
-      display: none !important;
-    }
+  }
+  /*删除分辨率不够时出现的小图标*/
+  .nav-user-center .user-con.search-icon {
+    display: none !important;
   }
   /*搜索框*/
   .international-header .nav-search #nav_searchform {
-    background-color: var(--con-primary) !important;
-    box-shadow: var(--depth-1) !important;
+    background-color: var(--azb-content-primary) !important;
+    box-shadow: var(--azb-depth-1) !important;
     padding: 8px 42px 8px 20px;
-    border-radius: var(--radius);
+    border-radius: var(--azb-radius);
     transition: 0.25s;
-    backdrop-filter: var(--filter-glass);
+    backdrop-filter: var(--azb-depth-glass);
     border: none !important;
     z-index: 9999;
   }
   .international-header .nav-search .nav-search-keyword {
-    color: var(--text-main) !important;
+    color: var(--azb-text-main) !important;
   }
   /*搜索图标*/
   .bili-icon_dingdao_sousuo::before {
-    color: var(--text-main);
+    color: var(--azb-text-main);
     transition: 0.25s;
   }
   .international-header
     .nav-search
     .nav-search-btn:hover
     .bili-icon_dingdao_sousuo::before {
-    color: var(--blue) !important;
+    color: var(--azb-theme-color) !important;
   }
   /*搜索历史、建议文字*/
   .bilibili-search-suggest .suggest-item a,
   .bilibili-search-history .history-item a {
-    color: var(--text-main) !important;
+    color: var(--azb-text-main) !important;
   }
   /*搜索建议高亮文字*/
   .bilibili-search-suggest .suggest-item .suggest_high_light {
-    color: var(--blue);
+    color: var(--azb-theme-color);
   }
   .international-header .nav-search #nav_searchform:focus-within {
-    box-shadow: var(--depth-2) !important;
+    box-shadow: var(--azb-depth-2) !important;
   }
   .international-header .nav-search .nav-search-keyword::placeholder {
     color: transparent !important;
@@ -599,10 +639,10 @@ backdrop-filter:  var(--filter-glass); EOT;
   .bilibili-search-suggest,
   /*历史搜索项容器*/
   .bilibili-search-history {
-    border-radius: var(--radius);
-    background-color: var(--con-primary) !important;
-    backdrop-filter: var(--filter-glass);
-    box-shadow: var(--depth-2);
+    border-radius: var(--azb-radius);
+    background-color: var(--azb-content-primary) !important;
+    backdrop-filter: var(--azb-depth-glass);
+    box-shadow: var(--azb-depth-2);
     border: none;
   }
   /*鼠标滑过搜索建议、历史项时改变颜色*/
@@ -610,15 +650,15 @@ backdrop-filter:  var(--filter-glass); EOT;
   .bilibili-search-suggest .suggest-item:hover,
   .bilibili-search-history .history-item.focus,
   .bilibili-search-history .history-item:hover {
-    background-color: var(--fill-primary);
+    background-color: var(--azb-fill-primary);
   }
   /*去除分区导航栏边框*/
   .page-tab .con li {
     border-color: transparent;
   }
   .international-footer {
-    box-shadow: var(--depth-2);
-    border-radius: var(--radius) var(--radius) 0 0;
+    box-shadow: var(--azb-depth-2);
+    border-radius: var(--azb-radius) var(--azb-radius) 0 0;
   }
 }
 
@@ -628,9 +668,9 @@ backdrop-filter:  var(--filter-glass); EOT;
 */
   /*分区导航栏弹窗*/
   .van-popover.van-popper-channel {
-    background: var(--elevated-secondary);
-    backdrop-filter: var(--filter-glass);
-    box-shadow: var(--depth-1);
+    background: var(--azb-elevated-secondary);
+    backdrop-filter: var(--azb-depth-glass);
+    box-shadow: var(--azb-depth-1);
     border: none;
   }
   /*板块标题，排行榜字体、特别推荐调整*/
@@ -642,22 +682,23 @@ backdrop-filter:  var(--filter-glass); EOT;
   }
   /*顶部分区最新视频数量*/
   .channel-menu-itnl .item .name em {
-    background: rgba(83, 209, 251, 0.2);
-    color: var(--blue);
+    background: var(--azb-theme-color-10);
+    color: var(--azb-theme-color);
   }
   /*新番时间表*/
   .time-line .tl-link {
-    background: rgba(83, 209, 251, 0.1);
+    color: var(--azb-theme-color);
+    background: var(--azb-theme-color-10);
     border-color: transparent;
   }
   .time-line .tl-link:hover {
-    background: rgba(83, 209, 251, 0.25);
-    color: var(--blue);
+    color: var(--azb-theme-color);
+    background: var(--azb-theme-color-20);
   }
   .rank-header .more,
   .exchange-btn .btn {
     border-color: transparent;
-    color: var(--text-main);
+    color: var(--azb-text-main);
     background: rgba(122, 134, 149, 0.1);
   }
   .rank-header .more:hover,
@@ -677,18 +718,19 @@ backdrop-filter:  var(--filter-glass); EOT;
   .pgc-rank-wrap .number.on,
   .manga-rank-item .rank-number.on,
   .live-rank .live-rank-item .number.on {
-    box-shadow: 0 3px 6px var(--blue-light);
+    background-color: var(--azb-theme-color);
+    box-shadow: 0 3px 6px var(--azb-theme-color-40);
   }
   .tab-switch .tab-switch-item {
     position: relative;
-    color: var(--text-secondary);
+    color: var(--azb-text-secondary);
     transition: 0.25s;
     font-weight: 600;
     border: none !important;
   }
   .tab-switch .tab-switch-item.on,
   .tab-switch .tab-switch-item:hover {
-    color: var(--text-primary) !important;
+    color: var(--azb-text-primary) !important;
   }
   .tab-switch .tab-switch-item:after {
     content: '';
@@ -697,11 +739,11 @@ backdrop-filter:  var(--filter-glass); EOT;
     left: 0;
     width: 100%;
     height: 3px;
-    background: var(--blue);
+    background: var(--azb-theme-color);
     transform: scalex(0);
     border-radius: 3px;
     transition: 0.25s;
-    box-shadow: 0 2px 6px var(--blue-light);
+    box-shadow: 0 2px 6px var(--azb-theme-color-40);
   }
   .tab-switch .tab-switch-item.on:after,
   .tab-switch .tab-switch-item:hover:after {
@@ -726,7 +768,7 @@ backdrop-filter:  var(--filter-glass); EOT;
   }
   .elevator,
   .elevator .list-box .item.back-top {
-    box-shadow: var(--depth-2);
+    box-shadow: var(--azb-depth-2);
   }
   .elevator .list-box {
     width: 56px;
@@ -734,12 +776,12 @@ backdrop-filter:  var(--filter-glass); EOT;
   .elevator .list-box,
   .elevator .list-box .item.sort,
   .elevator .list-box .item.back-top {
-    border-color: var(--con-primary-solid);
+    border-color: var(--azb-content-primary-solid);
   }
   .elevator .list-box,
   .elevator .list-box .item.sort,
   .elevator .list-box .item.back-top {
-    background: var(--con-primary-solid);
+    background: var(--azb-content-primary-solid);
   }
   .elevator .list-box .item {
     height: unset;
@@ -751,7 +793,8 @@ backdrop-filter:  var(--filter-glass); EOT;
   .elevator .list-box .item:hover {
     padding: 2px 4px 2px 2px;
     width: 76px;
-    box-shadow: 0 6px 20px var(--blue-light);
+    background-color: var(--azb-theme-color);
+    box-shadow: 0 6px 20px var(--azb-theme-color-40);
     margin-left: -15px;
   }
   .elevator .list-box .item.sort,
@@ -763,13 +806,13 @@ backdrop-filter:  var(--filter-glass); EOT;
     z-index: -1;
   }
   .elevator .list-box .item.sort.on {
-    background: var(--blue);
+    background: var(--azb-theme-color);
   }
   .elevator .list-box .item.sort:hover,
   .elevator .list-box .item.back-top:hover {
-    background: var(--blue);
-    border-color: var(--blue);
-    box-shadow: var(--depth-2);
+    background: var(--azb-theme-color);
+    border-color: var(--azb-theme-color);
+    box-shadow: var(--azb-depth-2);
   }
   .elevator .list-box .item.sort {
     width: 54px;
@@ -781,14 +824,14 @@ backdrop-filter:  var(--filter-glass); EOT;
   /* .van-popover, */
   /*视频信息弹窗*/
   .popover-video-card {
-    background: var(--elevated-secondary);
-    backdrop-filter: var(--filter-glass);
+    background: var(--azb-elevated-secondary);
+    backdrop-filter: var(--azb-depth-glass);
     border: none;
-    border-radius: var(--radius);
-    box-shadow: var(--depth-2);
+    border-radius: var(--azb-radius);
+    box-shadow: var(--azb-depth-2);
   }
   .popover-video-card .count {
-    border-color: var(--divider-main);
+    border-color: var(--azb-divide);
   }
   /*分区导航栏分类弹窗*/
   .van-popover .popper__arrow {
@@ -806,8 +849,8 @@ backdrop-filter:  var(--filter-glass); EOT;
   .article-card,
   /*直播*/
   .live-card {
-    border-radius: var(--radius);
-    box-shadow: var(--depth-1);
+    border-radius: var(--azb-radius);
+    box-shadow: var(--azb-depth-1);
   }
 
   /*直播单独调整*/
@@ -828,12 +871,12 @@ backdrop-filter:  var(--filter-glass); EOT;
   .video-card-common .card-pic a,
   /*漫画封面*/
   .manga-panel .manga-list-box .manga-card img {
-    border-radius: var(--radius) var(--radius) 0 0;
+    border-radius: var(--azb-radius) var(--azb-radius) 0 0;
     overflow: hidden;
   }
   /*番剧时间线封面*/
   .time-line-card .pic {
-    border-radius: var(--radius) 0 0 var(--radius);
+    border-radius: var(--azb-radius) 0 0 var(--azb-radius);
     overflow: hidden;
   }
   .time-line .zone-list-box .item {
@@ -848,10 +891,10 @@ backdrop-filter:  var(--filter-glass); EOT;
   .carousel,
   /*资讯分区右侧图片*/
   .ifmt img {
-    border-radius: var(--radius) !important;
-    box-shadow: var(--depth-1);
+    border-radius: var(--azb-radius) !important;
+    box-shadow: var(--azb-depth-1);
     overflow: hidden;
-    background-color: var(--fill-primary);
+    background-color: var(--azb-fill-primary);
   }
   /*分区导航栏*/
   .primary-menu-itnl {
@@ -890,32 +933,32 @@ backdrop-filter:  var(--filter-glass); EOT;
     margin: 0;
   }
   .article-card .pic img {
-    border-radius: var(--radius) 0 0 var(--radius);
+    border-radius: var(--azb-radius) 0 0 var(--azb-radius);
   }
   /*排行榜右侧文字*/
   .rank-wrap .preview .txt {
-    background: var(--con-primary);
+    background: var(--azb-content-primary);
     margin-left: 0;
     padding-left: 12px;
-    border-radius: 0 var(--radius) var(--radius) 0;
-    box-shadow: var(--depth-1);
+    border-radius: 0 var(--azb-radius) var(--azb-radius) 0;
+    box-shadow: var(--azb-depth-1);
   }
   .rank-wrap .preview .pic img {
-    border-radius: 0 0 0 var(--radius);
-    box-shadow: var(--depth-1);
+    border-radius: 0 0 0 var(--azb-radius);
+    box-shadow: var(--azb-depth-1);
   }
   .rank-wrap .number.on + a .title,
   .pgc-rank-wrap .number.on + a .txt,
   .manga-rank-item .rank-number.on + a.other-link {
-    border-radius: 0 var(--radius) var(--radius) var(--radius);
+    border-radius: 0 var(--azb-radius) var(--azb-radius) var(--azb-radius);
     padding: 0.5rem;
-    background: var(--con-primary-solid);
-    box-shadow: var(--depth-1);
+    background: var(--azb-content-primary-solid);
+    box-shadow: var(--azb-depth-1);
   }
   /*漫画排行榜*/
   .manga-rank-item .preview .preview-link {
-    box-shadow: var(--depth-1);
-    border-radius: 0 var(--radius) var(--radius) var(--radius);
+    box-shadow: var(--azb-depth-1);
+    border-radius: 0 var(--azb-radius) var(--azb-radius) var(--azb-radius);
     overflow: hidden;
   }
   .manga-rank-item .preview .preview-desc .title {

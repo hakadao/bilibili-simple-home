@@ -3,37 +3,27 @@
 */
 @media screen and (prefers-color-scheme: dark) {
     :root {
-        --bgcolor: rgb(0, 0, 0);
-
-        --mask-color: rgba(0, 0, 0, var(--mask-opacity));
-
-        --con-primary: rgba(20, 20, 20, 1);
-        --con-primary-solid: rgba(20, 20, 20, 1);
-
-        --elevated-primary: rgb(44, 44, 46);
-        --elevated-secondary: rgb(58, 58, 60);
-
-        --elevated-primary-solid: rgb(44, 44, 46);
-        --elevated-secondary-solid: rgb(58, 58, 60);
-
-
-        --divider-main: rgba(84, 84, 88, .65);
-
-        --filter-white: contrast(0) invert(1);
-
-        --fill-primary: rgba(120, 120, 128, .36);
-
-        --text-main: #fff;
-        --text-primary: #f5f5f7;
-        --text-secondary: rgba(235, 235, 245, .6);
+        --azb-bgcolor: rgb(0, 0, 0);
+        --azb-mask-color: rgba(0, 0, 0, var(--azb-mask-opacity));
+        --azb-content-primary: rgba(20, 20, 20, 1);
+        --azb-content-primary-solid: rgba(20, 20, 20, 1);
+        --azb-elevated-primary: rgb(44, 44, 46);
+        --azb-elevated-secondary: rgb(58, 58, 60);
+        --azb-elevated-primary-solid: rgb(44, 44, 46);
+        --azb-elevated-secondary-solid: rgb(58, 58, 60);
+        --azb-divide: rgba(84, 84, 88, .65);
+        --azb-depth-white: contrast(0) invert(1);
+        --azb-fill-primary: rgba(120, 120, 128, .36);
+        --azb-text-main: #fff;
+        --azb-text-primary: #f5f5f7;
+        --azb-text-secondary: rgba(235, 235, 245, .6);
     }
-
     @supports (backdrop-filter: blur(20px)) {
         :root {
-            --filter-glass: blur(20px) saturate(180%);
-            --con-primary: rgba(20, 20, 20, .75);
-            --elevated-primary: rgba(44, 44, 46, .75);
-            --elevated-secondary: rgba(58, 58, 60, .75);
+            --azb-depth-glass: blur(20px) saturate(180%);
+            --azb-content-primary: rgba(20, 20, 20, .75);
+            --azb-elevated-primary: rgba(44, 44, 46, .75);
+            --azb-elevated-secondary: rgba(58, 58, 60, .75);
         }
     }
 }
@@ -44,38 +34,29 @@
 **【A屏黑】暗色模式
 */
 :root {
-	--bgcolor: rgb(0, 0, 0);
-
-	--mask-color: rgba(0, 0, 0, var(--mask-opacity));
-
-	--con-primary: rgba(20, 20, 20, 1);
-	--con-primary-solid: rgba(20, 20, 20, 1);
-
-	--elevated-primary: rgb(44, 44, 46);
-	--elevated-secondary: rgb(58, 58, 60);
-
-	--elevated-primary-solid: rgb(44, 44, 46);
-	--elevated-secondary-solid: rgb(58, 58, 60);
-
-
-	--divider-main: rgba(84, 84, 88, .65);
-
-	--filter-white: contrast(0) invert(1);
-
-	--fill-primary: rgba(120, 120, 128, .36);
-
-	--text-main: #fff;
-	--text-primary: #f5f5f7;
-	--text-secondary: rgba(235, 235, 245, .6);
+    --azb-bgcolor: rgb(0, 0, 0);
+    --azb-mask-color: rgba(0, 0, 0, var(--azb-mask-opacity));
+    --azb-content-primary: rgba(20, 20, 20, 1);
+    --azb-content-primary-solid: rgba(20, 20, 20, 1);
+    --azb-elevated-primary: rgb(44, 44, 46);
+    --azb-elevated-secondary: rgb(58, 58, 60);
+    --azb-elevated-primary-solid: rgb(44, 44, 46);
+    --azb-elevated-secondary-solid: rgb(58, 58, 60);
+    --azb-divide: rgba(84, 84, 88, .65);
+    --azb-depth-white: contrast(0) invert(1);
+    --azb-fill-primary: rgba(120, 120, 128, .36);
+    --azb-text-main: #fff;
+    --azb-text-primary: #f5f5f7;
+    --azb-text-secondary: rgba(235, 235, 245, .6);
 }
 
 @supports (backdrop-filter: blur(20px)) {
-	:root {
-		--filter-glass: blur(20px) saturate(180%);
-		--con-primary: rgba(20, 20, 20, .75);
-		--elevated-primary: rgba(44, 44, 46, .75);
-		--elevated-secondary: rgba(58, 58, 60, .75);
-	}
+    :root {
+        --azb-depth-glass: blur(20px) saturate(180%);
+        --azb-content-primary: rgba(20, 20, 20, .75);
+        --azb-elevated-primary: rgba(44, 44, 46, .75);
+        --azb-elevated-secondary: rgba(58, 58, 60, .75);
+    }
 }
 
 /**********************************************************************************/
@@ -85,37 +66,27 @@
 */
 @media screen and (prefers-color-scheme: dark) {
     :root {
-        --bgcolor: rgb(15, 15, 17);
-    
-        --mask-color: rgba(15, 15, 17, var(--mask-opacity));
-    
-        --con-primary: rgba(32, 32, 34, 1);
-        --con-primary-solid: rgba(32, 32, 34, 1);
-    
-        --elevated-primary: rgb(44, 44, 46);
-        --elevated-secondary: rgb(58, 58, 60);
-    
-        --elevated-primary-solid: rgb(44, 44, 46);
-        --elevated-secondary-solid: rgb(58, 58, 60);
-    
-    
-        --divider-main: rgba(84, 84, 88, .65);
-    
-        --filter-white: contrast(0) invert(1);
-    
-        --fill-primary: rgba(120, 120, 128, .36);
-    
-        --text-main: #fff;
-        --text-primary: #f5f5f7;
-        --text-secondary: rgba(235, 235, 245, .6);
+        --azb-bgcolor: rgb(15, 15, 17);
+        --azb-mask-color: rgba(15, 15, 17, var(--azb-mask-opacity));
+        --azb-content-primary: rgba(32, 32, 34, 1);
+        --azb-content-primary-solid: rgba(32, 32, 34, 1);
+        --azb-elevated-primary: rgb(44, 44, 46);
+        --azb-elevated-secondary: rgb(58, 58, 60);
+        --azb-elevated-primary-solid: rgb(44, 44, 46);
+        --azb-elevated-secondary-solid: rgb(58, 58, 60);
+        --azb-divide: rgba(84, 84, 88, .65);
+        --azb-depth-white: contrast(0) invert(1);
+        --azb-fill-primary: rgba(120, 120, 128, .36);
+        --azb-text-main: #fff;
+        --azb-text-primary: #f5f5f7;
+        --azb-text-secondary: rgba(235, 235, 245, .6);
     }
-    
     @supports (backdrop-filter: blur(20px)) {
         :root {
-            --filter-glass: blur(20px) saturate(180%);
-            --con-primary: rgba(32, 32, 34, .75);
-            --elevated-primary: rgba(46, 46, 48, .75);
-            --elevated-secondary: rgba(60, 60, 62, .75);
+            --azb-depth-glass: blur(20px) saturate(180%);
+            --azb-content-primary: rgba(32, 32, 34, .75);
+            --azb-elevated-primary: rgba(46, 46, 48, .75);
+            --azb-elevated-secondary: rgba(60, 60, 62, .75);
         }
     }
 }
@@ -126,36 +97,27 @@
 **暗色模式
 */
 :root {
-    --bgcolor: rgb(15, 15, 17);
-
-    --mask-color: rgba(15, 15, 17, var(--mask-opacity));
-
-    --con-primary: rgba(32, 32, 34, 1);
-    --con-primary-solid: rgba(32, 32, 34, 1);
-
-    --elevated-primary: rgb(44, 44, 46);
-    --elevated-secondary: rgb(58, 58, 60);
-
-    --elevated-primary-solid: rgb(44, 44, 46);
-    --elevated-secondary-solid: rgb(58, 58, 60);
-
-
-    --divider-main: rgba(84, 84, 88, .65);
-
-    --filter-white: contrast(0) invert(1);
-
-    --fill-primary: rgba(120, 120, 128, .36);
-
-    --text-main: #fff;
-    --text-primary: #f5f5f7;
-    --text-secondary: rgba(235, 235, 245, .6);
+    --azb-bgcolor: rgb(15, 15, 17);
+    --azb-mask-color: rgba(15, 15, 17, var(--azb-mask-opacity));
+    --azb-content-primary: rgba(32, 32, 34, 1);
+    --azb-content-primary-solid: rgba(32, 32, 34, 1);
+    --azb-elevated-primary: rgb(44, 44, 46);
+    --azb-elevated-secondary: rgb(58, 58, 60);
+    --azb-elevated-primary-solid: rgb(44, 44, 46);
+    --azb-elevated-secondary-solid: rgb(58, 58, 60);
+    --azb-divide: rgba(84, 84, 88, .65);
+    --azb-depth-white: contrast(0) invert(1);
+    --azb-fill-primary: rgba(120, 120, 128, .36);
+    --azb-text-main: #fff;
+    --azb-text-primary: #f5f5f7;
+    --azb-text-secondary: rgba(235, 235, 245, .6);
 }
 
 @supports (backdrop-filter: blur(20px)) {
     :root {
-        --filter-glass: blur(20px) saturate(180%);
-        --con-primary: rgba(32, 32, 34, .75);
-        --elevated-primary: rgba(46, 46, 48, .75);
-        --elevated-secondary: rgba(60, 60, 62, .75);
+        --azb-depth-glass: blur(20px) saturate(180%);
+        --azb-content-primary: rgba(32, 32, 34, .75);
+        --azb-elevated-primary: rgba(46, 46, 48, .75);
+        --azb-elevated-secondary: rgba(60, 60, 62, .75);
     }
 }

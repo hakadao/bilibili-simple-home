@@ -31,8 +31,26 @@
 
 .primary-menu-itnl {
     margin-top: -50px!important;
-    background-color: var(--con-primary)!important;
-    backdrop-filter: var(--filter-glass);
+    background-color: var(--azb-content-primary)!important;
+    backdrop-filter: var(--azb-depth-glass);
+}
+
+/*搜索框容器*/
+
+.international-header .nav-search-box {
+    top: 30vh!important;
+}
+
+@media screen and (max-height: 830px) {
+    .international-header .nav-search-box {
+        top: 220px!important;
+    }
+}
+
+/*强行制作出搜索栏上的logo*/
+
+.international-header .nav-search-box:before {
+    top: -300%;
 }
 
 /*搜索框容器*/
@@ -57,24 +75,26 @@
 **【样式2】半屏显示壁纸
 */
 .bili-banner {
-	height: 40vh!important;
-	z-index: -1!important;
+    height: 40vh!important;
+    z-index: -1!important;
 }
 
 .primary-menu-itnl {
-	margin-top: -50px!important;
-	background-color: var(--con-primary)!important;
-	backdrop-filter: var(--filter-glass);
+    margin-top: -50px!important;
+    background-color: var(--azb-content-primary)!important;
+    backdrop-filter: var(--azb-depth-glass);
 }
 
 /*搜索框容器*/
+
 .international-header .nav-search-box {
-	top: 15vh!important;
+    top: 15vh!important;
 }
 
 /*强行制作出搜索栏上的logo*/
+
 .international-header .nav-search-box:after {
-	top: -50%!important;
-	left: -200px!important;
-	transform: scale(.6);
+    top: -50%!important;
+    left: -200px!important;
+    transform: scale(.6);
 }
