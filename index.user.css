@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.1.0
+@version        1.1.1
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -215,7 +215,7 @@
  EOT;
 }
 @advanced dropdown LOGO_THEME "选择LOGO图标样式" {
-	LOGO_THEME "彩色" <<<EOT
+	LOGO_THEME "跟随主题颜色" <<<EOT
 --logoimg: url(https://i.loli.net/2019/05/11/5cd6a4d7196cf.png); EOT;
 	WHITE_LOGO "白色" <<<EOT
  EOT;
