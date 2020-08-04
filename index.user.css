@@ -354,12 +354,12 @@ backdrop-filter:  var(--azb-filter-glass); EOT;
     --azb-pink: rgb(240, 98, 146);
     --azb-pink-40: rgba(240, 98, 146, 0.4);
     --azb-pink-20: rgba(240, 98, 146, 0.2);
-    --azb-pink-10: rgba(240, 98, 146, 0.15);
+    --azb-pink-15: rgba(240, 98, 146, 0.15);
 
     --azb-theme-color: var(--azb-blue);
     --azb-theme-color-40: var(--azb-blue-40);
     --azb-theme-color-20: var(--azb-blue-20);
-    --azb-theme-color-10: var(--azb-blue-15);
+    --azb-theme-color-15: var(--azb-blue-15);
 
     --azb-depth-1: 0 10px 20px rgba(0, 0, 0, 0.03),
       0 5px 10px rgba(0, 0, 0, 0.02);
@@ -682,13 +682,13 @@ backdrop-filter:  var(--azb-filter-glass); EOT;
   }
   /*顶部分区最新视频数量*/
   .channel-menu-itnl .item .name em {
-    background: var(--azb-theme-color-10);
+    background: var(--azb-theme-color-15);
     color: var(--azb-theme-color);
   }
   /*新番时间表*/
   .time-line .tl-link {
     color: var(--azb-theme-color);
-    background: var(--azb-theme-color-10);
+    background: var(--azb-theme-color-15);
     border-color: transparent;
   }
   .time-line .tl-link:hover {
