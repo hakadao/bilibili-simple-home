@@ -214,10 +214,20 @@
 	DISABLE_DARK_MODE "禁用" <<<EOT
  EOT;
 }
-@advanced dropdown BLUE_LOGO "选择LOGO图标样式" {
-	BLUE_LOGO "蓝色" <<<EOT
+@advanced dropdown LOGO_THEME "选择LOGO图标样式" {
+	LOGO_THEME "彩色" <<<EOT
 --logoimg: url(https://i.loli.net/2019/05/11/5cd6a4d7196cf.png); EOT;
 	WHITE_LOGO "白色" <<<EOT
+ EOT;
+}
+@advanced dropdown THEME_COLOR "选择颜色主题" {
+	BLUE_THEME "蓝色" <<<EOT EOT;
+	PINK_THEME "粉色" <<<EOT
+--azb-theme-color: var(--azb-pink);
+--azb-theme-color-40: var(--azb-pink-40);
+--azb-theme-color-25: var(--azb-pink-25);
+--azb-theme-color-15: var(--azb-pink-15);
+--azb-blue-to-pink: hue-rotate(150deg) brightness(1.3)
  EOT;
 }
 @advanced dropdown DIV_BG "选择背景" {
@@ -323,56 +333,57 @@ backdrop-filter:  var(--azb-filter-glass); EOT;
 **样式颜色、阴影、滤镜等变量
 */
   :root {
-    /*[[BLUE_LOGO]]*/
-    --azb-bgimg: /*[[DIV_BG]]*/ ;
-    --azb-bg-custom: /*[[CUSTOM_BG]]*/ ;
-    --azb-bgcolor: rgb(239, 239, 244);
+      /*[[LOGO_THEME]]*/
+      --azb-bgimg: /*[[DIV_BG]]*/;
+      --azb-bg-custom: /*[[CUSTOM_BG]]*/;
+      --azb-bgcolor: rgb(239, 239, 244);
 
-    --azb-mask-opacity: /*[[MASK_OPACITY]]*/ ;
-    --azb-mask-color: rgb(239, 239, 244, var(--azb-mask-opacity));
+      --azb-mask-opacity: /*[[MASK_OPACITY]]*/;
+      --azb-mask-color: rgb(239, 239, 244, var(--azb-mask-opacity));
 
-    --azb-content-primary: rgba(255, 255, 255, 1);
-    --azb-content-primary-solid: rgba(255, 255, 255, 1);
-    --azb-elevated-primary: rgb(255, 255, 255);
-    --azb-elevated-secondary: rgb(255, 255, 255);
-    --azb-elevated-primary-solid: rgb(255, 255, 255);
-    --azb-elevated-secondary-solid: rgb(255, 255, 255);
+      --azb-content-primary: rgba(255, 255, 255, 1);
+      --azb-content-primary-solid: rgba(255, 255, 255, 1);
+      --azb-elevated-primary: rgb(255, 255, 255);
+      --azb-elevated-secondary: rgb(255, 255, 255);
+      --azb-elevated-primary-solid: rgb(255, 255, 255);
+      --azb-elevated-secondary-solid: rgb(255, 255, 255);
 
-    --azb-divide: rgba(60, 60, 67, 0.1);
-    --azb-fill-primary: rgba(120, 120, 128, 0.22);
+      --azb-divide: rgba(60, 60, 67, 0.1);
+      --azb-fill-primary: rgba(120, 120, 128, 0.22);
 
-    --azb-text-main: #000;
-    --azb-text-primary: #000;
-    --azb-text-secondary: rgba(60, 60, 67, 0.6);
+      --azb-text-main: #000;
+      --azb-text-primary: #000;
+      --azb-text-secondary: rgba(60, 60, 67, 0.6);
 
-    --azb-radius: 10px;
+      --azb-radius: 10px;
 
-    --azb-blue: rgb(0, 161, 214);
-    --azb-blue-40: rgba(0, 161, 214, 0.4);
-    --azb-blue-20: rgba(0, 161, 214, 0.2);
-    --azb-blue-15: rgba(0, 161, 214, 0.15);
-    --azb-pink: rgb(240, 98, 146);
-    --azb-pink-40: rgba(240, 98, 146, 0.4);
-    --azb-pink-20: rgba(240, 98, 146, 0.2);
-    --azb-pink-15: rgba(240, 98, 146, 0.15);
+      --azb-blue: rgb(0, 161, 214);
+      --azb-blue-40: rgba(0, 161, 214, 0.4);
+      --azb-blue-25: rgba(0, 161, 214, 0.25);
+      --azb-blue-15: rgba(0, 161, 214, 0.15);
+      --azb-pink: rgb(251, 114, 153);
+      --azb-pink-40: rgba(251, 114, 153, 0.4);
+      --azb-pink-25: rgba(251, 114, 153, 0.25);
+      --azb-pink-15: rgba(251, 114, 153, 0.15);
 
-    --azb-theme-color: var(--azb-blue);
-    --azb-theme-color-40: var(--azb-blue-40);
-    --azb-theme-color-20: var(--azb-blue-20);
-    --azb-theme-color-15: var(--azb-blue-15);
+      --azb-theme-color: var(--azb-blue);
+      --azb-theme-color-40: var(--azb-blue-40);
+      --azb-theme-color-25: var(--azb-blue-25);
+      --azb-theme-color-15: var(--azb-blue-15);
 
-    --azb-depth-1: 0 10px 20px rgba(0, 0, 0, 0.03),
-      0 5px 10px rgba(0, 0, 0, 0.02);
-    --azb-depth-2: 0 20px 25px rgba(0, 0, 0, 0.08),
-      0 8px 18px rgba(0, 0, 0, 0.025);
+      --azb-depth-1: 0 10px 20px rgba(0, 0, 0, 0.03), 0 5px 10px rgba(0, 0, 0, 0.02);
+      --azb-depth-2: 0 20px 25px rgba(0, 0, 0, 0.08), 0 8px 18px rgba(0, 0, 0, 0.025);
+      
+      --azb-blue-to-pink: ;
+      /*[[THEME_COLOR]]*/
   }
   @supports (backdrop-filter: blur(20px)) {
-    :root {
-      --azb-filter-glass: blur(20px) saturate(180%);
-      --azb-content-primary: rgba(255, 255, 255, 0.75);
-      --azb-elevated-primary: rgba(255, 255, 255, 0.75);
-      --azb-elevated-secondary: rgba(255, 255, 255, 0.75);
-    }
+      :root {
+          --azb-filter-glass: blur(20px) saturate(180%);
+          --azb-content-primary: rgba(255, 255, 255, 0.75);
+          --azb-elevated-primary: rgba(255, 255, 255, 0.75);
+          --azb-elevated-secondary: rgba(255, 255, 255, 0.75);
+      }
   }
   /*
 **以下是调整暗色模式所覆盖的变量，当调整后上面css变量将被覆盖
@@ -391,12 +402,13 @@ backdrop-filter:  var(--azb-filter-glass); EOT;
   .time-line-card .txt .update .published,
   .international-header a:hover,
   .van-popover a:hover,
-  .page-tab .con li:hover a {
-    color: var(--azb-theme-color);
+  .page-tab .con li:hover a,
+  .manga-panel .manga-list-box .manga-card:hover .manga-title{
+      color: var(--azb-theme-color);
   }
 
   .up:hover {
-    color: var(--azb-theme-color) !important;
+      color: var(--azb-theme-color)!important;
   }
 
   .primary-menu-itnl,
@@ -407,14 +419,14 @@ backdrop-filter:  var(--azb-filter-glass); EOT;
   .live-card,
   .manga-rank-item .preview .preview-link,
   .international-footer {
-    background: var(--azb-content-primary-solid);
+      background: var(--azb-content-primary-solid);
   }
   .rank-header .name,
   .storey-title .name,
   .special-recommend header,
   .popover-video-card .content .info .f-title,
   .ifmt h3 {
-    color: var(--azb-text-main);
+      color: var(--azb-text-main);
   }
   a,
   .elevator .list-box .item,
@@ -423,7 +435,7 @@ backdrop-filter:  var(--azb-filter-glass); EOT;
   .manga-panel .manga-list-box .manga-card .manga-title,
   .international-footer .link-box .link-item .bt,
   .live-card .up .txt .desc {
-    color: var(--azb-text-primary);
+      color: var(--azb-text-primary);
   }
   .video-card-common .up,
   .pgc-rank-wrap .txt .update,
@@ -432,14 +444,14 @@ backdrop-filter:  var(--azb-filter-glass); EOT;
   .international-footer .partner,
   .live-rank .live-rank-item .txt p.p2,
   .storey-title .text-info {
-    color: var(--azb-text-secondary);
+      color: var(--azb-text-secondary);
   }
   .tab-line-itnl,
   .international-footer .link-box .link-item {
-    border-color: var(--azb-divide);
+      border-color: var(--azb-divide);
   }
   .vp-container a {
-    color: #000;
+      color: #000;
   }
 }
 
@@ -448,13 +460,13 @@ backdrop-filter:  var(--azb-filter-glass); EOT;
 **去除首页碍眼东西，与处理删除碍眼东西后的一些处理
 */
   .bili-banner .taper-line {
-    /*原本去除难看的过渡色效果*/
-    background: none !important;
+      /*原本去除难看的过渡色效果*/
+      background: none !important;
   }
   /*banner上方的链接*/
   .nav-link .nav-link-ul .nav-link-item .link,
   .nav-user-center .user-con .item .name {
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
   }
   /*删除banner上方我认为无用的链接（ε=ε=ε=┏(゜ロ゜;)┛逃）*/
   .nav-link .nav-link-ul .nav-link-item .link,
@@ -473,7 +485,7 @@ backdrop-filter:  var(--azb-filter-glass); EOT;
   .manga-panel .app-download-link span,
   /*漫画app下载*/
   .manga-panel .app-download-link {
-    display: none;
+      display: none;
   }
   /*删除左侧小电视*/
   .mascot,
@@ -481,7 +493,7 @@ backdrop-filter:  var(--azb-filter-glass); EOT;
   .contact-help,
   /*广告*/
   .banner-card {
-    display: none;
+      display: none;
   }
 }
 
@@ -499,28 +511,28 @@ backdrop-filter:  var(--azb-filter-glass); EOT;
   /*[[FOCUS_33]]*/
   /*banner图片*/
   .bili-banner {
-    position: relative;
-    background: none !important;
-    background-image: var(--azb-bgimg) !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    background-color: var(--azb-bgcolor) !important;
-    background-size: cover !important;
-    overflow: hidden;
-    transition: 0.25s;
+      position: relative;
+      background: none !important;
+      background-image: var(--azb-bgimg) !important;
+      background-repeat: no-repeat !important;
+      background-position: center !important;
+      background-color: var(--azb-bgcolor) !important;
+      background-size: cover !important;
+      overflow: hidden;
+      transition: 0.25s;
   }
   .bili-banner:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: inherit;
-    background: var(--azb-mask-color);
-    z-index: 0;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: inherit;
+      background: var(--azb-mask-color);
+      z-index: 0;
   }
   body {
-    background-color: var(--azb-bgcolor);
+      background-color: var(--azb-bgcolor);
   }
   /*滑过的列表链接*/
   .links .link-item[data-v-be7d8ba6]:hover,
@@ -528,137 +540,134 @@ backdrop-filter:  var(--azb-filter-glass); EOT;
   .tab-item--normal[data-v-1ea1793c]:hover,
   .video-card[data-v-7e985ebc]:hover,
   .upload-item[data-v-52f814c6]:hover {
-    background-color: var(--azb-fill-primary);
+      background-color: var(--azb-fill-primary);
   }
   /*投稿颜色更换*/
   .mini-upload {
-    background-color: var(--azb-theme-color) !important;
+      background-color: var(--azb-theme-color) !important;
   }
   /*删除顶部右侧大会员标志和链接*/
   .nav-user-center .user-con .item:nth-child(2) {
-    display: none;
+      display: none;
   }
   .bili-banner .b-logo .head-logo {
-    display: none;
+      display: none;
   }
   .bili-banner .b-logo .logo-img {
-    display: none;
+      display: none;
   }
   /*搜索框容器*/
   .international-header .nav-search-box {
-    /*强制显示搜索栏*/
-    display: block !important;
-    position: absolute;
-    top: 35vh;
-    left: calc(50vw - 310px);
-    width: 600px;
+      /*强制显示搜索栏*/
+      display: block !important;
+      position: absolute;
+      top: 35vh;
+      left: calc(50vw - 310px);
+      width: 600px;
   }
   /*强行制作出搜索栏上的logo*/
   .international-header .nav-search-box:after {
-    content: '';
-    position: absolute;
-    top: -300%;
-    left: calc(50% - 100px);
-    background: var(--logoimg, url(https://i.loli.net/2019/06/11/5cff54794e40241270.png)) no-repeat !important;
-    background-size: 200px !important;
-    width: 210px;
-    height: 100px;
-    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.08));
+      content: '';
+      position: absolute;
+      top: -300%;
+      left: calc(50% - 100px);
+      background: var(--logoimg, url(https://i.loli.net/2019/06/11/5cff54794e40241270.png)) no-repeat !important;
+      background-size: 200px !important;
+      width: 210px;
+      height: 100px;
+      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.08)) var(--azb-blue-to-pink);
   }
   /*浏览器分辨率不够时强制显示出搜索栏*/
   @media screen and (max-width: 1110px) {
-    /*调整搜索框与logo位置使其在分辨率小的页面看起来自然*/
-    .international-header .nav-search-box {
-      top: 40vh;
-    }
-    /*对logo大小重新调整*/
-    .international-header .nav-search-box:before {
-      background-size: 180px !important;
-      top: -240%;
-      height: 100px;
-    }
+      /*调整搜索框与logo位置使其在分辨率小的页面看起来自然*/
+      .international-header .nav-search-box {
+          top: 40vh;
+      }
+      /*对logo大小重新调整*/
+      .international-header .nav-search-box:before {
+          background-size: 180px !important;
+          top: -240%;
+          height: 100px;
+      }
   }
   /*删除分辨率不够时出现的小图标*/
   .nav-user-center .user-con.search-icon {
-    display: none !important;
+      display: none !important;
   }
   /*搜索框*/
   .international-header .nav-search #nav_searchform {
-    background-color: var(--azb-content-primary) !important;
-    box-shadow: var(--azb-depth-1) !important;
-    padding: 8px 42px 8px 20px;
-    border-radius: var(--azb-radius);
-    transition: 0.25s;
-    backdrop-filter: var(--azb-filter-glass);
-    border: none !important;
-    z-index: 9999;
+      background-color: var(--azb-content-primary) !important;
+      box-shadow: var(--azb-depth-1) !important;
+      padding: 8px 42px 8px 20px;
+      border-radius: var(--azb-radius);
+      transition: 0.25s;
+      backdrop-filter: var(--azb-filter-glass);
+      border: none !important;
+      z-index: 9999;
   }
   .international-header .nav-search .nav-search-keyword {
-    color: var(--azb-text-main) !important;
+      color: var(--azb-text-main) !important;
   }
   /*搜索图标*/
   .bili-icon_dingdao_sousuo::before {
-    color: var(--azb-text-main);
-    transition: 0.25s;
+      color: var(--azb-text-main);
+      transition: 0.25s;
   }
-  .international-header
-    .nav-search
-    .nav-search-btn:hover
-    .bili-icon_dingdao_sousuo::before {
-    color: var(--azb-theme-color) !important;
+  .international-header .nav-search .nav-search-btn:hover .bili-icon_dingdao_sousuo::before {
+      color: var(--azb-theme-color) !important;
   }
   /*搜索历史、建议文字*/
   .bilibili-search-suggest .suggest-item a,
   .bilibili-search-history .history-item a {
-    color: var(--azb-text-main) !important;
+      color: var(--azb-text-main) !important;
   }
   /*搜索建议高亮文字*/
   .bilibili-search-suggest .suggest-item .suggest_high_light {
-    color: var(--azb-theme-color);
+      color: var(--azb-theme-color);
   }
   .international-header .nav-search #nav_searchform:focus-within {
-    box-shadow: var(--azb-depth-2) !important;
+      box-shadow: var(--azb-depth-2) !important;
   }
   .international-header .nav-search .nav-search-keyword::placeholder {
-    color: transparent !important;
+      color: transparent !important;
   }
   .international-header .nav-search .nav-search-keyword {
-    font-size: 16px;
-    color: black;
+      font-size: 16px;
+      color: black;
   }
   /*搜索图标*/
   .bili-header-m .nav-search .nav-search-submit,
   .international-header .nav-search .nav-search-submit {
-    top: 16px;
+      top: 16px;
   }
   .bili-header-m .nav-search .nav-search-btn,
   .international-header .nav-search .nav-search-btn {
-    background-color: transparent;
+      background-color: transparent;
   }
   /*搜索建议项容器*/
   .bilibili-search-suggest,
   /*历史搜索项容器*/
   .bilibili-search-history {
-    border-radius: var(--azb-radius);
-    background-color: var(--azb-content-primary) !important;
-    backdrop-filter: var(--azb-filter-glass);
-    box-shadow: var(--azb-depth-2);
-    border: none;
+      border-radius: var(--azb-radius);
+      background-color: var(--azb-content-primary) !important;
+      backdrop-filter: var(--azb-filter-glass);
+      box-shadow: var(--azb-depth-2);
+      border: none;
   }
   /*鼠标滑过搜索建议、历史项时改变颜色*/
   .bilibili-search-suggest .suggest-item.focus,
   .bilibili-search-suggest .suggest-item:hover,
   .bilibili-search-history .history-item.focus,
   .bilibili-search-history .history-item:hover {
-    background-color: var(--azb-fill-primary);
+      background-color: var(--azb-fill-primary);
   }
   /*去除分区导航栏边框*/
   .page-tab .con li {
-    border-color: transparent;
+      border-color: transparent;
   }
   .international-footer {
-    box-shadow: var(--azb-depth-2);
-    border-radius: var(--azb-radius) var(--azb-radius) 0 0;
+      box-shadow: var(--azb-depth-2);
+      border-radius: var(--azb-radius) var(--azb-radius) 0 0;
   }
 }
 
@@ -668,93 +677,93 @@ backdrop-filter:  var(--azb-filter-glass); EOT;
 */
   /*分区导航栏弹窗*/
   .van-popover.van-popper-channel {
-    background: var(--azb-elevated-secondary);
-    backdrop-filter: var(--azb-filter-glass);
-    box-shadow: var(--azb-depth-1);
-    border: none;
+      background: var(--azb-elevated-secondary);
+      backdrop-filter: var(--azb-filter-glass);
+      box-shadow: var(--azb-depth-1);
+      border: none;
   }
   /*板块标题，排行榜字体、特别推荐调整*/
   .rank-header .name,
   .storey-title .name,
   .special-recommend header,
   .ifmt h3 {
-    font-weight: 800;
+      font-weight: 800;
   }
   /*顶部分区最新视频数量*/
   .channel-menu-itnl .item .name em {
-    background: var(--azb-theme-color-15);
-    color: var(--azb-theme-color);
+      background: var(--azb-theme-color-15);
+      color: var(--azb-theme-color);
   }
   /*新番时间表*/
   .time-line .tl-link {
-    color: var(--azb-theme-color);
-    background: var(--azb-theme-color-15);
-    border-color: transparent;
+      color: var(--azb-theme-color);
+      background: var(--azb-theme-color-15);
+      border-color: transparent;
   }
   .time-line .tl-link:hover {
-    color: var(--azb-theme-color);
-    background: var(--azb-theme-color-20);
+      color: var(--azb-theme-color);
+      background: var(--azb-theme-color-25);
   }
   .rank-header .more,
   .exchange-btn .btn {
-    border-color: transparent;
-    color: var(--azb-text-main);
-    background: rgba(122, 134, 149, 0.1);
+      border-color: transparent;
+      color: var(--azb-text-main);
+      background: rgba(122, 134, 149, 0.1);
   }
   .rank-header .more:hover,
   .exchange-btn .btn:hover {
-    background: rgba(122, 134, 149, 0.3);
+      background: rgba(122, 134, 149, 0.3);
   }
   /*排行榜*/
   .rank-wrap .number,
   .pgc-rank-wrap .number,
   .manga-rank-item .rank-number,
   .live-rank .live-rank-item .number {
-    background: transparent;
-    border-radius: 20px;
-    font-size: 12px;
+      background: transparent;
+      border-radius: 20px;
+      font-size: 12px;
   }
   .rank-wrap .number.on,
   .pgc-rank-wrap .number.on,
   .manga-rank-item .rank-number.on,
   .live-rank .live-rank-item .number.on {
-    background-color: var(--azb-theme-color);
-    box-shadow: 0 3px 6px var(--azb-theme-color-40);
+      background-color: var(--azb-theme-color);
+      box-shadow: 0 3px 6px var(--azb-theme-color-40);
   }
   .tab-switch .tab-switch-item {
-    position: relative;
-    color: var(--azb-text-secondary);
-    transition: 0.25s;
-    font-weight: 600;
-    border: none !important;
+      position: relative;
+      color: var(--azb-text-secondary);
+      transition: 0.25s;
+      font-weight: 600;
+      border: none !important;
   }
   .tab-switch .tab-switch-item.on,
   .tab-switch .tab-switch-item:hover {
-    color: var(--azb-text-primary) !important;
+      color: var(--azb-text-primary) !important;
   }
   .tab-switch .tab-switch-item:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: var(--azb-theme-color);
-    transform: scalex(0);
-    border-radius: 3px;
-    transition: 0.25s;
-    box-shadow: 0 2px 6px var(--azb-theme-color-40);
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--azb-theme-color);
+      transform: scalex(0);
+      border-radius: 3px;
+      transition: 0.25s;
+      box-shadow: 0 2px 6px var(--azb-theme-color-40);
   }
   .tab-switch .tab-switch-item.on:after,
   .tab-switch .tab-switch-item:hover:after {
-    transform: scalex(1);
+      transform: scalex(1);
   }
   /*页脚微调*/
   .international-footer .link-box .link-item .bt {
-    font-weight: 800;
+      font-weight: 800;
   }
   .international-footer .partner .pic-box {
-    display: none;
+      display: none;
   }
 }
 
@@ -764,78 +773,78 @@ backdrop-filter:  var(--azb-filter-glass); EOT;
 */
   /*右侧导航栏*/
   .elevator {
-    transform: translatex(15px);
+      transform: translatex(15px);
   }
   .elevator,
   .elevator .list-box .item.back-top {
-    box-shadow: var(--azb-depth-2);
+      box-shadow: var(--azb-depth-2);
   }
   .elevator .list-box {
-    width: 56px;
+      width: 56px;
   }
   .elevator .list-box,
   .elevator .list-box .item.sort,
   .elevator .list-box .item.back-top {
-    border-color: var(--azb-content-primary-solid);
+      border-color: var(--azb-content-primary-solid);
   }
   .elevator .list-box,
   .elevator .list-box .item.sort,
   .elevator .list-box .item.back-top {
-    background: var(--azb-content-primary-solid);
+      background: var(--azb-content-primary-solid);
   }
   .elevator .list-box .item {
-    height: unset;
-    padding: 2px 0;
-    background: transparent;
-    transition: 0.25s ease;
+      height: unset;
+      padding: 2px 0;
+      background: transparent;
+      transition: 0.25s ease;
   }
   .elevator .list-box .item.on,
   .elevator .list-box .item:hover {
-    padding: 2px 4px 2px 2px;
-    width: 76px;
-    background-color: var(--azb-theme-color);
-    box-shadow: 0 6px 20px var(--azb-theme-color-40);
-    margin-left: -15px;
+      padding: 2px 4px 2px 2px;
+      width: 76px;
+      background-color: var(--azb-theme-color);
+      box-shadow: 0 6px 20px var(--azb-theme-color-40);
+      margin-left: -15px;
   }
   .elevator .list-box .item.sort,
   .elevator .list-box .item.back-top {
-    transform: none;
-    margin: 0 !important;
-    padding: 2px 0;
-    width: 56px;
-    z-index: -1;
+      transform: none;
+      margin: 0 !important;
+      padding: 2px 0;
+      width: 56px;
+      z-index: -1;
   }
   .elevator .list-box .item.sort.on {
-    background: var(--azb-theme-color);
+      background: var(--azb-theme-color);
   }
   .elevator .list-box .item.sort:hover,
   .elevator .list-box .item.back-top:hover {
-    background: var(--azb-theme-color);
-    border-color: var(--azb-theme-color);
-    box-shadow: var(--azb-depth-2);
+      background: var(--azb-theme-color);
+      border-color: var(--azb-theme-color);
+      box-shadow: var(--azb-depth-2);
   }
   .elevator .list-box .item.sort {
-    width: 54px;
+      width: 54px;
   }
   .elevator .bg23 {
-    background-color: transparent;
+      background-color: transparent;
   }
   /*分区导航栏分类弹窗*/
   /* .van-popover, */
   /*视频信息弹窗*/
   .popover-video-card {
-    background: var(--azb-elevated-secondary);
-    backdrop-filter: var(--azb-filter-glass);
-    border: none;
-    border-radius: var(--azb-radius);
-    box-shadow: var(--azb-depth-2);
+      background: var(--azb-elevated-secondary);
+      backdrop-filter: var(--azb-filter-glass);
+      border: none;
+      border-radius: var(--azb-radius);
+      box-shadow: var(--azb-depth-2);
   }
   .popover-video-card .count {
-    border-color: var(--azb-divide);
+      border-color: var(--azb-divide);
   }
   /*分区导航栏分类弹窗*/
   .van-popover .popper__arrow {
-    display: none;
+      display: none;
   }
   /*整体板块调整*/
   .primary-menu-itnl,
@@ -849,38 +858,38 @@ backdrop-filter:  var(--azb-filter-glass); EOT;
   .article-card,
   /*直播*/
   .live-card {
-    border-radius: var(--azb-radius);
-    box-shadow: var(--azb-depth-1);
+      border-radius: var(--azb-radius);
+      box-shadow: var(--azb-depth-1);
   }
 
   /*直播单独调整*/
   .live-card {
-    overflow: hidden;
-    margin-bottom: 0.5rem;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
   }
 
   .live-card .up {
-    padding: 0 0.5rem 0.7rem;
+      padding: 0 0.5rem 0.7rem;
   }
 
   .live-card .up .txt {
-    width: calc(158px - 0.7rem);
+      width: calc(158px - 0.7rem);
   }
 
   /*视频封面*/
   .video-card-common .card-pic a,
   /*漫画封面*/
   .manga-panel .manga-list-box .manga-card img {
-    border-radius: var(--azb-radius) var(--azb-radius) 0 0;
-    overflow: hidden;
+      border-radius: var(--azb-radius) var(--azb-radius) 0 0;
+      overflow: hidden;
   }
   /*番剧时间线封面*/
   .time-line-card .pic {
-    border-radius: var(--azb-radius) 0 0 var(--azb-radius);
-    overflow: hidden;
+      border-radius: var(--azb-radius) 0 0 var(--azb-radius);
+      overflow: hidden;
   }
   .time-line .zone-list-box .item {
-    padding-right: 0.5em;
+      padding-right: 0.5em;
   }
   /*顶部轮播图*/
   .focus-carousel,
@@ -891,77 +900,77 @@ backdrop-filter:  var(--azb-filter-glass); EOT;
   .carousel,
   /*资讯分区右侧图片*/
   .ifmt img {
-    border-radius: var(--azb-radius) !important;
-    box-shadow: var(--azb-depth-1);
-    overflow: hidden;
-    background-color: var(--azb-fill-primary);
+      border-radius: var(--azb-radius) !important;
+      box-shadow: var(--azb-depth-1);
+      overflow: hidden;
+      background-color: var(--azb-fill-primary);
   }
   /*分区导航栏*/
   .primary-menu-itnl {
-    margin: 40px 0;
-    padding: 15px 15px 10px;
+      margin: 40px 0;
+      padding: 15px 15px 10px;
   }
   /*视频板块调整*/
   .video-card-common {
-    padding-bottom: 1em;
-    margin-bottom: 1em;
+      padding-bottom: 1em;
+      margin-bottom: 1em;
   }
   .video-card-common .title,
   .video-card-common .up,
   .video-card-common .cheese_title,
   .video-card-common .update_info {
-    padding: 0 1em;
+      padding: 0 1em;
   }
   /*漫画*/
   .manga-panel .manga-list-box .manga-card {
-    padding-bottom: 1em;
+      padding-bottom: 1em;
   }
   .manga-panel .manga-list-box .manga-card .manga-title,
   .manga-panel .manga-list-box .manga-card .manga-tag {
-    padding: 0 1em;
+      padding: 0 1em;
   }
   /*专栏*/
   .article-card .r-con {
-    padding-top: 0.5em;
+      padding-top: 0.5em;
   }
   .article-card .r-con .title {
-    text-wrap: nowrap !important;
-    text-overflow: ellipse;
-    overflow: hidden;
+      text-wrap: nowrap !important;
+      text-overflow: ellipse;
+      overflow: hidden;
   }
   .article-card .r-con .up {
-    margin: 0;
+      margin: 0;
   }
   .article-card .pic img {
-    border-radius: var(--azb-radius) 0 0 var(--azb-radius);
+      border-radius: var(--azb-radius) 0 0 var(--azb-radius);
   }
   /*排行榜右侧文字*/
   .rank-wrap .preview .txt {
-    background: var(--azb-content-primary);
-    margin-left: 0;
-    padding-left: 12px;
-    border-radius: 0 var(--azb-radius) var(--azb-radius) 0;
-    box-shadow: var(--azb-depth-1);
+      background: var(--azb-content-primary);
+      margin-left: 0;
+      padding-left: 12px;
+      border-radius: 0 var(--azb-radius) var(--azb-radius) 0;
+      box-shadow: var(--azb-depth-1);
   }
   .rank-wrap .preview .pic img {
-    border-radius: 0 0 0 var(--azb-radius);
-    box-shadow: var(--azb-depth-1);
+      border-radius: 0 0 0 var(--azb-radius);
+      box-shadow: var(--azb-depth-1);
   }
   .rank-wrap .number.on + a .title,
   .pgc-rank-wrap .number.on + a .txt,
   .manga-rank-item .rank-number.on + a.other-link {
-    border-radius: 0 var(--azb-radius) var(--azb-radius) var(--azb-radius);
-    padding: 0.5rem;
-    background: var(--azb-content-primary-solid);
-    box-shadow: var(--azb-depth-1);
+      border-radius: 0 var(--azb-radius) var(--azb-radius) var(--azb-radius);
+      padding: 0.5rem;
+      background: var(--azb-content-primary-solid);
+      box-shadow: var(--azb-depth-1);
   }
   /*漫画排行榜*/
   .manga-rank-item .preview .preview-link {
-    box-shadow: var(--azb-depth-1);
-    border-radius: 0 var(--azb-radius) var(--azb-radius) var(--azb-radius);
-    overflow: hidden;
+      box-shadow: var(--azb-depth-1);
+      border-radius: 0 var(--azb-radius) var(--azb-radius) var(--azb-radius);
+      overflow: hidden;
   }
   .manga-rank-item .preview .preview-desc .title {
-    margin-top: 1em;
+      margin-top: 1em;
   }
 }
