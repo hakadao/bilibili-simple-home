@@ -46,7 +46,7 @@
 .primary-menu-itnl {
     margin-top: -50px!important;
     background-color: var(--azb-content-primary)!important;
-    backdrop-filter: var(--azb-depth-glass);
+    backdrop-filter: var(--azb-filter-glass);
 }
 
 /*搜索框容器*\/
@@ -79,7 +79,7 @@
 .primary-menu-itnl {
     margin-top: -50px!important;
     background-color: var(--azb-content-primary)!important;
-    backdrop-filter: var(--azb-depth-glass);
+    backdrop-filter: var(--azb-filter-glass);
 }
 
 /*搜索框容器*\/
@@ -121,7 +121,7 @@
     }
     @supports (backdrop-filter: blur(20px)) {
         :root {
-            --azb-depth-glass: blur(20px) saturate(180%);
+            --azb-filter-glass: blur(20px) saturate(180%);
             --azb-content-primary: rgba(20, 20, 20, .75);
             --azb-elevated-primary: rgba(44, 44, 46, .75);
             --azb-elevated-secondary: rgba(58, 58, 60, .75);
@@ -148,7 +148,7 @@
 
 @supports (backdrop-filter: blur(20px)) {
     :root {
-        --azb-depth-glass: blur(20px) saturate(180%);
+        --azb-filter-glass: blur(20px) saturate(180%);
         --azb-content-primary: rgba(20, 20, 20, .75);
         --azb-elevated-primary: rgba(44, 44, 46, .75);
         --azb-elevated-secondary: rgba(58, 58, 60, .75);
@@ -174,7 +174,7 @@
     }
     @supports (backdrop-filter: blur(20px)) {
         :root {
-            --azb-depth-glass: blur(20px) saturate(180%);
+            --azb-filter-glass: blur(20px) saturate(180%);
             --azb-content-primary: rgba(32, 32, 34, .75);
             --azb-elevated-primary: rgba(46, 46, 48, .75);
             --azb-elevated-secondary: rgba(60, 60, 62, .75);
@@ -205,7 +205,7 @@
 
 @supports (backdrop-filter: blur(20px)) {
     :root {
-        --azb-depth-glass: blur(20px) saturate(180%);
+        --azb-filter-glass: blur(20px) saturate(180%);
         --azb-content-primary: rgba(32, 32, 34, .75);
         --azb-elevated-primary: rgba(46, 46, 48, .75);
         --azb-elevated-secondary: rgba(60, 60, 62, .75);
@@ -292,7 +292,7 @@
 	DISABLE_FOCUS_BLUR "关闭" <<<EOT
  EOT;
 	FOCUS_BLUR "开启" <<<EOT
-backdrop-filter:  var(--azb-depth-glass); EOT;
+backdrop-filter:  var(--azb-filter-glass); EOT;
 }
 @advanced dropdown FOCUS_33 "搜索条聚焦后显示33娘" {
 	FOCUS_33 "开启" <<<EOT
@@ -368,7 +368,7 @@ backdrop-filter:  var(--azb-depth-glass); EOT;
   }
   @supports (backdrop-filter: blur(20px)) {
     :root {
-      --azb-depth-glass: blur(20px) saturate(180%);
+      --azb-filter-glass: blur(20px) saturate(180%);
       --azb-content-primary: rgba(255, 255, 255, 0.75);
       --azb-elevated-primary: rgba(255, 255, 255, 0.75);
       --azb-elevated-secondary: rgba(255, 255, 255, 0.75);
@@ -589,7 +589,7 @@ backdrop-filter:  var(--azb-depth-glass); EOT;
     padding: 8px 42px 8px 20px;
     border-radius: var(--azb-radius);
     transition: 0.25s;
-    backdrop-filter: var(--azb-depth-glass);
+    backdrop-filter: var(--azb-filter-glass);
     border: none !important;
     z-index: 9999;
   }
@@ -641,7 +641,7 @@ backdrop-filter:  var(--azb-depth-glass); EOT;
   .bilibili-search-history {
     border-radius: var(--azb-radius);
     background-color: var(--azb-content-primary) !important;
-    backdrop-filter: var(--azb-depth-glass);
+    backdrop-filter: var(--azb-filter-glass);
     box-shadow: var(--azb-depth-2);
     border: none;
   }
@@ -669,7 +669,7 @@ backdrop-filter:  var(--azb-depth-glass); EOT;
   /*分区导航栏弹窗*/
   .van-popover.van-popper-channel {
     background: var(--azb-elevated-secondary);
-    backdrop-filter: var(--azb-depth-glass);
+    backdrop-filter: var(--azb-filter-glass);
     box-shadow: var(--azb-depth-1);
     border: none;
   }
@@ -825,7 +825,7 @@ backdrop-filter:  var(--azb-depth-glass); EOT;
   /*视频信息弹窗*/
   .popover-video-card {
     background: var(--azb-elevated-secondary);
-    backdrop-filter: var(--azb-depth-glass);
+    backdrop-filter: var(--azb-filter-glass);
     border: none;
     border-radius: var(--azb-radius);
     box-shadow: var(--azb-depth-2);

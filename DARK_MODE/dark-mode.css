@@ -20,7 +20,7 @@
     }
     @supports (backdrop-filter: blur(20px)) {
         :root {
-            --azb-depth-glass: blur(20px) saturate(180%);
+            --azb-filter-glass: blur(20px) saturate(180%);
             --azb-content-primary: rgba(20, 20, 20, .75);
             --azb-elevated-primary: rgba(44, 44, 46, .75);
             --azb-elevated-secondary: rgba(58, 58, 60, .75);
@@ -52,7 +52,7 @@
 
 @supports (backdrop-filter: blur(20px)) {
     :root {
-        --azb-depth-glass: blur(20px) saturate(180%);
+        --azb-filter-glass: blur(20px) saturate(180%);
         --azb-content-primary: rgba(20, 20, 20, .75);
         --azb-elevated-primary: rgba(44, 44, 46, .75);
         --azb-elevated-secondary: rgba(58, 58, 60, .75);
@@ -83,7 +83,7 @@
     }
     @supports (backdrop-filter: blur(20px)) {
         :root {
-            --azb-depth-glass: blur(20px) saturate(180%);
+            --azb-filter-glass: blur(20px) saturate(180%);
             --azb-content-primary: rgba(32, 32, 34, .75);
             --azb-elevated-primary: rgba(46, 46, 48, .75);
             --azb-elevated-secondary: rgba(60, 60, 62, .75);
@@ -115,7 +115,7 @@
 
 @supports (backdrop-filter: blur(20px)) {
     :root {
-        --azb-depth-glass: blur(20px) saturate(180%);
+        --azb-filter-glass: blur(20px) saturate(180%);
         --azb-content-primary: rgba(32, 32, 34, .75);
         --azb-elevated-primary: rgba(46, 46, 48, .75);
         --azb-elevated-secondary: rgba(60, 60, 62, .75);

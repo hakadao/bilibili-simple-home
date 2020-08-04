@@ -32,7 +32,7 @@
 .primary-menu-itnl {
     margin-top: -50px!important;
     background-color: var(--azb-content-primary)!important;
-    backdrop-filter: var(--azb-depth-glass);
+    backdrop-filter: var(--azb-filter-glass);
 }
 
 /*搜索框容器*/
@@ -82,7 +82,7 @@
 .primary-menu-itnl {
     margin-top: -50px!important;
     background-color: var(--azb-content-primary)!important;
-    backdrop-filter: var(--azb-depth-glass);
+    backdrop-filter: var(--azb-filter-glass);
 }
 
 /*搜索框容器*/
