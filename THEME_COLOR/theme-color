@@ -1,0 +1,8 @@
+/*
+**颜色主题，粉色
+*/
+--azb-theme-color: var(--azb-pink);
+--azb-theme-color-40: var(--azb-pink-40);
+--azb-theme-color-25: var(--azb-pink-25);
+--azb-theme-color-15: var(--azb-pink-15);
+--azb-blue-to-pink: hue-rotate(150deg) brightness(1.3);
