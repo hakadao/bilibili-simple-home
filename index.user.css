@@ -707,6 +707,7 @@ backdrop-filter:  var(--a-filter-glass); EOT;
         color: var(--a-theme-color);
         background: var(--a-theme-color-15);
         border-color: transparent;
+        border-radius: 30px;
     }
     .time-line .tl-link:hover {
         color: var(--a-theme-color);
@@ -718,7 +719,6 @@ backdrop-filter:  var(--a-filter-glass); EOT;
         overflow: hidden;
         color: var(--a-text-main);
         background: var(--a-content-primary-solid);
-        box-shadow: var(--a-depth-1);
         border-radius: 20px;
         position: relative;
     }
