@@ -3,6 +3,6 @@
 */
 --a-theme-color: var(--a-pink);
 --a-theme-color-40: var(--a-pink-40);
---a-theme-color-25: var(--a-pink-25);
---a-theme-color-15: var(--a-pink-15);
+--a-theme-color-30: var(--a-pink-30);
+--a-theme-color-20: var(--a-pink-20);
 --a-filter-blue-to-pink: hue-rotate(150deg) brightness(1.3);

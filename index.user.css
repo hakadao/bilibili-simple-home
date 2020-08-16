@@ -225,8 +225,8 @@
 	PINK_THEME "粉色" <<<EOT
 --a-theme-color: var(--a-pink);
 --a-theme-color-40: var(--a-pink-40);
---a-theme-color-25: var(--a-pink-25);
---a-theme-color-15: var(--a-pink-15);
+--a-theme-color-30: var(--a-pink-30);
+--a-theme-color-20: var(--a-pink-20);
 --a-filter-blue-to-pink: hue-rotate(150deg) brightness(1.3)
  EOT;
 }
@@ -359,17 +359,17 @@ backdrop-filter:  var(--a-filter-glass); EOT;
 
         --a-blue: rgb(0, 161, 214);
         --a-blue-40: rgba(0, 161, 214, 0.4);
-        --a-blue-25: rgba(0, 161, 214, 0.25);
-        --a-blue-15: rgba(0, 161, 214, 0.15);
+        --a-blue-30: rgba(0, 161, 214, 0.3);
+        --a-blue-20: rgba(0, 161, 214, 0.2);
         --a-pink: rgb(251, 114, 153);
         --a-pink-40: rgba(251, 114, 153, 0.4);
-        --a-pink-25: rgba(251, 114, 153, 0.25);
-        --a-pink-15: rgba(251, 114, 153, 0.15);
+        --a-pink-30: rgba(251, 114, 153, 0.3);
+        --a-pink-20: rgba(251, 114, 153, 0.2);
 
         --a-theme-color: var(--a-blue);
         --a-theme-color-40: var(--a-blue-40);
-        --a-theme-color-25: var(--a-blue-25);
-        --a-theme-color-15: var(--a-blue-15);
+        --a-theme-color-30: var(--a-blue-30);
+        --a-theme-color-20: var(--a-blue-20);
 
         --a-depth-1: 0 10px 20px rgba(0, 0, 0, 0.03), 0 5px 10px rgba(0, 0, 0, 0.02);
         --a-depth-2: 0 20px 25px rgba(0, 0, 0, 0.08), 0 8px 18px rgba(0, 0, 0, 0.025);
@@ -699,19 +699,20 @@ backdrop-filter:  var(--a-filter-glass); EOT;
     }
     /*顶部分区最新视频数量*/
     .channel-menu-itnl .item .name em {
-        background: var(--a-theme-color-15);
+        background: var(--a-theme-color-20);
         color: var(--a-theme-color);
+        border-radius: 20px;
     }
     /*新番时间表*/
     .time-line .tl-link {
         color: var(--a-theme-color);
-        background: var(--a-theme-color-15);
+        background: var(--a-theme-color-20);
         border-color: transparent;
         border-radius: 30px;
     }
     .time-line .tl-link:hover {
         color: var(--a-theme-color);
-        background: var(--a-theme-color-25);
+        background: var(--a-theme-color-30);
     }
     .rank-header .more,
     .exchange-btn .btn {
@@ -781,7 +782,7 @@ backdrop-filter:  var(--a-filter-glass); EOT;
     }
     .tab-switch .tab-switch-item.on:after,
     .tab-switch .tab-switch-item:hover:after {
-        transform: scalex(1);
+        transform: scalex(.8);
     }
     /*页脚微调*/
     .international-footer .link-box .link-item .bt {
