@@ -3,27 +3,27 @@
 */
 @media screen and (prefers-color-scheme: dark) {
     :root {
-        --azb-bgcolor: rgb(0, 0, 0);
-        --azb-mask-color: rgba(0, 0, 0, var(--azb-mask-opacity));
-        --azb-content-primary: rgba(20, 20, 20, 1);
-        --azb-content-primary-solid: rgba(20, 20, 20, 1);
-        --azb-elevated-primary: rgb(44, 44, 46);
-        --azb-elevated-secondary: rgb(58, 58, 60);
-        --azb-elevated-primary-solid: rgb(44, 44, 46);
-        --azb-elevated-secondary-solid: rgb(58, 58, 60);
-        --azb-divide: rgba(84, 84, 88, .65);
-        --azb-depth-white: contrast(0) invert(1);
-        --azb-fill-primary: rgba(120, 120, 128, .36);
-        --azb-text-main: #fff;
-        --azb-text-primary: #f5f5f7;
-        --azb-text-secondary: rgba(235, 235, 245, .6);
+        --a-bgcolor: rgb(0, 0, 0);
+        --a-mask-color: rgba(0, 0, 0, var(--a-mask-opacity));
+        --a-content-primary: rgba(20, 20, 20, 1);
+        --a-content-primary-solid: rgba(20, 20, 20, 1);
+        --a-elevated-primary: rgb(44, 44, 46);
+        --a-elevated-secondary: rgb(58, 58, 60);
+        --a-elevated-primary-solid: rgb(44, 44, 46);
+        --a-elevated-secondary-solid: rgb(58, 58, 60);
+        --a-divide: rgba(84, 84, 88, .65);
+        --a-depth-white: contrast(0) invert(1);
+        --a-fill-primary: rgba(120, 120, 128, .36);
+        --a-text-main: #fff;
+        --a-text-primary: #f5f5f7;
+        --a-text-secondary: rgba(235, 235, 245, .6);
     }
     @supports (backdrop-filter: blur(20px)) {
         :root {
-            --azb-filter-glass: blur(20px) saturate(180%);
-            --azb-content-primary: rgba(20, 20, 20, .75);
-            --azb-elevated-primary: rgba(44, 44, 46, .75);
-            --azb-elevated-secondary: rgba(58, 58, 60, .75);
+            --a-filter-glass: blur(20px) saturate(180%);
+            --a-content-primary: rgba(20, 20, 20, .75);
+            --a-elevated-primary: rgba(44, 44, 46, .75);
+            --a-elevated-secondary: rgba(58, 58, 60, .75);
         }
     }
 }
@@ -34,28 +34,28 @@
 **【A屏黑】暗色模式
 */
 :root {
-    --azb-bgcolor: rgb(0, 0, 0);
-    --azb-mask-color: rgba(0, 0, 0, var(--azb-mask-opacity));
-    --azb-content-primary: rgba(20, 20, 20, 1);
-    --azb-content-primary-solid: rgba(20, 20, 20, 1);
-    --azb-elevated-primary: rgb(44, 44, 46);
-    --azb-elevated-secondary: rgb(58, 58, 60);
-    --azb-elevated-primary-solid: rgb(44, 44, 46);
-    --azb-elevated-secondary-solid: rgb(58, 58, 60);
-    --azb-divide: rgba(84, 84, 88, .65);
-    --azb-depth-white: contrast(0) invert(1);
-    --azb-fill-primary: rgba(120, 120, 128, .36);
-    --azb-text-main: #fff;
-    --azb-text-primary: #f5f5f7;
-    --azb-text-secondary: rgba(235, 235, 245, .6);
+    --a-bgcolor: rgb(0, 0, 0);
+    --a-mask-color: rgba(0, 0, 0, var(--a-mask-opacity));
+    --a-content-primary: rgba(20, 20, 20, 1);
+    --a-content-primary-solid: rgba(20, 20, 20, 1);
+    --a-elevated-primary: rgb(44, 44, 46);
+    --a-elevated-secondary: rgb(58, 58, 60);
+    --a-elevated-primary-solid: rgb(44, 44, 46);
+    --a-elevated-secondary-solid: rgb(58, 58, 60);
+    --a-divide: rgba(84, 84, 88, .65);
+    --a-depth-white: contrast(0) invert(1);
+    --a-fill-primary: rgba(120, 120, 128, .36);
+    --a-text-main: #fff;
+    --a-text-primary: #f5f5f7;
+    --a-text-secondary: rgba(235, 235, 245, .6);
 }
 
 @supports (backdrop-filter: blur(20px)) {
     :root {
-        --azb-filter-glass: blur(20px) saturate(180%);
-        --azb-content-primary: rgba(20, 20, 20, .75);
-        --azb-elevated-primary: rgba(44, 44, 46, .75);
-        --azb-elevated-secondary: rgba(58, 58, 60, .75);
+        --a-filter-glass: blur(20px) saturate(180%);
+        --a-content-primary: rgba(20, 20, 20, .75);
+        --a-elevated-primary: rgba(44, 44, 46, .75);
+        --a-elevated-secondary: rgba(58, 58, 60, .75);
     }
 }
 
@@ -66,27 +66,27 @@
 */
 @media screen and (prefers-color-scheme: dark) {
     :root {
-        --azb-bgcolor: rgb(15, 15, 17);
-        --azb-mask-color: rgba(15, 15, 17, var(--azb-mask-opacity));
-        --azb-content-primary: rgba(32, 32, 34, 1);
-        --azb-content-primary-solid: rgba(32, 32, 34, 1);
-        --azb-elevated-primary: rgb(44, 44, 46);
-        --azb-elevated-secondary: rgb(58, 58, 60);
-        --azb-elevated-primary-solid: rgb(44, 44, 46);
-        --azb-elevated-secondary-solid: rgb(58, 58, 60);
-        --azb-divide: rgba(84, 84, 88, .65);
-        --azb-depth-white: contrast(0) invert(1);
-        --azb-fill-primary: rgba(120, 120, 128, .36);
-        --azb-text-main: #fff;
-        --azb-text-primary: #f5f5f7;
-        --azb-text-secondary: rgba(235, 235, 245, .6);
+        --a-bgcolor: rgb(15, 15, 17);
+        --a-mask-color: rgba(15, 15, 17, var(--a-mask-opacity));
+        --a-content-primary: rgba(32, 32, 34, 1);
+        --a-content-primary-solid: rgba(32, 32, 34, 1);
+        --a-elevated-primary: rgb(44, 44, 46);
+        --a-elevated-secondary: rgb(58, 58, 60);
+        --a-elevated-primary-solid: rgb(44, 44, 46);
+        --a-elevated-secondary-solid: rgb(58, 58, 60);
+        --a-divide: rgba(84, 84, 88, .65);
+        --a-depth-white: contrast(0) invert(1);
+        --a-fill-primary: rgba(120, 120, 128, .36);
+        --a-text-main: #fff;
+        --a-text-primary: #f5f5f7;
+        --a-text-secondary: rgba(235, 235, 245, .6);
     }
     @supports (backdrop-filter: blur(20px)) {
         :root {
-            --azb-filter-glass: blur(20px) saturate(180%);
-            --azb-content-primary: rgba(32, 32, 34, .75);
-            --azb-elevated-primary: rgba(46, 46, 48, .75);
-            --azb-elevated-secondary: rgba(60, 60, 62, .75);
+            --a-filter-glass: blur(20px) saturate(180%);
+            --a-content-primary: rgba(32, 32, 34, .75);
+            --a-elevated-primary: rgba(46, 46, 48, .75);
+            --a-elevated-secondary: rgba(60, 60, 62, .75);
         }
     }
 }
@@ -97,27 +97,27 @@
 **暗色模式
 */
 :root {
-    --azb-bgcolor: rgb(15, 15, 17);
-    --azb-mask-color: rgba(15, 15, 17, var(--azb-mask-opacity));
-    --azb-content-primary: rgba(32, 32, 34, 1);
-    --azb-content-primary-solid: rgba(32, 32, 34, 1);
-    --azb-elevated-primary: rgb(44, 44, 46);
-    --azb-elevated-secondary: rgb(58, 58, 60);
-    --azb-elevated-primary-solid: rgb(44, 44, 46);
-    --azb-elevated-secondary-solid: rgb(58, 58, 60);
-    --azb-divide: rgba(84, 84, 88, .65);
-    --azb-depth-white: contrast(0) invert(1);
-    --azb-fill-primary: rgba(120, 120, 128, .36);
-    --azb-text-main: #fff;
-    --azb-text-primary: #f5f5f7;
-    --azb-text-secondary: rgba(235, 235, 245, .6);
+    --a-bgcolor: rgb(15, 15, 17);
+    --a-mask-color: rgba(15, 15, 17, var(--a-mask-opacity));
+    --a-content-primary: rgba(32, 32, 34, 1);
+    --a-content-primary-solid: rgba(32, 32, 34, 1);
+    --a-elevated-primary: rgb(44, 44, 46);
+    --a-elevated-secondary: rgb(58, 58, 60);
+    --a-elevated-primary-solid: rgb(44, 44, 46);
+    --a-elevated-secondary-solid: rgb(58, 58, 60);
+    --a-divide: rgba(84, 84, 88, .65);
+    --a-depth-white: contrast(0) invert(1);
+    --a-fill-primary: rgba(120, 120, 128, .36);
+    --a-text-main: #fff;
+    --a-text-primary: #f5f5f7;
+    --a-text-secondary: rgba(235, 235, 245, .6);
 }
 
 @supports (backdrop-filter: blur(20px)) {
     :root {
-        --azb-filter-glass: blur(20px) saturate(180%);
-        --azb-content-primary: rgba(32, 32, 34, .75);
-        --azb-elevated-primary: rgba(46, 46, 48, .75);
-        --azb-elevated-secondary: rgba(60, 60, 62, .75);
+        --a-filter-glass: blur(20px) saturate(180%);
+        --a-content-primary: rgba(32, 32, 34, .75);
+        --a-elevated-primary: rgba(46, 46, 48, .75);
+        --a-elevated-secondary: rgba(60, 60, 62, .75);
     }
 }

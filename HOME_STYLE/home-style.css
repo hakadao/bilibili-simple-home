@@ -31,8 +31,8 @@
 
 .primary-menu-itnl {
     margin-top: -50px!important;
-    background-color: var(--azb-content-primary)!important;
-    backdrop-filter: var(--azb-filter-glass);
+    background-color: var(--a-content-primary)!important;
+    backdrop-filter: var(--a-filter-glass);
 }
 
 /*搜索框容器*/
@@ -81,8 +81,8 @@
 
 .primary-menu-itnl {
     margin-top: -50px!important;
-    background-color: var(--azb-content-primary)!important;
-    backdrop-filter: var(--azb-filter-glass);
+    background-color: var(--a-content-primary)!important;
+    backdrop-filter: var(--a-filter-glass);
 }
 
 /*搜索框容器*/
