@@ -274,7 +274,7 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0);
-    transition: .25s ease-in-out;
+    transition: .3s ease-in-out;
     visibility: hidden;
     z-index: -1;
 }
@@ -316,7 +316,7 @@ backdrop-filter:  var(--a-filter-glass); EOT;
     background: url(https://i.loli.net/2020/06/23/E3he95P4XrLkGMm.png);
     background-size: cover;
     z-index: -1;
-    transition: .25s ease-out;
+    transition: .3s ease-out;
     opacity: 0;
 }
 
@@ -519,7 +519,7 @@ backdrop-filter:  var(--a-filter-glass); EOT;
       background-color: var(--a-bgcolor) !important;
       background-size: cover !important;
       overflow: hidden;
-      transition: 0.25s;
+      transition: .3s;
   }
   .bili-banner:before {
       content: '';
@@ -600,7 +600,7 @@ backdrop-filter:  var(--a-filter-glass); EOT;
       box-shadow: var(--a-depth-1) !important;
       padding: 8px 42px 8px 20px;
       border-radius: var(--a-radius);
-      transition: 0.25s;
+      transition: .3s;
       backdrop-filter: var(--a-filter-glass);
       border: none !important;
       z-index: 9999;
@@ -611,7 +611,7 @@ backdrop-filter:  var(--a-filter-glass); EOT;
   /*搜索图标*/
   .bili-icon_dingdao_sousuo::before {
       color: var(--a-text-main);
-      transition: 0.25s;
+      transition: .3s;
   }
   .international-header .nav-search .nav-search-btn:hover .bili-icon_dingdao_sousuo::before {
       color: var(--a-theme-color) !important;
@@ -733,7 +733,7 @@ backdrop-filter:  var(--a-filter-glass); EOT;
   .tab-switch .tab-switch-item {
       position: relative;
       color: var(--a-text-secondary);
-      transition: 0.25s;
+      transition: .3s;
       font-weight: 600;
       border: none !important;
   }
@@ -751,7 +751,7 @@ backdrop-filter:  var(--a-filter-glass); EOT;
       background: var(--a-theme-color);
       transform: scalex(0);
       border-radius: 3px;
-      transition: 0.25s;
+      transition: .3s;
       box-shadow: 0 2px 6px var(--a-theme-color-40);
   }
   .tab-switch .tab-switch-item.on:after,
@@ -796,7 +796,7 @@ backdrop-filter:  var(--a-filter-glass); EOT;
       height: unset;
       padding: 2px 0;
       background: transparent;
-      transition: 0.25s ease;
+      transition: .3s ease;
   }
   .elevator .list-box .item.on,
   .elevator .list-box .item:hover {
