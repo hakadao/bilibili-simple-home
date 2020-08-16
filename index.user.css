@@ -227,7 +227,7 @@
 --a-theme-color-40: var(--a-pink-40);
 --a-theme-color-25: var(--a-pink-25);
 --a-theme-color-15: var(--a-pink-15);
---a-blue-to-pink: hue-rotate(150deg) brightness(1.3)
+--a-filter-blue-to-pink: hue-rotate(150deg) brightness(1.3)
  EOT;
 }
 @advanced dropdown DIV_BG "选择背景" {
@@ -374,7 +374,7 @@ backdrop-filter:  var(--a-filter-glass); EOT;
       --a-depth-1: 0 10px 20px rgba(0, 0, 0, 0.03), 0 5px 10px rgba(0, 0, 0, 0.02);
       --a-depth-2: 0 20px 25px rgba(0, 0, 0, 0.08), 0 8px 18px rgba(0, 0, 0, 0.025);
       
-      --a-blue-to-pink: ;
+      --a-filter-blue-to-pink: ;
       /*[[THEME_COLOR]]*/
   }
   @supports (backdrop-filter: blur(20px)) {
@@ -575,7 +575,7 @@ backdrop-filter:  var(--a-filter-glass); EOT;
       background-size: 200px !important;
       width: 210px;
       height: 100px;
-      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.08)) var(--a-blue-to-pink);
+      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.08)) var(--a-filter-blue-to-pink);
   }
   /*浏览器分辨率不够时强制显示出搜索栏*/
   @media screen and (max-width: 1110px) {
