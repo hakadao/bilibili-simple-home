@@ -24,9 +24,6 @@ b站仿搜索引擎样式首页风格，支持几种不同显示效果
 【样式2】半屏显示壁纸
 ![【样式2】半屏显示壁纸](https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/preview/preview-3.png "【样式2】半屏显示壁纸")
 
-搜索条聚焦后毛玻璃效果
-![搜索条聚焦后毛玻璃效果](https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/preview/focus-effect.gif "搜索条聚焦后毛玻璃效果")
-
 ## 使用说明
 
 点击齿轮图标及可进行样式设置
