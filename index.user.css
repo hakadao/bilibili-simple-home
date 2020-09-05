@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.1.2
+@version        1.1.3
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -478,7 +478,8 @@ backdrop-filter:  var(--a-filter-glass); EOT;
     /*特别推荐*/
     #bili_report_spe_rec,
     /*推广*/
-    #reportFirst2,
+    #reportFirst2 .extension,
+    #reportFirst2 .operate-card,
     /*电竞赛事*/
     #reportFirst3,
     /*漫画，领券免费看*/
@@ -494,6 +495,14 @@ backdrop-filter:  var(--a-filter-glass); EOT;
     /*广告*/
     .banner-card {
         display: none;
+    }
+
+    /*修复推广删除之后的在线列表调整*/
+    #reportFirst2 {
+        margin: 0;
+    }
+    #reportFirst1 {
+        margin-bottom: 20px;
     }
 }
 
@@ -653,10 +662,15 @@ backdrop-filter:  var(--a-filter-glass); EOT;
         backdrop-filter: var(--a-filter-glass);
         box-shadow: var(--a-depth-2);
         border: none;
+        padding: 8px;
     }
     .bilibili-search-history .cancel-icon {
         filter: var(--a-filter-blue-to-pink);
         transition: .3s;
+    }
+    .bilibili-search-suggest .suggest-item,
+    .bilibili-search-history .history-item{
+        border-radius: calc(var(--a-radius) / 2);
     }
     /*鼠标滑过搜索建议、历史项时改变颜色*/
     .bilibili-search-suggest .suggest-item.focus,
@@ -676,6 +690,13 @@ backdrop-filter:  var(--a-filter-glass); EOT;
     /*轮播图指示点*/
     .home-slide .trigger span {
         filter: var(--a-filter-blue-to-pink);
+    }
+    /*在线列表*/
+    .bypb-window .online {
+        background-color: var(--a-content-primary-solid);
+        border: none!important;
+        border-radius: var(--a-radius);
+        box-shadow: var(--a-depth-1);
     }
 }
 
@@ -716,7 +737,7 @@ backdrop-filter:  var(--a-filter-glass); EOT;
     }
     .rank-header .more,
     .exchange-btn .btn {
-        border:none;
+        border: none;
         overflow: hidden;
         color: var(--a-text-main);
         background: var(--a-content-primary-solid);
