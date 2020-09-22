@@ -1,6 +1,7 @@
 /*
 **【A屏黑】暗色模式，跟随系统
 */
+
 @media screen and (prefers-color-scheme: dark) {
     :root {
         --a-bgcolor: rgb(0, 0, 0);
@@ -11,19 +12,19 @@
         --a-elevated-secondary: rgb(58, 58, 60);
         --a-elevated-primary-solid: rgb(44, 44, 46);
         --a-elevated-secondary-solid: rgb(58, 58, 60);
-        --a-divide: rgba(84, 84, 88, .65);
+        --a-divide: rgba(84, 84, 88, 0.65);
         --a-depth-white: contrast(0) invert(1);
-        --a-fill-primary: rgba(120, 120, 128, .36);
+        --a-fill-primary: rgba(120, 120, 128, 0.36);
         --a-text-main: #fff;
         --a-text-primary: #f5f5f7;
-        --a-text-secondary: rgba(235, 235, 245, .6);
+        --a-text-secondary: rgba(235, 235, 245, 0.6);
     }
     @supports (backdrop-filter: blur(20px)) {
         :root {
             --a-filter-glass: blur(20px) saturate(180%);
-            --a-content-primary: rgba(20, 20, 20, .75);
-            --a-elevated-primary: rgba(44, 44, 46, .75);
-            --a-elevated-secondary: rgba(58, 58, 60, .75);
+            --a-content-primary: rgba(20, 20, 20, 0.75);
+            --a-elevated-primary: rgba(44, 44, 46, 0.75);
+            --a-elevated-secondary: rgba(58, 58, 60, 0.75);
         }
     }
 }
@@ -33,6 +34,7 @@
 /*
 **【A屏黑】暗色模式
 */
+
 :root {
     --a-bgcolor: rgb(0, 0, 0);
     --a-mask-color: rgba(0, 0, 0, var(--a-mask-opacity));
@@ -42,20 +44,20 @@
     --a-elevated-secondary: rgb(58, 58, 60);
     --a-elevated-primary-solid: rgb(44, 44, 46);
     --a-elevated-secondary-solid: rgb(58, 58, 60);
-    --a-divide: rgba(84, 84, 88, .65);
+    --a-divide: rgba(84, 84, 88, 0.65);
     --a-depth-white: contrast(0) invert(1);
-    --a-fill-primary: rgba(120, 120, 128, .36);
+    --a-fill-primary: rgba(120, 120, 128, 0.36);
     --a-text-main: #fff;
     --a-text-primary: #f5f5f7;
-    --a-text-secondary: rgba(235, 235, 245, .6);
+    --a-text-secondary: rgba(235, 235, 245, 0.6);
 }
 
 @supports (backdrop-filter: blur(20px)) {
     :root {
         --a-filter-glass: blur(20px) saturate(180%);
-        --a-content-primary: rgba(20, 20, 20, .75);
-        --a-elevated-primary: rgba(44, 44, 46, .75);
-        --a-elevated-secondary: rgba(58, 58, 60, .75);
+        --a-content-primary: rgba(20, 20, 20, 0.75);
+        --a-elevated-primary: rgba(44, 44, 46, 0.75);
+        --a-elevated-secondary: rgba(58, 58, 60, 0.75);
     }
 }
 
@@ -64,29 +66,30 @@
 /*
 **暗色模式，跟随系统
 */
+
 @media screen and (prefers-color-scheme: dark) {
     :root {
-        --a-bgcolor: rgb(15, 15, 17);
-        --a-mask-color: rgba(15, 15, 17, var(--a-mask-opacity));
-        --a-content-primary: rgba(32, 32, 34, 1);
-        --a-content-primary-solid: rgba(32, 32, 34, 1);
-        --a-elevated-primary: rgb(44, 44, 46);
-        --a-elevated-secondary: rgb(58, 58, 60);
-        --a-elevated-primary-solid: rgb(44, 44, 46);
-        --a-elevated-secondary-solid: rgb(58, 58, 60);
-        --a-divide: rgba(84, 84, 88, .65);
+        --a-bgcolor: rgb(24, 24, 24);
+        --a-mask-color: rgba(24, 24, 24, var(--a-mask-opacity));
+        --a-content-primary: rgba(36, 36, 36, 1);
+        --a-content-primary-solid: rgba(36, 36, 36, 1);
+        --a-elevated-primary: rgb(46, 46, 46);
+        --a-elevated-secondary: rgb(60, 60, 60);
+        --a-elevated-primary-solid: rgb(46, 46, 46);
+        --a-elevated-secondary-solid: rgb(60, 60, 60);
+        --a-divide: rgba(84, 84, 88, 0.65);
         --a-depth-white: contrast(0) invert(1);
-        --a-fill-primary: rgba(120, 120, 128, .36);
+        --a-fill-primary: rgba(120, 120, 128, 0.36);
         --a-text-main: #fff;
         --a-text-primary: #f5f5f7;
-        --a-text-secondary: rgba(235, 235, 245, .6);
+        --a-text-secondary: rgba(235, 235, 245, 0.6);
     }
     @supports (backdrop-filter: blur(20px)) {
         :root {
             --a-filter-glass: blur(20px) saturate(180%);
-            --a-content-primary: rgba(32, 32, 34, .75);
-            --a-elevated-primary: rgba(46, 46, 48, .75);
-            --a-elevated-secondary: rgba(60, 60, 62, .75);
+            --a-content-primary: rgba(36, 36, 36, 0.75);
+            --a-elevated-primary: rgba(46, 46, 46, 0.75);
+            --a-elevated-secondary: rgba(60, 60, 60, 0.75);
         }
     }
 }
@@ -96,28 +99,29 @@
 /*
 **暗色模式
 */
+
 :root {
-    --a-bgcolor: rgb(15, 15, 17);
-    --a-mask-color: rgba(15, 15, 17, var(--a-mask-opacity));
-    --a-content-primary: rgba(32, 32, 34, 1);
-    --a-content-primary-solid: rgba(32, 32, 34, 1);
-    --a-elevated-primary: rgb(44, 44, 46);
-    --a-elevated-secondary: rgb(58, 58, 60);
-    --a-elevated-primary-solid: rgb(44, 44, 46);
-    --a-elevated-secondary-solid: rgb(58, 58, 60);
-    --a-divide: rgba(84, 84, 88, .65);
+    --a-bgcolor: rgb(24, 24, 24);
+    --a-mask-color: rgba(24, 24, 24, var(--a-mask-opacity));
+    --a-content-primary: rgba(36, 36, 36, 1);
+    --a-content-primary-solid: rgba(36, 36, 36, 1);
+    --a-elevated-primary: rgb(46, 46, 46);
+    --a-elevated-secondary: rgb(60, 60, 60);
+    --a-elevated-primary-solid: rgb(46, 46, 46);
+    --a-elevated-secondary-solid: rgb(60, 60, 60);
+    --a-divide: rgba(84, 84, 88, 0.65);
     --a-depth-white: contrast(0) invert(1);
-    --a-fill-primary: rgba(120, 120, 128, .36);
+    --a-fill-primary: rgba(120, 120, 128, 0.36);
     --a-text-main: #fff;
     --a-text-primary: #f5f5f7;
-    --a-text-secondary: rgba(235, 235, 245, .6);
+    --a-text-secondary: rgba(235, 235, 245, 0.6);
 }
 
 @supports (backdrop-filter: blur(20px)) {
     :root {
         --a-filter-glass: blur(20px) saturate(180%);
-        --a-content-primary: rgba(32, 32, 34, .75);
-        --a-elevated-primary: rgba(46, 46, 48, .75);
-        --a-elevated-secondary: rgba(60, 60, 62, .75);
+        --a-content-primary: rgba(36, 36, 36, 0.75);
+        --a-elevated-primary: rgba(46, 46, 46, 0.75);
+        --a-elevated-secondary: rgba(60, 60, 60, 0.75);
     }
 }
