@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.1.4
+@version        1.1.5
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -671,7 +671,7 @@ backdrop-filter:  var(--a-filter-glass); EOT;
         transition: .3s;
     }
     .bilibili-search-suggest .suggest-item,
-    .bilibili-search-history .history-item{
+    .bilibili-search-history .history-item {
         border-radius: calc(var(--a-radius) / 2);
     }
     /*鼠标滑过搜索建议、历史项时改变颜色*/
@@ -823,7 +823,6 @@ backdrop-filter:  var(--a-filter-glass); EOT;
     .elevator {
         transform: translatex(15px);
         will-change: auto;
-        
     }
     .elevator,
     .elevator .list-box .item.back-top {
@@ -924,6 +923,10 @@ backdrop-filter:  var(--a-filter-glass); EOT;
 
     .live-card .up .txt {
         width: calc(158px - 0.7rem);
+    }
+
+    .live-card .up .up-cover {
+        margin-right: 1em;
     }
 
     /*视频封面*/
