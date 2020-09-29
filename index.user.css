@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.1.5
+@version        1.1.6
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -541,6 +541,10 @@ backdrop-filter:  var(--a-filter-glass); EOT;
         height: inherit;
         background: var(--a-mask-color);
         z-index: 0;
+    }
+    /*刪除視差效果banner圖*/
+    .animated-banner {
+        display: none;
     }
     body {
         background-color: var(--a-bgcolor);
