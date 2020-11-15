@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.1.6
+@version        1.2
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -122,9 +122,9 @@
     @supports (backdrop-filter: blur(20px)) {
         :root {
             --a-filter-glass: blur(20px) saturate(180%);
-            --a-content-primary: rgba(20, 20, 20, .75);
-            --a-elevated-primary: rgba(44, 44, 46, .75);
-            --a-elevated-secondary: rgba(58, 58, 60, .75);
+            --a-content-primary: rgba(20, 20, 20, .65);
+            --a-elevated-primary: rgba(44, 44, 46, .65);
+            --a-elevated-secondary: rgba(58, 58, 60, .65);
         }
     }
 } EOT;
@@ -149,9 +149,9 @@
 @supports (backdrop-filter: blur(20px)) {
     :root {
         --a-filter-glass: blur(20px) saturate(180%);
-        --a-content-primary: rgba(20, 20, 20, .75);
-        --a-elevated-primary: rgba(44, 44, 46, .75);
-        --a-elevated-secondary: rgba(58, 58, 60, .75);
+        --a-content-primary: rgba(20, 20, 20, .65);
+        --a-elevated-primary: rgba(44, 44, 46, .65);
+        --a-elevated-secondary: rgba(58, 58, 60, .65);
     }
 } EOT;
 	AUTO_DARK_MODE_2 "跟随系统" <<<EOT
@@ -176,9 +176,9 @@
   @supports (backdrop-filter: blur(20px)) {
     :root {
       --a-filter-glass: blur(20px) saturate(180%);
-      --a-content-primary: rgba(36, 36, 36, 0.75);
-      --a-elevated-primary: rgba(46, 46, 46, 0.75);
-      --a-elevated-secondary: rgba(60, 60, 60, 0.75);
+      --a-content-primary: rgba(36, 36, 36, .65);
+      --a-elevated-primary: rgba(46, 46, 46, .65);
+      --a-elevated-secondary: rgba(60, 60, 60, .65);
     }
   }
 } EOT;
@@ -207,9 +207,9 @@
 @supports (backdrop-filter: blur(20px)) {
     :root {
         --a-filter-glass: blur(20px) saturate(180%);
-        --a-content-primary: rgba(36, 36, 36, 0.75);
-        --a-elevated-primary: rgba(46, 46, 46, 0.75);
-        --a-elevated-secondary: rgba(60, 60, 60, 0.75);
+        --a-content-primary: rgba(36, 36, 36, .65);
+        --a-elevated-primary: rgba(46, 46, 46, .65);
+        --a-elevated-secondary: rgba(60, 60, 60, .65);
     }
 } EOT;
 	DISABLE_DARK_MODE "禁用" <<<EOT
@@ -258,7 +258,6 @@
 } EOT;
 	TOPLINK_2 "效果2（推荐自定义背景使用）" <<<EOT
 .bili-banner{
-    box-shadow:inset 0 0 200px 50px rgba(0,0,0,.4);
 }
  EOT;
 }
@@ -350,7 +349,7 @@ backdrop-filter:  var(--a-filter-glass); EOT;
         --a-elevated-secondary-solid: rgb(255, 255, 255);
 
         --a-divide: rgba(60, 60, 67, 0.1);
-        --a-fill-primary: rgba(120, 120, 128, 0.22);
+        --a-fill-primary: rgba(120, 120, 128, 0.15);
 
         --a-text-main: #000;
         --a-text-primary: #000;
@@ -380,10 +379,10 @@ backdrop-filter:  var(--a-filter-glass); EOT;
     }
     @supports (backdrop-filter: blur(20px)) {
         :root {
-            --a-filter-glass: blur(20px) saturate(180%);
-            --a-content-primary: rgba(255, 255, 255, 0.75);
-            --a-elevated-primary: rgba(255, 255, 255, 0.75);
-            --a-elevated-secondary: rgba(255, 255, 255, 0.75);
+            --a-filter-glass: blur(20px);
+            --a-content-primary: rgba(255, 255, 255, 0.65);
+            --a-elevated-primary: rgba(255, 255, 255, 0.65);
+            --a-elevated-secondary: rgba(255, 255, 255, 0.65);
         }
     }
     /*
@@ -549,6 +548,16 @@ backdrop-filter:  var(--a-filter-glass); EOT;
     body {
         background-color: var(--a-bgcolor);
     }
+    /*顶栏右侧*/
+    .nav-user-center {
+        /*         background-color: rgba(255, 255, 255, .2); */
+        backdrop-filter: blur(20px);
+        padding: .54em;
+        border-radius: 100px;
+    }
+    .nav-user-center .user-con .item:first-child {
+        margin-left: 0;
+    }
     /*滑过的列表链接*/
     .links .link-item[data-v-be7d8ba6]:hover,
     .lang-change .lang-item:hover,
@@ -557,9 +566,10 @@ backdrop-filter:  var(--a-filter-glass); EOT;
     .upload-item[data-v-52f814c6]:hover {
         background-color: var(--a-fill-primary);
     }
-    /*投稿颜色更换*/
+    /*投稿按钮*/
     .mini-upload {
         background-color: var(--a-theme-color) !important;
+        border-radius: 40px!important;
     }
     /*删除顶部右侧大会员标志和链接*/
     .nav-user-center .user-con .item:nth-child(2) {
@@ -716,6 +726,7 @@ backdrop-filter:  var(--a-filter-glass); EOT;
         backdrop-filter: var(--a-filter-glass);
         box-shadow: var(--a-depth-1);
         border: none;
+        border-radius: calc(var(--a-radius) / 2)
     }
     /*板块标题，排行榜字体、特别推荐调整*/
     .rank-header .name,
@@ -850,6 +861,7 @@ backdrop-filter:  var(--a-filter-glass); EOT;
         padding: 2px 0;
         background: transparent;
         transition: .3s ease;
+        border-radius: calc(var(--a-radius) / 2)
     }
     .elevator .list-box .item.on,
     .elevator .list-box .item:hover {
@@ -1004,7 +1016,7 @@ backdrop-filter:  var(--a-filter-glass); EOT;
     .rank-wrap .preview .txt {
         background: var(--a-content-primary-solid);
         margin-left: 0;
-        padding-left: 12px;
+        padding: 0 .5rem;
         border-radius: 0 var(--a-radius) var(--a-radius) 0;
         box-shadow: var(--a-depth-1);
     }
@@ -1015,8 +1027,8 @@ backdrop-filter:  var(--a-filter-glass); EOT;
     .rank-wrap .number.on + a .title,
     .pgc-rank-wrap .number.on + a .txt,
     .manga-rank-item .rank-number.on + a.other-link {
-        border-radius: 0 var(--a-radius) var(--a-radius) var(--a-radius);
-        padding: 0.5rem;
+        border-radius: calc(var(--a-radius) / 4) var(--a-radius) var(--a-radius) var(--a-radius);
+        padding: .5rem;
         background: var(--a-content-primary-solid);
         box-shadow: var(--a-depth-1);
     }
