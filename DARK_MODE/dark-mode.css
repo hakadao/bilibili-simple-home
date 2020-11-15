@@ -22,9 +22,9 @@
     @supports (backdrop-filter: blur(20px)) {
         :root {
             --a-filter-glass: blur(20px) saturate(180%);
-            --a-content-primary: rgba(20, 20, 20, 0.75);
-            --a-elevated-primary: rgba(44, 44, 46, 0.75);
-            --a-elevated-secondary: rgba(58, 58, 60, 0.75);
+            --a-content-primary: rgba(20, 20, 20, .65);
+            --a-elevated-primary: rgba(44, 44, 46, .65);
+            --a-elevated-secondary: rgba(58, 58, 60, .65);
         }
     }
 }
@@ -55,9 +55,9 @@
 @supports (backdrop-filter: blur(20px)) {
     :root {
         --a-filter-glass: blur(20px) saturate(180%);
-        --a-content-primary: rgba(20, 20, 20, 0.75);
-        --a-elevated-primary: rgba(44, 44, 46, 0.75);
-        --a-elevated-secondary: rgba(58, 58, 60, 0.75);
+        --a-content-primary: rgba(20, 20, 20, .65);
+        --a-elevated-primary: rgba(44, 44, 46, .65);
+        --a-elevated-secondary: rgba(58, 58, 60, .65);
     }
 }
 
@@ -87,9 +87,9 @@
     @supports (backdrop-filter: blur(20px)) {
         :root {
             --a-filter-glass: blur(20px) saturate(180%);
-            --a-content-primary: rgba(36, 36, 36, 0.75);
-            --a-elevated-primary: rgba(46, 46, 46, 0.75);
-            --a-elevated-secondary: rgba(60, 60, 60, 0.75);
+            --a-content-primary: rgba(36, 36, 36, .65);
+            --a-elevated-primary: rgba(46, 46, 46, .65);
+            --a-elevated-secondary: rgba(60, 60, 60, .65);
         }
     }
 }
@@ -120,8 +120,8 @@
 @supports (backdrop-filter: blur(20px)) {
     :root {
         --a-filter-glass: blur(20px) saturate(180%);
-        --a-content-primary: rgba(36, 36, 36, 0.75);
-        --a-elevated-primary: rgba(46, 46, 46, 0.75);
-        --a-elevated-secondary: rgba(60, 60, 60, 0.75);
+        --a-content-primary: rgba(36, 36, 36, .65);
+        --a-elevated-primary: rgba(46, 46, 46, .65);
+        --a-elevated-secondary: rgba(60, 60, 60, .65);
     }
 }
