@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.2
+@version        1.2.1
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -547,6 +547,9 @@ backdrop-filter:  var(--a-filter-glass); EOT;
     }
     body {
         background-color: var(--a-bgcolor);
+    }
+    .mini-header__content {
+        padding: 5px 12px;
     }
     /*顶栏右侧*/
     .nav-user-center {
