@@ -18,6 +18,8 @@ b站仿搜索引擎样式首页风格，支持几种不同显示效果
 
 * [使用说明](#使用说明)
 
+* [Firefox 不显示毛玻璃问题](https://github.com/hakadao/bilibili-simple-home/issues/11)
+
 ## 效果
 
 预设效果
