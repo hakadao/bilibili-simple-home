@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.2.1
+@version        1.2.2
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -504,6 +504,12 @@ backdrop-filter:  var(--a-filter-glass); EOT;
     #reportFirst1 {
         margin-bottom: 20px;
     }
+
+    /*为什么你要在新信息提示红点外围加个白色边框，pilipili？？？？*/
+    .page-tab .con li .round .dynamic-update i {
+        border: none;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .2)
+    }
 }
 
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
@@ -710,12 +716,39 @@ backdrop-filter:  var(--a-filter-glass); EOT;
     .home-slide .trigger span {
         filter: var(--a-filter-blue-to-pink);
     }
+    /*首页推荐*/
+    .first-screen .space-between {
+        margin-bottom: 1em
+    }
+    #reportFirst2 {
+        justify-content: center;
+    }
     /*在线列表*/
     .bypb-window .online {
         background-color: var(--a-content-primary-solid);
         border: none!important;
-        border-radius: var(--a-radius);
+        border-radius: 20px;
         box-shadow: var(--a-depth-1);
+        position: relative;
+    }
+    .bypb-window .online::after {
+        content: "";
+        position: absolute;
+        right: 10px;
+        bottom: 0;
+        width: 50px;
+        height: 50px;
+        background: url("https://i.loli.net/2021/04/30/UVjXo6vGJdfqLzT.png") no-repeat;
+        background-size: contain;
+        transition: .3s;
+        transform: translatey(0)
+    }
+
+    .bypb-window .online:hover::after {
+        background-image: url("https://i.loli.net/2021/04/30/Jx64VPgsBpGdb8y.png");
+/*         background-position: 0 .5px; */
+        transform: translatey(.5px)
+        
     }
 }
 
@@ -754,6 +787,14 @@ backdrop-filter:  var(--a-filter-glass); EOT;
         color: var(--a-theme-color);
         background: var(--a-theme-color-30);
     }
+    /*首页推荐换一换*/
+    .rcmd-box-wrap .change-btn {
+        border: none;
+        background: var(--a-content-primary-solid)!important;
+        border-radius: 20px;
+        color: var(--a-text-main);
+        overflow: hidden;
+    }
     .rank-header .more,
     .exchange-btn .btn {
         border: none;
@@ -767,6 +808,7 @@ backdrop-filter:  var(--a-filter-glass); EOT;
     .exchange-btn .btn:hover {
         background: var(--a-content-primary-solid);
     }
+    .rcmd-box-wrap .change-btn:after,
     .rank-header .more:after,
     .exchange-btn .btn:after {
         content: '';
@@ -777,6 +819,7 @@ backdrop-filter:  var(--a-filter-glass); EOT;
         height: 100%;
         transition: .3s;
     }
+    .rcmd-box-wrap .change-btn:hover:after,
     .rank-header .more:hover:after,
     .exchange-btn .btn:hover:after {
         background-color: var(--a-fill-primary);
@@ -933,15 +976,15 @@ backdrop-filter:  var(--a-filter-glass); EOT;
     /*直播单独调整*/
     .live-card {
         overflow: hidden;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1em;
     }
 
     .live-card .up {
-        padding: 0 0.5rem 0.7rem;
+        padding: 0 .5em .7em;
     }
 
     .live-card .up .txt {
-        width: calc(158px - 0.7rem);
+        width: calc(158px - .7em);
     }
 
     .live-card .up .up-cover {
@@ -1019,7 +1062,7 @@ backdrop-filter:  var(--a-filter-glass); EOT;
     .rank-wrap .preview .txt {
         background: var(--a-content-primary-solid);
         margin-left: 0;
-        padding: 0 .5rem;
+        padding: 0 .5em;
         border-radius: 0 var(--a-radius) var(--a-radius) 0;
         box-shadow: var(--a-depth-1);
     }
@@ -1031,7 +1074,7 @@ backdrop-filter:  var(--a-filter-glass); EOT;
     .pgc-rank-wrap .number.on + a .txt,
     .manga-rank-item .rank-number.on + a.other-link {
         border-radius: calc(var(--a-radius) / 4) var(--a-radius) var(--a-radius) var(--a-radius);
-        padding: .5rem;
+        padding: .5em;
         background: var(--a-content-primary-solid);
         box-shadow: var(--a-depth-1);
     }
