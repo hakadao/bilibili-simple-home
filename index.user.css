@@ -268,7 +268,7 @@
         }
     EOT;
 
-    ENABLE_PARALLAX_BG "启用（启用后请测试页面）" <<<EOT "" EOT;
+    ENABLE_PARALLAX_BG "启用（启用后请刷新页面）" <<<EOT "" EOT;
 }
 
 @advanced dropdown DIV_BG "选择背景" {
