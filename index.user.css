@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.2.1
+@version        1.4.3
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -12,225 +12,265 @@
 
 @advanced dropdown HOME_STYLE "首页样式" {
 	FULL_HOME "全屏显示壁纸，不能下滑查看更多视频" <<<EOT
-/*
-**全屏显示壁纸，不能下滑查看更多视频
-*\/
+        /*
+        **全屏显示壁纸，不能下滑查看更多视频
+        *\/
 
-.bili-banner {
-    height: 100vh!important;
-}
-
-.b-wrap,
-.international-footer {
-    display: none;
-} EOT;
-	DEFAULT_HOME "全屏显示壁纸" <<<EOT
-/*
-**全屏显示壁纸
-*\/
-
-.bili-banner {
-    height: 100vh!important;
-} EOT;
-	HALF_HOME_1 "【样式1】半屏显示壁纸" <<<EOT
-/*
-**【样式1】半屏显示壁纸
-*\/
-
-.bili-banner {
-    height: calc(100vh - 363px)!important;
-    min-height: 450px!important;
-    z-index: -1!important;
-}
-
-.primary-menu-itnl {
-    margin-top: -50px!important;
-    background-color: var(--a-content-primary)!important;
-    backdrop-filter: var(--a-filter-glass);
-}
-
-/*搜索框容器*\/
-
-.international-header .nav-search-box {
-    top: 30vh!important;
-}
-
-@media screen and (max-height: 830px) {
-    .international-header .nav-search-box {
-        top: 220px!important;
-    }
-}
-
-/*强行制作出搜索栏上的logo*\/
-
-.international-header .nav-search-box:before {
-    top: -300%;
-} EOT;
-	HALF_HOME_2 "【样式2】半屏显示壁纸" <<<EOT
-/*
-**【样式2】半屏显示壁纸
-*\/
-
-.bili-banner {
-    height: 40vh!important;
-    z-index: -1!important;
-}
-
-.primary-menu-itnl {
-    margin-top: -50px!important;
-    background-color: var(--a-content-primary)!important;
-    backdrop-filter: var(--a-filter-glass);
-}
-
-/*搜索框容器*\/
-
-.international-header .nav-search-box {
-    top: 15vh!important;
-}
-
-/*强行制作出搜索栏上的logo*\/
-
-.international-header .nav-search-box:after {
-    top: -50%!important;
-    left: -200px!important;
-    transform: scale(.6);
-} EOT;
-}
-@advanced dropdown DARK_MODE "暗色模式" {
-	AUTO_DARK_MODE_1 "【A屏黑】跟随系统" <<<EOT
-/*
-**暗色模式，跟随系统
-*\/
-
-@media screen and (prefers-color-scheme: dark) {
-    :root {
-        --a-bgcolor: rgb(0, 0, 0);
-        --a-mask-color: rgba(0, 0, 0, var(--a-mask-opacity));
-        --a-content-primary: rgba(20, 20, 20, 1);
-        --a-content-primary-solid: rgba(20, 20, 20, 1);
-        --a-elevated-primary: rgb(44, 44, 46);
-        --a-elevated-secondary: rgb(58, 58, 60);
-        --a-elevated-primary-solid: rgb(44, 44, 46);
-        --a-elevated-secondary-solid: rgb(58, 58, 60);
-        --a-divide: rgba(84, 84, 88, .65);
-        --a-depth-white: contrast(0) invert(1);
-        --a-fill-primary: rgba(120, 120, 128, .36);
-        --a-text-main: #fff;
-        --a-text-primary: #f5f5f7;
-        --a-text-secondary: rgba(235, 235, 245, .6);
-    }
-    @supports (backdrop-filter: blur(20px)) {
-        :root {
-            --a-filter-glass: blur(20px) saturate(180%);
-            --a-content-primary: rgba(20, 20, 20, .65);
-            --a-elevated-primary: rgba(44, 44, 46, .65);
-            --a-elevated-secondary: rgba(58, 58, 60, .65);
+        .bili-banner {
+            height: 100vh!important;
         }
-    }
-} EOT;
+
+        .b-wrap,
+        .international-footer {
+            display: none;
+        } EOT;
+            DEFAULT_HOME "全屏显示壁纸" <<<EOT
+        /*
+        **全屏显示壁纸
+        *\/
+
+        .bili-banner {
+            height: 100vh!important;
+        } 
+    EOT;
+
+	HALF_HOME_1 "【样式1】半屏显示壁纸" <<<EOT
+        /*
+        **【样式1】半屏显示壁纸
+        *\/
+
+        .bili-banner {
+            height: calc(100vh - 363px)!important;
+            min-height: 450px!important;
+            z-index: -1!important;
+        }
+
+        @media screen and (max-width: 1438px) {
+            .first-screen .space-between {
+                margin-bottom: .5em
+            }
+        }
+
+        .primary-menu-itnl {
+            margin-top: -50px!important;
+            background-color: var(--a-content-primary)!important;
+            backdrop-filter: var(--a-filter-glass);
+        }
+
+        /*搜索框容器*\/
+
+        .international-header .nav-search-box {
+            top: 30vh!important;
+        }
+
+        @media screen and (max-height: 830px) {
+            .international-header .nav-search-box {
+                top: 220px!important;
+            }
+        }
+
+        /*强行制作出搜索栏上的logo*\/
+
+        .international-header .nav-search-box:before {
+            top: -300%;
+        }
+    EOT;
+
+	HALF_HOME_2 "【样式2】半屏显示壁纸" <<<EOT
+        /*
+        **【样式2】半屏显示壁纸
+        *\/
+
+        .bili-banner {
+            height: 30vh!important;
+            z-index: -1!important;
+        }
+
+        .primary-menu-itnl {
+            margin-top: -35px!important;
+            background-color: var(--a-content-primary)!important;
+            backdrop-filter: var(--a-filter-glass);
+        }
+
+        /*搜索框容器*\/
+
+        .international-header .nav-search-box {
+            top: 12vh!important;
+        }
+
+        /*观看列表按钮位置调整*\/
+        .first-screen .space-between {
+            margin-top: 1em!important;
+            margin-bottom: 0!important;
+        }
+
+        /*强行制作出搜索栏上的logo*\/
+        .international-header .nav-search-box:after {
+            top: -50%!important;
+            left: -200px!important;
+            transform: scale(.6);
+        } 
+        EOT;
+}
+
+@advanced dropdown DARK_MODE "暗色模式" {
+    AUTO_DARK_MODE_1 "【A屏黑】跟随系统" <<<EOT
+        /*
+        **暗色模式，跟随系统
+        *\/
+
+        @media screen and (prefers-color-scheme: dark) {
+            :root {
+                --a-bgcolor: rgb(0, 0, 0);
+                --a-mask-color: rgba(0, 0, 0, var(--a-mask-opacity));
+                --a-content-primary: rgba(20, 20, 20, 1);
+                --a-content-primary-solid: rgba(20, 20, 20, 1);
+                --a-elevated-primary: rgb(44, 44, 46);
+                --a-elevated-secondary: rgb(58, 58, 60);
+                --a-elevated-primary-solid: rgb(44, 44, 46);
+                --a-elevated-secondary-solid: rgb(58, 58, 60);
+                --a-divide: rgba(84, 84, 88, .65);
+                --a-depth-white: contrast(0) invert(1);
+                --a-fill-primary: rgba(120, 120, 128, .36);
+                --a-text-main: #fff;
+                --a-text-primary: #f5f5f7;
+                --a-text-secondary: rgba(235, 235, 245, .6);
+            }
+            @supports (backdrop-filter: blur(20px)) {
+                :root {
+                    --a-filter-glass: blur(20px) saturate(180%);
+                    --a-content-primary: rgba(20, 20, 20, .65);
+                    --a-elevated-primary: rgba(44, 44, 46, .65);
+                    --a-elevated-secondary: rgba(58, 58, 60, .65);
+                }
+            }
+        } 
+    EOT;
+
 	DARK_MODE_1 "【A屏黑】开启" <<<EOT
-:root {
-    --a-bgcolor: rgb(0, 0, 0);
-    --a-mask-color: rgba(0, 0, 0, var(--a-mask-opacity));
-    --a-content-primary: rgba(20, 20, 20, 1);
-    --a-content-primary-solid: rgba(20, 20, 20, 1);
-    --a-elevated-primary: rgb(44, 44, 46);
-    --a-elevated-secondary: rgb(58, 58, 60);
-    --a-elevated-primary-solid: rgb(44, 44, 46);
-    --a-elevated-secondary-solid: rgb(58, 58, 60);
-    --a-divide: rgba(84, 84, 88, .65);
-    --a-depth-white: contrast(0) invert(1);
-    --a-fill-primary: rgba(120, 120, 128, .36);
-    --a-text-main: #fff;
-    --a-text-primary: #f5f5f7;
-    --a-text-secondary: rgba(235, 235, 245, .6);
-}
+        :root {
+            --a-bgcolor: rgb(0, 0, 0);
+            --a-mask-color: rgba(0, 0, 0, var(--a-mask-opacity));
+            --a-content-primary: rgba(20, 20, 20, 1);
+            --a-content-primary-solid: rgba(20, 20, 20, 1);
+            --a-elevated-primary: rgb(44, 44, 46);
+            --a-elevated-secondary: rgb(58, 58, 60);
+            --a-elevated-primary-solid: rgb(44, 44, 46);
+            --a-elevated-secondary-solid: rgb(58, 58, 60);
+            --a-divide: rgba(84, 84, 88, .65);
+            --a-depth-white: contrast(0) invert(1);
+            --a-fill-primary: rgba(120, 120, 128, .36);
+            --a-text-main: #fff;
+            --a-text-primary: #f5f5f7;
+            --a-text-secondary: rgba(235, 235, 245, .6);
+        }
 
-@supports (backdrop-filter: blur(20px)) {
-    :root {
-        --a-filter-glass: blur(20px) saturate(180%);
-        --a-content-primary: rgba(20, 20, 20, .65);
-        --a-elevated-primary: rgba(44, 44, 46, .65);
-        --a-elevated-secondary: rgba(58, 58, 60, .65);
-    }
-} EOT;
+        @supports (backdrop-filter: blur(20px)) {
+            :root {
+                --a-filter-glass: blur(20px) saturate(180%);
+                --a-content-primary: rgba(20, 20, 20, .65);
+                --a-elevated-primary: rgba(44, 44, 46, .65);
+                --a-elevated-secondary: rgba(58, 58, 60, .65);
+            }
+        } 
+    EOT;
+
 	AUTO_DARK_MODE_2 "跟随系统" <<<EOT
+        @media screen and (prefers-color-scheme: dark) {
+          :root {
+              --a-bgcolor: rgb(24, 24, 24);
+              --a-mask-color: rgba(24, 24, 24, var(--a-mask-opacity));
+              --a-content-primary: rgba(36, 36, 36, 1);
+              --a-content-primary-solid: rgba(36, 36, 36, 1);
+              --a-elevated-primary: rgb(46, 46, 46);
+              --a-elevated-secondary: rgb(60, 60, 60);
+              --a-elevated-primary-solid: rgb(46, 46, 46);
+              --a-elevated-secondary-solid: rgb(60, 60, 60);
+              --a-divide: rgba(84, 84, 88, 0.65);
+              --a-depth-white: contrast(0) invert(1);
+              --a-fill-primary: rgba(120, 120, 128, 0.36);
+              --a-text-main: #fff;
+              --a-text-primary: #f5f5f7;
+              --a-text-secondary: rgba(235, 235, 245, 0.6);
+          }
+          @supports (backdrop-filter: blur(20px)) {
+            :root {
+              --a-filter-glass: blur(20px) saturate(180%);
+              --a-content-primary: rgba(36, 36, 36, .65);
+              --a-elevated-primary: rgba(46, 46, 46, .65);
+              --a-elevated-secondary: rgba(60, 60, 60, .65);
+            }
+          }
+        } 
+    EOT;
 
-@media screen and (prefers-color-scheme: dark) {
-  :root {
-      --a-bgcolor: rgb(24, 24, 24);
-      --a-mask-color: rgba(24, 24, 24, var(--a-mask-opacity));
-      --a-content-primary: rgba(36, 36, 36, 1);
-      --a-content-primary-solid: rgba(36, 36, 36, 1);
-      --a-elevated-primary: rgb(46, 46, 46);
-      --a-elevated-secondary: rgb(60, 60, 60);
-      --a-elevated-primary-solid: rgb(46, 46, 46);
-      --a-elevated-secondary-solid: rgb(60, 60, 60);
-      --a-divide: rgba(84, 84, 88, 0.65);
-      --a-depth-white: contrast(0) invert(1);
-      --a-fill-primary: rgba(120, 120, 128, 0.36);
-      --a-text-main: #fff;
-      --a-text-primary: #f5f5f7;
-      --a-text-secondary: rgba(235, 235, 245, 0.6);
-  }
-  @supports (backdrop-filter: blur(20px)) {
-    :root {
-      --a-filter-glass: blur(20px) saturate(180%);
-      --a-content-primary: rgba(36, 36, 36, .65);
-      --a-elevated-primary: rgba(46, 46, 46, .65);
-      --a-elevated-secondary: rgba(60, 60, 60, .65);
-    }
-  }
-} EOT;
 	DARK_MODE_2 "开启" <<<EOT
-/*
-**暗色模式
-*\/
+        /*
+        **暗色模式
+        *\/
 
-:root {
-    --a-bgcolor: rgb(24, 24, 24);
-    --a-mask-color: rgba(24, 24, 24, var(--a-mask-opacity));
-    --a-content-primary: rgba(36, 36, 36, 1);
-    --a-content-primary-solid: rgba(36, 36, 36, 1);
-    --a-elevated-primary: rgb(46, 46, 46);
-    --a-elevated-secondary: rgb(60, 60, 60);
-    --a-elevated-primary-solid: rgb(46, 46, 46);
-    --a-elevated-secondary-solid: rgb(60, 60, 60);
-    --a-divide: rgba(84, 84, 88, 0.65);
-    --a-depth-white: contrast(0) invert(1);
-    --a-fill-primary: rgba(120, 120, 128, 0.36);
-    --a-text-main: #fff;
-    --a-text-primary: #f5f5f7;
-    --a-text-secondary: rgba(235, 235, 245, 0.6);
-}
+        :root {
+            --a-bgcolor: rgb(24, 24, 24);
+            --a-mask-color: rgba(24, 24, 24, var(--a-mask-opacity));
+            --a-content-primary: rgba(36, 36, 36, 1);
+            --a-content-primary-solid: rgba(36, 36, 36, 1);
+            --a-elevated-primary: rgb(46, 46, 46);
+            --a-elevated-secondary: rgb(60, 60, 60);
+            --a-elevated-primary-solid: rgb(46, 46, 46);
+            --a-elevated-secondary-solid: rgb(60, 60, 60);
+            --a-divide: rgba(84, 84, 88, 0.65);
+            --a-depth-white: contrast(0) invert(1);
+            --a-fill-primary: rgba(120, 120, 128, 0.36);
+            --a-text-main: #fff;
+            --a-text-primary: #f5f5f7;
+            --a-text-secondary: rgba(235, 235, 245, 0.6);
+        }
 
-@supports (backdrop-filter: blur(20px)) {
-    :root {
-        --a-filter-glass: blur(20px) saturate(180%);
-        --a-content-primary: rgba(36, 36, 36, .65);
-        --a-elevated-primary: rgba(46, 46, 46, .65);
-        --a-elevated-secondary: rgba(60, 60, 60, .65);
-    }
-} EOT;
+        @supports (backdrop-filter: blur(20px)) {
+            :root {
+                --a-filter-glass: blur(20px) saturate(180%);
+                --a-content-primary: rgba(36, 36, 36, .65);
+                --a-elevated-primary: rgba(46, 46, 46, .65);
+                --a-elevated-secondary: rgba(60, 60, 60, .65);
+            }
+        } 
+    EOT;
+
 	DISABLE_DARK_MODE "禁用" <<<EOT
- EOT;
+    EOT;
 }
+
 @advanced dropdown LOGO_THEME "选择LOGO图标样式" {
 	LOGO_THEME "跟随主题颜色" <<<EOT
---logoimg: url(https://i.loli.net/2019/05/11/5cd6a4d7196cf.png); EOT;
+        --logoimg: url(https://i.loli.net/2019/05/11/5cd6a4d7196cf.png); 
+    EOT;
+
 	WHITE_LOGO "白色" <<<EOT
- EOT;
+    EOT;
 }
+
 @advanced dropdown THEME_COLOR "选择颜色主题" {
 	BLUE_THEME "蓝色" <<<EOT EOT;
+
 	PINK_THEME "粉色" <<<EOT
---a-theme-color: var(--a-pink);
---a-theme-color-40: var(--a-pink-40);
---a-theme-color-30: var(--a-pink-30);
---a-theme-color-20: var(--a-pink-20);
---a-filter-blue-to-pink: hue-rotate(150deg) brightness(1.3)
- EOT;
+        --a-theme-color: var(--a-pink);
+        --a-theme-color-40: var(--a-pink-40);
+        --a-theme-color-30: var(--a-pink-30);
+        --a-theme-color-20: var(--a-pink-20);
+        --a-filter-blue-to-pink: hue-rotate(150deg) brightness(1.3)
+    EOT;
 }
+
+@advanced dropdown DISABLE_PARALLAX_BG "禁用首页视差背景(如果你设置了背景抑或是想纯色背景，这项建议关闭)" {
+    DISABLE_PARALLAX_BG "禁用" <<<EOT
+       .animated-banner {
+            display: none; 
+        }
+    EOT;
+
+    ENABLE_PARALLAX_BG "启用" <<<EOT "" EOT;
+}
+
 @advanced dropdown DIV_BG "选择背景" {
 	BG_NONE "无背景"  <<<EOT "" EOT;
 	BG_1 "bing每日图片" <<<EOT url(https://bing.getlove.cn/bingImage) EOT;
@@ -240,98 +280,140 @@
 	BG_5 "2020BDF" <<<EOT url(https://i.loli.net/2020/05/25/RbTGL1ZQfcHVwY3.jpg) EOT;
     BG_6 "自定义" <<<EOT var(--a-bg-custom) EOT;
 }
+
 @advanced text CUSTOM_BG "自定义背景" "url()"
-@advanced dropdown TOPLINK_THEME "顶部链接效果（针对自定义背景优化）" {
+
+@advanced dropdown TOPLINK_THEME "顶部链接效果（针对自定义背景改善）" {
 	TOPLINK_1 "效果1（推荐无背景使用）" <<<EOT
-/*banner上方的链接*\/
+        /*banner上方的链接*\/
 
-.nav-link .nav-link-ul .nav-link-item .link,
-.nav-user-center .user-con .item .name {
-    color: var(--a-text-primary);
-    text-shadow: none!important;
+        .nav-link .nav-link-ul .nav-link-item .link,
+        .nav-user-center .user-con .item .name {
+            color: var(--a-text-primary);
+            text-shadow: none!important;
+        }
+
+        /*banner上方的链接后面黑色过渡效果*\/
+
+        .bili-banner .taper-line {
+            background: none!important;
+        } 
+    EOT;
+
+    TOPLINK_2 "效果2（推荐自定义背景使用）" <<<EOT
+        .bili-banner{
+        }
+    EOT;
 }
 
-/*banner上方的链接后面黑色过渡效果*\/
-
-.bili-banner .taper-line {
-    background: none!important;
-} EOT;
-	TOPLINK_2 "效果2（推荐自定义背景使用）" <<<EOT
-.bili-banner{
-}
- EOT;
-}
 @advanced text MASK_OPACITY "设置背景遮罩透明度（0为完全透明，1为完全覆盖背景，允许小数）" "0"
+
+@advanced dropdown SEARCHBAR_DESIGN "搜索框样式（针对自定义背景改善）" {
+    ORIGINAL_DESIGN "默认设计" <<<EOT
+    EOT;
+
+    LINE_DESIGN "线条设计" <<<EOT
+
+        #internationalHeader.international-header .nav-search #nav_searchform {
+            backdrop-filter: none!important;
+            background: transparent!important;
+            border-bottom: 2px solid white!important;
+            padding: 6px 0 5px;
+            border-radius: 0!important;
+            box-shadow: none!important;
+            margin-bottom: .5em;
+        }
+        #internationalHeader.international-header .nav-search .nav-search-keyword {
+            font-size: 18px!important;
+            color: white!important;
+            font-weight: 800;
+        }
+        .bili-icon_dingdao_sousuo::before {
+            color: white!important;
+        }
+
+    EOT;
+}
+
 @advanced dropdown FOCUS_EFFECTS "搜索条聚焦后暗化效果" {
 	DISABLE_FOCUS_EFFECTS "关闭" <<<EOT
- EOT;
+    EOT;
+
 	ENABLE_FOCUS_EFFECTS "开启" <<<EOT
-.international-header .nav-search::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0);
-    transition: .3s ease-in-out;
-    visibility: hidden;
-    z-index: -1;
+        .international-header .nav-search::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0);
+            transition: .3s ease-in-out;
+            visibility: hidden;
+            z-index: -1;
+        }
+
+        .international-header .nav-search:focus-within::before {
+            background-color: rgba(0, 0, 0, .5);
+            visibility: visible;
+            /*[[FOCUS_BLUR]]*\/
+        }
+
+        /*取消焦点时搜索记录隐藏*\/
+        .international-header .nav-search .bilibili-search-suggest,
+        .international-header .nav-search .bilibili-search-history{
+            display: none;
+        }
+
+        .international-header .nav-search .bilibili-search-suggest:active,
+        .international-header .nav-search .bilibili-search-history:active,
+        .international-header .nav-search:focus-within .bilibili-search-suggest,
+        .international-header .nav-search:focus-within .bilibili-search-history{
+            display: block;
+        } 
+    EOT;
 }
 
-.international-header .nav-search:focus-within::before {
-    background-color: rgba(0, 0, 0, .5);
-    visibility: visible;
-    /*[[FOCUS_BLUR]]*\/
-}
-
-/*取消焦点时搜索记录隐藏*\/
-.international-header .nav-search .bilibili-search-suggest,
-.international-header .nav-search .bilibili-search-history{
-    display: none;
-}
-
-.international-header .nav-search .bilibili-search-suggest:active,
-.international-header .nav-search .bilibili-search-history:active,
-.international-header .nav-search:focus-within .bilibili-search-suggest,
-.international-header .nav-search:focus-within .bilibili-search-history{
-    display: block;
-} EOT;
-}
 @advanced dropdown FOCUS_BLUR "搜索条聚焦后毛玻璃效果（仅在上个效果开启才能实现）" {
 	DISABLE_FOCUS_BLUR "关闭" <<<EOT
- EOT;
+    EOT;
+
 	FOCUS_BLUR "开启" <<<EOT
-backdrop-filter:  var(--a-filter-glass); EOT;
-}
-@advanced dropdown FOCUS_33 "搜索条聚焦后显示33娘" {
-	FOCUS_33 "开启" <<<EOT
-.international-header .nav-search::after {
-    content: '';
-    position: absolute;
-    top: -60px;
-    right: -10px;
-    width: 100px;
-    height: 100px;
-    background: url(https://i.loli.net/2020/06/23/E3he95P4XrLkGMm.png);
-    background-size: cover;
-    z-index: -1;
-    transition: .3s ease-out;
-    opacity: 0;
+        backdrop-filter:  var(--a-filter-glass); 
+    EOT;
 }
 
-.international-header .nav-search:focus-within::after {
-    transform: translatey(-20px);
-    opacity: 1;
-} EOT;
+@advanced dropdown FOCUS_33 "搜索条聚焦后显示33娘" {
+	FOCUS_33 "开启" <<<EOT
+        .international-header .nav-search::after {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -10px;
+            width: 100px;
+            height: 100px;
+            background: url(https://i.loli.net/2020/06/23/E3he95P4XrLkGMm.png);
+            background-size: cover;
+            z-index: -1;
+            transition: .3s ease-out;
+            opacity: 0;
+        }
+
+        .international-header .nav-search:focus-within::after {
+            transform: translatey(-20px);
+            opacity: 1;
+        } 
+    EOT;
+
 	DISABLE_FOCUS_33 "关闭" <<<EOT
- EOT;
+    EOT;
 }
+
 ==/UserStyle== */
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
     /*
-**样式颜色、阴影、滤镜等变量
-*/
+    *样式颜色、阴影、滤镜等变量
+    */
     :root {
         /*[[LOGO_THEME]]*/
         --a-bgimg: /*[[DIV_BG]]*/;
@@ -386,16 +468,20 @@ backdrop-filter:  var(--a-filter-glass); EOT;
         }
     }
     /*
-**以下是调整暗色模式所覆盖的变量，当调整后上面css变量将被覆盖
-*/
+    *以下是调整暗色模式所覆盖的变量，当调整后上面css变量将被覆盖
+    */
     /*暗色模式css*/
     /*[[DARK_MODE]]*/
+    /*视差效果banner圖*/
+    /*[[DISABLE_PARALLAX_BG]]*/
+    /*搜寻框设计*/
+    /*[[SEARCHBAR_DESIGN]]*/
 }
 
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
     /*
-**板块颜色调整
-*/
+    *板块颜色调整
+    */
     a:hover,
     .international-footer a:hover,
     .international-footer .partner a:hover,
@@ -457,8 +543,8 @@ backdrop-filter:  var(--a-filter-glass); EOT;
 
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
     /*
-**去除首页碍眼东西，与处理删除碍眼东西后的一些处理
-*/
+    *去除首页碍眼东西，与处理删除碍眼东西后的一些处理
+    */
     .bili-banner .taper-line {
         /*原本去除难看的过渡色效果*/
         background: none !important;
@@ -466,7 +552,7 @@ backdrop-filter:  var(--a-filter-glass); EOT;
     /*banner上方的链接*/
     .nav-link .nav-link-ul .nav-link-item .link,
     .nav-user-center .user-con .item .name {
-        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
     }
     /*删除banner上方我认为无用的链接（ε=ε=ε=┏(゜ロ゜;)┛逃）*/
     .nav-link .nav-link-ul .nav-link-item .link,
@@ -504,12 +590,18 @@ backdrop-filter:  var(--a-filter-glass); EOT;
     #reportFirst1 {
         margin-bottom: 20px;
     }
+
+    /*为什么你要在新信息提示红点外围加个白色边框，pilipili？？？？*/
+    .page-tab .con li .round .dynamic-update i {
+        border: none;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .2)
+    }
 }
 
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
     /*
-**主要调整
-*/
+    *主要调整
+    */
     /*删除其它内容，只保留搜索栏，不能下滑显示更多，显示半屏壁纸*/
     /*[[HOME_STYLE]]*/
     /*处理顶栏链接内容，使其在自定义背景下banner上方文字链接有阴影使其能看清文字*/
@@ -540,10 +632,6 @@ backdrop-filter:  var(--a-filter-glass); EOT;
         height: inherit;
         background: var(--a-mask-color);
         z-index: 0;
-    }
-    /*刪除視差效果banner圖*/
-    .animated-banner {
-        display: none;
     }
     body {
         background-color: var(--a-bgcolor);
@@ -624,7 +712,7 @@ backdrop-filter:  var(--a-filter-glass); EOT;
     }
     /*搜索框*/
     .international-header .nav-search #nav_searchform {
-        background-color: var(--a-content-primary) !important;
+        background-color: var(--a-content-primary);
         box-shadow: var(--a-depth-1) !important;
         padding: 8px 42px 8px 20px;
         border-radius: var(--a-radius);
@@ -710,19 +798,52 @@ backdrop-filter:  var(--a-filter-glass); EOT;
     .home-slide .trigger span {
         filter: var(--a-filter-blue-to-pink);
     }
+    /*首页推荐*/
+    @media screen and (max-width: 1654px) {
+        .first-screen .space-between {
+            margin-bottom: 2.1em
+        }
+    }
+    @media screen and (max-width: 1438px) {
+        .first-screen .space-between {
+            margin-bottom: 0;
+        }
+    }
+    #reportFirst2 {
+        justify-content: center;
+    }
     /*在线列表*/
     .bypb-window .online {
         background-color: var(--a-content-primary-solid);
         border: none!important;
-        border-radius: var(--a-radius);
+        border-radius: 20px;
         box-shadow: var(--a-depth-1);
+        position: relative;
+    }
+    .bypb-window .online::after {
+        content: "";
+        position: absolute;
+        right: 10px;
+        bottom: 0;
+        width: 40px;
+        height: 40px;
+        background: url("https://i.loli.net/2021/04/30/UVjXo6vGJdfqLzT.png") no-repeat;
+        background-size: contain;
+        transition: .3s;
+        transform: translatey(0)
+    }
+
+    .bypb-window .online:hover::after {
+        background-image: url("https://i.loli.net/2021/04/30/Jx64VPgsBpGdb8y.png");
+        /*         background-position: 0 .5px; */
+        transform: translatey(.5px)
     }
 }
 
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
     /*
-**板块控件微调
-*/
+    *板块控件微调
+    */
     /*分区导航栏弹窗*/
     .van-popover.van-popper-channel {
         background: var(--a-elevated-secondary);
@@ -754,6 +875,8 @@ backdrop-filter:  var(--a-filter-glass); EOT;
         color: var(--a-theme-color);
         background: var(--a-theme-color-30);
     }
+    /*首页推荐换一换*/
+    .rcmd-box-wrap .change-btn,
     .rank-header .more,
     .exchange-btn .btn {
         border: none;
@@ -761,12 +884,18 @@ backdrop-filter:  var(--a-filter-glass); EOT;
         color: var(--a-text-main);
         background: var(--a-content-primary-solid);
         border-radius: 20px;
+        box-shadow: var(--a-depth-1)
+    }
+    .rank-header .more,
+    .exchange-btn .btn {
         position: relative;
     }
+    rcmd-box-wrap .change-btn:hover,
     .rank-header .more:hover,
     .exchange-btn .btn:hover {
         background: var(--a-content-primary-solid);
     }
+    .rcmd-box-wrap .change-btn:after,
     .rank-header .more:after,
     .exchange-btn .btn:after {
         content: '';
@@ -777,6 +906,7 @@ backdrop-filter:  var(--a-filter-glass); EOT;
         height: 100%;
         transition: .3s;
     }
+    .rcmd-box-wrap .change-btn:hover:after,
     .rank-header .more:hover:after,
     .exchange-btn .btn:hover:after {
         background-color: var(--a-fill-primary);
@@ -835,8 +965,8 @@ backdrop-filter:  var(--a-filter-glass); EOT;
 
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
     /*
-**板块调整
-*/
+    *板块调整
+    */
     /*右侧导航栏*/
     .elevator {
         transform: translatex(15px);
@@ -933,15 +1063,15 @@ backdrop-filter:  var(--a-filter-glass); EOT;
     /*直播单独调整*/
     .live-card {
         overflow: hidden;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1em;
     }
 
     .live-card .up {
-        padding: 0 0.5rem 0.7rem;
+        padding: 0 .5em .7em;
     }
 
     .live-card .up .txt {
-        width: calc(158px - 0.7rem);
+        width: calc(158px - .7em);
     }
 
     .live-card .up .up-cover {
@@ -1019,7 +1149,7 @@ backdrop-filter:  var(--a-filter-glass); EOT;
     .rank-wrap .preview .txt {
         background: var(--a-content-primary-solid);
         margin-left: 0;
-        padding: 0 .5rem;
+        padding: 0 .5em;
         border-radius: 0 var(--a-radius) var(--a-radius) 0;
         box-shadow: var(--a-depth-1);
     }
@@ -1031,7 +1161,7 @@ backdrop-filter:  var(--a-filter-glass); EOT;
     .pgc-rank-wrap .number.on + a .txt,
     .manga-rank-item .rank-number.on + a.other-link {
         border-radius: calc(var(--a-radius) / 4) var(--a-radius) var(--a-radius) var(--a-radius);
-        padding: .5rem;
+        padding: .5em;
         background: var(--a-content-primary-solid);
         box-shadow: var(--a-depth-1);
     }
