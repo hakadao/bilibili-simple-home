@@ -63,8 +63,4 @@ url(https://i.loli.net/2020/05/25/HxnieocyPIjWvQB.jpg)
 * 直接使用stylus插件点击`铅笔图标`进行编辑
 ![设置](https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/preview/setting-preview.png)
 
-* 使用`xStyle`插件导入根目录下的`index.user.css`文件
-
-直接使用stylus插件编辑
-
-> 目录名字 ``XXXXX_XXXX`` 对应的是stylish的 ``/*[[XXX_XXX]]*/`` 插入符，是用来后期填充替代插入符号来实现自定义样式的。**但这些与样式没太大关系，这里单独放出来只是方便查看**
+* 使用`xStyle`插件导入根目录下的`index.user.css`文件编辑
