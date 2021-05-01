@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.4.4
+@version        1.4.5
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -313,7 +313,6 @@
     EOT;
 
     LINE_DESIGN "线条设计" <<<EOT
-
         #internationalHeader.international-header .nav-search #nav_searchform {
             backdrop-filter: none!important;
             background: transparent!important;
@@ -331,7 +330,6 @@
         .bili-icon_dingdao_sousuo::before {
             color: white!important;
         }
-
     EOT;
 }
 
@@ -474,8 +472,6 @@
     /*[[DARK_MODE]]*/
     /*视差效果banner圖*/
     /*[[DISABLE_PARALLAX_BG]]*/
-    /*搜寻框设计*/
-    /*[[SEARCHBAR_DESIGN]]*/
 }
 
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
@@ -606,6 +602,8 @@
     /*[[HOME_STYLE]]*/
     /*处理顶栏链接内容，使其在自定义背景下banner上方文字链接有阴影使其能看清文字*/
     /*[[TOPLINK_THEME]]*/
+    /*搜寻框设计*/
+    /*[[SEARCHBAR_DESIGN]]*/
     /*聚焦输入框后全局暗化效果*/
     /*[[FOCUS_EFFECTS]]*/
     /*聚焦输入框后33出现效果*/
