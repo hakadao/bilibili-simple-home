@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.4.5
+@version        1.4.6
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -242,7 +242,7 @@
 
 @advanced dropdown LOGO_THEME "选择LOGO图标样式" {
 	LOGO_THEME "跟随主题颜色" <<<EOT
-        --logoimg: url(https://i.loli.net/2019/05/11/5cd6a4d7196cf.png); 
+        --logoimg: url(https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/img/logo_blue.png); 
     EOT;
 
 	WHITE_LOGO "白色" <<<EOT
@@ -257,7 +257,7 @@
         --a-theme-color-40: var(--a-pink-40);
         --a-theme-color-30: var(--a-pink-30);
         --a-theme-color-20: var(--a-pink-20);
-        --a-filter-blue-to-pink: hue-rotate(150de) brightness(1.3)
+        --a-filter-blue-to-pink: hue-rotate(150deg) brightness(1.3)
     EOT;
 }
 
@@ -352,7 +352,7 @@
         }
 
         .international-header .nav-search:focus-within::before {
-            background-color: rgba(0, 0, 0, .5);
+            background-color: rgba(0, 0, 0, .3);
             visibility: visible;
             /*[[FOCUS_BLUR]]*\/
         }
@@ -377,7 +377,7 @@
     EOT;
 
 	FOCUS_BLUR "开启" <<<EOT
-        backdrop-filter:  var(--a-filter-glass); 
+        backdrop-filter:  blur(10px) 
     EOT;
 }
 
@@ -390,7 +390,7 @@
             right: -10px;
             width: 100px;
             height: 100px;
-            background: url(https://i.loli.net/2020/06/23/E3he95P4XrLkGMm.png);
+            background: url(https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/img/searchBar_33.png);
             background-size: cover;
             z-index: -1;
             transition: .3s ease-out;
@@ -587,7 +587,6 @@
         margin-bottom: 20px;
     }
 
-    /*为什么你要在新信息提示红点外围加个白色边框，pilipili？？？？*/
     .page-tab .con li .round .dynamic-update i {
         border: none;
         box-shadow: 0 2px 4px rgba(0, 0, 0, .2)
@@ -810,7 +809,7 @@
     #reportFirst2 {
         justify-content: center;
     }
-    /*在线列表*/
+    /*观看列表*/
     .bypb-window .online {
         background-color: var(--a-content-primary-solid);
         border: none!important;
@@ -825,15 +824,14 @@
         bottom: 0;
         width: 40px;
         height: 40px;
-        background: url("https://i.loli.net/2021/04/30/UVjXo6vGJdfqLzT.png") no-repeat;
+        background: url("https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/img/onlineListBtn_22.png") no-repeat;
         background-size: contain;
         transition: .3s;
         transform: translatey(0)
     }
 
     .bypb-window .online:hover::after {
-        background-image: url("https://i.loli.net/2021/04/30/Jx64VPgsBpGdb8y.png");
-        /*         background-position: 0 .5px; */
+        background-image: url("https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/img/onlineListBtn_22_hover.png");
         transform: translatey(.5px)
     }
 }
@@ -990,9 +988,23 @@
     .elevator .list-box .item {
         height: unset;
         padding: 2px 0;
+        margin-bottom: 2px;
         background: transparent;
         transition: .3s ease;
         border-radius: calc(var(--a-radius) / 2)
+    }
+    /*分区排序*/
+    .elevator .list-box .item.sort {
+        width: 56px!important;
+        height: 40px;
+        transform: translatex(-1px)!important;
+        border-radius: unset;
+        border: none;
+    }
+    /*返回顶部*/
+    .elevator .list-box .item.back-top {
+        border-radius: 0 0 var(--a-radius) var(--a-radius);
+        height: 36px;
     }
     .elevator .list-box .item.on,
     .elevator .list-box .item:hover {
