@@ -136,12 +136,12 @@
                 --a-text-primary: #f5f5f7;
                 --a-text-secondary: rgba(235, 235, 245, .6);
             }
-            @supports (backdrop-filter: blur(20px)) {
+            @supports (backdrop-filter: blur(15px)) {
                 :root {
-                    --a-filter-glass: blur(20px) saturate(180%);
-                    --a-content-primary: rgba(20, 20, 20, .65);
-                    --a-elevated-primary: rgba(44, 44, 46, .65);
-                    --a-elevated-secondary: rgba(58, 58, 60, .65);
+                    --a-filter-glass: blur(15px) saturate(180%);
+                    --a-content-primary: rgba(20, 20, 20, .6);
+                    --a-elevated-primary: rgba(44, 44, 46, .6);
+                    --a-elevated-secondary: rgba(58, 58, 60, .6);
                 }
             }
         } 
@@ -165,12 +165,12 @@
             --a-text-secondary: rgba(235, 235, 245, .6);
         }
 
-        @supports (backdrop-filter: blur(20px)) {
+        @supports (backdrop-filter: blur(15px)) {
             :root {
-                --a-filter-glass: blur(20px) saturate(180%);
-                --a-content-primary: rgba(20, 20, 20, .65);
-                --a-elevated-primary: rgba(44, 44, 46, .65);
-                --a-elevated-secondary: rgba(58, 58, 60, .65);
+                --a-filter-glass: blur(15px) saturate(180%);
+                --a-content-primary: rgba(20, 20, 20, .6);
+                --a-elevated-primary: rgba(44, 44, 46, .6);
+                --a-elevated-secondary: rgba(58, 58, 60, .6);
             }
         } 
     EOT;
@@ -193,12 +193,12 @@
               --a-text-primary: #f5f5f7;
               --a-text-secondary: rgba(235, 235, 245, 0.6);
           }
-          @supports (backdrop-filter: blur(20px)) {
+          @supports (backdrop-filter: blur(15px)) {
             :root {
-              --a-filter-glass: blur(20px) saturate(180%);
-              --a-content-primary: rgba(36, 36, 36, .65);
-              --a-elevated-primary: rgba(46, 46, 46, .65);
-              --a-elevated-secondary: rgba(60, 60, 60, .65);
+              --a-filter-glass: blur(15px) saturate(180%);
+              --a-content-primary: rgba(36, 36, 36, .6);
+              --a-elevated-primary: rgba(46, 46, 46, .6);
+              --a-elevated-secondary: rgba(60, 60, 60, .6);
             }
           }
         } 
@@ -226,12 +226,12 @@
             --a-text-secondary: rgba(235, 235, 245, 0.6);
         }
 
-        @supports (backdrop-filter: blur(20px)) {
+        @supports (backdrop-filter: blur(15px)) {
             :root {
-                --a-filter-glass: blur(20px) saturate(180%);
-                --a-content-primary: rgba(36, 36, 36, .65);
-                --a-elevated-primary: rgba(46, 46, 46, .65);
-                --a-elevated-secondary: rgba(60, 60, 60, .65);
+                --a-filter-glass: blur(15px) saturate(180%);
+                --a-content-primary: rgba(36, 36, 36, .6);
+                --a-elevated-primary: rgba(46, 46, 46, .6);
+                --a-elevated-secondary: rgba(60, 60, 60, .6);
             }
         } 
     EOT;
@@ -457,12 +457,12 @@
         --a-filter-blue-to-pink: ;
         /*[[THEME_COLOR]]*/
     }
-    @supports (backdrop-filter: blur(20px)) {
+    @supports (backdrop-filter: blur(15px)) {
         :root {
-            --a-filter-glass: blur(20px);
-            --a-content-primary: rgba(255, 255, 255, 0.65);
-            --a-elevated-primary: rgba(255, 255, 255, 0.65);
-            --a-elevated-secondary: rgba(255, 255, 255, 0.65);
+            --a-filter-glass: blur(15px);
+            --a-content-primary: rgba(255, 255, 255, .6);
+            --a-elevated-primary: rgba(255, 255, 255, .6);
+            --a-elevated-secondary: rgba(255, 255, 255, .6);
         }
     }
     /*
