@@ -516,8 +516,11 @@
     .international-header a,
     .van-popover a,
     .manga-panel .manga-list-box .manga-card .manga-title,
-    .international-footer .link-box .link-item .bt,
-    .live-card .up .txt .desc {
+    .international-footer .link-box .link-item .bt
+    /* .live-card .up .txt .desc,
+    .bili-video-card .bili-video-card__info--tit,
+    .bili-bangumi-card .bili-bangumi-card__info--tit  */
+    {
         color: var(--a-text-primary);
     }
     .video-card-common .up,
@@ -1230,27 +1233,89 @@
         margin-top: 1em;
     }
 }
-@-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
+@-moz-document regexp("fuck^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
     /*
     * 新版首页支援
     */
     /*去除礙眼物*/
     .bili-header .left-entry li:not(:nth-child(1)),
+    .bili-header .bili-header__bar:not(.slide-down) .left-entry li:nth-child(1),
     /*大会员*/
-    .bili-header .right-entry a[href="//account.bilibili.com/account/big"] {
+    .bili-header .right-entry a[href="//account.bilibili.com/account/big"],
+    .search-panel .trending {
         display: none;
     }
+    .bili-layout {
+        background-color: var(--a-bgcolor)!important;
+    }
     /*顶栏*/
+    .bili-header .slide-down {
+        background: var(--a-elevated-secondary);
+        backdrop-filter: var(--a-filter-glass);
+    }
+
     .bili-header .slide-down > * {
         flex: 1;
     }
+    .bili-header .slide-down [class$="entry"] span,
+    .bili-header .slide-down [class$="entry"] svg,
+    .bili-header .slide-down .right-entry .right-entry__outside .right-entry-icon {
+        color: var(--a-text-primary)
+    }
     .bili-header .right-entry {
         display: flex;
-        justify-content: end;
+        justify-content: flex-end;
+    }
+    .bili-header :not(.slide-down) .right-entry {
+        backdrop-filter: var(--a-filter-glass);
+        border-radius: 100px;
+        box-shadow: var(--a-depth-1), var(--a-depth-1);
+    }
+    .bili-header .bili-header__bar .right-entry__outside .right-entry-text {
+        position: absolute;
+        opacity: 0;
+        transition: .3s ease-out;
+        transform: translateY(100%);
+        text-shadow: 0 0 3px rgba(0, 0, 0, .3)
+    }
+    .bili-header .bili-header__bar.slide-down .right-entry__outside .right-entry-text {
+        text-shadow: unset;
+    }
+    .bili-header .right-entry__outside:hover .right-entry-text {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .bili-header .right-entry__outside svg {
+        transition: .3s ease-out;
+        animation: none!important;
+    }
+    .bili-header .right-entry__outside svg {
+        filter: drop-shadow(0 0 3px rgba(0, 0, 0, .3));
+    }
+    .bili-header .slide-down .right-entry__outside svg {
+        filter: unset;
+    }
+    .bili-header .right-entry__outside:hover svg {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    .bili-header .right-entry__outside:hover .header-upload-entry svg {
+        transform: unset;
+        opacity: unset;
+    }
+    /*投稿图标*/
+    .bili-header .header-upload-entry {
+        background: var(--a-theme-color);
+        border-radius: 50px;
     }
     /*顶栏过渡效果*/
     .bili-header .bili-header__banner .taper-line {
         background: transparent;
+    }
+    /*头图背景*/
+    #i_cecream,
+    .large-header {
+        background: unset;
     }
     /*头图*/
     .bili-header .bili-header__banner {
@@ -1261,7 +1326,7 @@
         background: var(--a-bgimg) center/cover !important;
     }
     .bili-header .bili-header__bar.slide-down + .bili-header__banner {
-/*         height: 240px; */
+        /*         height: 240px; */
         /*         filter: blur(20px) */
     }
     .bili-header .bili-header__bar + .bili-header__banner::after {
@@ -1275,15 +1340,12 @@
         transition: .3s ease-out;
     }
     .bili-header .bili-header__bar.slide-down + .bili-header__banner::after {
-/*         backdrop-filter: blur(10px) saturate(180%); */
-        background-color: rgba(0, 0, 0, .6);
+        /*         backdrop-filter: blur(10px) saturate(180%); */
+        /*         background-color: rgba(0, 0, 0, .6); */
     }
     /*头图跳转*/
     .bili-header .bili-header__banner .banner-link {
         display: none;
-    }
-    * {
-        will-change: all;
     }
     /*搜索栏*/
     .bili-header :not(.slide-down) .center-search-container {
@@ -1293,6 +1355,7 @@
         margin: 0;
         display: flex;
         justify-content: center;
+        border-radius: 50px!important;
     }
     .bili-header .slide-down .center-search-container .center-search__bar {
         max-width: unset;
@@ -1303,12 +1366,35 @@
         width: 500px;
         max-width: unset;
     }
+    .bili-header .slide-down .center-search-container .center-search__bar #nav-searchform {
+        background: unset;
+    }
+    .bili-header .slide-down .center-search-container .center-search__bar #nav-searchform.is-exper:before {
+        background: var(--a-fill-primary);
+    }
     .bili-header .center-search-container .center-search__bar #nav-searchform {
+        border: none;
+    }
+    .bili-header .center-search-container .center-search__bar #nav-searchform.is-exper:before {
+        opacity: 1;
         background-color: var(--a-elevated-primary);
         box-shadow: var(--a-depth-1);
+        backdrop-filter: var(--a-filter-glass);
+    }
+    /*右侧搜索*/
+    .bili-header .center-search-container .center-search__bar .nav-search-btn-exper3 {
+        width: 40px;
+        background-color: transparent;
+        color: var(--a-text-main);
+    }
+    .bili-header .center-search-container .center-search__bar .nav-search-btn-text {
+        display: none;
     }
     .bili-header .center-search-container .center-search__bar .nav-search-input::placeholder {
         opacity: 0;
+    }
+    .bili-header .search-panel {
+        padding-bottom: 0;
     }
     /*logo*/
     .bili-header .bili-header__banner .logo-img {
@@ -1331,5 +1417,18 @@
     .bili-header .slide-down .center-search-container::after {
         opacity: 0;
         margin-top: -200px;
+    }
+    /*右侧工具条*/
+    .palette-button-wrap .feedback {
+        display: none;
+    }
+    .palette-button-wrap .feedback.visible ~ * {
+        opacity: 0;
+    }
+    /*视频卡片*/
+    .bili-video-card__wrap,
+    .bili-live-card__wrap,
+    .bili-movie-card__wrap {
+        background: unset;
     }
 }
