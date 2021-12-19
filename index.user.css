@@ -417,6 +417,8 @@
         --a-bgimg: /*[[DIV_BG]]*/;
         --a-bg-custom: /*[[CUSTOM_BG]]*/;
         --a-bgcolor: rgb(239, 239, 244);
+        --a-bgcolor: hsl(219, 26%, 96%);
+
 
         --a-mask-opacity: /*[[MASK_OPACITY]]*/;
         --a-mask-color: rgb(239, 239, 244, var(--a-mask-opacity));
@@ -516,11 +518,10 @@
     .international-header a,
     .van-popover a,
     .manga-panel .manga-list-box .manga-card .manga-title,
-    .international-footer .link-box .link-item .bt
-    /* .live-card .up .txt .desc,
+    .international-footer .link-box .link-item .bt,
+    .live-card .up .txt .desc,
     .bili-video-card .bili-video-card__info--tit,
-    .bili-bangumi-card .bili-bangumi-card__info--tit  */
-    {
+    .bili-bangumi-card .bili-bangumi-card__info--tit {
         color: var(--a-text-primary);
     }
     .video-card-common .up,
@@ -1233,15 +1234,20 @@
         margin-top: 1em;
     }
 }
-@-moz-document regexp("fuck^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
+@-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
     /*
     * 新版首页支援
     */
+    :root {
+        /*         --bg1: red; */
+        --text1: var(--a-text-primary);
+        --text3: var(--a-text-secondary);
+    }
     /*去除礙眼物*/
     .bili-header .left-entry li:not(:nth-child(1)),
     .bili-header .bili-header__bar:not(.slide-down) .left-entry li:nth-child(1),
     /*大会员*/
-    .bili-header .right-entry a[href="//account.bilibili.com/account/big"],
+    .bili-header .right-entry li:nth-child(2),
     .search-panel .trending {
         display: none;
     }
@@ -1252,8 +1258,9 @@
     .bili-header .slide-down {
         background: var(--a-elevated-secondary);
         backdrop-filter: var(--a-filter-glass);
+        border-bottom: 1px solid var(--a-fill-primary);
+        box-shadow: none;
     }
-
     .bili-header .slide-down > * {
         flex: 1;
     }
@@ -1270,6 +1277,7 @@
         backdrop-filter: var(--a-filter-glass);
         border-radius: 100px;
         box-shadow: var(--a-depth-1), var(--a-depth-1);
+        padding: 8px 0;
     }
     .bili-header .bili-header__bar .right-entry__outside .right-entry-text {
         position: absolute;
@@ -1280,6 +1288,11 @@
     }
     .bili-header .bili-header__bar.slide-down .right-entry__outside .right-entry-text {
         text-shadow: unset;
+    }
+    .bili-header .right-entry__outside {
+        height: 36px;
+        display: flex;
+        justify-content: center;
     }
     .bili-header .right-entry__outside:hover .right-entry-text {
         opacity: 1;
@@ -1307,27 +1320,35 @@
     .bili-header .header-upload-entry {
         background: var(--a-theme-color);
         border-radius: 50px;
+        transition: .3s ease-out;
+    }
+    .bili-header .header-upload-entry:hover {
+        background: var(--a-theme-color);
+        filter: brightness(1.1)
     }
     /*顶栏过渡效果*/
     .bili-header .bili-header__banner .taper-line {
         background: transparent;
     }
-    /*头图背景*/
+    /*banner 头图背景*/
     #i_cecream,
     .large-header {
         background: unset;
     }
     /*头图*/
     .bili-header .bili-header__banner {
-        height: 100vh;
+        height: calc(100vh - 400px);
         max-height: unset;
-        /*         background-image: unset!important; */
-        transition: .3s ease-out;
         background: var(--a-bgimg) center/cover !important;
+        transition: filter .3s ease-out;
     }
     .bili-header .bili-header__bar.slide-down + .bili-header__banner {
-        /*         height: 240px; */
-        /*         filter: blur(20px) */
+        /*                 height: 240px; */
+        /*         filter: brightness(.7) */
+    }
+    /*去除 banner 跳转连结*/
+    .bili-header .bili-header__banner .header-banner__inner {
+        display: none;
     }
     .bili-header .bili-header__bar + .bili-header__banner::after {
         content: '';
@@ -1355,7 +1376,22 @@
         margin: 0;
         display: flex;
         justify-content: center;
+    }
+    .bili-header .center-search-container .center-search__bar #nav-searchform:before {
         border-radius: 50px!important;
+    }
+    .bili-header .center-search-container .center-search__bar #nav-searchform:focus-within:before {
+        border-radius: 10px!important;
+    }
+    #nav-searchform {
+        padding: 0 48px 0 6px!important;
+        border: none!important;
+        border-radius: 50px!important;
+        box-shadow: var(--a-depth-1);
+    }
+    .nav-search-input {
+        color: var(--a-text-primary)!important;
+        /*         font-size: 16px!important; */
     }
     .bili-header .slide-down .center-search-container .center-search__bar {
         max-width: unset;
@@ -1366,26 +1402,63 @@
         width: 500px;
         max-width: unset;
     }
-    .bili-header .slide-down .center-search-container .center-search__bar #nav-searchform {
-        background: unset;
+    .bili-header .center-search-container .center-search__bar #nav-searchform.is-actived:before,
+    .bili-header .center-search-container .center-search__bar #nav-searchform.is-focus:before,
+    .bili-header .center-search-container .center-search__bar #nav-searchform.is-focus,
+    .bili-header .slide-down .center-search-container .center-search__bar #nav-searchform,
+    .bili-header .center-search-container .center-search__bar #nav-searchform.is-actived .nav-search-content,
+    .bili-header .center-search-container .center-search__bar #nav-searchform.is-focus .nav-search-content,
+    .bili-header .center-search-container .center-search__bar .nav-search-content .nav-search-input:focus,
+    .bili-header .center-search-container .center-search__bar .nav-search-content .nav-search-input:active {
+        background: transparent;
     }
-    .bili-header .slide-down .center-search-container .center-search__bar #nav-searchform.is-exper:before {
-        background: var(--a-fill-primary);
+    .bili-header .slide-down .center-search-container .center-search__bar #nav-searchform::before,
+    .bili-header .slide-down .center-search-container .center-search__bar #nav-searchform:hover {
+        background: var(--a-fill-primary)!important;
     }
+    .bili-header .slide-down .center-search-container .center-search__bar #nav-searchform:hover,
     .bili-header .center-search-container .center-search__bar #nav-searchform {
         border: none;
     }
-    .bili-header .center-search-container .center-search__bar #nav-searchform.is-exper:before {
+    .bili-header :not(.slide-down) .center-search-container .center-search__bar #nav-searchform::before {
         opacity: 1;
-        background-color: var(--a-elevated-primary);
-        box-shadow: var(--a-depth-1);
+        background-color: var(--a-elevated-primary)!important;
         backdrop-filter: var(--a-filter-glass);
+        color: var(--a-text-primary);
     }
-    /*右侧搜索*/
-    .bili-header .center-search-container .center-search__bar .nav-search-btn-exper3 {
-        width: 40px;
+    /*搜索结果面板*/
+    .bili-header .search-panel {
+        padding: unset!important;
+        border: none;
+        background: var(--a-elevated-primary);
+        backdrop-filter: var(--a-filter-glass);
+        border-radius: 20px!important;
+        margin-top: .25rem;
+    }
+    .bili-header .suggestions {
+        margin: unset;
+        padding: .5rem;
+    }
+    .bili-header .suggest-item {
+        max-height: unset!important;
+        padding: 0 .5rem;
+        margin-bottom: unset;
+        border-radius: 20px;
+        transition: .3s;
+    }
+    .bili-header .suggest-item.active,
+    .bili-header .suggest-item:hover,
+    .bili-header .suggest-item:focus {
+        background: var(--a-fill-primary);
+    }
+    .bili-header .suggest_high_light {
+        color: var(--a-theme-color);
+    }
+    /*右侧搜索按钮*/
+    .bili-header .center-search-container .center-search__bar .nav-search-btn {
         background-color: transparent;
         color: var(--a-text-main);
+        border-radius: 10px;
     }
     .bili-header .center-search-container .center-search__bar .nav-search-btn-text {
         display: none;
@@ -1410,13 +1483,12 @@
         background-size: 200px !important;
         width: 210px;
         height: 100px;
-        filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.08)) var(--a-filter-blue-to-pink);
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1)) var(--a-filter-blue-to-pink);
         opacity: 1;
         transition: .3s;
     }
     .bili-header .slide-down .center-search-container::after {
         opacity: 0;
-        margin-top: -200px;
     }
     /*右侧工具条*/
     .palette-button-wrap .feedback {
@@ -1424,6 +1496,14 @@
     }
     .palette-button-wrap .feedback.visible ~ * {
         opacity: 0;
+        pointer-events: none;
+    }
+    /*分区栏*/
+    .bili-header .bili-header__channel {
+        background: unset;
+    }
+    .bili-header .channel-icons .icon-title {
+        color: var(--a-text-primary);
     }
     /*视频卡片*/
     .bili-video-card__wrap,
