@@ -1,7 +1,7 @@
  /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.5.0
+@version        1.5.2
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -319,6 +319,9 @@
         .bili-banner .taper-line {
             background: none!important;
         } 
+        .bili-header .right-entry__outside .right-entry-text {
+            color: var(--a-text-primary);
+        }
     EOT;
 
     TOPLINK_2 "效果2（推荐自定义背景使用）" <<<EOT
@@ -339,7 +342,7 @@
 			filter: drop-shadow(0 0 3px rgba(0, 0, 0, .3));
 		}
 		.bili-header .right-entry__outside .right-entry-icon,
-        .bili-header .bili-header__bar .right-entry__outside .right-entry-text
+        .bili-header .bili-header__bar .right-entry__outside .right-entry-text,
 		.bili-header .right-entry .right-entry-item .right-entry-text {
 			color: white!important;
 		}
@@ -357,21 +360,30 @@
     EOT;
 
     LINE_DESIGN "线条设计" <<<EOT
-        #internationalHeader.international-header:not(.fixed-top) .nav-search #nav_searchform {
+        #internationalHeader.international-header:not(.fixed-top) .nav-search #nav_searchform,
+        .bili-header :not(.slide-down) .center-search-container .center-search__bar #nav-searchform{
             backdrop-filter: none!important;
-            background: transparent!important;
+            background: unset!important;
             border-bottom: 2px solid white!important;
             padding: 6px 0 5px;
             border-radius: 0!important;
             box-shadow: none!important;
             margin-bottom: .5em;
         }
-        #internationalHeader.international-header:not(.fixed-top) .nav-search .nav-search-keyword {
+        .bili-header :not(.slide-down) .center-search-container .center-search__bar .nav-search-content
+        {
+            padding: unset!important;
+        }
+        .bili-header :not(.slide-down) .center-search-container .center-search__bar #nav-searchform{
+            padding-left: unset!important;
+        }
+        #internationalHeader.international-header:not(.fixed-top) .nav-search .nav-search-keyword,
+        .bili-header :not(.slide-down) .center-search-container .center-search__bar #nav-searchform .nav-search-input{
             font-size: 18px!important;
             color: white!important;
-            font-weight: 800;
         }
-        .international-header:not(.fixed-top) .bili-icon_dingdao_sousuo::before {
+        .international-header:not(.fixed-top) .bili-icon_dingdao_sousuo::before,
+        .bili-header :not(.slide-down) .center-search-container .center-search__bar .nav-search-btn{
             color: white!important;
         }
     EOT;
@@ -382,7 +394,8 @@
     EOT;
 
 	ENABLE_FOCUS_EFFECTS "开启" <<<EOT
-        .international-header .nav-search::before {
+        .international-header .nav-search::before,
+        .bili-header .center-search__bar::before{
             content: '';
             position: fixed;
             top: 0;
@@ -393,10 +406,12 @@
             transition: .3s ease-in-out;
             visibility: hidden;
             z-index: -1;
+            pointer-events: none;
         }
 
-        .international-header .nav-search:focus-within::before {
-            background-color: rgba(0, 0, 0, .3);
+        .international-header .nav-search:focus-within::before,
+        .bili-header .center-search__bar:focus-within::before{
+            background-color: rgba(0, 0, 0, .4);
             visibility: visible;
             /*[[FOCUS_BLUR]]*\/
         }
@@ -427,7 +442,8 @@
 
 @advanced dropdown FOCUS_33 "搜索条聚焦后显示33娘" {
 	FOCUS_33 "开启" <<<EOT
-        .international-header .nav-search::after {
+        .international-header .nav-search::after,
+        .bili-header :not(.slide-down) .center-search-container .center-search__bar::after{
             content: '';
             position: absolute;
             top: -60px;
@@ -441,10 +457,20 @@
             opacity: 0;
         }
 
-        .international-header .nav-search:focus-within::after {
+        .bili-header :not(.slide-down) .center-search-container .center-search__bar::after {
+            background: url(https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/img/searchBar_33_2.png);
+            background-size: cover;
+        }
+
+        .international-header .nav-search:focus-within::after,
+        .bili-header :not(.slide-down) .center-search-container .center-search__bar:focus-within::after{
             transform: translatey(-20px);
             opacity: 1;
         } 
+
+        .bili-header :not(.slide-down) #nav-searchform {
+            overflow: unset!important;
+        }
     EOT;
 
 	DISABLE_FOCUS_33 "关闭" <<<EOT
@@ -559,8 +585,14 @@
     .bili-rank-list-ogv a:hover,
     .bili-rank-list-live a:hover,
     .bili-rank-list-manga a:hover,
-    .bili-rank-list-cheese a:hover {
+    .bili-rank-list-cheese a:hover,
+    .bili-header .header .clear:hover,
+    .bili-header .history-fold-wrap:hover .fold-text {
         color: var(--a-theme-color)
+    }
+
+    .bili-header .history-fold-wrap:hover .fold-icon {
+        fill: var(--a-theme-color)
     }
 
 
@@ -618,7 +650,9 @@
     .international-footer .partner,
     .live-rank .live-rank-item .txt p.p2,
     .storey-title .text-info,
-    .bili-rank-list-video .rank-video-card__popover--author {
+    .bili-rank-list-video .rank-video-card__popover--author,
+    .bili-header .fold-text,
+    .bili-header .header .clear {
         color: var(--a-text-secondary);
     }
     .tab-line-itnl,
@@ -1372,11 +1406,11 @@
     /*
    *新版首页支援
    */
-    :root {
-        /*         --bg1: red; */
-        /* 		--text1: var(--a-text-primary); */
-        /* 		--text3: var(--a-text-secondary); */
+    html, html body,
+    html:not(.iframe), html:not(.iframe) body{
+        background: var(--a-bgcolor)!important
     }
+
     /*去除礙眼物*/
     .bili-header .left-entry li:not(:nth-child(1)),
     .bili-header .bili-header__bar:not(.slide-down) .left-entry li:nth-child(1),
@@ -1517,6 +1551,14 @@
         background: var(--a-theme-color);
         filter: brightness(1.1)
     }
+    /*顶栏遮罩*/
+    .bili-header .bili-header__banner::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: var(--a-mask-color);
+    }
     /*顶栏过渡效果*/
     .bili-header .bili-header__banner .taper-line {
         background: transparent;
@@ -1584,7 +1626,7 @@
         opacity: 1!important;
         transition: .3s;
     }
-    .slide-down #nav-searchform{
+    .slide-down #nav-searchform {
         box-shadow: unset;
     }
     .nav-search-input {
@@ -1621,9 +1663,14 @@
     }
     .bili-header :not(.slide-down) .center-search-container .center-search__bar #nav-searchform {
         opacity: 1;
-        background-color: var(--a-elevated-primary)!important;
+        background-color: var(--a-elevated-primary);
         backdrop-filter: var(--a-filter-glass);
         color: var(--a-text-primary);
+    }
+    .bili-header .center-search-container .center-search__bar .nav-search-btn:hover {
+        background: var(--a-fill-primary);
+        top: unset;
+        border-radius: 20px;
     }
     /*搜索结果面板*/
     .bili-header .search-panel {
@@ -1636,7 +1683,7 @@
         margin: .5rem 0;
         display: block!important;
         transition: .3s;
-        transform: translateY(25%);
+        transform: translateY(5%);
         opacity: 0;
         pointer-events: none;
     }
@@ -1644,7 +1691,6 @@
         transform: translateY(0%);
         opacity: 1;
         pointer-events: auto;
-        
     }
     .bili-header .slide-down .search-panel {
         backdrop-filter: unset;
@@ -1652,9 +1698,6 @@
     }
     .bili-header .search-panel .history {
         margin-top: 14px;
-    }
-    .bili-header .slide-down .suggestions {
-        /* 		backdrop-filter: var(--a-filter-glass); */
     }
     .bili-header .suggestions {
         margin: unset;
@@ -1668,7 +1711,7 @@
         border-radius: 14px;
         transition: .3s;
     }
-    /*历史结果*/
+    /*搜索历史*/
     .bili-header .histories .history-item {
         background: var(--a-fill-primary);
         transition: .3s;
@@ -1693,7 +1736,6 @@
     .bili-header .suggest-item:hover,
     .bili-header .suggest-item:focus {
         background: var(--a-fill-primary);
-        color: white;
     }
     .bili-header .suggest_high_light {
         /*         color: var(--a-theme-color); */
@@ -1704,7 +1746,7 @@
     .bili-header .suggest-item.active .suggest_high_light,
     .bili-header .suggest-item:hover .suggest_high_light,
     .bili-header .suggest-item:focus .suggest_high_light {
-        color: white;
+        /*          color: white; */
     }
     /*右侧搜索按钮*/
     .bili-header .center-search-container .center-search__bar .nav-search-btn {
@@ -1745,14 +1787,14 @@
     }
     /*首页分区弹窗面板*/
     .channel-entry-popover {
-         background: var(--a-elevated-secondary-solid);
+        background: var(--a-elevated-secondary-solid);
         color: var(--a-text-primary);
         border-radius: var(--a-radius)
     }
-    .channel-entry-popover .name{
+    .channel-entry-popover .name {
         color: var(--a-text-primary)
-        
-    } .more-channel-popover .name:hover {
+    }
+    .more-channel-popover .name:hover {
         background: var(--a-fill-primary)
     }
     /*右侧工具条*/
@@ -1765,7 +1807,7 @@
     }
     /*分区栏*/
     .bili-header .bili-header__channel {
-        background: var(--a-bgcolor);
+        background: var(--a-bgcolor)!important;
     }
     .bili-header .channel-icons .icon-title {
         color: var(--a-text-primary);
@@ -1852,7 +1894,7 @@
     }
     /*换一换、查看更多、分区、客服按钮*/
     .primary-btn {
-        background-color: var(--a-elevated-primary);
+        background-color: var(--a-elevated-primary-solid);
         border: none;
         border-radius: var(--a-radius);
         color: var(--a-text-primary);
@@ -1948,6 +1990,18 @@
     .elevator-core:active {
         background: var(--a-fill-primary);
     }
+    
+/*      .n-drawer .elevator::after {
+        content: "";
+        position: absolute;
+        right: 200px;
+        top: 0;
+        background: url(https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/img/drawer_mask_22.png);
+        background-size: contain;
+        width: 423px;
+        height: 100%;
+        pointer-events: none;
+    } */
 }
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
     /*
@@ -1985,7 +2039,7 @@
     .bili-rank-list-live .bili-rank-list-live__list,
     .bili-rank-list-manga .bili-rank-list-manga__list,
     .bili-rank-list-cheese .bili-rank-list-cheese__list {
-        background-color: var(--a-content-primary)!important;
+        background-color: var(--a-content-primary-solid);
         border: none;
         border-radius: var(--a-radius);
         box-shadow: var(--a-depth-1);
@@ -2006,7 +2060,7 @@
     }
     /*排行榜视频信息卡片*/
     .bili-rank-list-video .rank-video-card__popover,
-    .bili-rank-list-ogv .rank-ogv-card__popover{
+    .bili-rank-list-ogv .rank-ogv-card__popover {
         background-color: var(--a-elevated-secondary-solid);
         box-shadow: var(--a-depth-2);
         color: var(--a-text-primary);
