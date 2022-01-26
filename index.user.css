@@ -1,7 +1,7 @@
  /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.5.2
+@version        1.5.3
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -395,7 +395,7 @@
 
 	ENABLE_FOCUS_EFFECTS "开启" <<<EOT
         .international-header .nav-search::before,
-        .bili-header .center-search__bar::before{
+        .bili-header .bili-header__bar .center-search__bar::before {
             content: '';
             position: fixed;
             top: 0;
@@ -407,6 +407,11 @@
             visibility: hidden;
             z-index: -1;
             pointer-events: none;
+        }
+
+        .bili-header .bili-header__bar.slide-down .center-search__bar::before {
+            background: transparent;
+            backdrop-filter: unset;
         }
 
         .international-header .nav-search:focus-within::before,
@@ -1498,7 +1503,7 @@
     }
     .bili-header .bili-header__bar.slide-down .right-entry__outside .right-entry-text {
         filter: unset;
-        color: var(--a-text-primary)
+        color: var(--a-text-primary)!important;
     }
     .bili-header .right-entry__outside {
         height: 36px;
@@ -1536,13 +1541,14 @@
         border: none;
     }
     .bili-header .bili-header-channel-panel {
-        background: var(--a-elevated-primary-solid)
+        background: var(--a-elevated-primary-solid);
+        border-radius: var(--a-radius)
     }
     .bili-header .bili-header-channel-panel .channel-panel__column .channel-panel__item {
         color: var(--a-text-primary);
         border-radius: var(--a-radius)
     }
-    .bili-header .bili-header-channel-panel .channel-panel__column {
+    .bili-header .bili-header-channel-panel .channel-panel__column:not(:last-child) {
         border-color: var(--a-divide);
     }
     .bili-header .bili-header-channel-panel .channel-panel__column .channel-panel__item:hover {
@@ -1685,7 +1691,7 @@
     .bili-header .search-panel {
         padding: unset!important;
         border: none;
-        background: var(--a-elevated-primary);
+        background: var(--a-content-primary);
         backdrop-filter: var(--a-filter-glass);
         box-shadow: var(--a-depth-2);
         border-radius: calc(var(--a-radius) * 2 - 2px)!important;
@@ -1716,9 +1722,12 @@
         color: var(--a-text-primary);
         max-height: unset!important;
         padding: 0 .5rem;
-        margin-bottom: unset;
+        /*          margin-bottom: unset; */
         border-radius: 14px;
         transition: .3s;
+    }
+    .bili-header .suggest-item:last-child {
+        margin-bottom: unset;
     }
     /*搜索历史*/
     .bili-header .histories .history-item {
@@ -1799,19 +1808,23 @@
     .more-channel-popover {
         background: var(--a-elevated-secondary-solid);
         color: var(--a-text-primary);
-        border-radius: var(--a-radius)
+        border-radius: var(--a-radius);
     }
     .more-channel-popover .name:hover {
         background: var(--a-fill-primary)
     }
     /*右侧工具条*/
     .palette-button-wrap .feedback {
-        display: none;
+        /*          display: none; */
+    }
+/*      .palette-button-wrap .feedback ~ * {
+        opacity: 0;
+        pointer-events: none;
     }
     .palette-button-wrap .feedback.visible ~ * {
-        /* 		opacity: 0; */
-        /* 		pointer-events: none; */
-    }
+        opacity: 1;
+        pointer-events: auto;
+    } */
     /*分区栏*/
     .bili-header .bili-header__channel {
         background: var(--a-bgcolor)!important;
@@ -1906,7 +1919,7 @@
         background-color: var(--a-elevated-primary-solid);
         border: none;
         border-radius: var(--a-radius);
-        color: var(--a-text-primary);
+        color: var(--a-text-primary)!important;
         position: relative;
         overflow: hidden;
         box-shadow: var(--a-depth-1)!important;
@@ -1944,8 +1957,8 @@
         align-items: center;
         padding: 4px;
     }
-    .bangumi-card-list .track-switch .switch-bar {
-        background: var(--a-fill-primary);
+    #i_cecream .area-header .track-switch .switch-bar {
+        background: var(--a-fill-primary)!important;
         border-radius: 40px;
     }
     .bangumi-card-list .track-switch button {
