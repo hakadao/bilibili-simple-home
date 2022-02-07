@@ -1,7 +1,7 @@
  /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.5.5
+@version        1.5.6
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -93,6 +93,7 @@
 		/* 新首页 *\/
 		.bili-header .bili-header__banner {
 		  height: calc(100vh - 350px)!important;
+		  min-height: 400px;
 		}
     EOT;
 
@@ -152,6 +153,7 @@
                 --a-divide: rgba(84, 84, 88, .65);
                 --a-depth-white: contrast(0) invert(1);
                 --a-fill-primary: rgba(120, 120, 128, .36);
+ 				--a-fill-secondary: rgba(120, 120, 128, 0.23);
                 --a-text-main: #fff;
                 --a-text-primary: #f5f5f7;
                 --a-text-secondary: rgba(235, 235, 245, .6);
@@ -180,6 +182,7 @@
             --a-divide: rgba(84, 84, 88, .65);
             --a-depth-white: contrast(0) invert(1);
             --a-fill-primary: rgba(120, 120, 128, .36);
+			--a-fill-secondary: rgba(120, 120, 128, 0.23);
             --a-text-main: #fff;
             --a-text-primary: #f5f5f7;
             --a-text-secondary: rgba(235, 235, 245, .6);
@@ -209,6 +212,7 @@
               --a-divide: rgba(84, 84, 88, 0.65);
               --a-depth-white: contrast(0) invert(1);
               --a-fill-primary: rgba(120, 120, 128, 0.36);
+			  --a-fill-secondary: rgba(120, 120, 128, 0.23);
               --a-text-main: #fff;
               --a-text-primary: #f5f5f7;
               --a-text-secondary: rgba(235, 235, 245, 0.6);
@@ -241,6 +245,7 @@
             --a-divide: rgba(84, 84, 88, 0.65);
             --a-depth-white: contrast(0) invert(1);
             --a-fill-primary: rgba(120, 120, 128, 0.36);
+			--a-fill-secondary: rgba(120, 120, 128, 0.23);
             --a-text-main: #fff;
             --a-text-primary: #f5f5f7;
             --a-text-secondary: rgba(235, 235, 245, 0.6);
@@ -485,8 +490,8 @@
 ==/UserStyle== */
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
     /*
-  *样式颜色、阴影、滤镜等变量
-  */
+ *样式颜色、阴影、滤镜等变量
+ */
     :root {
         /*[[LOGO_THEME]]*/
         --a-bgimg: /*[[DIV_BG]]*/;
@@ -507,8 +512,8 @@
 
         --a-divide: rgba(60, 60, 67, 0.1);
         --a-fill-primary: rgba(120, 120, 128, 0.15);
-
-
+        --a-fill-secondary: rgba(120, 120, 128, 0.09);
+       
 
         --a-text-main: #000;
         --a-text-primary: #000;
@@ -549,8 +554,8 @@
         }
     }
     /*
-  *以下是调整暗色模式所覆盖的变量，当调整后上面css变量将被覆盖
-  */
+ *以下是调整暗色模式所覆盖的变量，当调整后上面css变量将被覆盖
+ */
     /*暗色模式css*/
     /*[[DARK_MODE]]*/
     /*视差效果banner圖*/
@@ -559,8 +564,8 @@
 
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
     /*
-  *板块以及文字颜色调整
-  */
+ *板块以及文字颜色调整
+ */
     .up:hover,
     .international-footer a:hover,
     .international-footer .partner a:hover,
@@ -684,8 +689,8 @@
 
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
     /*
-  *去除首页碍眼东西，与处理删除碍眼东西后的一些处理
-  */
+ *去除首页碍眼东西，与处理删除碍眼东西后的一些处理
+ */
     .bili-banner .taper-line {
         /*原本去除难看的过渡色效果*/
         background: none !important;
@@ -740,8 +745,8 @@
 
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
     /*
-  *主要调整
-  */
+ *主要调整
+ */
     /*删除其它内容，只保留搜索栏，不能下滑显示更多，显示半屏壁纸*/
     /*[[HOME_STYLE]]*/
     /*处理顶栏链接内容，使其在自定义背景下banner上方文字链接有阴影使其能看清文字*/
@@ -771,7 +776,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: inherit;
+        height: 100%;
         background: var(--a-mask-color);
         z-index: 0;
     }
@@ -786,13 +791,17 @@
     }
     /*顶栏右侧*/
     .nav-user-center {
-        /*         background-color: rgba(255, 255, 255, .2); */
+        /*  		        background-color: rgba(255, 255, 255, .2); */
         backdrop-filter: blur(20px);
-        padding: .54em;
+        padding: .75rem;
         border-radius: 100px;
     }
     .nav-user-center .user-con .item:first-child {
         margin-left: 0;
+    }
+    /*顶栏用户头像*/
+    .bili-avatar {
+        margin-top: -5px;
     }
     /*滑过的列表链接*/
     .links .link-item[data-v-be7d8ba6]:hover,
@@ -1056,8 +1065,8 @@
 
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
     /*
-  *板块控件微调
-  */
+ *板块控件微调
+ */
     /*体验新版*/
     .new-home-entry {
         background: var(--a-elevated-primary);
@@ -1065,6 +1074,7 @@
         box-shadow: var(--a-depth-1);
         color: var(--a-text-primary);
         border-radius: var(--a-radius);
+        margin-top: 200px;
     }
     .new-home-entry:hover {
         background: var(--a-elevated-primary);
@@ -1191,8 +1201,8 @@
 
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
     /*
-  *板块调整
-  */
+ *板块调整
+ */
     /*右侧导航栏*/
     .elevator {
         transform: translatex(15px);
@@ -1417,8 +1427,8 @@
 }
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
     /*
-  *新版首页支援
-  */
+ *新版首页支援
+ */
     html,
     html body,
     html:not(.iframe),
@@ -1435,6 +1445,8 @@
     .search-panel .trending,
     /*推广*/
     .eva-extension-area,
+    /*广告*/
+    .eva-banner,
     .bili-footer {
         display: none;
     }
@@ -1603,6 +1615,7 @@
         max-height: unset;
         background: unset;
         background: var(--a-bgimg) center/cover !important;
+        transition: .3s;
         /*          background-attachment: fixed !important; */
     }
     /*去除 banner 跳转连结*/
@@ -1655,10 +1668,19 @@
     .bili-header .slide-down .center-search-container .center-search__bar {
         width: 100%;
     }
+    /*这里修改搜索栏的上间距 margin-top*/
     .bili-header :not(.slide-down) .center-search-container .center-search__bar {
         margin-top: 30vh;
         width: 500px;
         max-width: unset;
+    }
+    .bili-header .center-search-container .center-search__bar {
+        transition: margin-top .3s;
+    }
+    @media screen and (max-height: 830px) {
+        .bili-header :not(.slide-down) .center-search-container .center-search__bar {
+            margin-top: 220px!important;
+        }
     }
     .bili-header .center-search-container .center-search__bar #nav-searchform.is-actived:before,
     .bili-header .center-search-container .center-search__bar #nav-searchform.is-focus:before,
@@ -1736,6 +1758,7 @@
     .bili-header .histories .history-item {
         background: var(--a-fill-primary);
         transition: .3s;
+        border-radius: var(--a-radius);
     }
     .bili-header .histories .history-item:hover {
         background: var(--a-theme-color-20);
@@ -1784,7 +1807,7 @@
     .bili-header .search-panel {
         padding-bottom: 0;
     }
-    /*logo*/
+    /*搜索栏上的logo*/
     .bili-header .bili-header__banner .logo-img {
         display: none;
     }
@@ -1800,6 +1823,12 @@
         height: 100px;
         filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1)) var(--a-filter-blue-to-pink);
         visibility: visible;
+        transition: top .3s;
+    }
+    @media screen and (max-height: 830px) {
+        .bili-header .center-search-container::after {
+            top: 100px!important;
+        }
     }
     .bili-header .slide-down .center-search-container::after {
         visibility: hidden;
@@ -1809,13 +1838,13 @@
         /*          display: none; */
     }
     /*      .palette-button-wrap .feedback ~ * {
-       opacity: 0;
-       pointer-events: none;
-   }
-   .palette-button-wrap .feedback.visible ~ * {
-       opacity: 1;
-       pointer-events: auto;
-   } */
+      opacity: 0;
+      pointer-events: none;
+  }
+  .palette-button-wrap .feedback.visible ~ * {
+      opacity: 1;
+      pointer-events: auto;
+  } */
     /*分区栏*/
     .bili-header .bili-header__channel {
         background: var(--a-bgcolor)!important;
@@ -1888,12 +1917,12 @@
         background-color: transparent!important;
     }
     /* 	.bili-video-card .bili-video-card__cover,
-  .bili-movie-card .bili-movie-card__cover, */
+ .bili-movie-card .bili-movie-card__cover, */
     /* 	.bili-bangumi-card .bili-bangumi-card__cover, */
     /* 	.bili-bangumi-card .bili-bangumi-card__image,
-  .bili-bangumi-card .bili-bangumi-card__stats,
-  .bili-movie-card .bili-movie-card__stats,
-  .bili-video-card .bili-video-card__stats */
+ .bili-bangumi-card .bili-bangumi-card__stats,
+ .bili-movie-card .bili-movie-card__stats,
+ .bili-video-card .bili-video-card__stats */
     .bili-movie-card .bili-movie-card__image,
     .bili-video-card .bili-video-card__image,
     .bili-movie-card .bili-movie-card__cover,
@@ -1983,7 +2012,7 @@
     .manga-card-list .mouse-switch > *.is-active:hover {
         background: var(--a-theme-color);
     }
-    /*右侧分区顺序调整*/
+    /*右侧分区弹出层*/
     .n-drawer {
         background: var(--a-elevated-secondary);
         backdrop-filter: var(--a-filter-glass);
@@ -1995,6 +2024,9 @@
     .elevator-head {
         color: var(--a-text-main);
     }
+    .elevator-core {
+        border-radius: var(--a-radius);
+    }
     .elevator-core .name {
         color: var(--a-text-primary);
     }
@@ -2003,23 +2035,22 @@
     .elevator-core:active {
         background: var(--a-fill-primary);
     }
-
-    /*      .n-drawer .elevator::after {
-       content: "";
-       position: absolute;
-       right: 200px;
-       top: 0;
-       background: url(https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/img/drawer_mask_22.png);
-       background-size: contain;
-       width: 423px;
-       height: 100%;
-       pointer-events: none;
-   } */
+    /*  	.n-drawer .elevator::after {
+        content: "";
+        position: absolute;
+        right: 200px;
+        top: 0;
+        background: url(https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/img/drawer_mask_22.png) no-repeat;
+        background-size: contain;
+        width: 423px;
+        height: 100%;
+        pointer-events: none;
+    } */
 }
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
     /**
-  * 新版首页公用模块
-  */
+ * 新版首页公用模块
+ */
     /*分区右侧排行榜*/
     /* 	 [class*="bili-rank-list-"] [class$="__list"], */
     .bili-rank-list-video .bili-rank-list-video__list,
@@ -2047,7 +2078,7 @@
     .bili-rank-list-manga .bili-rank-list-manga__item:nth-of-type(2n),
     .bili-rank-list-cheese .bili-rank-list-cheese__item:nth-of-type(2n),
     .bili-rank-list-article .bili-rank-list-article__item:nth-of-type(2n) {
-        background: unset;
+        background: var(--a-fill-secondary);
     }
     /*tab 标签*/
     .aside-head .mouse-switch > *.is-active {
@@ -2080,8 +2111,8 @@
 }
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
     /**
-   * 新首页弹窗调整
-   */
+  * 新首页弹窗调整
+  */
     .v-popover-content {
         border-radius: var(--a-radius)!important;
         border: unset;
