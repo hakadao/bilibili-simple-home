@@ -1,12 +1,12 @@
 # bilibili-simple-home
 
-b站仿搜索引擎样式首页风格，支持几种不同显示效果
+b站仿搜索引擎样式首页风格
 
 ## 安装
 
-> 请先在浏览器安装`Stylus`插件，再进行以下安装
+> 请先在浏览器安装 `Stylus` 插件，再进行以下安装
 
-1. 安装 [Stylus for Firefox](https://addons.mozilla.org/en-US/firefox/addon/styl-us/), [Chrome](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne), [Opera](https://addons.opera.com/en-gb/extensions/details/stylus/) 或者 [Cascadea for Safari](https://cascadea.app/)
+1. 安装 [Stylus for Firefox](https://addons.mozilla.org/en-US/firefox/addon/styl-us/), [Chrome](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne)
 
 2. [点击此处安装或更新样式](https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/index.user.css)
 
@@ -63,4 +63,4 @@ url(https://i.loli.net/2020/05/25/HxnieocyPIjWvQB.jpg)
 * 直接使用stylus插件点击`铅笔图标`进行编辑
 ![设置](https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/preview/setting-preview.png)
 
-* 使用`xStyle`插件导入根目录下的`index.user.css`文件编辑
+* 使用 `xStyle` 插件导入根目录下的 `index.user.css` 文件编辑
