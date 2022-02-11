@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.5.8
+@version        1.5.9
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -298,6 +298,8 @@
 
 @advanced text CUSTOM_BG "自定义背景" "url()"
 
+@advanced text MASK_OPACITY "设置背景遮罩透明度（0为完全透明，1为完全覆盖背景，允许小数）" "0"
+
 @advanced dropdown BG_ATTACHMENT "背景依附方式" {
 	BG_SCROLL "背景随滚轮滚动" <<<EOT
 	EOT;
@@ -305,6 +307,45 @@
 	BG_FIXED "背景固定" <<<EOT
 		.bili-header .bili-header__banner {
 			background-attachment: fixed !important;
+		}
+	EOT;
+}
+
+@advanced dropdown BG_FULLPAGE "开启背景全屏覆盖（会损失部分效能）" {
+	BG_NORMAL "关闭" <<<EOT
+	EOT;
+
+	BG_FULLPAGE "开启" <<<EOT
+		body::before {
+			content: "";
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			will-change: all;
+			background: var(--a-bgimg) center/cover var(--a-bgcolor) fixed !important;
+			/*制造遮罩效果*\/
+			opacity: calc(1 - var(--a-mask-banner-opacity));
+			pointer-events: none;
+		}
+
+		.bili-banner[data-v-8a80c8c4] {
+			background: transparent!important;
+		}
+		/*去除banner遮罩*\/
+		.bili-banner:before {
+			display: none;
+		}
+
+		/*新首页*\/
+		/*去除banner自定义背景，因为上面全屏背景已经包含*\/
+		#i_cecream .bili-header__banner, #i_cecream .home-header__banner {
+			background: unset !important;
+		}
+		/*去除banner遮罩*\/
+		.bili-header .bili-header__banner::before {
+			display: none;
 		}
 	EOT;
 }
@@ -355,8 +396,6 @@
 		}
     EOT;
 }
-
-@advanced text MASK_BANNER_OPACITY "设置 banner 背景遮罩透明度（0为完全透明，1为完全覆盖背景，允许小数）" "0"
 
 @advanced dropdown SEARCHBAR_DESIGN "搜索框样式（针对自定义背景改善）" {
     ORIGINAL_DESIGN "默认设计" <<<EOT
@@ -511,7 +550,7 @@
 	WHITE_LOGO "白色" <<<EOT
     EOT;
 } */
-@-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
+@-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {	
 	/**
 	 * 样式颜色、阴影、滤镜等变量，和自定义选项作出的修改
 	 */
@@ -523,10 +562,8 @@
 		--a-bgcolor: hsl(219, 26%, 96%);
 
 
-		--a-mask-banner-opacity: /*[[MASK_BANNER_OPACITY]]*/;
-		--a-mask-body-opacity: /*[[MASK_BODY_OPACITY]]*/;
+		--a-mask-banner-opacity: /*[[MASK_OPACITY]]*/;
 		--a-mask-banner-color: hsla(219, 26%, 96%, var(--a-mask-banner-opacity));
-		--a-mask-body-color: hsla(219, 26%, 96%, var(--a-mask-body-opacity));
 
 
 		--a-content-primary: rgba(255, 255, 255, 1);
@@ -601,6 +638,8 @@
 	/*[[FOCUS_33]]*/
 	/*背景固定方式*/
 	/*[[BG_ATTACHMENT]]*/
+	/*全屏背景*/
+	/*[[BG_FULLPAGE]]*/
 	/*导入bilibili logo图标*/
 	@font-face {
 		font-family: 'Bilibili Icon';
@@ -663,6 +702,7 @@
 	.manga-rank-item .preview .preview-link,
 	.international-footer {
 		background: var(--a-content-primary-solid);
+		z-index: 1;
 	}
 	.rank-header .name,
 	.storey-title .name,
@@ -1483,6 +1523,7 @@
 		padding: .5em;
 		background: var(--a-content-primary-solid);
 		box-shadow: var(--a-depth-1);
+		z-index: 1;
 	}
 	/*漫画排行榜*/
 	.manga-rank-item .preview .preview-link {
@@ -1504,16 +1545,18 @@
 		
  	} */
 	/*背景遮罩*/
-	/*  	body::before {
- 		content: "";
+	body::before {
+/*  		content: "";
  		position: fixed;
 		top: 0;
 		left: 0;
  		width: 100vw;
  		height: 100vh;
 		will-change: all;
- 		background-color: var(--a-mask-body-color);
- 	} */
+		background: var(--a-bgimg) center/cover var(--a-bgcolor) fixed !important;
+		opacity: .2; */
+/*  		background-color: var(--a-mask-body-color); */
+ 	}
 	html,
 	html body,
 	html:not(.iframe),
@@ -1552,6 +1595,13 @@
 		/*修正全屏显示壁纸时元素宽度问题导致出现横向滚动条问题 #28，包括其他几个首页样式的横向滚动条问题*/
 		width: 100vw;
 	}
+	
+	.bili-header .left-entry__title {
+		border-radius: 100px;
+		filter: drop-shadow(0 0 6px rgba(0, 0, 0, .3));
+/* 		padding: 0 25px; */
+/* 		box-shadow: var(--a-depth-1) */
+	}
 	/*顶栏logo*/
 	.bili-header .left-entry__title::before {
 		content: "\0041";
@@ -1560,12 +1610,17 @@
 		font-weight: normal;
 		line-height: 0;
 		font-size: 60px;
-		color: var(--a-theme-color);
-		margin-right: 25px;
-		/*  		filter: var(--a-filter-blue-to-pink); */
+		color: white;
+		margin-right: 12px;
 	}
+	/*去除舊頂欄左側文字首頁，logo*/
+	.bili-header .left-entry__title .mini-header__title>span,
 	.bili-header .left-entry__title .mini-header__logo {
 		display: none;
+	}
+	.bili-header .left-entry__title .mini-header__title .mini-header__arrow {
+		color: white;
+		filter: drop-shadow(0 0 4px rgba(0, 0, 0, .3));
 	}
 	@keyframes headerSlideDown {
 		from {
@@ -1587,8 +1642,8 @@
 		top: 0;
 		left: 0;
 		width: 100%;
-		height: 150px;
-		background: linear-gradient(var(--a-bgcolor), transparent);
+		height: 100px;
+		background: linear-gradient(rgba(0, 0, 0, .3), transparent);
 		z-index: -1;
 		pointer-events: none;
 		opacity: 0;
@@ -1596,7 +1651,7 @@
 	}
 	/*当顶栏滑下时，制造出渐变遮罩效果*/
 	.bili-header .bili-header__bar.slide-down::after {
-		opacity: .8;
+		opacity: 1;
 	}
 	/*顶栏右侧内容 帐号 消息 动态 收藏...*/
 	.bili-header .slide-down .right-entry {
@@ -1994,6 +2049,7 @@
 		box-shadow: var(--a-depth-1);
 		position: relative;
 		z-index: 1;
+		backdrop-filter: var(--a-filter-glass); 
 	}
 	.bili-header .bili-header__channel .channel-entry-more__link::after,
 	.bili-header .bili-header__channel .channel-link::after {
@@ -2112,7 +2168,7 @@
 		padding: 4px;
 	}
 	#i_cecream .area-header .track-switch .switch-bar {
-		background: var(--a-theme-color)!important;
+		background: var(--a-fill-primary)!important;
 		border-radius: 40px;
 	}
 	.bangumi-card-list .track-switch button {
