@@ -12,6 +12,8 @@ b站仿搜索引擎样式首页风格
 
 3. [xStyle插件的在此处安装](https://ext.firefoxcn.net/xstyle/install/open.html?name=bilibili搜索引擎首页样式&code=https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/index.user.css)
 
+4. [UserStyles.world 安装](https://userstyles.world/style/3022/bilibili)
+
 ## 快速配置
 
 * [自定义背景](#自定义背景)
