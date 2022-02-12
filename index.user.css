@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.5.9
+@version        1.6.0
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -1598,7 +1598,7 @@
 	
 	.bili-header .left-entry__title {
 		border-radius: 100px;
-		filter: drop-shadow(0 0 6px rgba(0, 0, 0, .3));
+		filter: drop-shadow(0 0 4px rgba(0, 0, 0, .3));
 /* 		padding: 0 25px; */
 /* 		box-shadow: var(--a-depth-1) */
 	}
@@ -1642,8 +1642,8 @@
 		top: 0;
 		left: 0;
 		width: 100%;
-		height: 100px;
-		background: linear-gradient(rgba(0, 0, 0, .3), transparent);
+		height: 150px;
+		background: linear-gradient(rgba(0, 0, 0, .25), transparent);
 		z-index: -1;
 		pointer-events: none;
 		opacity: 0;
@@ -1779,7 +1779,7 @@
 	.bili-header .bili-header__banner {
 		height: 100vh;
 		max-height: unset;
-		background: var(--a-bgimg) center/cover;
+		background: var(--a-bgimg) center/cover !important;
 		transition: .3s;
 	}
 	/*去除 banner 跳转连结*/
@@ -1831,7 +1831,7 @@
 		position: absolute;
 		top: 15vh;
 		left: 50%;
-		margin-top: 30px;
+		margin-top: 50px;
 		transform: translateX(-50%);
 		font-size: 210px;
 		text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
