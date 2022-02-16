@@ -505,7 +505,7 @@
     EOT;
 }
 
-@advanced dropdown TRENDIND_DISABLE "右侧排行榜" {
+@advanced dropdown TRENDIND_DISABLE "禁用右侧排行榜（仅新首页）" {
 	TRENDIND_DISABLE "禁用" <<<EOT
 	/*移除排行榜*\/
 	.bili-grid {
