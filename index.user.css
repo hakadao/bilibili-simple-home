@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.6.1
+@version        1.6.2
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -97,13 +97,14 @@
 		}
     EOT;
 
-	HALF_HOME_2 "【样式2】半屏显示壁纸（新首页暂不支援）" <<<EOT
+	HALF_HOME_2 "【样式2】半屏显示壁纸" <<<EOT
         /*
         **【样式2】半屏显示壁纸
         *\/
 
         .bili-banner {
-            height: 30vh!important;
+            height: 30vh !important;
+			min-height: 210px !important;
             z-index: -1!important;
         }
 
@@ -118,6 +119,12 @@
             top: 12vh!important;
         }
 
+		@media screen and (max-height: 830px) {
+            .international-header .nav-search-box {
+                top: 70px!important;
+            }
+        }
+
         /*观看列表按钮位置调整*\/
         .first-screen .space-between {
             margin-top: 1em!important;
@@ -129,6 +136,29 @@
             top: 45%!important;
             left: -200px!important;
             transform: scale(.6);
+        } 
+
+		/* 新首页 *\/
+		.bili-header .bili-header__banner {
+			height: 30vh !important;
+			min-height: 210px !important;
+		}
+
+		/*搜索框容器*\/
+        #i_cecream .bili-header :not(.slide-down) .center-search-container .center-search__bar {
+            margin-top: 12vh!important;
+        }
+
+		@media screen and (max-height: 830px) {
+            #i_cecream .bili-header :not(.slide-down) .center-search-container .center-search__bar {
+                margin-top: 70px!important;
+            }
+        }
+
+		/*logo*\/
+        .bili-header .center-search-container::after {
+            margin-left: -400px!important;
+            transform: scale(.6) translateX(-50%) translateY(-110px) !important;
         } 
         EOT;
 }
@@ -276,16 +306,6 @@
 
 @advanced color THEME_COLOR_NEW "选择主题色 - 实验性（仅支援十六进制非透明颜色，如默认蓝 #00a1d6、默认粉 #fb7299）" #00a1d6
 
-@advanced dropdown DISABLE_PARALLAX_BG "禁用首页视差背景(如果你设置了背景抑或是想纯色背景，这项建议关闭)" {
-    DISABLE_PARALLAX_BG "禁用" <<<EOT
-       .animated-banner {
-            display: none; 
-        }
-    EOT;
-
-    ENABLE_PARALLAX_BG "启用（启用后请刷新页面）" <<<EOT "" EOT;
-}
-
 @advanced dropdown DIV_BG "选择背景" {
 	BG_NONE "无背景"  <<<EOT "" EOT;
 	BG_1 "bing每日图片" <<<EOT url(https://bing.getlove.cn/bingImage) EOT;
@@ -307,45 +327,6 @@
 	BG_FIXED "背景固定" <<<EOT
 		.bili-header .bili-header__banner {
 			background-attachment: fixed !important;
-		}
-	EOT;
-}
-
-@advanced dropdown BG_FULLPAGE "开启背景全屏覆盖（会损失部分效能）" {
-	BG_NORMAL "关闭" <<<EOT
-	EOT;
-
-	BG_FULLPAGE "开启" <<<EOT
-		body::before {
-			content: "";
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100vw;
-			height: 100vh;
-			will-change: all;
-			background: var(--a-bgimg) center/cover var(--a-bgcolor) fixed !important;
-			/*制造遮罩效果*\/
-			opacity: calc(1 - var(--a-mask-banner-opacity));
-			pointer-events: none;
-		}
-
-		.bili-banner[data-v-8a80c8c4] {
-			background: transparent!important;
-		}
-		/*去除banner遮罩*\/
-		.bili-banner:before {
-			display: none;
-		}
-
-		/*新首页*\/
-		/*去除banner自定义背景，因为上面全屏背景已经包含*\/
-		#i_cecream .bili-header__banner, #i_cecream .home-header__banner {
-			background: unset !important;
-		}
-		/*去除banner遮罩*\/
-		.bili-header .bili-header__banner::before {
-			display: none;
 		}
 	EOT;
 }
@@ -524,8 +505,21 @@
     EOT;
 }
 
-==/UserStyle== */
+@advanced dropdown TRENDIND_DISABLE "右侧排行榜" {
+	TRENDIND_DISABLE "禁用" <<<EOT
+	/*移除排行榜*\/
+	.bili-grid {
+		grid-template-columns: repeat(4, 1fr);
+	}
+	.bili-grid aside {
+		display: none;
+	}
+	EOT;
 
+	TRENDIND_ENABLE "开启" <<<EOT
+	EOT;
+}
+==/UserStyle== */
 /**
  * 暂时隐藏的功能
  */
@@ -550,7 +544,16 @@
 	WHITE_LOGO "白色" <<<EOT
     EOT;
 } */
-@-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {	
+/* @advanced dropdown DISABLE_PARALLAX_BG "禁用首页视差背景(如果你设置了背景抑或是想纯色背景，这项建议关闭)" {
+    DISABLE_PARALLAX_BG "禁用" <<<EOT
+       .animated-banner {
+            display: none; 
+        }
+    EOT;
+
+    ENABLE_PARALLAX_BG "启用（启用后请刷新页面）" <<<EOT "" EOT;
+} */
+@-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
 	/**
 	 * 样式颜色、阴影、滤镜等变量，和自定义选项作出的修改
 	 */
@@ -584,7 +587,7 @@
 
 		--a-radius: 10px;
 
-/* 		--a-blue: #00a1d6;
+		/* 		--a-blue: #00a1d6;
 		--a-blue-50: #00a1d680;
 		--a-blue-40: #00a1d666;
 		--a-blue-30: #00a1d64d;
@@ -594,12 +597,10 @@
 		--a-pink-40: rgba(251, 114, 153, 0.4);
 		--a-pink-30: rgba(251, 114, 153, 0.3);
 		--a-pink-20: rgba(251, 114, 153, 0.2); */
-
 		/*主题颜色*/
 		/*[[THEME_COLOR]]*/
-/* 		--a-theme-color: var(--a-blue); */
-/* 		--a-filter-blue-to-pink: ; */
-		
+		/* 		--a-theme-color: var(--a-blue); */
+		/* 		--a-filter-blue-to-pink: ; */
 		--a-theme-color: /*[[THEME_COLOR_NEW]]*/;
 		--a-theme-color-50: /*[[THEME_COLOR_NEW]]*/80;
 		--a-theme-color-40: /*[[THEME_COLOR_NEW]]*/66;
@@ -608,8 +609,6 @@
 
 		--a-depth-1: 0 7px 14px rgba(0, 0, 0, 0.05), 0 4px 8px rgba(0, 0, 0, 0.02);
 		--a-depth-2: 0 10px 16px rgba(0, 0, 0, 0.06), 0 6px 10px rgba(0, 0, 0, 0.025);
-
-
 	}
 	@supports (backdrop-filter: blur(15px)) {
 		:root {
@@ -638,12 +637,16 @@
 	/*[[FOCUS_33]]*/
 	/*背景固定方式*/
 	/*[[BG_ATTACHMENT]]*/
-	/*全屏背景*/
-	/*[[BG_FULLPAGE]]*/
-	/*导入bilibili logo图标*/
+	/*排行榜禁用*/
+	/*[[TRENDIND_DISABLE]]*/
+}
+@-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
+	/**
+	 * 导入bilibili logo图标
+	 */
 	@font-face {
 		font-family: 'Bilibili Icon';
-		src: url('https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/fonts/Bilibili.ttf') format('truetype');
+		src: url('https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/fonts/Bilibili_Icon.ttf') format('truetype');
 		font-weight: normal;
 		font-style: normal;
 	}
@@ -702,7 +705,6 @@
 	.manga-rank-item .preview .preview-link,
 	.international-footer {
 		background: var(--a-content-primary-solid);
-		z-index: 1;
 	}
 	.rank-header .name,
 	.storey-title .name,
@@ -757,7 +759,9 @@
 	.storey-title .text-info,
 	.bili-rank-list-video .rank-video-card__popover--author,
 	.bili-header .fold-text,
-	.bili-header .header .clear {
+	.bili-header .header .clear,
+	.bili-video-card .bili-video-card__info--bottom,
+	.bili-rank-list-video .bili-rank-list-video__item--index {
 		color: var(--a-text-secondary);
 	}
 	.tab-line-itnl,
@@ -781,6 +785,10 @@
 	.bili-banner .taper-line {
 		/*原本去除难看的过渡色效果*/
 		background: none !important;
+	}
+	/*动态banner，有时是放广告，有时是视差季节图效果*/
+	.animated-banner {
+		display: none;
 	}
 	/*banner上方的链接*/
 	.nav-link .nav-link-ul .nav-link-item .link,
@@ -926,7 +934,7 @@
  		opacity: 0;
  	} */
 	.international-header .nav-search-box:after {
-		content: "\0041";
+		content: "\0042";
 		font-family: 'Bilibili Icon';
 		font-style: normal;
 		font-weight: normal;
@@ -1035,7 +1043,7 @@
 		border-radius: var(--a-radius) !important;
 		background-color: var(--a-content-primary) !important;
 		backdrop-filter: var(--a-filter-glass);
-		box-shadow: var(--a-depth-2);
+		box-shadow: var(--a-depth-2) !important;
 		border: none!important;
 		padding: 8px;
 	}
@@ -1066,25 +1074,7 @@
 	}
 	/*搜索建议 热搜*/
 	.header-search-suggest .trending {
-/* 		display: none; */
-		height: 1rem;
-		position: relative;
-		opacity: 1;
-		pointer-events: none;
-/* 		overflow: hidden; */
-	}
-	.header-search-suggest .trending .header::before {
-		content: "什么是热搜？这里没有这东西哦 ~";
-		position: absolute;
-		top: -.45rem;
-		left: 50%;
-		transform: translateX(-50%);
-		color: var(--a-text-secondary);
-	}
-	/*去除热搜项与「热搜」标题*/
-	.suggest-wrap .header .title,
-	.suggest-wrap .trendings-double {
-		display: none!important;
+		display: none;
 	}
 	/*展开更多*/
 	.suggest-wrap .history-fold-wrap {
@@ -1183,7 +1173,7 @@
 		box-shadow: var(--a-depth-1);
 		color: var(--a-text-primary);
 		border-radius: var(--a-radius);
-		margin-top: 200px;
+		top: calc(70% + 100px);
 	}
 	.new-home-entry:hover {
 		background: var(--a-elevated-primary);
@@ -1546,7 +1536,7 @@
  	} */
 	/*背景遮罩*/
 	body::before {
-/*  		content: "";
+		/*  		content: "";
  		position: fixed;
 		top: 0;
 		left: 0;
@@ -1555,8 +1545,8 @@
 		will-change: all;
 		background: var(--a-bgimg) center/cover var(--a-bgcolor) fixed !important;
 		opacity: .2; */
-/*  		background-color: var(--a-mask-body-color); */
- 	}
+		/*  		background-color: var(--a-mask-body-color); */
+	}
 	html,
 	html body,
 	html:not(.iframe),
@@ -1595,16 +1585,16 @@
 		/*修正全屏显示壁纸时元素宽度问题导致出现横向滚动条问题 #28，包括其他几个首页样式的横向滚动条问题*/
 		width: 100vw;
 	}
-	
+
 	.bili-header .left-entry__title {
 		border-radius: 100px;
 		filter: drop-shadow(0 0 4px rgba(0, 0, 0, .3));
-/* 		padding: 0 25px; */
-/* 		box-shadow: var(--a-depth-1) */
+		/* 		padding: 0 25px; */
+		/* 		box-shadow: var(--a-depth-1) */
 	}
 	/*顶栏logo*/
 	.bili-header .left-entry__title::before {
-		content: "\0041";
+		content: "\0042";
 		font-family: 'Bilibili Icon';
 		font-style: normal;
 		font-weight: normal;
@@ -1614,7 +1604,7 @@
 		margin-right: 12px;
 	}
 	/*去除舊頂欄左側文字首頁，logo*/
-	.bili-header .left-entry__title .mini-header__title>span,
+	.bili-header .left-entry__title .mini-header__title > span,
 	.bili-header .left-entry__title .mini-header__logo {
 		display: none;
 	}
@@ -1823,7 +1813,7 @@
  		z-index: 999;
  	} */
 	.bili-header .center-search-container::after {
-		content: "\0041";
+		content: "\0042";
 		font-family: 'Bilibili Icon';
 		font-style: normal;
 		font-weight: normal;
@@ -2042,14 +2032,13 @@
 	}
 	.bili-header .bili-header__channel .channel-entry-more__link,
 	.bili-header .bili-header__channel .channel-link {
-		background-color: var(--a-elevated-primary)!important;
+		background-color: var(--a-elevated-primary-solid)!important;
 		color: var(--a-text-primary)!important;
 		border: none;
 		border-radius: var(--a-radius);
 		box-shadow: var(--a-depth-1);
 		position: relative;
 		z-index: 1;
-		backdrop-filter: var(--a-filter-glass); 
 	}
 	.bili-header .bili-header__channel .channel-entry-more__link::after,
 	.bili-header .bili-header__channel .channel-link::after {
@@ -2082,12 +2071,12 @@
 	.area-header .title span::after {
 		content: "";
 		position: absolute;
-		left: 0;
-		bottom: 6px;
-		width: 80%;
-		height: 8px;
+		right: -6px;
+		bottom: 1px;
+		width: 100%;
+		height: 18px;
 		background: var(--a-theme-color-50);
-		border-radius: 20px;
+		/* 		border-radius: 20px; */
 		z-index: -1;
 	}
 	.area-header .icon {
@@ -2123,6 +2112,10 @@
 	[class$="-card"] [class$="-card__stats"] {
 		border-radius: 0 0 var(--a-radius) var(--a-radius)!important;
 	}
+	/*去除专栏边框*/
+	.bili-article-card .bili-article-card__cover {
+		border: none;
+	}
 	/*换一换、查看更多、分区、客服按钮*/
 	.primary-btn {
 		background-color: var(--a-elevated-primary);
@@ -2152,13 +2145,12 @@
 	}
 	/*最近更新 周一 周二 周三 指示切换*/
 	.bangumi-card-list .track-switch {
-		background: var(--a-elevated-primary);
+		background: var(--a-elevated-primary-solid);
 		box-shadow: var(--a-depth-1);
 		height: 32px;
 		border-radius: 40px;
 		display: flex;
 		align-items: center;
-		backdrop-filter: var(--a-filter-glass);
 	}
 	/*指示胶囊*/
 	.bangumi-card-list .track-switch .track-switch-bar {
