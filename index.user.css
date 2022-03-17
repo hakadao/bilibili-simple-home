@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.6.8
+@version        1.6.8.1
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -1689,10 +1689,6 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		font-size: 60px;
 		color: white;
 		margin-right: 12px;
-	}
-	/*顶栏新信息*/
-	.bili-header .red-num--message {
-		background: var(--a-theme-color);
 	}
 	/*去除舊頂欄左側文字首頁，logo*/
 	.bili-header .left-entry__title .mini-header__title > span,
