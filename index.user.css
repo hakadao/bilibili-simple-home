@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.6.4
+@version        1.7.0
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -165,129 +165,131 @@
 
 @advanced dropdown THEME "主题选择" {
 THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
-        @media screen and (prefers-color-scheme: dark) {
-          :root {
-              --a-bgcolor: rgb(24, 24, 24);
-              --a-mask-banner-color: rgba(24, 24, 24, var(--a-mask-banner-opacity));
-              --a-content-primary: rgba(36, 36, 36, 1);
-              --a-content-primary-solid: rgba(36, 36, 36, 1);
-              --a-elevated-primary: rgb(46, 46, 46);
-              --a-elevated-secondary: rgb(60, 60, 60);
-              --a-elevated-primary-solid: rgb(46, 46, 46);
-              --a-elevated-secondary-solid: rgb(60, 60, 60);
-              --a-divide: rgba(84, 84, 88, 0.65);
-              --a-depth-white: contrast(0) invert(1);
-              --a-fill-primary: rgba(120, 120, 128, 0.36);
-			  --a-fill-secondary: rgba(120, 120, 128, 0.23);
-              --a-text-main: #fff;
-              --a-text-primary: #f5f5f7;
-              --a-text-secondary: rgba(235, 235, 245, 0.6);
-          }
-          @supports (backdrop-filter: blur(15px)) {
-            :root {
-              --a-filter-glass: blur(15px) saturate(180%);
-              --a-content-primary: rgba(36, 36, 36, .6);
-              --a-elevated-primary: rgba(46, 46, 46, .6);
-              --a-elevated-secondary: rgba(60, 60, 60, .6);
-            }
-          }
-        } 
+		@media screen and (prefers-color-scheme: dark) {
+			:root {
+				--a-bgcolor: hsl(230 12% 7%);
+				--a-mask-banner-color: hsl(230 12% 7% / var(--a-mask-banner-opacity));
+
+				--a-content-primary: hsl(230 12% 15%);
+				--a-content-primary-solid: hsl(230 12% 15%);
+
+				--a-elevated-primary: hsl(230 12% 18%);
+				--a-elevated-primary-solid: hsl(230 12% 18%);
+				--a-elevated-secondary: hsl(230 12% 24%);
+				--a-elevated-secondary-solid: hsl(230 12% 24%);
+
+				--a-divide: rgba(120, 123, 128, 0.3);
+				--a-depth-white: contrast(0) invert(1);
+				--a-fill-primary: rgba(120, 123, 128, .4);
+				--a-fill-secondary: rgba(120, 123, 128, 0.3);
+
+				--a-text-primary: hsl(215, 19%, 98%);
+				--a-text-secondary: rgba(235, 235, 245, 0.6);
+			}
+			@supports (backdrop-filter: blur(15px)) {
+				:root {
+					--a-filter-glass: blur(15px) saturate(180%);
+					--a-content-primary: hsl(230 12% 15% / 60%);
+					--a-elevated-primary: hsl(230 12% 18% / 60%);
+					--a-elevated-secondary: hsl(230 12% 24% / 60%);
+				}
+			}
+		}
     EOT;
 
 	THEME_DARK "暗色模式" <<<EOT
-        /*
-        **暗色模式
-        *\/
-
         :root {
-            --a-bgcolor: rgb(24, 24, 24);
-            --a-mask-banner-color: rgba(24, 24, 24, var(--a-mask-banner-opacity));
-            --a-content-primary: rgba(36, 36, 36, 1);
-            --a-content-primary-solid: rgba(36, 36, 36, 1);
-            --a-elevated-primary: rgb(46, 46, 46);
-            --a-elevated-secondary: rgb(60, 60, 60);
-            --a-elevated-primary-solid: rgb(46, 46, 46);
-            --a-elevated-secondary-solid: rgb(60, 60, 60);
-            --a-divide: rgba(84, 84, 88, 0.65);
-            --a-depth-white: contrast(0) invert(1);
-            --a-fill-primary: rgba(120, 120, 128, 0.36);
-			--a-fill-secondary: rgba(120, 120, 128, 0.23);
-            --a-text-main: #fff;
-            --a-text-primary: #f5f5f7;
-            --a-text-secondary: rgba(235, 235, 245, 0.6);
-        }
-
-        @supports (backdrop-filter: blur(15px)) {
-            :root {
-                --a-filter-glass: blur(15px) saturate(180%);
-                --a-content-primary: rgba(36, 36, 36, .6);
-                --a-elevated-primary: rgba(46, 46, 46, .6);
-                --a-elevated-secondary: rgba(60, 60, 60, .6);
-            }
-        } 
+			--a-bgcolor: hsl(230 12% 7%);
+			--a-mask-banner-color: hsl(230 12% 7% / var(--a-mask-banner-opacity));
+			
+			--a-content-primary: hsl(230 12% 15%);
+			--a-content-primary-solid: hsl(230 12% 15%);
+			
+			--a-elevated-primary: hsl(230 12% 18%);
+			--a-elevated-primary-solid: hsl(230 12% 18%);
+			--a-elevated-secondary: hsl(230 12% 24%);
+			--a-elevated-secondary-solid: hsl(230 12% 24%);
+			
+			--a-divide: rgba(120, 123, 128, 0.3);
+			--a-depth-white: contrast(0) invert(1);
+			--a-fill-primary: rgba(120, 123, 128, .4);
+			--a-fill-secondary: rgba(120, 123, 128, 0.3);
+			
+			--a-text-primary: hsl(215, 19%, 98%);
+			--a-text-secondary: rgba(235, 235, 245, 0.6);
+		}
+		@supports (backdrop-filter: blur(15px)) {
+			:root {
+				--a-filter-glass: blur(15px) saturate(180%);
+				--a-content-primary: hsl(230 12% 15% / 60%);
+				--a-elevated-primary: hsl(230 12% 18% / 60%);
+				--a-elevated-secondary: hsl(230 12% 24% / 60%);
+			}
+		}
     EOT;
 
     THEME_BLACK_AUTO "黑色模式（跟随系统）" <<<EOT
-        /*
-        **暗色模式，跟随系统
-        *\/
+		@media screen and (prefers-color-scheme: dark) {
+			:root {
+				--a-bgcolor: hsl(0 0% 0%);
+				--a-mask-banner-color: hsl(0 0% 0% / var(--a-mask-banner-opacity));
 
-        @media screen and (prefers-color-scheme: dark) {
-            :root {
-                --a-bgcolor: rgb(0, 0, 0);
-                --a-mask-banner-color: rgba(0, 0, 0, var(--a-mask-banner-opacity));
-                --a-content-primary: rgba(20, 20, 20, 1);
-                --a-content-primary-solid: rgba(20, 20, 20, 1);
-                --a-elevated-primary: rgb(44, 44, 46);
-                --a-elevated-secondary: rgb(58, 58, 60);
-                --a-elevated-primary-solid: rgb(44, 44, 46);
-                --a-elevated-secondary-solid: rgb(58, 58, 60);
-                --a-divide: rgba(84, 84, 88, .65);
-                --a-depth-white: contrast(0) invert(1);
-                --a-fill-primary: rgba(120, 120, 128, .36);
- 				--a-fill-secondary: rgba(120, 120, 128, 0.23);
-                --a-text-main: #fff;
-                --a-text-primary: #f5f5f7;
-                --a-text-secondary: rgba(235, 235, 245, .6);
-            }
-            @supports (backdrop-filter: blur(15px)) {
-                :root {
-                    --a-filter-glass: blur(15px) saturate(180%);
-                    --a-content-primary: rgba(20, 20, 20, .6);
-                    --a-elevated-primary: rgba(44, 44, 46, .6);
-                    --a-elevated-secondary: rgba(58, 58, 60, .6);
-                }
-            }
-        } 
+				--a-content-primary: hsl(230 12% 8%);
+				--a-content-primary-solid: hsl(230 12% 8%);
+
+				--a-elevated-primary: hsl(230 12% 14%);
+				--a-elevated-primary-solid: hsl(230 12% 14%);
+				--a-elevated-secondary: hsl(230 12% 20%);
+				--a-elevated-secondary-solid: hsl(230 12% 20%);
+
+				--a-divide: rgba(84, 84, 88, 0.65);
+				--a-depth-white: contrast(0) invert(1);
+				--a-fill-primary: rgba(120, 123, 128, .4);
+				--a-fill-secondary: rgba(120, 123, 128, 0.3);
+
+				--a-text-primary: hsl(215, 19%, 98%);
+				--a-text-secondary: rgba(235, 235, 245, 0.6);
+			}
+			@supports (backdrop-filter: blur(15px)) {
+				:root {
+					--a-filter-glass: blur(15px) saturate(180%);
+					--a-content-primary: hsl(230 12% 8% / 60%);
+					--a-elevated-primary: hsl(230 12% 14% / 60%);
+					--a-elevated-secondary: hsl(230 12% 20% / 60%);
+				}
+			}
+		}
     EOT;
 
 	THEME_BLACK "黑色模式" <<<EOT
-        :root {
-            --a-bgcolor: rgb(0, 0, 0);
-            --a-mask-banner-color: rgba(0, 0, 0, var(--a-mask-banner-opacity));
-            --a-content-primary: rgba(20, 20, 20, 1);
-            --a-content-primary-solid: rgba(20, 20, 20, 1);
-            --a-elevated-primary: rgb(44, 44, 46);
-            --a-elevated-secondary: rgb(58, 58, 60);
-            --a-elevated-primary-solid: rgb(44, 44, 46);
-            --a-elevated-secondary-solid: rgb(58, 58, 60);
-            --a-divide: rgba(84, 84, 88, .65);
-            --a-depth-white: contrast(0) invert(1);
-            --a-fill-primary: rgba(120, 120, 128, .36);
-			--a-fill-secondary: rgba(120, 120, 128, 0.23);
-            --a-text-main: #fff;
-            --a-text-primary: #f5f5f7;
-            --a-text-secondary: rgba(235, 235, 245, .6);
-        }
+		:root {
+			--a-bgcolor: hsl(0 0% 0%);
+			--a-mask-banner-color: hsl(0 0% 0% / var(--a-mask-banner-opacity));
 
-        @supports (backdrop-filter: blur(15px)) {
-            :root {
-                --a-filter-glass: blur(15px) saturate(180%);
-                --a-content-primary: rgba(20, 20, 20, .6);
-                --a-elevated-primary: rgba(44, 44, 46, .6);
-                --a-elevated-secondary: rgba(58, 58, 60, .6);
-            }
-        } 
+			--a-content-primary: hsl(230 12% 8%);
+			--a-content-primary-solid: hsl(230 12% 8%);
+
+			--a-elevated-primary: hsl(230 12% 14%);
+			--a-elevated-primary-solid: hsl(230 12% 14%);
+			--a-elevated-secondary: hsl(230 12% 20%);
+			--a-elevated-secondary-solid: hsl(230 12% 20%);
+
+			--a-divide: rgba(84, 84, 88, 0.65);
+			--a-depth-white: contrast(0) invert(1);
+			--a-fill-primary: rgba(120, 123, 128, .4);
+			--a-fill-secondary: rgba(120, 123, 128, 0.3);
+
+			--a-text-primary: hsl(215, 19%, 98%);
+			--a-text-secondary: rgba(235, 235, 245, 0.6);
+		}
+		@supports (backdrop-filter: blur(15px)) {
+			:root {
+				--a-filter-glass: blur(15px) saturate(180%);
+				--a-content-primary: hsl(230 12% 8% / 60%);
+				--a-elevated-primary: hsl(230 12% 14% / 60%);
+				--a-elevated-secondary: hsl(230 12% 20% / 60%);
+			}
+		}
     EOT;
 
 	THEME_LIGHT "亮色模式" <<<EOT
@@ -616,10 +618,9 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	 */
 	:root {
 		--a-logo-color: /*[[LOGO_COLOR]]*/;
-		/*[[LOGO_THEME]]*/
 		--a-bgimg: /*[[DIV_BG]]*/;
 		--a-bg-custom: /*[[CUSTOM_BG]]*/;
-		--a-bgcolor: hsl(219, 26%, 96%);
+		--a-bgcolor: hsl(220, 14%, 96%);
 
 
 		--a-mask-banner-opacity: /*[[MASK_OPACITY]]*/;
@@ -638,7 +639,6 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		--a-fill-secondary: rgba(120, 120, 128, 0.09);
 
 
-		--a-text-main: #000;
 		--a-text-primary: #000;
 		--a-text-secondary: rgba(60, 60, 67, 0.6);
 
@@ -664,7 +664,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		--a-theme-color-30: /*[[THEME_COLOR_NEW]]*/4d;
 		--a-theme-color-20: /*[[THEME_COLOR_NEW]]*/33;
 
-		--a-depth-1: 0 7px 14px rgba(0, 0, 0, 0.05), 0 4px 8px rgba(0, 0, 0, 0.02);
+		--a-depth-1: 0 6px 8px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.03);
 		--a-depth-2: 0 9px 18px rgba(0, 0, 0, 0.07), 0 6px 12px rgba(0, 0, 0, 0.05);
 	}
 	@supports (backdrop-filter: blur(15px)) {
@@ -675,6 +675,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 			--a-elevated-secondary: rgba(255, 255, 255, .6);
 		}
 	}
+
 	/**
 	 * 以下是调整暗色模式所覆盖的变量，当调整后上面css变量将被覆盖
 	 */
@@ -775,7 +776,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	.popover-video-card .content .info .f-title,
 	.ifmt h3,
 	.area-header .title span {
-		color: var(--a-text-main);
+		color: var(--a-text-primary);
 	}
 	a,
 	.elevator .list-box .item,
@@ -841,6 +842,17 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	}
 }
 
+/*已关注*/
+.bili-video-card .bili-video-card__info--icon-text {
+	color: var(--a-theme-color);
+	background: var(--a-theme-color-20);
+}
+/*直播中*/
+.bili-live-card .bili-live-card__info--living {
+	color: var(--a-text-primary);
+	background: var(--a-fill-secondary);
+	border: none;
+}
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
 	/**
 	 * 去除首页碍眼东西，与处理删除碍眼东西后的一些处理
@@ -894,10 +906,15 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	#reportFirst1 {
 		margin-bottom: 20px;
 	}
-
+	/*动态更新提示*/
 	.page-tab .con li .round .dynamic-update i {
 		border: none;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, .2)
+		box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+		background: var(--a-theme-color)
+	}
+	/*新通知提示*/
+	.nav-user-center .t .num {
+		background: var(--a-theme-color)
 	}
 }
 
@@ -1053,7 +1070,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	}
 	/*搜索图标*/
 	.bili-icon_dingdao_sousuo::before {
-		color: var(--a-text-main);
+		color: var(--a-text-primary);
 		transition: .3s;
 	}
 	/*搜索按钮*/
@@ -1124,7 +1141,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	}
 	.suggest-wrap .histories .history-item:focus,
 	.suggest-wrap .histories .history-item:hover {
-		background-color: var(--a-theme-color-30)!important;
+		background-color: var(--a-theme-color-20)!important;
 		color: var(--a-theme-color)!important;
 	}
 	/*搜索历史清空*/
@@ -1279,7 +1296,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	.exchange-btn .btn {
 		border: none;
 		overflow: hidden;
-		color: var(--a-text-main);
+		color: var(--a-text-primary);
 		background: var(--a-content-primary-solid)!important;
 		border-radius: 20px;
 		box-shadow: var(--a-depth-1);
@@ -1380,12 +1397,12 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	.elevator .list-box,
 	.elevator .list-box .item.sort,
 	.elevator .list-box .item.back-top {
-		border-color: var(--a-content-primary-solid);
+		border-color: var(--a-elevated-primary-solid);
 	}
 	.elevator .list-box,
 	.elevator .list-box .item.sort,
 	.elevator .list-box .item.back-top {
-		background: var(--a-content-primary-solid);
+		background: var(--a-elevated-primary-solid);
 	}
 	.elevator .list-box .item {
 		height: unset;
@@ -1562,7 +1579,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		width: 100%;
 		background: var(--a-content-primary-solid);
 		margin-left: 0;
-		padding:  .5em;
+		padding: .5em;
 		border-radius: 0 var(--a-radius) var(--a-radius) 0;
 		box-shadow: var(--a-depth-1);
 	}
@@ -1619,6 +1636,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	html:not(.iframe) body {
 		background-color: var(--a-bgcolor)!important
 	}
+	
 
 	/*去除礙眼物*/
 	/*顶栏左侧多余项目，保留首页按钮*/
@@ -1632,7 +1650,10 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	.eva-extension-area,
 	/*广告*/
 	.eva-banner,
-	.bili-footer {
+	.bili-footer,
+	/*顶栏动态图banner*/
+	.bili-header .bili-header__banner .banner-img 
+	{
 		display: none;
 	}
 	.bili-layout {
@@ -1668,6 +1689,10 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		font-size: 60px;
 		color: white;
 		margin-right: 12px;
+	}
+	/*顶栏新信息*/
+	.bili-header .red-num--message {
+		background: var(--a-theme-color);
 	}
 	/*去除舊頂欄左側文字首頁，logo*/
 	.bili-header .left-entry__title .mini-header__title > span,
@@ -1866,23 +1891,6 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		background-size: 200px !important;
 		opacity: 0;
 	}
-	/*搜索栏上的 logo*/
-	/*  	.bili-header .bili-header__banner .inner-logo { */
-	/*  	.bili-header .center-search-container::after {
- 		content: '';
- 		position: absolute;
- 		top: 15vh;
- 		left: 50%;
- 		transform: translateX(-50%);
- 		background: var(--logoimg, url(https://i.loli.net/2019/06/11/5cff54794e40241270.png)) no-repeat !important;
- 		background-size: 200px !important;
- 		width: 210px!important;
- 		height: 100px!important;
- 		filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1)) var(--a-filter-blue-to-pink);
- 		visibility: visible;
- 		transition: top .3s;
- 		z-index: 999;
- 	} */
 	.bili-header .center-search-container::after {
 		content: "\0042";
 		font-family: 'Bilibili Icon';
@@ -1916,6 +1924,13 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		margin: 0;
 		display: flex;
 		justify-content: center;
+	}
+	/*修正当搜寻栏存在搜索建议、历史搜索但关闭是，仍然阻碍游标事件问题*/
+	.center-search__bar {
+		pointer-events: none;
+	}
+	.center-search__bar > * {
+		pointer-events: auto;
 	}
 	.bili-header .center-search-container .center-search__bar.is-focus {
 		box-shadow: none;
@@ -2082,7 +2097,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	/*右侧搜索按钮*/
 	.bili-header .center-search-container .center-search__bar .nav-search-btn {
 		background-color: transparent;
-		color: var(--a-text-main);
+		color: var(--a-text-primary);
 		border-radius: 10px;
 	}
 	.bili-header .center-search-container .center-search__bar .nav-search-btn-text {
@@ -2141,6 +2156,11 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	}
 	.bili-header .bili-header__channel .channel-items__left {
 		border: none;
+	}
+	/*新动态通知*/
+	.bili-header .channel-icons .channel-notify {
+/* 		border-color: white; */
+		background: var(--a-theme-color)
 	}
 	/*推介轮播图*/
 	.recommended-swipe-body {
@@ -2265,7 +2285,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		background: unset;
 	}
 	.elevator-head {
-		color: var(--a-text-main);
+		color: var(--a-text-primary);
 	}
 	.elevator-core {
 		border-radius: var(--a-radius);
@@ -2329,6 +2349,10 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	[class$="-card__skeleton--text"],
 	[class$="-card__skeleton--text short"],
 	[class$="-card__skeleton--light"],
+	/*专栏骨架图*/
+	.bili-article-card .bili-article-card__cover,
+	/*课堂骨架图*/
+	.bili-cheese-card .bili-cheese-card__image,
 	.list-state-error,
 	.list-state-nothing,
 	.list-state-loading {
@@ -2364,9 +2388,9 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		z-index: 10;
 	}
 	[class$="-card"] [class*="-card__image"],
-	[class$="video-card"] [class*="-card__image"]:hover [class*="-card__mask"]{
+	[class$="video-card"] [class*="-card__image"]:hover [class*="-card__mask"] {
 		transition: all .3s;
-/* 		transition: transform .3s cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease */
+		/* 		transition: transform .3s cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease */
 	}
 	/* 	[class$="live-card"] [class*="-card__image"]:hover, */
 	[class$="video-card"] [class*="-card__image"]:hover,
@@ -2391,7 +2415,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		z-index: -1;
 		background: transparent;
 		border-radius: var(--a-radius);
-		transition:  .4s;
+		transition: .4s;
 		pointer-events: none;
 	}
 	/* 	[class$="live-card"] a:hover + .bili-live-card__info::after, */
@@ -2504,7 +2528,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		color: var(--a-text-secondary);
 	}
 }
-@-moz-document regexp("^fucking bilibili ------- https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
+@-moz-document regexp("^fucking shit------- https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
 	/**
 	 * 新版首页顶栏弹窗
 	 */
