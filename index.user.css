@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.6.8.1
+@version        1.6.9
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -41,11 +41,12 @@
         *\/
 
         .bili-banner {
-            height: 100vh!important;
+            height: 100vh !important;
         } 
 		/* 新首页 *\/
 		.bili-header .bili-header__banner {
-		    height: 100vh!important;
+		    height: 100vh !important;
+			max-height: 100vh !important;
 		}
     EOT;
 
@@ -94,6 +95,7 @@
 		.bili-header .bili-header__banner {
 		  height: calc(100vh - 370px)!important;
 		  min-height: 400px;
+		  max-height: calc(100vh - 370px) !important;
 		}
     EOT;
 
@@ -142,6 +144,7 @@
 		.bili-header .bili-header__banner {
 			height: 30vh !important;
 			min-height: 210px !important;
+		    max-height: 30vh !important;
 		}
 
 		/*搜索框容器*\/
@@ -666,6 +669,14 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 
 		--a-depth-1: 0 6px 8px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.03);
 		--a-depth-2: 0 9px 18px rgba(0, 0, 0, 0.07), 0 6px 12px rgba(0, 0, 0, 0.05);
+		
+		/*覆盖b站颜色变量*/
+		--text1: var(--a-text-primary);
+		--text2: var(--a-text-secondary);
+		--graph_bg_regular: var(--a-fill-secondary);
+		--bg1: var(--a-content-primary-solid)
+/* 		--bg1_float: var(--a-elevated-primary);
+    	--bg2_float: var(--a-elevated-secondary); */
 	}
 	@supports (backdrop-filter: blur(15px)) {
 		:root {
@@ -711,6 +722,14 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		src: url('https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/fonts/Bilibili_Icon.ttf') format('truetype');
 		font-weight: normal;
 		font-style: normal;
+	}
+	
+	.banner-game,
+	.bili-header__banner video {
+		display: none;
+	}
+	.bili-header .bili-header__bar {
+		display: flex!important
 	}
 }
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
@@ -1773,6 +1792,8 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	.bili-header .right-entry {
 		display: flex;
 		justify-content: flex-end;
+		padding: 8px 0;
+		padding-left: 4px !important;
 	}
 	.bili-header :not(.slide-down) .right-entry {
 		padding: 8px 0;
@@ -2461,8 +2482,10 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		border-radius: var(--a-radius)!important;
 		border: unset;
 		box-shadow: var(--a-depth-2);
-		/* 		background: var(--a-elevated-secondary-solid); */
-		/* 		color: var(--a-text-primary); */
+		background: var(--a-elevated-secondary-solid);
+	}
+	.v-popover-content > * {
+		color: var(--a-text-primary);
 	}
 	/*顶栏 logo 的弹出窗，分区弹窗*/
 	.left-entry .v-popover-content {
@@ -2524,14 +2547,16 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		color: var(--a-text-secondary);
 	}
 }
-@-moz-document regexp("^fucking shit------- https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
+@-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
 	/**
 	 * 新版首页顶栏弹窗
 	 */
-	.bili-header .avatar-panel-popover {
+	.bili-header .avatar-panel-popover,
+	.bili-header .message-entry-popover .message-inner-list {
 		background: var(--a-elevated-primary-solid);
 		color: var(--a-text-primary);
 	}
+	.dynamic-article .split-line .history-tip,
 	.dynamic-video .history-tip {
 		background: var(--a-elevated-secondary-solid)!important;
 	}
@@ -2565,7 +2590,8 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	.bili-header .avatar-panel-popover .logout-item:hover,
 	.bili-header .message-entry-popover .message-inner-list__item:hover,
 	.bili-header .list-item[data-v-7a86fe06]:hover,
-	.bili-header .header-fav-card:hover {
+	.bili-header .header-fav-card:hover,
+	.bili-header .header-history-video:hover{
 		background: var(--a-fill-primary)
 	}
 	.wnd_bottom a {
@@ -2582,17 +2608,24 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	.favorite-panel-popover__content .content-bottom__btn .play-icon * {
 		fill: var(--a-theme-color);
 	}
-	.dynamic-video .split-line[data-v-4a4b4ef0]:before {
-		border-color: var(--a-divide);
+	.split-line:before {
+		border-color: var(--a-divide)!important;
 	}
-	.dynamic-panel-popover .header-tabs-panel,
+	.header-tabs-panel,
 	.favorite-panel-popover__nav,
 	.favorite-panel-popover__content .content-bottom__btn--view,
 	.favorite-panel-popover__content .content-bottom {
-		border-color: var(--a-divide);
+		border-color: var(--a-divide) !important;
 	}
-	.dynamic-panel-popover .header-tabs-panel__item--active {
-		color: var(--a-theme-color);
-		border-color: var(--a-theme-color);
+	/*标签栏*/
+	.header-tabs-panel__item--active {
+		color: var(--a-theme-color)!important;
+		border-color: var(--a-theme-color)!important;
+	}
+	/*直播中*/
+	.dynamic-live-item .living {
+		background: var(--a-fill-secondary);
+		color: var(--a-text-primary) !important;
+		border: none!important;
 	}
 }
