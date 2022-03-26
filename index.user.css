@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.6.9
+@version        1.6.10
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -27,6 +27,7 @@
 		/* 新首页 *\/
 		.bili-header .bili-header__banner {
 		    height: 100vh!important;
+			max-height: 100vh !important;
 		}
 		.bili-header__channel,
 		.bili-layout,
@@ -170,11 +171,11 @@
 THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		@media screen and (prefers-color-scheme: dark) {
 			:root {
-				--a-bgcolor: hsl(230 12% 7%);
-				--a-mask-banner-color: hsl(230 12% 7% / var(--a-mask-banner-opacity));
+				--a-bgcolor: hsl(230 12% 10%);
+				--a-mask-banner-color: hsl(230 12% 10% / var(--a-mask-banner-opacity));
 
-				--a-content-primary: hsl(230 12% 15%);
-				--a-content-primary-solid: hsl(230 12% 15%);
+				--a-content-primary: hsl(230 12% 16%);
+				--a-content-primary-solid: hsl(230 12% 16%);
 
 				--a-elevated-primary: hsl(230 12% 18%);
 				--a-elevated-primary-solid: hsl(230 12% 18%);
@@ -192,7 +193,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 			@supports (backdrop-filter: blur(15px)) {
 				:root {
 					--a-filter-glass: blur(15px) saturate(180%);
-					--a-content-primary: hsl(230 12% 15% / 60%);
+					--a-content-primary: hsl(230 12% 16% / 60%);
 					--a-elevated-primary: hsl(230 12% 18% / 60%);
 					--a-elevated-secondary: hsl(230 12% 24% / 60%);
 				}
@@ -202,11 +203,11 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 
 	THEME_DARK "暗色模式" <<<EOT
         :root {
-			--a-bgcolor: hsl(230 12% 7%);
-			--a-mask-banner-color: hsl(230 12% 7% / var(--a-mask-banner-opacity));
+			--a-bgcolor: hsl(230 12% 10%);
+			--a-mask-banner-color: hsl(230 12% 10% / var(--a-mask-banner-opacity));
 			
-			--a-content-primary: hsl(230 12% 15%);
-			--a-content-primary-solid: hsl(230 12% 15%);
+			--a-content-primary: hsl(230 12% 16%);
+			--a-content-primary-solid: hsl(230 12% 16%);
 			
 			--a-elevated-primary: hsl(230 12% 18%);
 			--a-elevated-primary-solid: hsl(230 12% 18%);
@@ -224,7 +225,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		@supports (backdrop-filter: blur(15px)) {
 			:root {
 				--a-filter-glass: blur(15px) saturate(180%);
-				--a-content-primary: hsl(230 12% 15% / 60%);
+				--a-content-primary: hsl(230 12% 16% / 60%);
 				--a-elevated-primary: hsl(230 12% 18% / 60%);
 				--a-elevated-secondary: hsl(230 12% 24% / 60%);
 			}
@@ -331,7 +332,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	BG_3 "BML2019 VR（pid: 74271400）" <<<EOT url(https://i.loli.net/2020/05/25/DA46cLGaPrhYqnl.jpg) EOT;
 	BG_4 "2020拜年祭活动 " <<<EOT url(https://i.loli.net/2020/05/25/HxnieocyPIjWvQB.jpg) EOT;
 	BG_5 "2020BDF" <<<EOT url(https://i.loli.net/2020/05/25/RbTGL1ZQfcHVwY3.jpg) EOT;
-    BG_6 "自定义" <<<EOT var(--a-bg-custom) EOT;
+    BG_DIV "自定义" <<<EOT var(--a-bg-custom) EOT;
 }
 
 @advanced text CUSTOM_BG "自定义背景" "url()"
@@ -1636,19 +1637,6 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		will-change: all;
 		
  	} */
-	/*背景遮罩*/
-	body::before {
-		/*  		content: "";
- 		position: fixed;
-		top: 0;
-		left: 0;
- 		width: 100vw;
- 		height: 100vh;
-		will-change: all;
-		background: var(--a-bgimg) center/cover var(--a-bgcolor) fixed !important;
-		opacity: .2; */
-		/*  		background-color: var(--a-mask-body-color); */
-	}
 	html,
 	html body,
 	html:not(.iframe),
@@ -1675,21 +1663,22 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	{
 		display: none;
 	}
-	.bili-layout {
-		/*          background-color: var(--a-bgcolor)!important; */
-		/*          background-color: rgba(0,0,0,.6); */
-		/*          backdrop-filter: var(--a-filter-glass) */
-	}
 	/*顶栏*/
 	.bili-header {
 		color: var(--a-text-primary);
 		transition: .3s;
 	}
+	/*顶栏未读信息、未读动态*/
+	.bili-header [class^="red-num--"],
+	/*顶栏弹窗，未读信息*/
+	.bili-header .message-entry-popover [class$="--num"] {
+		background-color: var(--a-theme-color)
+	}
 	/*顶栏条*/
 	.bili-header .bili-header__bar {
 		margin-top: 8px;
 		/*修正全屏显示壁纸时元素宽度问题导致出现横向滚动条问题 #28，包括其他几个首页样式的横向滚动条问题*/
-		width: 100vw;
+		width: calc(100vw - 48px);/*48px = bili-header__bar 的 padding-left & right 24px*/
 	}
 
 	.bili-header .left-entry__title {
