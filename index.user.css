@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.6.10
+@version        1.6.11
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -724,13 +724,10 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		font-weight: normal;
 		font-style: normal;
 	}
-	
+	/*禁用banner游戏*/
 	.banner-game,
 	.bili-header__banner video {
 		display: none;
-	}
-	.bili-header .bili-header__bar {
-		display: flex!important
 	}
 }
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
@@ -1678,7 +1675,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	.bili-header .bili-header__bar {
 		margin-top: 8px;
 		/*修正全屏显示壁纸时元素宽度问题导致出现横向滚动条问题 #28，包括其他几个首页样式的横向滚动条问题*/
-		width: calc(100vw - 48px);/*48px = bili-header__bar 的 padding-left & right 24px*/
+		width: calc(100vw - 18px);
 	}
 
 	.bili-header .left-entry__title {
@@ -1720,6 +1717,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		background: unset;
 		box-shadow: none;
 		animation: .5s headerSlideDown;
+		position: fixed;
 	}
 	.bili-header .bili-header__bar::after {
 		content: "";
