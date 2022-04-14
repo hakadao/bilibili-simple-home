@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.6.12
+@version        1.6.13
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -851,18 +851,17 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	.more-channel-popover .name:hover {
 		background: var(--a-fill-1);
 	}
-}
-
-/*已关注*/
-.bili-video-card .bili-video-card__info--icon-text {
-	color: var(--a-theme-color);
-	background: var(--a-theme-color-20);
-}
-/*直播中*/
-.bili-live-card .bili-live-card__info--living {
-	color: var(--a-text-1);
-	background: var(--a-fill-2);
-	border: none;
+	/*已关注*/
+	.bili-video-card .bili-video-card__info--icon-text {
+		color: var(--a-theme-color);
+		background: var(--a-theme-color-20);
+	}
+	/*直播中*/
+	.bili-live-card .bili-live-card__info--living {
+		color: var(--a-text-1);
+		background: var(--a-fill-2);
+		border: none;
+	}
 }
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
 	/**
