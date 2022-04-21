@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.6.13
+@version        1.6.14
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -586,6 +586,64 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	TRENDIND_ON "开启" <<<EOT
 	EOT;
 }
+
+@advanced dropdown VIDEO_ZOOM "滑动视频放大效果（如果你电脑性能好的话，启用吧 = =）" {
+	VIDEO_ZOOM_OFF "禁用" <<<EOT
+	EOT;
+
+	VIDEO_ZOOM_ON "开启" <<<EOT
+        /*鼠标滑过视频预览放大效果*\/
+        [class*="-card"] [class$="-wrap"] {
+            z-index: 0;
+        }
+        [class*="-card"] [class$="-wrap"]:hover {
+            /*更改 z-index 令滑过视频放大了之后不受旁边视频遮挡*\/
+            z-index: 10;
+        }
+        [class$="-card"] [class*="-card__image"],
+        [class$="video-card"] [class*="-card__image"]:hover [class*="-card__mask"] {
+            transition: all .3s;
+        }
+        [class$="video-card"] [class*="-card__image"]:hover,
+        [class$="video-card"] [class*="-card__image"]:hover [class*="-card__mask"] {
+            transform: scale(1.1) translate3d(0, 0, 0);
+            z-index: 999999;
+            box-shadow: var(--a-depth-2);
+        }
+        [class$="video-card"] a + .bili-video-card__info {
+            transition: .4s;
+            position: relative;
+            transform: translate3d(0, 0, 0);
+        }
+        [class$="video-card"] a + .bili-video-card__info::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: transparent;
+            border-radius: var(--a-radius);
+            transition: .4s;
+            pointer-events: none;
+        }
+        [class$="video-card"] a:hover + .bili-video-card__info::after {
+            top: -2rem;
+            left: -1rem;
+            width: calc(100% + 2rem);
+            height: calc(100% + 3rem);
+        }
+        [class$="video-card"] a:hover + .bili-video-card__info {
+            transform: translate(0, 30%);
+        }
+        [class$="video-card"] a:hover + .bili-video-card__info::after {
+            background: var(--a-elevated-1-solid);
+            box-shadow: var(--a-depth-2);
+        }
+	EOT;
+}
+
 ==/UserStyle== */
 /**
  * 暂时隐藏的功能
@@ -681,6 +739,33 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 			--a-elevated-2: rgba(255, 255, 255, .6);
 		}
 	}
+	
+	/* custom chrome, edge scrollbar */
+	::-webkit-scrollbar {
+		width: 8px;
+		height: 8px;
+	}
+	::-webkit-scrollbar-corner,
+	::-webkit-scrollbar-track {
+		background: transparent;
+	}
+	html > ::-webkit-scrollbar-track {
+		background: var(--a-bgcolor);
+	}
+	::-webkit-scrollbar-thumb {
+		background-color: var(--a-fill-1);
+	 	border-radius: 20px;
+	}
+	/* custom firefox scrollbar */
+	html > * {
+	    scrollbar-color: var(--a-fill-1) var(--a-bgcolor);
+	    scrollbar-width: thin !important;
+	}
+    * {
+        scrollbar-color: var(--a-fill-1) transparent;
+	    scrollbar-width: thin !important;
+    }
+
 
 	/**
 	 * 以下是调整暗色模式所覆盖的变量，当调整后上面css变量将被覆盖
@@ -707,6 +792,8 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	/*[[BG_ATTACHMENT]]*/
 	/*排行榜开关*/
 	/*[[TRENDIND]]*/
+    /*视频放大效果开关*/
+    /*[[VIDEO_ZOOM]]*/
 }
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
 	/**
@@ -2375,83 +2462,6 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	[class*="-card"] [class*="-card__stats"] {
 		border-radius: 0 0 var(--a-radius) var(--a-radius) !important;
 	}
-	/*鼠标滑过视频预览放大效果*/
-	[class*="-card"] [class$="-wrap"] {
-		z-index: 0;
-	}
-	[class*="-card"] [class$="-wrap"]:hover {
-		/*更改 z-index 令滑过视频放大了之后不受旁边视频遮挡*/
-		z-index: 10;
-	}
-	[class$="-card"] [class*="-card__image"],
-	[class$="video-card"] [class*="-card__image"]:hover [class*="-card__mask"] {
-		transition: all .3s;
-		/* 		transition: transform .3s cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease */
-	}
-	/* 	[class$="live-card"] [class*="-card__image"]:hover, */
-	[class$="video-card"] [class*="-card__image"]:hover,
-	[class$="video-card"] [class*="-card__image"]:hover [class*="-card__mask"] {
-		transform: scale(1.1);
-		z-index: 999999;
-		box-shadow: var(--a-depth-2);
-	}
-	/* 	[class$="live-card"] a + .bili-live-card__info, */
-	[class$="video-card"] a + .bili-video-card__info {
-		transition: .4s;
-		position: relative;
-	}
-	/* 	[class$="live-card"] a + .bili-live-card__info::after, */
-	[class$="video-card"] a + .bili-video-card__info::after {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-		background: transparent;
-		border-radius: var(--a-radius);
-		transition: .4s;
-		pointer-events: none;
-	}
-	/* 	[class$="live-card"] a:hover + .bili-live-card__info::after, */
-	[class$="video-card"] a:hover + .bili-video-card__info::after {
-		top: -2rem;
-		left: -1rem;
-		width: calc(100% + 2rem);
-		height: calc(100% + 3rem);
-	}
-	/* 	[class$="live-card"] a:hover + .bili-live-card__info, */
-	[class$="video-card"] a:hover + .bili-video-card__info {
-		transform: translate(0, 30%);
-	}
-	/* 	[class$="live-card"] a:hover + .bili-live-card__info::after, */
-	[class$="video-card"] a:hover + .bili-video-card__info::after {
-		background: var(--a-elevated-1-solid);
-		box-shadow: var(--a-depth-2);
-	}
-	/*[class$="-card"] [class$="__info--right"] {
-		transition: .3s;
-		position: relative;
-	}
-	[class$="-card"]:hover [class$="__info--right"] {
-		transform: translateY(10px);
-	}
-	[class$="-card"] [class$="__info--right"]::after {
-		content: "";
-		position: absolute;
-		top: -1rem;
-		left: -1rem;
-		width: calc(100% + 2rem);
-		height: calc(100% + 2rem);
-		background: var(--a-elevated-1-solid);
-		box-shadow: var(--a-depth-1);
-		border-radius: var(--a-radius);
-		z-index: -1;
-	}
-	[class$="-card"]:hover [class$="__info--right"]::after {
-		transform: translateY(10px)
-	}*/
 }
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
 	/**
