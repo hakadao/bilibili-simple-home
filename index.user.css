@@ -1,12 +1,12 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.6.14
+@version        1.6.15
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
 @supportURL     https://github.com/hakadao/bilibili-simple-home/issues
-@updateURL      https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/index.user.css
+@updateURL      https://userstyles.world/api/style/3022.user.css
 @license        MIT
 @preprocessor   uso
 
@@ -31,7 +31,9 @@
 		}
 		.bili-header__channel,
 		.bili-layout,
-		.palette-button-outer{
+		.palette-button-outer,
+		.header-channel,
+		.bili-feed4-layout {
 		    display: none!important;
 		}
 	EOT;
@@ -712,7 +714,6 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		--a-radius: 10px;
 
 		/*主题颜色*/
-		/*[[THEME_COLOR]]*/
 		--a-theme-color: /*[[THEME_COLOR_NEW]]*/;
 		--a-theme-color-50: /*[[THEME_COLOR_NEW]]*/80;
 		--a-theme-color-40: /*[[THEME_COLOR_NEW]]*/66;
@@ -721,15 +722,15 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 
 		--a-depth-1: 0 6px 8px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.03);
 		--a-depth-2: 0 9px 18px rgba(0, 0, 0, 0.07), 0 6px 12px rgba(0, 0, 0, 0.05);
-		
+
 		/*覆盖b站颜色变量*/
 		--text1: var(--a-text-1);
 		--text2: var(--a-text-2);
 		--text3: var(--a-text-3);
 		--graph_bg_thick: var(--a-fill-1);
-		
 		--graph_bg_regular: var(--a-fill-2);
-		--bg1: var(--a-content-1-solid)
+		--bg1: var(--a-content-1-solid);
+		--brand_blue: var(--a-theme-color);
 	}
 	@supports (backdrop-filter: blur(15px)) {
 		:root {
@@ -739,7 +740,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 			--a-elevated-2: rgba(255, 255, 255, .6);
 		}
 	}
-	
+
 	/* custom chrome, edge scrollbar */
 	::-webkit-scrollbar {
 		width: 8px;
@@ -753,19 +754,18 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		background: var(--a-bgcolor);
 	}
 	::-webkit-scrollbar-thumb {
-		background-color: var(--a-fill-1);
-	 	border-radius: 20px;
+		background-color: hsl(0 0% 50% / .6);
+		border-radius: 20px;
 	}
 	/* custom firefox scrollbar */
 	html > * {
-	    scrollbar-color: var(--a-fill-1) var(--a-bgcolor);
-	    scrollbar-width: thin !important;
+		scrollbar-color: hsl(0 0% 50% / .6) var(--a-bgcolor);
+		scrollbar-width: thin !important;
 	}
-    * {
-        scrollbar-color: var(--a-fill-1) transparent;
-	    scrollbar-width: thin !important;
-    }
-
+	* {
+		scrollbar-color: hsl(0 0% 50% / .6) transparent;
+		scrollbar-width: thin !important;
+	}
 
 	/**
 	 * 以下是调整暗色模式所覆盖的变量，当调整后上面css变量将被覆盖
@@ -774,8 +774,6 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	/*[[THEME]]*/
 	/*LOGO 显示同关闭*/
 	/*[[LOGO_DISPLAY]]*/
-	/*视差效果banner圖*/
-	/*[[DISABLE_PARALLAX_BG]]*/
 	/*删除其它内容，只保留搜索栏，不能下滑显示更多，显示半屏壁纸*/
 	/*[[HOME_STYLE]]*/
 	/*处理顶栏链接内容，使其在自定义背景下banner上方文字链接有阴影使其能看清文字*/
@@ -792,8 +790,8 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	/*[[BG_ATTACHMENT]]*/
 	/*排行榜开关*/
 	/*[[TRENDIND]]*/
-    /*视频放大效果开关*/
-    /*[[VIDEO_ZOOM]]*/
+	/*视频放大效果开关*/
+	/*[[VIDEO_ZOOM]]*/
 }
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
 	/**
@@ -1097,19 +1095,6 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		left: calc(50vw - 310px);
 		width: 600px;
 	}
-	/*强行制作出搜索栏上的logo*/
-	/*  	 	.international-header .nav-search-box:after {
- 		content: '';
- 		position: absolute;
- 		top: -300%;
- 		left: calc(50% - 100px);
- 		background: var(--logoimg, url(https://i.loli.net/2019/06/11/5cff54794e40241270.png)) no-repeat !important;
- 		background-size: 200px !important;
- 		width: 210px;
- 		height: 100px;
- 		filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.08)) var(--a-filter-blue-to-pink);
- 		opacity: 0;
- 	} */
 	.international-header .nav-search-box:after {
 		content: "\0042";
 		font-family: 'Bilibili Icon';
@@ -1720,7 +1705,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	html:not(.iframe) body {
 		background-color: var(--a-bgcolor)!important
 	}
-	
+
 
 	/*去除礙眼物*/
 	/*顶栏左侧多余项目，保留首页按钮*/
@@ -1736,9 +1721,17 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	.eva-banner,
 	.bili-footer,
 	/*顶栏动态图banner*/
-	.bili-header .bili-header__banner .banner-img 
-	{
-		display: none;
+	.bili-header .bili-header__banner .banner-img,
+	/*新版首页无关推介*/
+	.feed2-recommend,
+	.feed-recommend2,
+	/*推介换一换按钮*/
+	.feed2 .feed-roll-btn,
+	/*新版首页分区*/
+	.channel-floor,
+	/*内测首页分区按钮*/
+	.palette-feed4 .palette-button-wrap .primary-btn:nth-child(2) {
+		display: none !important;
 	}
 	/*顶栏*/
 	.bili-header {
@@ -1755,9 +1748,13 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	.bili-header .bili-header__bar {
 		margin-top: 8px;
 		/*修正全屏显示壁纸时元素宽度问题导致出现横向滚动条问题 #28，包括其他几个首页样式的横向滚动条问题*/
-		width: calc(100vw - 18px);
+		width: calc(100vw - 8px);
 		/*修正banner点击顶栏消失问题*/
 		display: flex !important;
+	}
+	/*内测顶栏*/
+	.bili-feed4 .bili-header .slide-down {
+		box-shadow: none !important;
 	}
 	.bili-header .left-entry {
 		margin-left: 1rem;
@@ -1847,10 +1844,6 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		height: 36px;
 		display: flex;
 		justify-content: center;
-	}
-	.bili-header a.right-entry__outside * {
-		/*  		z-index: 999;
- 		pointer-events: auto; */
 	}
 	/*投稿图标不变色*/
 	.bili-header .slide-down [class$="entry"] span:not(:nth-last-child),
@@ -1972,7 +1965,6 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		display: none;
 	}
 	.bili-header .bili-header__banner .logo-img {
-		/*  		display: none; */
 		width: 210px!important;
 		height: 100px!important;
 		background: var(--logoimg, url(https://i.loli.net/2019/06/11/5cff54794e40241270.png)) no-repeat !important;
@@ -2012,6 +2004,16 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		margin: 0;
 		display: flex;
 		justify-content: center;
+	}
+	/*搜索栏输入框文字清除图标*/
+	.bili-header .center-search-container .center-search__bar .nav-search-content .nav-search-clean svg * {
+		fill: var(--a-text-3)
+	}
+	.bili-header .center-search-container .center-search__bar .nav-search-content .nav-search-input:focus,
+	.bili-header .center-search-container .center-search__bar .nav-search-content .nav-search-input:active,
+	.bili-header .center-search-container .center-search__bar #nav-searchform.is-actived .nav-search-content,
+	.bili-header .center-search-container .center-search__bar #nav-searchform.is-focus .nav-search-content {
+		background-color: transparent!important;
 	}
 	/*修正当搜寻栏存在搜索建议、历史搜索但关闭是，仍然阻碍游标事件问题*/
 	.center-search__bar {
@@ -2067,7 +2069,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 			transform: translateY(220px);
 		}
 	}
-	.bili-header .center-search-container .center-search__bar #nav-searchform.is-actived:before,
+	.center-search-container .center-search__bar #nav-searchform.is-actived:before,
 	.bili-header .center-search-container .center-search__bar #nav-searchform.is-focus:before,
 	.bili-header .center-search-container .center-search__bar #nav-searchform.is-focus,
 	.bili-header .slide-down .center-search-container .center-search__bar #nav-searchform,
@@ -2226,7 +2228,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		position: relative;
 		z-index: 1;
 	}
-	.bili-header .bili-header__channel .channel-entry-more__link::after,
+	.bili-header__channel .channel-entry-more__link::after,
 	.bili-header .bili-header__channel .channel-link::after {
 		content: "";
 		position: absolute;
@@ -2247,8 +2249,106 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	}
 	/*新动态通知*/
 	.bili-header .channel-icons .channel-notify {
-/* 		border-color: white; */
+		/* 		border-color: white; */
 		background: var(--a-theme-color)
+	}
+	/*搜索栏下方分区条*/
+	.header-channel {
+		background: transparent;
+		backdrop-filter: var(--a-filter-glass);
+		background-color: var(--a-elevated-1);
+    	box-shadow: var(--a-depth-2);
+		border-radius: 0 var(--a-radius) var(--a-radius) 0;
+		display: flex;
+		position: fixed;
+		top: 80px;
+		max-width: unset;
+		min-width: unset;
+		width: 120px;
+		height: calc(100% - 160px);
+		transform: translateZ(0) translateX(-100%);
+		transition: .3s;
+	}
+	.header-channel:hover {
+		transform: translateZ(0) translateX(0)
+	}
+	.header-channel:hover::after {
+		opacity: 0;
+	}
+	.header-channel::after {
+		content: '➜';
+		color: var(--a-text-2);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-weight: bold;
+		position: absolute;
+		border-radius: 0 100px 100px 0;
+		top: 50%;
+		right: -30px;
+		width: 30px;
+		padding: .5rem;
+		backdrop-filter: var(--a-filter-glass);
+		background-color: var(--a-elevated-1-solid);
+    	box-shadow: var(--a-depth-2);
+		transform: translateY(-50%);
+		transition: .3s;
+	}
+	/*滑动边缘打开分区条区域*/
+	.header-channel::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 10px;
+		width: 100%;
+		height: 100%;
+	}
+	.header-channel-fixed {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		max-height: unset;
+		padding: 1rem .5rem 1rem;
+		overflow-y: scroll;
+	}
+	/*动态 热门 频道*/
+	.header-channel-fixed-left {
+		flex-direction: column;
+		width: 100%;
+		min-width: unset;
+		align-items: center;
+	}
+	/*分区*/
+	.header-channel-fixed-right,
+	.header-channel-fixed-right-left .left-top,
+	.header-channel-fixed-right-right,
+	.header-channel-fixed-right .left-bottom{
+		display: flex;
+    	flex-direction: column;
+		grid-gap: .5rem;
+	}
+	.header-channel-fixed-right {
+		width: 100%;
+	}
+	.header-channel-fixed-right .left-bottom {
+		/*添加padding防止不显示公益 公开课分区*/
+		padding-bottom: 1rem
+	}
+	.header-channel-fixed-right-item {
+		background-color: unset;
+		border: none;
+		max-width: unset;
+		min-width: unset;
+		width: 100%;
+		transition: .3s;
+	}
+	.header-channel-fixed-right-item:hover {
+		background-color: var(--a-fill-1);
+		
+	}
+	/*分区下拉*/
+	.header-channel-fixed-arrow {
+		display: none;
 	}
 	/*推介轮播图*/
 	.recommended-swipe-body {
@@ -2462,6 +2562,16 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	[class*="-card"] [class*="-card__stats"] {
 		border-radius: 0 0 var(--a-radius) var(--a-radius) !important;
 	}
+	/*内测首页推介功能*/
+	.feed-floor .feed-floor-list,
+	.feed-floor .channel-floor.bili-grid.no-margin,
+	.feed-floor .bili-grid {
+		padding: 0 !important;
+		grid-gap: 0 20px;
+	}
+	.feed-floor-list .bili-video-card {
+		margin-bottom: 4rem;
+	}
 }
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
 	/**
@@ -2565,7 +2675,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	}
 	.bili-header .avatar-panel-popover .logout-item,
 	.bili-header .avatar-panel-popover .links-item .single-link-item {
-		color: var(--a-text-2);	
+		color: var(--a-text-2);
 	}
 	.bili-header .avatar-panel-popover .coins-item .coin-item__text,
 	.dynamic-video .tip-box,
