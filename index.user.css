@@ -306,6 +306,40 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
     EOT;
 }
 
+@advanced dropdown SCROLL_BAR_STYLE "滚动条样式调整" {
+	LOGO_COLOR_THEME "配合样式" <<<EOT
+		/* custom chrome, edge scrollbar *\/
+		::-webkit-scrollbar {
+			width: 8px;
+			height: 8px;
+		}
+		::-webkit-scrollbar-corner,
+		::-webkit-scrollbar-track {
+			background: transparent;
+		}
+		html > ::-webkit-scrollbar-track {
+			background: var(--a-bgcolor);
+		}
+		::-webkit-scrollbar-thumb {
+			background-color: hsl(0 0% 50% / .6);
+			border-radius: 20px;
+		}
+		/* custom firefox scrollbar /
+		html > * {
+			scrollbar-color: hsl(0 0% 50% / .6) var(--a-bgcolor);
+			scrollbar-width: thin !important;
+		}
+		* {
+			scrollbar-color: hsl(0 0% 50% / .6) transparent;
+			scrollbar-width: thin !important;
+		}
+    EOT;
+
+	LOGO_COLOR_WHITE "不做改动（对 mac 用户支援会很好）" <<<EOT
+		#FFF
+    EOT;
+}
+
 @advanced dropdown LOGO_COLOR "选择 LOGO 图标样式" {
 	LOGO_COLOR_THEME "跟随主题颜色" <<<EOT
         var(--a-theme-color)
@@ -741,37 +775,13 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		}
 	}
 
-	/* custom chrome, edge scrollbar */
-	::-webkit-scrollbar {
-		width: 8px;
-		height: 8px;
-	}
-	::-webkit-scrollbar-corner,
-	::-webkit-scrollbar-track {
-		background: transparent;
-	}
-	html > ::-webkit-scrollbar-track {
-		background: var(--a-bgcolor);
-	}
-	::-webkit-scrollbar-thumb {
-		background-color: hsl(0 0% 50% / .6);
-		border-radius: 20px;
-	}
-	/* custom firefox scrollbar */
-	html > * {
-		scrollbar-color: hsl(0 0% 50% / .6) var(--a-bgcolor);
-		scrollbar-width: thin !important;
-	}
-	* {
-		scrollbar-color: hsl(0 0% 50% / .6) transparent;
-		scrollbar-width: thin !important;
-	}
-
 	/**
 	 * 以下是调整暗色模式所覆盖的变量，当调整后上面css变量将被覆盖
 	 */
 	/*主題顏色css*/
 	/*[[THEME]]*/
+	/*滚动条样式调整*/
+	/*[[SCROLL_BAR_STYLE]]*/
 	/*LOGO 显示同关闭*/
 	/*[[LOGO_DISPLAY]]*/
 	/*删除其它内容，只保留搜索栏，不能下滑显示更多，显示半屏壁纸*/
@@ -2200,9 +2210,12 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		padding-bottom: 0;
 	}
 	/*右侧工具条*/
-	.palette-button-wrap .feedback {
-		/*          display: none; */
+/* 	.palette-button-outer .palette-button-inner .palette-button-wrap *{
+		display: none;
 	}
+	.header-channel[style^="display"] + .bili-feed4-layout + .palette-button-outer .palette-button-inner .palette-button-wrap *{
+		display: flex;
+	} */
 	/*      .palette-button-wrap .feedback ~ * {
       opacity: 0;
       pointer-events: none;
@@ -2257,7 +2270,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		background: transparent;
 		backdrop-filter: var(--a-filter-glass);
 		background-color: var(--a-elevated-1);
-    	box-shadow: var(--a-depth-2);
+		box-shadow: var(--a-depth-2);
 		border-radius: 0 var(--a-radius) var(--a-radius) 0;
 		display: flex;
 		position: fixed;
@@ -2290,7 +2303,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		padding: .5rem;
 		backdrop-filter: var(--a-filter-glass);
 		background-color: var(--a-elevated-1-solid);
-    	box-shadow: var(--a-depth-2);
+		box-shadow: var(--a-depth-2);
 		transform: translateY(-50%);
 		transition: .3s;
 	}
@@ -2322,9 +2335,9 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	.header-channel-fixed-right,
 	.header-channel-fixed-right-left .left-top,
 	.header-channel-fixed-right-right,
-	.header-channel-fixed-right .left-bottom{
+	.header-channel-fixed-right .left-bottom {
 		display: flex;
-    	flex-direction: column;
+		flex-direction: column;
 		grid-gap: .5rem;
 	}
 	.header-channel-fixed-right {
@@ -2344,7 +2357,6 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	}
 	.header-channel-fixed-right-item:hover {
 		background-color: var(--a-fill-1);
-		
 	}
 	/*分区下拉*/
 	.header-channel-fixed-arrow {
