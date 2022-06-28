@@ -970,6 +970,13 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	.animated-banner {
 		display: none;
 	}
+	/*去除夏日动态banner, 以及对应点击事件*/
+	.summer-banner {
+		display: none;
+	}
+	div:nth-of-type(4) {
+		display: none;
+	}
 	/*banner上方的链接*/
 	.nav-link .nav-link-ul .nav-link-item .link,
 	.nav-user-center .user-con .item .name {
