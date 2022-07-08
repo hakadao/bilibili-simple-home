@@ -387,7 +387,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	BG_2 "unsplash随机" <<<EOT url(https://source.unsplash.com/1920x1080/?nature) EOT;
 	BG_3 "BML2019 VR（pid: 74271400）" <<<EOT url(https://i.loli.net/2020/05/25/DA46cLGaPrhYqnl.jpg) EOT;
 	BG_4 "2020拜年祭活动 " <<<EOT url(https://i.loli.net/2020/05/25/HxnieocyPIjWvQB.jpg) EOT;
-	BG_5 "2020BDF" <<<EOT url(https://i.loli.net/2020/05/25/RbTGL1ZQfcHVwY3.jpg) EOT;
+	BG_5 "2020BDF" <<<EOT url(https://cdn.afox.tk/userstyles/img/2020BDF.jpg) EOT;
     BG_DIV "自定义" <<<EOT var(--a-bg-custom) EOT;
 }
 
@@ -565,7 +565,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
             right: -10px;
             width: 100px;
             height: 100px;
-            background: url(https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/img/searchBar_33.png);
+            background: url(https://cdn.afox.tk/userstyles/img/searchBar_33.png);
             background-size: cover;
             z-index: -1;
             transition: .3s ease-out;
@@ -573,7 +573,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
         }
 
         .bili-header :not(.slide-down) .center-search-container .center-search__bar::after {
-            background: url(https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/img/searchBar_33_2.png);
+            background: url(https://cdn.afox.tk/userstyles/img/searchBar_33_2.png);
             background-size: cover;
         }
 
@@ -606,7 +606,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 			position: absolute;
 			right: 200px;
 			top: 30px;
-			background: url(https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/img/drawer_mask_22.png) no-repeat;
+			background: url(https://cdn.afox.tk/userstyles/img/drawer_mask_22.png) no-repeat;
 			background-size: contain;
 			width: 423px;
 			height: 100%;
@@ -715,7 +715,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 /* @advanced text MASK_BODY_OPACITY "设置背景遮罩透明度（0为完全透明，1为完全覆盖背景，允许小数）" "0.6" */
 /* @advanced dropdown LOGO_THEME "选择 LOGO 图标样式" {
 	LOGO_THEME "跟随主题颜色" <<<EOT
-        --logoimg: url(https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/img/logo_blue.png); 
+        --logoimg: url(https://cdn.afox.tk/userstyles/img/logo_blue.png); 
     EOT;
 
 	WHITE_LOGO "白色" <<<EOT
@@ -825,7 +825,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	 */
 	@font-face {
 		font-family: 'Bilibili Icon';
-		src: url('https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/fonts/Bilibili_Icon.ttf') format('truetype');
+		src: url('https://cdn.afox.tk/userstyles/fonts/Bilibili_Icon.ttf') format('truetype');
 		font-weight: normal;
 		font-style: normal;
 	}
@@ -1317,7 +1317,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	.bili-header .bili-header__banner .logo-img {
 		width: 210px!important;
 		height: 100px!important;
-		background: var(--logoimg, url(https://i.loli.net/2019/06/11/5cff54794e40241270.png)) no-repeat !important;
+		background: var(--logoimg, url(https://cdn.afox.tk/userstyles/img/logo_white.png)) no-repeat !important;
 		background-size: 200px !important;
 		opacity: 0;
 	}
