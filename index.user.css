@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.6.19
+@version        1.6.20
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -173,16 +173,16 @@
 THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		@media screen and (prefers-color-scheme: dark) {
 			:root {
-				--a-bgcolor: hsl(230 12% 8%);
-				--a-mask-banner-color: hsl(230 12% 8% / var(--a-mask-banner-opacity));
+				--a-bgcolor: hsl(230 12% 6%);
+				--a-mask-banner-color: hsl(230 12% 6% / var(--a-mask-banner-opacity));
 
-				--a-content-1: hsl(230 12% 14%);
-				--a-content-1-solid: hsl(230 12% 14%);
+				--a-content-1: hsl(230 12% 10%);
+				--a-content-1-solid: hsl(230 12% 10%);
 
-				--a-elevated-1: hsl(230 12% 16%);
-				--a-elevated-1-solid: hsl(230 12% 16%);
-				--a-elevated-2: hsl(230 12% 22%);
-				--a-elevated-2-solid: hsl(230 12% 22%);
+				--a-elevated-1: hsl(230 12% 14%);
+				--a-elevated-1-solid: hsl(230 12% 14%);
+				--a-elevated-2: hsl(230 12% 18%);
+				--a-elevated-2-solid: hsl(230 12% 18%);
 
 				--a-divide: rgba(120, 123, 128, 0.3);
 				--a-depth-white: contrast(0) invert(1);
@@ -196,32 +196,32 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 			@supports (backdrop-filter: blur(15px)) {
 				:root {
 					--a-filter-glass: blur(15px) saturate(180%);
-					--a-content-1: hsl(230 12% 14% / 60%);
-					--a-elevated-1: hsl(230 12% 16% / 60%);
-					--a-elevated-2: hsl(230 12% 22% / 60%);
+					--a-content-1: hsl(230 12% 10% / 60%);
+					--a-elevated-1: hsl(230 12% 14% / 60%);
+					--a-elevated-2: hsl(230 12% 18% / 60%);
 				}
 			}
 		}
     EOT;
 
 	THEME_DARK "暗色模式" <<<EOT
-        :root {
-			--a-bgcolor: hsl(230 12% 8%);
-			--a-mask-banner-color: hsl(230 12% 8% / var(--a-mask-banner-opacity));
-			
-			--a-content-1: hsl(230 12% 14%);
-			--a-content-1-solid: hsl(230 12% 14%);
-			
-			--a-elevated-1: hsl(230 12% 16%);
-			--a-elevated-1-solid: hsl(230 12% 16%);
-			--a-elevated-2: hsl(230 12% 22%);
-			--a-elevated-2-solid: hsl(230 12% 22%);
-			
+       :root {
+			--a-bgcolor: hsl(230 12% 6%);
+			--a-mask-banner-color: hsl(230 12% 6% / var(--a-mask-banner-opacity));
+
+			--a-content-1: hsl(230 12% 10%);
+			--a-content-1-solid: hsl(230 12% 10%);
+
+			--a-elevated-1: hsl(230 12% 14%);
+			--a-elevated-1-solid: hsl(230 12% 14%);
+			--a-elevated-2: hsl(230 12% 18%);
+			--a-elevated-2-solid: hsl(230 12% 18%);
+
 			--a-divide: rgba(120, 123, 128, 0.3);
 			--a-depth-white: contrast(0) invert(1);
 			--a-fill-1: rgba(120, 123, 128, .4);
 			--a-fill-2: rgba(120, 123, 128, 0.3);
-			
+
 			--a-text-1: hsl(215 19% 98%);
 			--a-text-2: hsl(215 19% 95% / 90%);
 			--a-text-3: hsl(240 33% 94% / 60%);
@@ -229,9 +229,9 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		@supports (backdrop-filter: blur(15px)) {
 			:root {
 				--a-filter-glass: blur(15px) saturate(180%);
-				--a-content-1: hsl(230 12% 14% / 60%);
-				--a-elevated-1: hsl(230 12% 16% / 60%);
-				--a-elevated-2: hsl(230 12% 22% / 60%);
+				--a-content-1: hsl(230 12% 10% / 60%);
+				--a-elevated-1: hsl(230 12% 14% / 60%);
+				--a-elevated-2: hsl(230 12% 18% / 60%);
 			}
 		}
     EOT;
@@ -388,7 +388,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	BG_3 "BML2019 VR（pid: 74271400）" <<<EOT url(https://i.loli.net/2020/05/25/DA46cLGaPrhYqnl.jpg) EOT;
 	BG_4 "2020拜年祭活动 " <<<EOT url(https://i.loli.net/2020/05/25/HxnieocyPIjWvQB.jpg) EOT;
 	BG_5 "2020BDF" <<<EOT url(https://i.loli.net/2020/05/25/RbTGL1ZQfcHVwY3.jpg) EOT;
-  BG_DIV "自定义" <<<EOT var(--a-bg-custom) EOT;
+    BG_DIV "自定义" <<<EOT var(--a-bg-custom) EOT;
 }
 
 @advanced text CUSTOM_BG "自定义背景" "url()"
@@ -565,7 +565,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
             right: -10px;
             width: 100px;
             height: 100px;
-            background: url(https://cdn.afox.tk/userstyles/img/searchBar_33.png);
+            background: url(https://bilibili-simple-home.vercel.app/img/searchBar_33.png);
             background-size: cover;
             z-index: -1;
             transition: .3s ease-out;
@@ -573,7 +573,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
         }
 
         .bili-header :not(.slide-down) .center-search-container .center-search__bar::after {
-            background: url(https://cdn.afox.tk/userstyles/img/searchBar_33_2.png);
+            background: url(https://bilibili-simple-home.vercel.app/img/searchBar_33_2.png);
             background-size: cover;
         }
 
@@ -606,7 +606,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 			position: absolute;
 			right: 200px;
 			top: 30px;
-			background: url(https://cdn.afox.tk/userstyles/img/drawer_mask_22.png) no-repeat;
+			background: url(https://bilibili-simple-home.vercel.app/img/drawer_mask_22.png) no-repeat;
 			background-size: contain;
 			width: 423px;
 			height: 100%;
@@ -697,39 +697,6 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 }
 
 ==/UserStyle== */
-/**
- * 暂时隐藏的功能
- */
-/* @advanced dropdown THEME_COLOR "选择颜色主题" {
-	BLUE_THEME "蓝色" <<<EOT EOT;
-
-	PINK_THEME "粉色" <<<EOT
-        --a-theme-color: var(--a-pink);
-        --a-theme-color-50: var(--a-pink-50);
-        --a-theme-color-40: var(--a-pink-40);
-        --a-theme-color-30: var(--a-pink-30);
-        --a-theme-color-20: var(--a-pink-20);
-        --a-filter-blue-to-pink: hue-rotate(150deg) brightness(1.3)
-    EOT;
-} */
-/* @advanced text MASK_BODY_OPACITY "设置背景遮罩透明度（0为完全透明，1为完全覆盖背景，允许小数）" "0.6" */
-/* @advanced dropdown LOGO_THEME "选择 LOGO 图标样式" {
-	LOGO_THEME "跟随主题颜色" <<<EOT
-        --logoimg: url(https://cdn.afox.tk/userstyles/img/logo_blue.png); 
-    EOT;
-
-	WHITE_LOGO "白色" <<<EOT
-    EOT;
-} */
-/* @advanced dropdown DISABLE_PARALLAX_BG "禁用首页视差背景(如果你设置了背景抑或是想纯色背景，这项建议关闭)" {
-    DISABLE_PARALLAX_BG "禁用" <<<EOT
-       .animated-banner {
-            display: none; 
-        }
-    EOT;
-
-    ENABLE_PARALLAX_BG "启用（启用后请刷新页面）" <<<EOT "" EOT;
-} */
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
 	/**
 	 * 样式颜色、阴影、滤镜等变量，和自定义选项作出的修改
@@ -821,20 +788,27 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 }
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
 	/**
-	 * 导入bilibili logo图标 与 开头动画
+	 * 导入bilibili logo图标
 	 */
 	@font-face {
 		font-family: 'Bilibili Icon';
-		src: url('https://cdn.afox.tk/userstyles/fonts/Bilibili_Icon.ttf') format('truetype');
+		src: url('https://bilibili-simple-home.vercel.app/fonts/iconfont.ttf') format('truetype');
 		font-weight: normal;
 		font-style: normal;
 	}
 	/*禁用banner游戏*/
 	.banner-game,
+	.bili-header__banner,
 	.bili-header__banner video,
 	.summer-banner {
 		display: none;
+		pointer-events: none;
 	}
+	/*胶囊右侧文字与颜色*/
+/* 	.bili-header .right-entry a.right-entry__outside * {
+		color: var(--a-theme-color) !important;
+		filter: drop-shadow(0 0 6px var(--a-theme-color-30))
+	} */
 }
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
 	/**
@@ -1058,7 +1032,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		width: 600px;
 	}
 	.international-header .nav-search-box:after {
-		content: "\0042";
+		content: "\e6b4";
 		font-family: 'Bilibili Icon';
 		font-style: normal;
 		font-weight: normal;
@@ -1067,7 +1041,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		top: -200%;
 		left: 50%;
 		transform: translateX(-50%);
-		font-size: 210px;
+		font-size: 100px;
 		text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 		color: var(--a-logo-color);
 	}
@@ -1794,12 +1768,12 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	}
 	/*顶栏logo*/
 	.bili-header .left-entry__title::before {
-		content: "\0042";
+		content: "\e6b4";
 		font-family: 'Bilibili Icon';
 		font-style: normal;
 		font-weight: normal;
 		line-height: 0;
-		font-size: 60px;
+		font-size: 30px;
 		color: white;
 		margin-right: 12px;
 	}
@@ -1943,10 +1917,14 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	/*投稿图标*/
 	.bili-header .header-upload-entry {
 		background: var(--a-theme-color);
+		box-shadow: 0 0 8px var(--a-theme-color-40);
 		color: white;
 		border-radius: 50px;
 		transition: .3s ease-out;
 		margin-right: 12px;
+	}
+	.bili-header .header-upload-entry__icon {
+		color: white;
 	}
 	.bili-header .header-upload-entry:hover {
 		background: var(--a-theme-color);
@@ -1994,12 +1972,12 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	.bili-header .bili-header__banner .logo-img {
 		width: 210px!important;
 		height: 100px!important;
-		background: var(--logoimg, url(https://cdn.afox.tk/userstyles/img/logo_white.png)) no-repeat !important;
+		background: var(--logoimg, url(https://bilibili-simple-home.vercel.app/img/logo_white.png)) no-repeat !important;
 		background-size: 200px !important;
 		opacity: 0;
 	}
 	.bili-header .center-search-container::after {
-		content: "\0042";
+		content: "\e6b4";
 		font-family: 'Bilibili Icon';
 		font-style: normal;
 		font-weight: normal;
@@ -2009,7 +1987,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		left: 50%;
 		margin-top: 50px;
 		transform: translateX(-50%);
-		font-size: 210px;
+		font-size: 80px;
 		text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 		color: var(--a-logo-color);
 		/*防止logo阻礙搜尋欄*/
