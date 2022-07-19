@@ -24,14 +24,7 @@ b站仿搜索引擎样式首页风格
 
 ## 效果
 
-预设效果
-![预设效果](https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/preview/preview-1.png "预设效果")
-
-【样式1】半屏显示壁纸
-![【样式1】半屏显示壁纸](https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/preview/preview-2.png "【样式1】半屏显示壁纸")
-
-【样式2】半屏显示壁纸
-![【样式2】半屏显示壁纸](https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/preview/preview-3.png "【样式2】半屏显示壁纸")
+![首页](https://userstyles.world/api/style/preview/3022.webp)
 
 ## 使用说明
 
