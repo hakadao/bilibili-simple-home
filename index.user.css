@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.7.0
+@version        1.7.1
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -519,7 +519,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 
 	FOCUS_EFFECTS_ON "开启" <<<EOT
         .international-header .nav-search::before,
-        .bili-header .bili-header__bar .center-search__bar::before {
+        .bili-header .bili-header__bar::before {
             content: '';
             position: fixed;
             top: 0;
@@ -533,13 +533,13 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
             pointer-events: none;
         }
 
-        .bili-header .bili-header__bar.slide-down .center-search__bar::before {
-            background: transparent;
-            backdrop-filter: unset;
+        .bili-header .bili-header__bar.slide-down::before {
+            background: transparent !important;
+            backdrop-filter: unset !important;
         }
 
         .international-header .nav-search:focus-within::before,
-        .bili-header .center-search__bar:focus-within::before{
+        .bili-header  .bili-header__bar:focus-within::before{
             background-color: rgba(0, 0, 0, .4);
             visibility: visible;
             /*[[FOCUS_BLUR]]*\/
@@ -1999,7 +1999,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		margin-top: 50px;
 		transform: translateX(-50%);
 		font-size: 80px;
-		text-shadow: 0 4px 8px var(--a-theme-color-30);
+		text-shadow: 0 4px 8px rgba(0, 0, 0, .15);
 		color: var(--a-logo-color);
 		/*防止logo阻礙搜尋欄*/
 		pointer-events: none;
