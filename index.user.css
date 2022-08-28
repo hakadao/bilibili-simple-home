@@ -1738,7 +1738,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	.feed2-recommend,
 	.feed-recommend2,
 	/*推介换一换按钮*/
-	.feed2 .feed-roll-btn,
+/* 	.feed2 .feed-roll-btn, */
 	/*新版首页分区*/
 	.channel-floor,
 	/*内测首页分区按钮*/
