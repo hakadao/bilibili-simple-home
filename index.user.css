@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.7.1
+@version        1.7.2
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -761,6 +761,8 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		--graph_bg_thick: var(--a-fill-1);
 		--graph_bg_regular: var(--a-fill-2);
 		--bg1: var(--a-content-1-solid);
+		--bg1_float: var(--a-elevated-1);
+		--bg2_float: var(--a-elevated-2);
 		--brand_blue: var(--a-theme-color);
 	}
 	@supports (backdrop-filter: blur(15px)) {
@@ -819,6 +821,16 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	.summer-banner {
 		display: none;
 		pointer-events: none;
+	}
+	
+	/*新版首頁換一碗*/
+	.recommended-container {
+		position: relative;
+	}
+	
+	.recommended-container .feed-roll-btn.xs_sm {
+		top: 0 !important;
+		right: -40px !important;
 	}
 }
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
