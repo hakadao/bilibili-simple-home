@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.7.2
+@version        1.7.3
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -579,7 +579,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
             right: -10px;
             width: 100px;
             height: 100px;
-            background: url(https://bilibili-simple-home.vercel.app/img/searchBar_33.png);
+            background: url(https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/img/searchBar_33.png);
             background-size: cover;
             z-index: -1;
             transition: .3s ease-out;
@@ -587,7 +587,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
         }
 
         .bili-header :not(.slide-down) .center-search-container .center-search__bar::after {
-            background: url(https://bilibili-simple-home.vercel.app/img/searchBar_33_2.png);
+            background: url(https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/img/searchBar_33_2.png);
             background-size: cover;
         }
 
@@ -620,7 +620,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 			position: absolute;
 			right: 200px;
 			top: 30px;
-			background: url(https://bilibili-simple-home.vercel.app/img/drawer_mask_22.png) no-repeat;
+			background: url(https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/img/drawer_mask_22.png) no-repeat;
 			background-size: contain;
 			width: 423px;
 			height: 100%;
@@ -810,7 +810,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	 */
 	@font-face {
 		font-family: 'Bilibili Icon';
-		src: url('https://bilibili-simple-home.vercel.app/fonts/iconfont.ttf') format('truetype');
+		src: url('https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/fonts/iconfont.ttf') format('truetype');
 		font-weight: normal;
 		font-style: normal;
 	}
@@ -1750,13 +1750,19 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	.feed2-recommend,
 	.feed-recommend2,
 	/*推介换一换按钮*/
-/* 	.feed2 .feed-roll-btn, */
+	/* 	.feed2 .feed-roll-btn, */
 	/*新版首页分区*/
-	.channel-floor,
-	/*内测首页分区按钮*/
-	.palette-feed4 .palette-button-wrap .primary-btn:nth-child(2) {
+	.channel-floor {
 		display: none !important;
 	}
+	
+	/*推广视频卡片*/
+	.business-card {
+		/*为什么不直接display none? 因为直接隐藏会导致下拉推广视频无法刷出来*/
+		height: 0;
+		overflow: hidden
+	}
+	
 	/*顶栏*/
 	.bili-header {
 		color: var(--a-text-1);
@@ -1975,7 +1981,9 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		height: 100vh;
 		max-height: unset;
 		background: var(--a-bgimg) center/cover !important;
+		background-color: var(--a-bgcolor);
 		transition: background 1s;
+		z-index: 100;
 	}
 	/*去除 banner 跳转连结*/
 	.bili-header .bili-header__banner .header-banner__inner {
@@ -1995,7 +2003,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	.bili-header .bili-header__banner .logo-img {
 		width: 210px!important;
 		height: 100px!important;
-		background: var(--logoimg, url(https://bilibili-simple-home.vercel.app/img/logo_white.png)) no-repeat !important;
+		background: var(--logoimg, url(https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/img/logo_white.png)) no-repeat !important;
 		background-size: 200px !important;
 		opacity: 0;
 	}
@@ -2299,6 +2307,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		height: calc(100% - 160px);
 		transform: translateZ(0) translateX(-100%);
 		transition: .3s;
+		z-index: 10;
 	}
 	.header-channel:hover {
 		transform: translateZ(0) translateX(0)
