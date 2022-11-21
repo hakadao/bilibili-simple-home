@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.7.3
+@version        1.7.4
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -383,12 +383,12 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 
 @advanced dropdown DIV_BG "选择背景" {
 	BG_NONE "无背景"  <<<EOT "" EOT;
-	BG_1 "bing每日图片" <<<EOT url(https://api.sunweihu.com/api/bing1/api.php) EOT;
+	/* BG_1 "bing每日图片" <<<EOT url(https://api.sunweihu.com/api/bing1/api.php) EOT; *\/
 	BG_2 "unsplash随机" <<<EOT url(https://source.unsplash.com/1920x1080/?nature) EOT;
-	BG_3 "BML2019 VR（pid: 74271400）" <<<EOT url(https://i.loli.net/2020/05/25/DA46cLGaPrhYqnl.jpg) EOT;
-	BG_4 "2020拜年祭活动 " <<<EOT url(https://i.loli.net/2020/05/25/HxnieocyPIjWvQB.jpg) EOT;
-	BG_5 "2020BDF" <<<EOT url(https://i.loli.net/2020/05/25/RbTGL1ZQfcHVwY3.jpg) EOT;
-    BG_DIV "自定义" <<<EOT var(--a-bg-custom) EOT;
+	BG_3 "BML2019 VR（pid: 74271400）" <<<EOT url(https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/img/bg/BML2019_VR.jpg) EOT;
+	BG_4 "2020拜年祭活动 " <<<EOT url(https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/img/bg/2020PayNewYearsCall.jpg) EOT;
+	BG_5 "2020BDF" <<<EOT url(https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/img/bg/2020BDF.jpg) EOT;
+  BG_DIV "自定义" <<<EOT var(--a-bg-custom) EOT;
 }
 
 @advanced text CUSTOM_BG "自定义背景" "url()"
@@ -476,6 +476,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
         .bili-header :not(.slide-down) .center-search-container .center-search__bar #nav-searchform{
             backdrop-filter: none!important;
             background: unset!important;
+            border: none!important;
             border-bottom: 2px solid white!important;
             padding: 6px 0 5px;
             border-radius: 0!important;
@@ -742,7 +743,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		--a-text-2: hsla(240, 6%, 15%, .8);
 		--a-text-3: hsla(240, 6%, 25%, .6);
 
-		--a-radius: 10px;
+		--a-radius: 12px;
 
 		/*主题颜色*/
 		--a-theme-color: /*[[THEME_COLOR_NEW]]*/;
@@ -2070,20 +2071,29 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	#nav-searchform {
 		background-color: var(--a-content-1)!important;
 		padding: 8px 48px 8px 6px!important;
-		border: none!important;
+		border: 2px solid transparent!important;
 		border-radius: 50px!important;
 		box-shadow: var(--a-depth-1);
 		backdrop-filter: var(--a-filter-glass);
 		opacity: 1!important;
-		transition: box-shadow .3s !important;
+		transition: box-shadow .3s, border-color .3s, border-radius .3s!important;
 		/*防止搜索栏覆盖收藏弹窗*/
 		z-index: 0!important;
 	}
 	#nav-searchform:focus-within {
-		box-shadow: var(--a-depth-2);
+        border-color: var(--a-theme-color)!important;
+		box-shadow: 0 6px 16px var(--a-theme-color-40), inset 0 0 6px var(--a-theme-color-50);
+		border-radius: var(--a-radius)!important;
 	}
+    #nav-searchform svg {
+        transition: .3s;
+    }
+    #nav-searchform:focus-within svg {
+        color: var(--a-theme-color);
+        filter: drop-shadow(0 0 6px var(--a-theme-color))
+    }
 	.slide-down #nav-searchform {
-		box-shadow: var(--a-depth-2);
+/* 		box-shadow: var(--a-depth-2); */
 	}
 	.nav-search-input {
 		color: var(--a-text-1)!important;
@@ -2160,6 +2170,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		transform: translateY(0%) scale(1);
 		opacity: 1;
 		pointer-events: auto;
+        border-radius: var(--a-radius)!important;
 	}
 	.bili-header .slide-down .search-panel {
 		background: var(--a-elevated-2);
@@ -2168,7 +2179,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		margin-top: 14px;
 	}
 	.bili-header .suggestions {
-		margin: unset;
+		margin: 0px;
 		padding: .5rem;
 	}
 	.bili-header .suggest-item {
@@ -2176,7 +2187,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		max-height: unset!important;
 		padding: 0 .5rem;
 		/*          margin-bottom: unset; */
-		border-radius: 14px;
+		border-radius: calc(var(--a-radius) / 2);
 		transition: .3s;
 	}
 	.bili-header .suggest-item:last-child {
