@@ -385,9 +385,9 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	BG_NONE "无背景"  <<<EOT "" EOT;
 	/* BG_1 "bing每日图片" <<<EOT url(https://api.sunweihu.com/api/bing1/api.php) EOT; *\/
 	BG_2 "unsplash随机" <<<EOT url(https://source.unsplash.com/1920x1080/?nature) EOT;
-	BG_3 "BML2019 VR（pid: 74271400）" <<<EOT url(https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/img/bg/BML2019_VR.jpg) EOT;
-	BG_4 "2020拜年祭活动 " <<<EOT url(https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/img/bg/2020PayNewYearsCall.jpg) EOT;
-	BG_5 "2020BDF" <<<EOT url(https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/img/bg/2020BDF.jpg) EOT;
+	BG_3 "BML2019 VR（pid: 74271400）" <<<EOT url(https://s1.ax1x.com/2022/11/23/zGPJu8.jpg) EOT;
+	BG_4 "2020拜年祭活动 " <<<EOT url(https://s1.ax1x.com/2022/11/24/zGAGGj.jpg) EOT;
+	BG_5 "2020BDF" <<<EOT url(https://s1.ax1x.com/2022/11/24/zGA1Ig.jpg) EOT;
   BG_DIV "自定义" <<<EOT var(--a-bg-custom) EOT;
 }
 
