@@ -24,7 +24,7 @@ b站仿搜索引擎样式首页风格
 
 ## 效果
 
-![首页](https://userstyles.world/api/style/preview/3022.webp)
+![首页](https://user-images.githubusercontent.com/33394391/203888936-3c80b16d-f6ee-4bf0-adfe-18df11cca975.jpg)
 
 ## 使用说明
 
