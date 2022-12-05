@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.7.5.1
+@version        1.7.5.2
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -384,10 +384,10 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 @advanced dropdown DIV_BG "选择背景" {
 	BG_NONE "无背景"  <<<EOT "" EOT;
 	BG_2 "unsplash随机" <<<EOT url(https://source.unsplash.com/1920x1080/?nature) EOT;
-	BG_3 "BML2019 VR（pid: 74271400）" <<<EOT url(https://s1.imagehub.cc/images/2022/11/24/BML2019_VR.jpg) EOT;
-	BG_4 "2020拜年祭活动 " <<<EOT url(https://s1.imagehub.cc/images/2022/11/24/2020PayNewYearsCall.jpg) EOT;
+	BG_3 "BML2019 VR（pid: 74271400）" <<<EOT url(https://pic.imgdb.cn/item/638e1d63b1fccdcd36103811.jpg) EOT;
+	BG_4 "2020拜年祭活动 " <<<EOT url(https://pic.imgdb.cn/item/638e1d7ab1fccdcd36106346.jpg) EOT;
 	BG_5 "2020BDF" <<<EOT url(https://pic.imgdb.cn/item/63830f1816f2c2beb1868554.jpg) EOT;
-    BG_DIV "自定义" <<<EOT var(--a-bg-custom) EOT;
+  BG_DIV "自定义" <<<EOT var(--a-bg-custom) EOT;
 }
 
 @advanced text CUSTOM_BG "自定义背景" "url()"
