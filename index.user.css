@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.7.5.2
+@version        1.7.5.3
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -452,16 +452,64 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
     EOT;
 }
 
-@advanced dropdown CAPSULE_DESIGN "顶栏胶囊右侧文字颜色设计" {
+@advanced dropdown CAPSULE_DESIGN_UP "顶栏胶囊右侧文字颜色设计（上）" {
     CAPSULE_DESIGN_1 "默认设计" <<<EOT
+	.bili-header .bili-header__bar .right-entry__outside .right-entry-icon,
+	.bili-header .bili-header__bar .right-entry__outside .right-entry-text {
+		color: var(--a-text-1);
+	}
     EOT;
 
     CAPSULE_DESIGN_2 "跟随主题色" <<<EOT
-	.bili-header .right-entry a.right-entry__outside *,
-	.bili-header .bili-header__bar .right-entry__outside .right-entry-text,
-	html .bili-header .bili-header__bar.slide-down .right-entry__outside .right-entry-text {
-		color: var(--a-theme-color) !important;
-		filter: drop-shadow(0 0 6px var(--a-theme-color-30))
+	.bili-header .bili-header__bar .right-entry__outside .right-entry-icon,
+	.bili-header .bili-header__bar .right-entry__outside .right-entry-text {
+		color: var(--a-theme-color);
+		filter: drop-shadow(0 0 6px var(--a-theme-color-30));
+	}
+    EOT;
+
+    CAPSULE_DESIGN_3 "白色" <<<EOT
+	.bili-header .bili-header__bar .right-entry__outside .right-entry-icon,
+	.bili-header .bili-header__bar .right-entry__outside .right-entry-text {
+		color: #FFF;
+	}
+    EOT;
+
+    CAPSULE_DESIGN_4 "黑色" <<<EOT
+	.bili-header .bili-header__bar .right-entry__outside .right-entry-icon,
+	.bili-header .bili-header__bar .right-entry__outside .right-entry-text {
+		color: #000;
+	}
+    EOT;
+}
+
+@advanced dropdown CAPSULE_DESIGN_DOWN "顶栏胶囊右侧文字颜色设计（下）" {
+    CAPSULE_DESIGN_1 "默认设计" <<<EOT
+	.bili-header .bili-header__bar.slide-down .right-entry__outside .right-entry-icon,
+	.bili-header .bili-header__bar.slide-down .right-entry__outside .right-entry-text {
+		color: var(--a-text-1)!important;
+	}
+    EOT;
+
+    CAPSULE_DESIGN_2 "跟随主题色" <<<EOT
+	.bili-header .bili-header__bar.slide-down .right-entry__outside .right-entry-icon,
+	.bili-header .bili-header__bar.slide-down .right-entry__outside .right-entry-text {
+		color: var(--a-theme-color)!important;
+		filter: drop-shadow(0 0 6px var(--a-theme-color-30));
+	}
+    EOT;
+
+    CAPSULE_DESIGN_3 "白色" <<<EOT
+	.bili-header .bili-header__bar.slide-down .right-entry__outside .right-entry-icon,
+	.bili-header .bili-header__bar.slide-down .right-entry__outside .right-entry-text {
+		color: #FFF!important;
+	}
+    EOT;
+
+    CAPSULE_DESIGN_4 "黑色" <<<EOT
+	.bili-header .bili-header__bar.slide-down .right-entry__outside .right-entry-icon,
+	.bili-header .bili-header__bar.slide-down .right-entry__outside .right-entry-text {
+		color: #000!important;
 	}
     EOT;
 }
@@ -774,9 +822,6 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		}
 	}
 
-	/**
-	 * 以下是调整暗色模式所覆盖的变量，当调整后上面css变量将被覆盖
-	 */
 	/*主題顏色css*/
 	/*[[THEME]]*/
 	/*滚动条样式调整*/
@@ -788,7 +833,8 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	/*处理顶栏链接内容，使其在自定义背景下banner上方文字链接有阴影使其能看清文字*/
 	/*[[TOPLINK_THEME]]*/
 	/*"顶栏胶囊右侧文字颜色设计"*/
-	 /*[[CAPSULE_DESIGN]]*/ 
+	/*[[CAPSULE_DESIGN_UP]]*/ 
+   /*[[CAPSULE_DESIGN_DOWN]]*/ 
 	/*搜寻框设计*/
 	/*[[SEARCHBAR_DESIGN]]*/
 	/*聚焦输入框后全局暗化效果*/
@@ -1886,9 +1932,9 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	.bili-header .slide-down [class$="entry"] svg {
 		color: var(--a-text-1)!important;
 	}
-	.bili-header .slide-down .right-entry .right-entry__outside .right-entry-icon {
+	/*.bili-header .slide-down .right-entry .right-entry__outside .right-entry-icon {
 		color: var(--a-text-1);
-	}
+	}*/
 	.bili-header .right-entry {
 		display: flex;
 		justify-content: flex-end;
@@ -1903,10 +1949,10 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	.bili-header .header-avatar-wrap .header-avatar-wrap--container .bili-avatar {
 		border: none;
 	}
-	.bili-header .right-entry__outside .right-entry-icon,
+	/*.bili-header .right-entry__outside .right-entry-icon,
 	.bili-header .right-entry .right-entry-item .right-entry-text {
 		color: var(--a-text-1);
-	}
+	}*/
 	/*顶栏右侧面板*/
 	.bili-header .bili-header__bar .right-entry__outside .right-entry-text {
 		/*这里做的是鼠标滑过图标显示文字动画*/
@@ -1918,7 +1964,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	.bili-header .bili-header__bar.slide-down .right-entry__outside .right-entry-text {
 		/*当顶部链接效果是效果二时，右侧面板的图标和文字都有 filter: drop-shadow 的效果。slide-down 时要去掉阴影效果*/
 		filter: unset;
-		color: var(--a-text-1)!important;
+		/*color: var(--a-text-1)!important;*/
 	}
 	.bili-header .right-entry__outside:hover .right-entry-text {
 		opacity: 1;
