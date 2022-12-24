@@ -404,7 +404,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
     EOT;
 }
 
-@advanced color THEME_COLOR_NEW "选择主题色 - 实验性（仅支援十六进制非透明颜色，如默认蓝 #00a1d6、默认粉 #fb7299）" #00a1d6
+@advanced color THEME_COLOR_NEW "选择主题色（仅支援十六进制非透明颜色，如默认蓝 #00a1d6、默认粉 #fb7299）" #00a1d6
 
 @advanced dropdown DIV_BG "选择背景" {
 	BG_NONE "无背景"  <<<EOT "" EOT;
@@ -504,28 +504,31 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	.bili-header .bili-header__bar.slide-down .right-entry__outside .right-entry-icon,
 	.bili-header .bili-header__bar.slide-down .right-entry__outside .right-entry-text {
 		color: var(--a-text-1)!important;
+		filter: none;
 	}
     EOT;
 
     CAPSULE_DESIGN_2 "跟随主题色" <<<EOT
 	.bili-header .bili-header__bar.slide-down .right-entry__outside .right-entry-icon,
 	.bili-header .bili-header__bar.slide-down .right-entry__outside .right-entry-text {
-		color: var(--a-theme-color)!important;
-		filter: drop-shadow(0 0 8px var(--a-theme-color));
+		color: var(--a-theme-color) !important;
+		filter: drop-shadow(0 0 8px var(--a-theme-color)) !important;
 	}
     EOT;
 
     CAPSULE_DESIGN_3 "白色" <<<EOT
 	.bili-header .bili-header__bar.slide-down .right-entry__outside .right-entry-icon,
 	.bili-header .bili-header__bar.slide-down .right-entry__outside .right-entry-text {
-		color: #FFF!important;
+		color: #FFF !important;
+		filter: none;
 	}
     EOT;
 
     CAPSULE_DESIGN_4 "黑色" <<<EOT
 	.bili-header .bili-header__bar.slide-down .right-entry__outside .right-entry-icon,
 	.bili-header .bili-header__bar.slide-down .right-entry__outside .right-entry-text {
-		color: #000!important;
+		color: #000 !important;
+		filter: none;
 	}
     EOT;
 }
@@ -679,6 +682,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 				opacity: 0;
 			}
 		}
+
 		.n-drawer-mask::after {
 			content: "";
 			position: absolute;
@@ -943,7 +947,9 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	/*新版首页分区*/
 	.channel-floor,
 	/*未登入时右侧推广卡片*/
-	.floor-single-card {
+	.floor-single-card,
+	/*屏蔽广告后顶栏之提示*/
+	.adblock-tips {
 		display: none !important;
 	}
 
@@ -1066,14 +1072,14 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		display: flex;
 		justify-content: center;
 	}
+	.bili-header .right-entry__outside .right-entry-icon  {
+		transition: color 1s, filter 1s, transform .3s, opacity .3s;
+	}
 	/*投稿图标不变色*/
 	.bili-header .slide-down [class$="entry"] span:not(:nth-last-child),
 	.bili-header .slide-down [class$="entry"] svg {
 		color: var(--a-text-1)!important;
 	}
-	/*.bili-header .slide-down .right-entry .right-entry__outside .right-entry-icon {
-		color: var(--a-text-1);
-	}*/
 	.bili-header .right-entry {
 		display: flex;
 		justify-content: flex-end;
@@ -1083,15 +1089,15 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	.bili-header :not(.slide-down) .right-entry {
 		padding: 8px 0;
 	}
+	/*动态提示点*/
+	.red-point--dynamic {
+		background: var(--a-theme-color);
+	}
 	/*去除顶栏头像边框*/
 	.bili-header .header-entry-mini .v-img > img,
 	.bili-header .header-avatar-wrap .header-avatar-wrap--container .bili-avatar {
 		border: none;
 	}
-	/*.bili-header .right-entry__outside .right-entry-icon,
-	.bili-header .right-entry .right-entry-item .right-entry-text {
-		color: var(--a-text-1);
-	}*/
 	/*顶栏右侧面板*/
 	.bili-header .bili-header__bar .right-entry__outside .right-entry-text {
 		/*这里做的是鼠标滑过图标显示文字动画*/
@@ -1266,7 +1272,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		box-shadow: var(--a-depth-1);
 		backdrop-filter: var(--a-filter-glass);
 		opacity: 1!important;
-		transition: box-shadow .3s, border-color .3s, border-radius .3s!important;
+		transition: box-shadow .5s, border-color .5s, border-radius .3s !important;
 		/*防止搜索栏覆盖收藏弹窗*/
 		z-index: 0!important;
 	}
@@ -1276,7 +1282,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		border-radius: var(--a-radius)!important;
 	}
 	#nav-searchform svg {
-		transition: .3s;
+		transition: .5s;
 	}
 	#nav-searchform:focus-within svg {
 		color: var(--a-theme-color);
@@ -1795,7 +1801,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	}
 	/*创作推广*/
 	.bili-video-card .bili-video-card__info--creative-img {
-		display: none
+/* 		display: none */
 	}
 
 	/*内测首页推介功能*/
@@ -1891,6 +1897,19 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		background: var(--a-elevated-1-solid);
 		color: var(--a-text-1);
 	}
+	/*顶栏未登录弹窗图标*/
+	.login-tip-content.login-tip-content .login-tip-content-item>svg {
+		fill: var(--a-theme-color);
+	}
+	/*顶栏未登录弹窗 点我注册*/
+	.bili-header .login-panel-popover .register-exper {
+		color: var(--a-theme-color);
+	}
+	/*顶栏未登录弹窗 立即登录按钮*/
+	.bili-header .login-panel-popover .login-btn:hover:before {
+		background: var(--a-theme-color);
+	}
+	/*顶栏动态*/
 	.dynamic-article .split-line .history-tip,
 	.dynamic-video .history-tip {
 		background: var(--a-elevated-2-solid)!important;
