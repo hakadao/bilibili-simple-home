@@ -465,15 +465,6 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		.bili-header .right-entry .right-entry-item .right-entry-text {
 			filter: drop-shadow(0 0 3px rgba(0, 0, 0, .3));
 		}
-		.bili-header .right-entry__outside .right-entry-icon,
-        .bili-header .bili-header__bar .right-entry__outside .right-entry-text,
-		.bili-header .right-entry .right-entry-item .right-entry-text {
-			color: white;
-		}
-		.bili-header .slide-down .right-entry__outside .right-entry-icon,
-		.bili-header .slide-down .right-entry .right-entry-item .right-entry-text {
-			color: var(--a-text-1)!important;
-		}
     EOT;
 }
 
