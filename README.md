@@ -6,7 +6,7 @@ b站仿搜索引擎样式首页风格
 
 > 请先在浏览器安装 `Stylus` 插件，再进行以下安装
 
-1. 安装 [Stylus for Chrome](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne), [Firefox（不推介使用）](https://addons.mozilla.org/en-US/firefox/addon/styl-us/)
+1. 安装 [Stylus for Chrome](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/styl-us/)
 
 2. [点击此处安装或更新样式](https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/index.user.css)
 
