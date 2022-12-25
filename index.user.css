@@ -379,16 +379,37 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
     EOT;
 }
 
-@advanced dropdown HEAD_LOGO_COLOR "选择顶栏 LOGO 图标样式" {
+@advanced dropdown TOPBAR_LOGO_COLOR "选择顶栏 LOGO 图标颜色" {
+	LOGO_COLOR_WHITE "白色" <<<EOT
+	/*logo*\/
+	.bili-header .left-entry__title::before {
+		color: #FFF;
+	}
+	/*logo右侧箭头*\/
+	.bili-header .left-entry__title .mini-header__title .mini-header__arrow {
+		color: white;
+		filter: drop-shadow(0 0 4px rgba(0, 0, 0, .3));
+	}
+
+	.bili-header .left-entry__title {
+		filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .3));
+	}
+    EOT;	
+
 	LOGO_COLOR_THEME "跟随主题颜色" <<<EOT
+	/*logo*\/
 	.bili-header .left-entry__title::before {
 		color: var(--a-theme-color);
 	}
-    EOT;
 
-	LOGO_COLOR_WHITE "白色" <<<EOT
-	.bili-header .left-entry__title::before {
-		color: #FFF;
+	/*logo右侧箭头*\/
+	.bili-header .left-entry__title .mini-header__title .mini-header__arrow {
+		color: white;
+		filter: drop-shadow(0 0 4px var(--a-theme-color));
+	}
+
+	.bili-header .left-entry__title {
+		filter: drop-shadow(0 0 4px var(--a-theme-color-50));
 	}
     EOT;
 }
@@ -865,7 +886,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	/*LOGO 发光效果*/
 	/*[[LOGO_GLOW_EFFECT]]*/
 	/*顶栏 LOGO 图标颜色*/
-	/*[[HEAD_LOGO_COLOR]]*/
+	/*[[TOPBAR_LOGO_COLOR]]*/
 	/*删除其它内容，只保留搜索栏，不能下滑显示更多，显示半屏壁纸*/
 	/*[[HOME_STYLE]]*/
 	/*处理顶栏链接内容，使其在自定义背景下banner上方文字链接有阴影使其能看清文字*/
@@ -1004,9 +1025,6 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	}
 	.bili-header .left-entry__title {
 		border-radius: 100px;
-		filter: drop-shadow(0 4px 6px rgba(0, 0, 0, .3));
-		/* 		padding: 0 25px; */
-		/* 		box-shadow: var(--a-depth-1) */
 	}
 	/*顶栏logo*/
 	.bili-header .left-entry__title::before {
@@ -1022,10 +1040,6 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	.bili-header .left-entry__title .mini-header__title > span,
 	.bili-header .left-entry__title .mini-header__logo {
 		display: none;
-	}
-	.bili-header .left-entry__title .mini-header__title .mini-header__arrow {
-		color: white;
-		filter: drop-shadow(0 0 4px rgba(0, 0, 0, .3));
 	}
 	@keyframes headerSlideDown {
 		from {
