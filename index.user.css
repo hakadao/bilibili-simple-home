@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           bilibili搜索引擎首页样式
 @namespace      hakadao-bilibili-simple-home
-@version        1.7.7
+@version        1.7.8
 @description    b站搜索引擎首页样式风格，支持几种不同的样式效果
 @author         Hakadao <a578457889743@gmail.com> (https://www.hakadao.top)
 @homepageURL    https://github.com/hakadao/bilibili-simple-home
@@ -172,6 +172,9 @@
 @advanced dropdown THEME "主题选择" {
 THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		@media screen and (prefers-color-scheme: dark) {
+			* {
+				color-scheme: dark;
+			}
 			:root {
 				--a-bgcolor: hsl(230 12% 6%);
 				--a-mask-banner-color: hsl(230 12% 6% / var(--a-mask-banner-opacity));
@@ -205,6 +208,9 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
     EOT;
 
 	THEME_DARK "暗色模式" <<<EOT
+		* {
+			color-scheme: dark;
+		}
        :root {
 			--a-bgcolor: hsl(230 12% 6%);
 			--a-mask-banner-color: hsl(230 12% 6% / var(--a-mask-banner-opacity));
@@ -238,6 +244,9 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 
     THEME_BLACK_AUTO "黑色模式（跟随系统）" <<<EOT
 		@media screen and (prefers-color-scheme: dark) {
+			* {
+				color-scheme: dark;
+			}
 			:root {
 				--a-bgcolor: hsl(0 0% 0%);
 				--a-mask-banner-color: hsl(0 0% 0% / var(--a-mask-banner-opacity));
@@ -271,6 +280,9 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
     EOT;
 
 	THEME_BLACK "黑色模式" <<<EOT
+		* {
+			color-scheme: dark;
+		}
 		:root {
 			--a-bgcolor: hsl(0 0% 0%);
 			--a-mask-banner-color: hsl(0 0% 0% / var(--a-mask-banner-opacity));
@@ -422,7 +434,6 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
     EOT;
 
 	LOGO_GLOW_EFFECT_OFF "禁用" <<<EOT
-		#FFF
     EOT;
 }
 
@@ -953,6 +964,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 		will-change: all;
 		
  	} */
+	
 	html,
 	html body,
 	html:not(.iframe),
