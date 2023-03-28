@@ -1,5 +1,7 @@
 # bilibili-simple-home
 
+> 事实上现在我对该项目的更新维护没有甚么激情，可能多数是问题修正
+
 b站仿搜索引擎样式首页风格
 
 ## 安装
@@ -20,7 +22,7 @@ b站仿搜索引擎样式首页风格
 
 * [使用说明](#使用说明)
 
-* [Firefox 不显示毛玻璃问题（不推介使用 Firefox）](https://github.com/hakadao/bilibili-simple-home/issues/11)
+* [Firefox）](https://github.com/hakadao/bilibili-simple-home/issues/11)
 
 ## 效果
 
@@ -51,11 +53,9 @@ url(https://i.loli.net/2020/05/25/HxnieocyPIjWvQB.jpg)
 
 ## 开发
 
-不建议去看css，写的太垃圾 = =
-
-### 你可以
-
 * 直接使用stylus插件点击`铅笔图标`进行编辑
 ![设置](https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/preview/setting-preview.png)
+
+或是
 
 * 使用 `xStyle` 插件导入根目录下的 `index.user.css` 文件编辑
