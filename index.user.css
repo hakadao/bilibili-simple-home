@@ -1486,6 +1486,7 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	}
 	.bili-header .center-search-container .center-search__bar .nav-search-input::placeholder {
 		opacity: 0;
+		color: transparent !important;
 	}
 	.bili-header .search-panel {
 		padding-bottom: 0;
