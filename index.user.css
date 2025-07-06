@@ -724,109 +724,14 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
     EOT;
 }
 
-@advanced dropdown SHOW_22 "分区弹出层显示22娘" {
-	SHOW_22_ON "开启" <<<EOT
-        /*新版分区弹出层显示22娘*\/
-		@keyframes slideIn22 {
-			from {
-				transform: translateX(100%);
-				opacity: 0;
-			}
-		}
-
-		.n-drawer-mask::after {
-			content: "";
-			position: absolute;
-			right: 200px;
-			top: 30px;
-			background: url(https://cdn.jsdelivr.net/gh/hakadao/bilibili-simple-home@master/img/drawer_mask_22.png) no-repeat;
-			background-size: contain;
-			width: 423px;
-			height: 100%;
-			pointer-events: none;
-			animation: 1s slideIn22;
-		}
+@advanced dropdown SHOW_TRENDING_SEARCH "显示热搜" {
+    SHOW_TRENDING_SEARCH_SEARCH_OFF "关闭" <<<EOT
     EOT;
-
-	SHOW_22_OFF "关闭" <<<EOT
+    SHOW_TRENDING_SEARCH_SEARCH_ON "开启" <<<EOT
+        body .search-panel .trending {
+            display: block !important;
+        }
     EOT;
-}
-
-@advanced dropdown TRENDIND "右侧排行榜" {
-	TRENDIND_OFF "禁用" <<<EOT
-	/*移除排行榜*\/
-	.bili-grid {
-		grid-template-columns: repeat(4, 1fr);
-	}
-	@media (max-width: 1099.9px) {
-		.bili-grid {
-			grid-template-columns: repeat(3, 1fr);
-		}
-	}
-	.bili-grid aside {
-		display: none;
-	}
-	EOT;
-
-	TRENDIND_ON "开启" <<<EOT
-	EOT;
-}
-
-@advanced dropdown VIDEO_ZOOM "滑动视频放大效果（如果你电脑性能好的话，启用吧 = =）" {
-	VIDEO_ZOOM_OFF "禁用" <<<EOT
-	EOT;
-
-	VIDEO_ZOOM_ON "开启" <<<EOT
-        /*鼠标滑过视频预览放大效果*\/
-        [class*="-card"] [class$="-wrap"] {
-            z-index: 0;
-        }
-        [class*="-card"] [class$="-wrap"]:hover {
-            /*更改 z-index 令滑过视频放大了之后不受旁边视频遮挡*\/
-            z-index: 10;
-        }
-        [class$="-card"] [class*="-card__image"],
-        [class$="video-card"] [class*="-card__image"]:hover [class*="-card__mask"] {
-            transition: all .3s;
-        }
-        [class$="video-card"] [class*="-card__image"]:hover,
-        [class$="video-card"] [class*="-card__image"]:hover [class*="-card__mask"] {
-            transform: scale(1.1) translate3d(0, 0, 0);
-            z-index: 999999;
-            box-shadow: var(--a-depth-2);
-        }
-        [class$="video-card"] a + .bili-video-card__info {
-            transition: .4s;
-            position: relative;
-            transform: translate3d(0, 0, 0);
-        }
-        [class$="video-card"] a + .bili-video-card__info::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: transparent;
-            border-radius: var(--a-radius);
-            transition: .4s;
-            pointer-events: none;
-        }
-        [class$="video-card"] a:hover + .bili-video-card__info::after {
-            top: -2rem;
-            left: -1rem;
-            width: calc(100% + 2rem);
-            height: calc(100% + 3rem);
-        }
-        [class$="video-card"] a:hover + .bili-video-card__info {
-            transform: translate(0, 30%);
-        }
-        [class$="video-card"] a:hover + .bili-video-card__info::after {
-            background: var(--a-elevated-1-solid);
-            box-shadow: var(--a-depth-2);
-        }
-	EOT;
 }
 
 ==/UserStyle== */
@@ -921,14 +826,10 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	/*[[FOCUS_EFFECTS]]*/
 	/*聚焦输入框后显示33娘*/
 	/*[[SHOW_33]]*/
-	/*新版分区弹出层显示22娘*/
-	/*[[SHOW_22]]*/
 	/*背景固定方式*/
 	/*[[BG_ATTACHMENT]]*/
-	/*排行榜开关*/
-	/*[[TRENDIND]]*/
-	/*视频放大效果开关*/
-	/*[[VIDEO_ZOOM]]*/
+    /*显示热搜*/
+    /*[[SHOW_TRENDING_SEARCH]]*/
 }
 @-moz-document regexp("^https?://www\\.bilibili\\.com/?((index\\.html)|(\\?.*))?") {
 	/**
