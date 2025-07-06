@@ -770,14 +770,10 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 
 			/*主题颜色*/
 			--a-theme-color: /*[[THEME_COLOR_NEW]]*/;
-			--a-theme-color-50: /*[[THEME_COLOR_NEW]]*/
-			80;
-			--a-theme-color-40: /*[[THEME_COLOR_NEW]]*/
-			66;
-			--a-theme-color-30: /*[[THEME_COLOR_NEW]]*/
-			4d;
-			--a-theme-color-20: /*[[THEME_COLOR_NEW]]*/
-			33;
+			--a-theme-color-50: /*[[THEME_COLOR_NEW]]*/80;
+			--a-theme-color-40: /*[[THEME_COLOR_NEW]]*/66;
+			--a-theme-color-30: /*[[THEME_COLOR_NEW]]*/4d;
+			--a-theme-color-20: /*[[THEME_COLOR_NEW]]*/33;
 
 			--a-depth-1: 0 6px 8px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.03);
 			--a-depth-2: 0 9px 18px rgba(0, 0, 0, 0.07), 0 6px 12px rgba(0, 0, 0, 0.05);
