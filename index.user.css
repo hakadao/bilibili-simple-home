@@ -151,19 +151,19 @@
 		}
 
 		/*搜索框容器*\/
-        #i_cecream .bili-header :not(.slide-down) .center-search-container .center-search__bar {
-			transform: translateY(12vh);
+        #app .bili-header :not(.slide-down) .center-search-container .center-search__bar {
+			transform: translateY(12vh) !important;
         }
 
 		@media screen and (max-height: 830px) {
-            #i_cecream .bili-header :not(.slide-down) .center-search-container .center-search__bar {
-                transform: translateY(70px);
+            #app .bili-header :not(.slide-down) .center-search-container .center-search__bar {
+                transform: translateY(70px) !important;
             }
         }
 
 		/*logo*\/
         .bili-header .center-search-container::after {
-            margin-left: -400px!important;
+            margin-left: -400px !important;
             transform: scale(.6) translateX(-50%) translateY(-110px) !important;
         } 
         EOT;
@@ -873,7 +873,9 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 	/* 主頁右下廣告卡片 */
 	.adcard,
 	/* 主頁下載桌面版提示 */
-	.desktop-download-tip {
+	.desktop-download-tip,
+	/* 登入提示 */
+	.login-tip {
 			display: none !important;
 	}
 }
@@ -1426,9 +1428,6 @@ THEME_DARK_AUTO "暗色模式（跟随系统）" <<<EOT
 			padding-bottom: 0;
 	}
 	/*分区栏*/
-	.bili-header .bili-header__channel {
-			background: var(--a-bgcolor)!important;
-	}
 	.bili-header .channel-icons .icon-title {
 			color: var(--a-text-1);
 	}
